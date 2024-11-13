@@ -1,0 +1,2280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RebuildModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="JO_JOBANA_job_steps">
+    <Key>
+      <PropertyRef Name="JO_JOBANA_ID" />
+    </Key>
+    <Property Name="JO_JOBANA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JO_JOBANA_JO_JOBEVE_ID" Type="Int32" Nullable="false" />
+    <Property Name="JO_JOBANA_JO_EXEORD_ID" Type="Int32" Nullable="false" />
+    <Property Name="JO_JOBANA_START_DATE" Type="DateTime" Precision="3" />
+    <Property Name="JO_JOBANA_END_DATE" Type="DateTime" Precision="3" />
+    <Property Name="JO_JOBANA_ERROR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="JO_JOBANA_CANCELLATION_DATE" Type="DateTime" Precision="3" />
+    <Property Name="JO_JOBANA_XMLPARAMS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="JO_JOBANA_USER_ID" Type="Int32" />
+    <NavigationProperty Name="JO_JOBEVE_jobs" Relationship="Self.FK_JO_JOBANA_JO_JOBEVE_ID" FromRole="JO_JOBANA_job_steps" ToRole="JO_JOBEVE_jobs" />
+    <NavigationProperty Name="JO_EXEORD_execution_order" Relationship="RebuildModel.FK_JO_JOBANA_JO_EXEORD_ID" FromRole="JO_JOBANA_job_steps" ToRole="JO_EXEORD_execution_order" />
+    <NavigationProperty Name="JO_JOBINP_job_input" Relationship="RebuildModel.FK_JO_JOBINP_JO_JOBANA_ID" FromRole="JO_JOBANA_job_steps" ToRole="JO_JOBINP_job_input" />
+    <NavigationProperty Name="JO_JOBNOT_notification" Relationship="RebuildModel.FK_JO_JOBNOT_JO_JOBANA_ID" FromRole="JO_JOBANA_job_steps" ToRole="JO_JOBNOT_notification" />
+    <NavigationProperty Name="JO_JOBREC_job_record" Relationship="RebuildModel.FK_JO_JOBREC_JO_JOBANA_ID" FromRole="JO_JOBANA_job_steps" ToRole="JO_JOBREC_job_record" />
+    <Property Name="JO_JOBANA_STATUS" Type="Int16" />
+    <NavigationProperty Name="JO_ANAPRO_jobana_proare" Relationship="RebuildModel.FK_JO_ANAPRO_jobana_proare_JO_JOBANA_job_steps" FromRole="JO_JOBANA_job_steps" ToRole="JO_ANAPRO_jobana_proare" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="JO_JOBEVE_jobs">
+    <Key>
+      <PropertyRef Name="JO_JOBEVE_ID" />
+    </Key>
+    <Property Name="JO_JOBEVE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JO_JOBEVE_JO_TIPJOB_ID" Type="Int32" Nullable="false" />
+    <Property Name="JO_JOBEVE_JO_LAST_EXEORD_ID" Type="Int32" Nullable="false" />
+    <Property Name="JO_JOBEVE_START_DATE" Type="DateTime" Precision="3" />
+    <Property Name="JO_JOBEVE_END_DATE" Type="DateTime" Precision="3" />
+    <Property Name="JO_JOBEVE_NOTE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="JO_JOBEVE_USER_ID" Type="Int32" Nullable="false" />
+    <Property Name="JO_JOBEVE_TASKID" Type="Int32" />
+    <Property Name="JO_JOBEVE_CANCELLATION_DATE" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="JO_JOBANA_job_steps" Relationship="Self.FK_JO_JOBANA_JO_JOBEVE_ID" FromRole="JO_JOBEVE_jobs" ToRole="JO_JOBANA_job_steps" />
+    <NavigationProperty Name="JO_JOBGRO_Job_groups" Relationship="RebuildModel.FK_JO_JOBGRO_Job_groups_JO_JOBEVE_jobs" FromRole="JO_JOBEVE_jobs" ToRole="JO_JOBGRO_Job_groups" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_JO_JOBANA_JO_JOBEVE_ID">
+    <End Role="JO_JOBEVE_jobs" Type="Self.JO_JOBEVE_jobs" Multiplicity="1" />
+    <End Role="JO_JOBANA_job_steps" Type="Self.JO_JOBANA_job_steps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JO_JOBEVE_jobs">
+        <PropertyRef Name="JO_JOBEVE_ID" />
+      </Principal>
+      <Dependent Role="JO_JOBANA_job_steps">
+        <PropertyRef Name="JO_JOBANA_JO_JOBEVE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RefTreeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="JO_JOBANA_job_steps" EntityType="Self.JO_JOBANA_job_steps" />
+    <EntitySet Name="JO_JOBEVE_jobs" EntityType="Self.JO_JOBEVE_jobs" />
+    <AssociationSet Name="FK_JO_JOBANA_JO_JOBEVE_ID" Association="Self.FK_JO_JOBANA_JO_JOBEVE_ID">
+      <End Role="JO_JOBEVE_jobs" EntitySet="JO_JOBEVE_jobs" />
+      <End Role="JO_JOBANA_job_steps" EntitySet="JO_JOBANA_job_steps" />
+    </AssociationSet>
+    <EntitySet Name="JO_JOBFIE_job_fields" EntityType="RebuildModel.JO_JOBFIE_job_fields" />
+    <EntitySet Name="STREET_V_streetExtended" EntityType="RebuildModel.STREET_V_streetExtended" />
+    <EntitySet Name="AS_SUBTIP_asset_subtipo" EntityType="RebuildModel.AS_SUBTIP_asset_subtipo" />
+    <EntitySet Name="JO_EXEORD_execution_order" EntityType="RebuildModel.JO_EXEORD_execution_order" />
+    <EntitySet Name="JO_JOBINP_job_input" EntityType="RebuildModel.JO_JOBINP_job_input" />
+    <AssociationSet Name="FK_JO_JOBANA_JO_EXEORD_ID" Association="RebuildModel.FK_JO_JOBANA_JO_EXEORD_ID">
+      <End Role="JO_EXEORD_execution_order" EntitySet="JO_EXEORD_execution_order" />
+      <End Role="JO_JOBANA_job_steps" EntitySet="JO_JOBANA_job_steps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JO_JOBFIE_JO_EXEORD_ID" Association="RebuildModel.FK_JO_JOBFIE_JO_EXEORD_ID">
+      <End Role="JO_EXEORD_execution_order" EntitySet="JO_EXEORD_execution_order" />
+      <End Role="JO_JOBFIE_job_fields" EntitySet="JO_JOBFIE_job_fields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JO_JOBINP_JO_JOBANA_ID" Association="RebuildModel.FK_JO_JOBINP_JO_JOBANA_ID">
+      <End Role="JO_JOBANA_job_steps" EntitySet="JO_JOBANA_job_steps" />
+      <End Role="JO_JOBINP_job_input" EntitySet="JO_JOBINP_job_input" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JO_JOBINP_JO_JOBFIE_ID" Association="RebuildModel.FK_JO_JOBINP_JO_JOBFIE_ID">
+      <End Role="JO_JOBFIE_job_fields" EntitySet="JO_JOBFIE_job_fields" />
+      <End Role="JO_JOBINP_job_input" EntitySet="JO_JOBINP_job_input" />
+    </AssociationSet>
+    <FunctionImport Name="GET_TIPSAS_DETAILTOHIDE" ReturnType="Collection(String)">
+      <Parameter Name="tipsas_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="JO_JOBNOT_notification" EntityType="RebuildModel.JO_JOBNOT_notification" />
+    <EntitySet Name="US_AREGRO_area_groups" EntityType="RebuildModel.US_AREGRO_area_groups" />
+    <EntitySet Name="US_GROUPS_groups" EntityType="RebuildModel.US_GROUPS_groups" />
+    <AssociationSet Name="FK_JO_JOBNOT_JO_JOBANA_ID" Association="RebuildModel.FK_JO_JOBNOT_JO_JOBANA_ID">
+      <End Role="JO_JOBANA_job_steps" EntitySet="JO_JOBANA_job_steps" />
+      <End Role="JO_JOBNOT_notification" EntitySet="JO_JOBNOT_notification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_US_VISGRO_US_GROUPS_ID" Association="RebuildModel.FK_US_VISGRO_US_GROUPS_ID">
+      <End Role="US_GROUPS_groups" EntitySet="US_GROUPS_groups" />
+      <End Role="US_AREGRO_area_groups" EntitySet="US_AREGRO_area_groups" />
+    </AssociationSet>
+    <FunctionImport Name="GetAllowedTipSasFromParent" ReturnType="Collection(Int32)">
+      <Parameter Name="tipsasparent_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="JO_JOBNOT_setasnotified">
+      <Parameter Name="notificationid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="JO_JOBREC_job_record" EntityType="RebuildModel.JO_JOBREC_job_record" />
+    <AssociationSet Name="FK_JO_JOBREC_JO_JOBANA_ID" Association="RebuildModel.FK_JO_JOBREC_JO_JOBANA_ID">
+      <End Role="JO_JOBANA_job_steps" EntitySet="JO_JOBANA_job_steps" />
+      <End Role="JO_JOBREC_job_record" EntitySet="JO_JOBREC_job_record" />
+    </AssociationSet>
+    <EntitySet Name="JO_ACTIVE_JOBS" EntityType="RebuildModel.JO_ACTIVE_JOBS" />
+    <EntitySet Name="JO_JOBGRO_Job_groups" EntityType="RebuildModel.JO_JOBGRO_Job_groups" />
+    <AssociationSet Name="FK_JO_JOBGRO_Job_groups_JO_JOBEVE_jobs" Association="RebuildModel.FK_JO_JOBGRO_Job_groups_JO_JOBEVE_jobs">
+      <End Role="JO_JOBEVE_jobs" EntitySet="JO_JOBEVE_jobs" />
+      <End Role="JO_JOBGRO_Job_groups" EntitySet="JO_JOBGRO_Job_groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JO_JOBGRO_US_GROUPS_ID" Association="RebuildModel.FK_JO_JOBGRO_US_GROUPS_ID">
+      <End Role="US_GROUPS_groups" EntitySet="US_GROUPS_groups" />
+      <End Role="JO_JOBGRO_Job_groups" EntitySet="JO_JOBGRO_Job_groups" />
+    </AssociationSet>
+    <FunctionImport Name="JO_GET_UI_ELEMENTS" ReturnType="Collection(RebuildModel.JO_GET_UI_ELEMENTS_Result)">
+      <Parameter Name="user_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="JO_ANAPRO_jobana_proare" EntityType="RebuildModel.JO_ANAPRO_jobana_proare" />
+    <AssociationSet Name="FK_JO_ANAPRO_jobana_proare_JO_JOBANA_job_steps" Association="RebuildModel.FK_JO_ANAPRO_jobana_proare_JO_JOBANA_job_steps">
+      <End Role="JO_JOBANA_job_steps" EntitySet="JO_JOBANA_job_steps" />
+      <End Role="JO_ANAPRO_jobana_proare" EntitySet="JO_ANAPRO_jobana_proare" />
+    </AssociationSet>
+    <EntitySet Name="US_AREVIS_area_visibility" EntityType="RebuildModel.US_AREVIS_area_visibility" />
+    <AssociationSet Name="FK_JO_JOBGRO_AREVIS_ID" Association="RebuildModel.FK_JO_JOBGRO_AREVIS_ID">
+      <End Role="US_AREVIS_area_visibility" EntitySet="US_AREVIS_area_visibility" />
+      <End Role="JO_JOBGRO_Job_groups" EntitySet="JO_JOBGRO_Job_groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_US_VISGRO_US_AREVIS_ID" Association="RebuildModel.FK_US_VISGRO_US_AREVIS_ID">
+      <End Role="US_AREVIS_area_visibility" EntitySet="US_AREVIS_area_visibility" />
+      <End Role="US_AREGRO_area_groups" EntitySet="US_AREGRO_area_groups" />
+    </AssociationSet>
+    <AssociationSet Name="fk_arevis_groups" Association="RebuildModel.fk_arevis_groups">
+      <End Role="US_GROUPS_groups" EntitySet="US_GROUPS_groups" />
+      <End Role="US_AREVIS_area_visibility" EntitySet="US_AREVIS_area_visibility" />
+    </AssociationSet>
+    <FunctionImport Name="EV_GET_FUNCTIONS_FOR_STATUS" ReturnType="Collection(RebuildModel.EV_GET_FUNCTIONS_FOR_STATUS_Result)">
+      <Parameter Name="table_name" Mode="In" Type="String" />
+      <Parameter Name="id_record" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="DO_CLAUTE_class_document_user" EntityType="RebuildModel.DO_CLAUTE_class_document_user" />
+    <EntitySet Name="DO_DOCREL_document_relation" EntityType="RebuildModel.DO_DOCREL_document_relation" />
+    <EntitySet Name="DO_STADOC_status" EntityType="RebuildModel.DO_STADOC_status" />
+    <AssociationSet Name="FK_DO_CLAUTE_class_document_user_US_GROUPS_groups" Association="RebuildModel.FK_DO_CLAUTE_class_document_user_US_GROUPS_groups">
+      <End Role="US_GROUPS_groups" EntitySet="US_GROUPS_groups" />
+      <End Role="DO_CLAUTE_class_document_user" EntitySet="DO_CLAUTE_class_document_user" />
+    </AssociationSet>
+    <EntitySet Name="EV_EVENT_EVENTS" EntityType="RebuildModel.EV_EVENT_EVENTS" />
+    <EntitySet Name="DO_CLASTA_class_status" EntityType="RebuildModel.DO_CLASTA_class_status" />
+    <AssociationSet Name="FK_DO_CLASTA_class_status_DO_STADOC_status" Association="RebuildModel.FK_DO_CLASTA_class_status_DO_STADOC_status">
+      <End Role="DO_STADOC_status" EntitySet="DO_STADOC_status" />
+      <End Role="DO_CLASTA_class_status" EntitySet="DO_CLASTA_class_status" />
+    </AssociationSet>
+    <EntitySet Name="DO_TIPDOC_document_type" EntityType="RebuildModel.DO_TIPDOC_document_type" />
+    <EntitySet Name="DO_DOCFIL_document_file" EntityType="RebuildModel.DO_DOCFIL_document_file" />
+    <EntitySet Name="DO_DOCVER_versions" EntityType="RebuildModel.DO_DOCVER_versions" />
+    <AssociationSet Name="FK_DO_DOCFIL_document_file_DO_DOCVER_versions" Association="RebuildModel.FK_DO_DOCFIL_document_file_DO_DOCVER_versions">
+      <End Role="DO_DOCVER_versions" EntitySet="DO_DOCVER_versions" />
+      <End Role="DO_DOCFIL_document_file" EntitySet="DO_DOCFIL_document_file" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOCVER_versions_DO_DOCFIL_document_file" Association="RebuildModel.FK_DO_DOCVER_versions_DO_DOCFIL_document_file">
+      <End Role="DO_DOCFIL_document_file" EntitySet="DO_DOCFIL_document_file" />
+      <End Role="DO_DOCVER_versions" EntitySet="DO_DOCVER_versions" />
+    </AssociationSet>
+    <EntitySet Name="CF_FIELDS_DATA_TYPE" EntityType="RebuildModel.CF_FIELDS_DATA_TYPE" />
+    <EntitySet Name="DO_V_DOCVER" EntityType="RebuildModel.DO_V_DOCVER" />
+    <FunctionImport Name="usp_do_fascicolo_GetList" ReturnType="Collection(RebuildModel.usp_do_fascicolo_GetList_Result)">
+      <Parameter Name="xmlInput" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="WF_V_ACTAGG_aggregate_activities" EntityType="RebuildModel.WF_V_ACTAGG_aggregate_activities" />
+    <EntitySet Name="DO_DOSSIE_dossier" EntityType="RebuildModel.DO_DOSSIE_dossier" />
+    <EntitySet Name="DO_CLADOS_dossier_class" EntityType="RebuildModel.DO_CLADOS_dossier_class" />
+    <EntitySet Name="DO_DOCGRO_Document_groups" EntityType="RebuildModel.DO_DOCGRO_Document_groups" />
+    <EntitySet Name="DO_DOSTIP_dosssier_type_document" EntityType="RebuildModel.DO_DOSTIP_dosssier_type_document" />
+    <EntitySet Name="DO_OBTIDO_type_document" EntityType="RebuildModel.DO_OBTIDO_type_document" />
+    <EntitySet Name="DO_STAWRK_status_workflow" EntityType="RebuildModel.DO_STAWRK_status_workflow" />
+    <AssociationSet Name="FK_DOSSIE_CLADOS" Association="RebuildModel.FK_DOSSIE_CLADOS">
+      <End Role="DO_CLADOS_dossier_class" EntitySet="DO_CLADOS_dossier_class" />
+      <End Role="DO_DOSSIE_dossier" EntitySet="DO_DOSSIE_dossier" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOCGRO_GROUPS" Association="RebuildModel.FK_DOCGRO_GROUPS">
+      <End Role="US_GROUPS_groups" EntitySet="US_GROUPS_groups" />
+      <End Role="DO_DOCGRO_Document_groups" EntitySet="DO_DOCGRO_Document_groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOSTIP_dosssier_type_document_DO_DOSSIER_dossier" Association="RebuildModel.FK_DO_DOSTIP_dosssier_type_document_DO_DOSSIER_dossier">
+      <End Role="DO_DOSSIE_dossier" EntitySet="DO_DOSSIE_dossier" />
+      <End Role="DO_DOSTIP_dosssier_type_document" EntitySet="DO_DOSTIP_dosssier_type_document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOSTIP_dosssier_type_document_DO_TIPDOC_document_type" Association="RebuildModel.FK_DO_DOSTIP_dosssier_type_document_DO_TIPDOC_document_type">
+      <End Role="DO_TIPDOC_document_type" EntitySet="DO_TIPDOC_document_type" />
+      <End Role="DO_DOSTIP_dosssier_type_document" EntitySet="DO_DOSTIP_dosssier_type_document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_OBTIDO_type_document_DO_TIPDOC_document_type" Association="RebuildModel.FK_DO_OBTIDO_type_document_DO_TIPDOC_document_type">
+      <End Role="DO_TIPDOC_document_type" EntitySet="DO_TIPDOC_document_type" />
+      <End Role="DO_OBTIDO_type_document" EntitySet="DO_OBTIDO_type_document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_STAWRK_status_workflow_DO_STADOC_status" Association="RebuildModel.FK_DO_STAWRK_status_workflow_DO_STADOC_status">
+      <End Role="DO_STADOC_status" EntitySet="DO_STADOC_status" />
+      <End Role="DO_STAWRK_status_workflow" EntitySet="DO_STAWRK_status_workflow" />
+    </AssociationSet>
+    <EntitySet Name="DO_CLADOC_document_class" EntityType="RebuildModel.DO_CLADOC_document_class" />
+    <AssociationSet Name="FK_DO_CLASTA_class_status_DO_CLADOC_document_class" Association="RebuildModel.FK_DO_CLASTA_class_status_DO_CLADOC_document_class">
+      <End Role="DO_CLADOC_document_class" EntitySet="DO_CLADOC_document_class" />
+      <End Role="DO_CLASTA_class_status" EntitySet="DO_CLASTA_class_status" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_CLAUTE_class_document_user_DO_CLADOC_document_class" Association="RebuildModel.FK_DO_CLAUTE_class_document_user_DO_CLADOC_document_class">
+      <End Role="DO_CLADOC_document_class" EntitySet="DO_CLADOC_document_class" />
+      <End Role="DO_CLAUTE_class_document_user" EntitySet="DO_CLAUTE_class_document_user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_TIPDOC_document_type_DO_CLADOC_document_class" Association="RebuildModel.FK_DO_TIPDOC_document_type_DO_CLADOC_document_class">
+      <End Role="DO_CLADOC_document_class" EntitySet="DO_CLADOC_document_class" />
+      <End Role="DO_TIPDOC_document_type" EntitySet="DO_TIPDOC_document_type" />
+    </AssociationSet>
+    <FunctionImport Name="usp_do_fascicolo_GetDocuments" ReturnType="Collection(RebuildModel.usp_do_fascicolo_GetDocuments_Result)">
+      <Parameter Name="xmlInput" Mode="In" Type="String" />
+      <Parameter Name="count" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="DO_V_DOCUME_MISSING" EntityType="RebuildModel.DO_V_DOCUME_MISSING" />
+    <FunctionImport Name="get_do_cladoc_for_user" ReturnType="Collection(RebuildModel.get_do_cladoc_for_user_Result)">
+      <Parameter Name="xmlInput" Mode="In" Type="String" />
+      <Parameter Name="count" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_do_dossier_GetMissingDocs" ReturnType="Collection(RebuildModel.usp_do_dossier_GetMissingDocs_Result)">
+      <Parameter Name="xmlInput" Mode="In" Type="String" />
+      <Parameter Name="count" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="M_TIPSAS_TIPASS" EntityType="RebuildModel.M_TIPSAS_TIPASS" />
+    <EntitySet Name="DO_CAMUSE_fields_document_user" EntityType="RebuildModel.DO_CAMUSE_fields_document_user" />
+    <EntitySet Name="DO_DOCFIE_fields_document" EntityType="RebuildModel.DO_DOCFIE_fields_document" />
+    <AssociationSet Name="FK_DO_CAMASS_fields_document_CF_FIELDS_DATA_TYPE" Association="RebuildModel.FK_DO_CAMASS_fields_document_CF_FIELDS_DATA_TYPE">
+      <End Role="CF_FIELDS_DATA_TYPE" EntitySet="CF_FIELDS_DATA_TYPE" />
+      <End Role="DO_DOCFIE_fields_document" EntitySet="DO_DOCFIE_fields_document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_CAMUSE_fields_document_user_CF_FIELDS_DATA_TYPE" Association="RebuildModel.FK_DO_CAMUSE_fields_document_user_CF_FIELDS_DATA_TYPE">
+      <End Role="CF_FIELDS_DATA_TYPE" EntitySet="CF_FIELDS_DATA_TYPE" />
+      <End Role="DO_CAMUSE_fields_document_user" EntitySet="DO_CAMUSE_fields_document_user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_CAMUSE_fields_document_user_DO_CLADOC_document_class" Association="RebuildModel.FK_DO_CAMUSE_fields_document_user_DO_CLADOC_document_class">
+      <End Role="DO_CLADOC_document_class" EntitySet="DO_CLADOC_document_class" />
+      <End Role="DO_CAMUSE_fields_document_user" EntitySet="DO_CAMUSE_fields_document_user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_CAMUSE_fields_document_user_DO_TIPDOC_document_type" Association="RebuildModel.FK_DO_CAMUSE_fields_document_user_DO_TIPDOC_document_type">
+      <End Role="DO_TIPDOC_document_type" EntitySet="DO_TIPDOC_document_type" />
+      <End Role="DO_CAMUSE_fields_document_user" EntitySet="DO_CAMUSE_fields_document_user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOCFIE_fields_document_DO_CLADOC_document_class" Association="RebuildModel.FK_DO_DOCFIE_fields_document_DO_CLADOC_document_class">
+      <End Role="DO_CLADOC_document_class" EntitySet="DO_CLADOC_document_class" />
+      <End Role="DO_DOCFIE_fields_document" EntitySet="DO_DOCFIE_fields_document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_CAMASS_fields_document_DO_TIPDOC_document_type" Association="RebuildModel.FK_DO_CAMASS_fields_document_DO_TIPDOC_document_type">
+      <End Role="DO_TIPDOC_document_type" EntitySet="DO_TIPDOC_document_type" />
+      <End Role="DO_DOCFIE_fields_document" EntitySet="DO_DOCFIE_fields_document" />
+    </AssociationSet>
+    <EntitySet Name="AS_V_LOCATION_locationextended" EntityType="RebuildModel.AS_V_LOCATION_locationextended" />
+    <FunctionImport Name="usp_do_botypes_GetList" ReturnType="Collection(RebuildModel.usp_do_botypes_GetList_Result)">
+      <Parameter Name="xmlInput" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GET_ASSET_TREE" ReturnType="Collection(RebuildModel.GET_ASSET_TREE_Result)">
+      <Parameter Name="AS_ASSET_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AS_GET_ASSET_MAIN_TB" IsComposable="true" ReturnType="Collection(RebuildModel.AS_GET_ASSET_MAIN_TB_Result)">
+      <Parameter Name="As_asset_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Magic_BusinessObjectTypes" EntityType="RebuildModel.Magic_BusinessObjectTypes" />
+    <AssociationSet Name="FK_DO_DOSSIE_dossier_Magic_BusinessObjectTypes" Association="RebuildModel.FK_DO_DOSSIE_dossier_Magic_BusinessObjectTypes">
+      <End Role="Magic_BusinessObjectTypes" EntitySet="Magic_BusinessObjectTypes" />
+      <End Role="DO_DOSSIE_dossier" EntitySet="DO_DOSSIE_dossier" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OBTIDO_BUSINESSOBJECTTYPE" Association="RebuildModel.FK_OBTIDO_BUSINESSOBJECTTYPE">
+      <End Role="Magic_BusinessObjectTypes" EntitySet="Magic_BusinessObjectTypes" />
+      <End Role="DO_OBTIDO_type_document" EntitySet="DO_OBTIDO_type_document" />
+    </AssociationSet>
+    <EntitySet Name="DO_V_DOCFIE_class_doc_fields" EntityType="RebuildModel.DO_V_DOCFIE_class_doc_fields" />
+    <FunctionImport Name="DO_GET_UI_ELEMENTS" ReturnType="Collection(RebuildModel.DO_GET_UI_ELEMENTS_Result)">
+      <Parameter Name="user_id" Mode="In" Type="Int32" />
+      <Parameter Name="arevis_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="AS_ASSET_asset" EntityType="RebuildModel.AS_ASSET_asset" />
+    <AssociationSet Name="FK_AS_ASSET_asset_AS_ASSET_asset" Association="RebuildModel.FK_AS_ASSET_asset_AS_ASSET_asset">
+      <End Role="AS_ASSET_asset" EntitySet="AS_ASSET_asset" />
+      <End Role="AS_ASSET_asset1" EntitySet="AS_ASSET_asset" />
+    </AssociationSet>
+    <EntitySet Name="DO_DOCUME_documents" EntityType="RebuildModel.DO_DOCUME_documents" />
+    <AssociationSet Name="FK_DO_DOCFIL_document_file_DO_DOCUME_documents" Association="RebuildModel.FK_DO_DOCFIL_document_file_DO_DOCUME_documents">
+      <End Role="DO_DOCUME_documents" EntitySet="DO_DOCUME_documents" />
+      <End Role="DO_DOCFIL_document_file" EntitySet="DO_DOCFIL_document_file" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOCGRO_Document_groups_DO_DOCUME_documents" Association="RebuildModel.FK_DO_DOCGRO_Document_groups_DO_DOCUME_documents">
+      <End Role="DO_DOCUME_documents" EntitySet="DO_DOCUME_documents" />
+      <End Role="DO_DOCGRO_Document_groups" EntitySet="DO_DOCGRO_Document_groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOCREL_document_relation_DO_DOCUME_documents" Association="RebuildModel.FK_DO_DOCREL_document_relation_DO_DOCUME_documents">
+      <End Role="DO_DOCUME_documents" EntitySet="DO_DOCUME_documents" />
+      <End Role="DO_DOCREL_document_relation" EntitySet="DO_DOCREL_document_relation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOCUME_DO_DOCUME_padre" Association="RebuildModel.FK_DO_DOCUME_DO_DOCUME_padre">
+      <End Role="DO_DOCUME_documents" EntitySet="DO_DOCUME_documents" />
+      <End Role="DO_DOCUME_documents1" EntitySet="DO_DOCUME_documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOCUME_documents_DO_DOCUME_documents" Association="RebuildModel.FK_DO_DOCUME_documents_DO_DOCUME_documents">
+      <End Role="DO_DOCUME_documents" EntitySet="DO_DOCUME_documents" />
+      <End Role="DO_DOCUME_documents1" EntitySet="DO_DOCUME_documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOCUME_documents_DO_STADOC_status" Association="RebuildModel.FK_DO_DOCUME_documents_DO_STADOC_status">
+      <End Role="DO_STADOC_status" EntitySet="DO_STADOC_status" />
+      <End Role="DO_DOCUME_documents" EntitySet="DO_DOCUME_documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOCUME_documents_DO_TIPDOC_document_type" Association="RebuildModel.FK_DO_DOCUME_documents_DO_TIPDOC_document_type">
+      <End Role="DO_TIPDOC_document_type" EntitySet="DO_TIPDOC_document_type" />
+      <End Role="DO_DOCUME_documents" EntitySet="DO_DOCUME_documents" />
+    </AssociationSet>
+    <EntitySet Name="DO_V_DOCFIL" EntityType="RebuildModel.DO_V_DOCFIL" />
+    <EntitySet Name="DO_V_DOCUME_ENTITY" EntityType="RebuildModel.DO_V_DOCUME_ENTITY" />
+    <FunctionImport Name="DO_SP_DOCUMENTS_L" ReturnType="Collection(RebuildModel.DO_SP_DOCUMENTS_L_Result)">
+      <Parameter Name="xmlinput" Mode="In" Type="String" />
+      <Parameter Name="count" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Getgroupsfromarevis" ReturnType="Collection(Int32)">
+      <Parameter Name="USERID" Mode="In" Type="Int32" />
+      <Parameter Name="AREVISID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="DO_V_DOCUME" EntityType="RebuildModel.DO_V_DOCUME" />
+    <FunctionImport Name="PP_GET_UI_ELEMENTS" ReturnType="Collection(RebuildModel.PP_GET_UI_ELEMENTS_Result)">
+      <Parameter Name="user_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetWaterMarkForUser" ReturnType="Collection(RebuildModel.GetWaterMarkForUser_Result)">
+      <Parameter Name="idUser" Mode="In" Type="Int32" />
+      <Parameter Name="ugvi" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="DO_DOSUTE_dossier_user" EntityType="RebuildModel.DO_DOSUTE_dossier_user" />
+    <AssociationSet Name="FK_DO_DOSUTE_dossier_user_DO_DOSSIE_dossier" Association="RebuildModel.FK_DO_DOSUTE_dossier_user_DO_DOSSIE_dossier">
+      <End Role="DO_DOSSIE_dossier" EntitySet="DO_DOSSIE_dossier" />
+      <End Role="DO_DOSUTE_dossier_user" EntitySet="DO_DOSUTE_dossier_user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOSUTE_dossier_user_US_GROUPS_groups" Association="RebuildModel.FK_DO_DOSUTE_dossier_user_US_GROUPS_groups">
+      <End Role="US_GROUPS_groups" EntitySet="US_GROUPS_groups" />
+      <End Role="DO_DOSUTE_dossier_user" EntitySet="DO_DOSUTE_dossier_user" />
+    </AssociationSet>
+    <FunctionImport Name="utf_us_aregrid_cross" IsComposable="true" ReturnType="Collection(RebuildModel.utf_us_aregrid_cross_Result)">
+      <Parameter Name="magicgridname" Mode="In" Type="String" />
+      <Parameter Name="magicgridid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="US_AREGRI_Arepro_Grids" EntityType="RebuildModel.US_AREGRI_Arepro_Grids" />
+    <EntitySet Name="US_AREFUN__Arepro_Functions" EntityType="RebuildModel.US_AREFUN__Arepro_Functions" />
+    <FunctionImport Name="utf_us_arefun_cross" IsComposable="true" ReturnType="Collection(RebuildModel.utf_us_arefun_cross_Result)">
+      <Parameter Name="functionid" Mode="In" Type="Int32" />
+      <Parameter Name="functionguid" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="utf_AS_V_ASSET_assetgroups" IsComposable="true" ReturnType="Collection(RebuildModel.utf_AS_V_ASSET_assetgroups_Result)">
+      <Parameter Name="iAssetId" Mode="In" Type="Int32" />
+      <Parameter Name="iArevisId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="utf_US_V_GROUPS_groupsassets" IsComposable="true" ReturnType="Collection(RebuildModel.utf_US_V_GROUPS_groupsassets_Result)">
+      <Parameter Name="iGroupId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="WF_V_ACTCAL_activities_calendar" EntityType="RebuildModel.WF_V_ACTCAL_activities_calendar" />
+    <EntitySet Name="AS_V_ASSET_assetExtended" EntityType="RebuildModel.AS_V_ASSET_assetExtended" />
+    <AssociationSet Name="FK_DO_TIPDOC_doc_DO_STADOC" Association="RebuildModel.FK_DO_TIPDOC_doc_DO_STADOC">
+      <End Role="DO_STADOC_status" EntitySet="DO_STADOC_status" />
+      <End Role="DO_TIPDOC_document_type" EntitySet="DO_TIPDOC_document_type" />
+    </AssociationSet>
+    <FunctionImport Name="GetAllowedTipSasForAsset" ReturnType="Collection(Int32)">
+      <Parameter Name="asset_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="EX_EXCTIP_type_excel" EntityType="RebuildModel.EX_EXCTIP_type_excel" />
+    <EntitySet Name="FL_CLAFIL_class_file" EntityType="RebuildModel.FL_CLAFIL_class_file" />
+    <EntitySet Name="FL_FILINP_input_file" EntityType="RebuildModel.FL_FILINP_input_file" />
+    <EntitySet Name="FL_TIPFIL_type_file" EntityType="RebuildModel.FL_TIPFIL_type_file" />
+    <AssociationSet Name="FK_FL_TIPFIL_type_file_DO_TIPDOC" Association="RebuildModel.FK_FL_TIPFIL_type_file_DO_TIPDOC">
+      <End Role="DO_TIPDOC_document_type" EntitySet="DO_TIPDOC_document_type" />
+      <End Role="FL_TIPFIL_type_file" EntitySet="FL_TIPFIL_type_file" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FL_FILINP_input_excel_EX_EXCTIP_type_excel" Association="RebuildModel.FK_FL_FILINP_input_excel_EX_EXCTIP_type_excel">
+      <End Role="EX_EXCTIP_type_excel" EntitySet="EX_EXCTIP_type_excel" />
+      <End Role="FL_FILINP_input_file" EntitySet="FL_FILINP_input_file" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FL_TIPFIL_type_file_FL_CLAFIL_class_file" Association="RebuildModel.FK_FL_TIPFIL_type_file_FL_CLAFIL_class_file">
+      <End Role="FL_CLAFIL_class_file" EntitySet="FL_CLAFIL_class_file" />
+      <End Role="FL_TIPFIL_type_file" EntitySet="FL_TIPFIL_type_file" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FL_FILINP_input_file_FL_TIPFIL_type_file" Association="RebuildModel.FK_FL_FILINP_input_file_FL_TIPFIL_type_file">
+      <End Role="FL_TIPFIL_type_file" EntitySet="FL_TIPFIL_type_file" />
+      <End Role="FL_FILINP_input_file" EntitySet="FL_FILINP_input_file" />
+    </AssociationSet>
+    <EntitySet Name="FL_RECFIL_fields" EntityType="RebuildModel.FL_RECFIL_fields" />
+    <AssociationSet Name="FK_FL_RECFIL_fields_EX_EXCTIP" Association="RebuildModel.FK_FL_RECFIL_fields_EX_EXCTIP">
+      <End Role="EX_EXCTIP_type_excel" EntitySet="EX_EXCTIP_type_excel" />
+      <End Role="FL_RECFIL_fields" EntitySet="FL_RECFIL_fields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FL_RECFIL_type_record_FL_TIPFIL_type_file" Association="RebuildModel.FK_FL_RECFIL_type_record_FL_TIPFIL_type_file">
+      <End Role="FL_TIPFIL_type_file" EntitySet="FL_TIPFIL_type_file" />
+      <End Role="FL_RECFIL_fields" EntitySet="FL_RECFIL_fields" />
+    </AssociationSet>
+    <EntitySet Name="FL_FORMAT_format" EntityType="RebuildModel.FL_FORMAT_format" />
+    <AssociationSet Name="FK_FL_RECFIL_type_record_FL_FORMAT_format" Association="RebuildModel.FK_FL_RECFIL_type_record_FL_FORMAT_format">
+      <End Role="FL_FORMAT_format" EntitySet="FL_FORMAT_format" />
+      <End Role="FL_RECFIL_fields" EntitySet="FL_RECFIL_fields" />
+    </AssociationSet>
+    <FunctionImport Name="cl_sp_ctr_field_event">
+      <Parameter Name="Schema" Mode="In" Type="String" />
+      <Parameter Name="table_name" Mode="In" Type="String" />
+      <Parameter Name="key" Mode="In" Type="String" />
+      <Parameter Name="Field_key" Mode="In" Type="String" />
+      <Parameter Name="CultureId" Mode="In" Type="Int32" />
+      <Parameter Name="Ev_stage_id" Mode="In" Type="Int32" />
+      <Parameter Name="Text_err" Mode="InOut" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="JO_JOBFIE_job_fields">
+    <Key>
+      <PropertyRef Name="JO_JOBFIE_ID" />
+    </Key>
+    <Property Name="JO_JOBFIE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JO_JOBFIE_JO_EXEORD_ID" Type="Int32" Nullable="false" />
+    <Property Name="JO_JOBFIE_ORDER" Type="Int32" Nullable="false" />
+    <Property Name="JO_JOBFIE_COLUMN_NAME" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="JO_JOBFIE_COLUMN_TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="JO_JOBFIE_MANDATORY" Type="Boolean" />
+    <Property Name="JO_JOBFIE_COLUMN_TABLE_JOIN" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="JO_JOBFIE_DESCRIPT_TABLE_JOIN" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="JO_JOBFIE_FLAG_USER_TABLE_JOIN" Type="Boolean" />
+    <Property Name="JO_JOBFIE_COLUMN_FATHER" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="JO_JOBFIE_COLUMN_JOIN_FATHER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="JO_EXEORD_execution_order" Relationship="RebuildModel.FK_JO_JOBFIE_JO_EXEORD_ID" FromRole="JO_JOBFIE_job_fields" ToRole="JO_EXEORD_execution_order" />
+    <NavigationProperty Name="JO_JOBINP_job_input" Relationship="RebuildModel.FK_JO_JOBINP_JO_JOBFIE_ID" FromRole="JO_JOBFIE_job_fields" ToRole="JO_JOBINP_job_input" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+    <Property Name="JO_JOBFIE_DATAROLE_ID" Type="Int32" />
+    <Property Name="JO_JOBFIE_TABLE_JOIN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="STREET_V_streetExtended">
+    <Key>
+      <PropertyRef Name="STREET_ID" />
+      <PropertyRef Name="LOCATION_DESCRIPTION" />
+    </Key>
+    <Property Name="STREET_ID" Type="Int32" Nullable="false" />
+    <Property Name="LOCATION_DESCRIPTION" Type="String" Nullable="false" MaxLength="508" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AS_SUBTIP_asset_subtipo">
+    <Key>
+      <PropertyRef Name="AS_SUBTIP_ID" />
+    </Key>
+    <Property Name="AS_SUBTIP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AS_SUBTIP_TIPASS_ID" Type="Int32" Nullable="false" />
+    <Property Name="AS_SUBTIP_TIPSAS_ID" Type="Int32" Nullable="false" />
+    <Property Name="AS_SUBTIP_ORDINE" Type="Int32" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="JO_EXEORD_execution_order">
+    <Key>
+      <PropertyRef Name="JO_EXEORD_ID" />
+    </Key>
+    <Property Name="JO_EXEORD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JO_EXEORD_JO_STAJOB_ID" Type="Int32" Nullable="false" />
+    <Property Name="JO_EXEORD_JO_TIPJOB_ID" Type="Int32" Nullable="false" />
+    <Property Name="JO_EXEORD_ORDINE" Type="Int32" Nullable="false" />
+    <Property Name="JO_EXEORD_STORED" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="JO_EXEORD_STORED_UNDO" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="JO_EXEORD_FLAG_END" Type="Boolean" />
+    <Property Name="JO_EXEORD_VIEW_POST" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="JO_JOBANA_job_steps" Relationship="RebuildModel.FK_JO_JOBANA_JO_EXEORD_ID" FromRole="JO_EXEORD_execution_order" ToRole="JO_JOBANA_job_steps" />
+    <NavigationProperty Name="JO_JOBFIE_job_fields" Relationship="RebuildModel.FK_JO_JOBFIE_JO_EXEORD_ID" FromRole="JO_EXEORD_execution_order" ToRole="JO_JOBFIE_job_fields" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="JO_JOBINP_job_input">
+    <Key>
+      <PropertyRef Name="JO_JOBINP_ID" />
+    </Key>
+    <Property Name="JO_JOBINP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JO_JOBINP_JO_JOBANA_ID" Type="Int32" Nullable="false" />
+    <Property Name="JO_JOBINP_JO_JOBFIE_ID" Type="Int32" Nullable="false" />
+    <Property Name="JO_JOBINP_VALUE" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="JO_JOBANA_job_steps" Relationship="RebuildModel.FK_JO_JOBINP_JO_JOBANA_ID" FromRole="JO_JOBINP_job_input" ToRole="JO_JOBANA_job_steps" />
+    <NavigationProperty Name="JO_JOBFIE_job_fields" Relationship="RebuildModel.FK_JO_JOBINP_JO_JOBFIE_ID" FromRole="JO_JOBINP_job_input" ToRole="JO_JOBFIE_job_fields" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_JO_JOBANA_JO_EXEORD_ID">
+    <End Type="RebuildModel.JO_EXEORD_execution_order" Role="JO_EXEORD_execution_order" Multiplicity="1" />
+    <End Type="RebuildModel.JO_JOBANA_job_steps" Role="JO_JOBANA_job_steps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JO_EXEORD_execution_order">
+        <PropertyRef Name="JO_EXEORD_ID" />
+      </Principal>
+      <Dependent Role="JO_JOBANA_job_steps">
+        <PropertyRef Name="JO_JOBANA_JO_EXEORD_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JO_JOBFIE_JO_EXEORD_ID">
+    <End Type="RebuildModel.JO_EXEORD_execution_order" Role="JO_EXEORD_execution_order" Multiplicity="1" />
+    <End Type="RebuildModel.JO_JOBFIE_job_fields" Role="JO_JOBFIE_job_fields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JO_EXEORD_execution_order">
+        <PropertyRef Name="JO_EXEORD_ID" />
+      </Principal>
+      <Dependent Role="JO_JOBFIE_job_fields">
+        <PropertyRef Name="JO_JOBFIE_JO_EXEORD_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JO_JOBINP_JO_JOBANA_ID">
+    <End Type="RebuildModel.JO_JOBANA_job_steps" Role="JO_JOBANA_job_steps" Multiplicity="1" />
+    <End Type="RebuildModel.JO_JOBINP_job_input" Role="JO_JOBINP_job_input" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JO_JOBANA_job_steps">
+        <PropertyRef Name="JO_JOBANA_ID" />
+      </Principal>
+      <Dependent Role="JO_JOBINP_job_input">
+        <PropertyRef Name="JO_JOBINP_JO_JOBANA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JO_JOBINP_JO_JOBFIE_ID">
+    <End Type="RebuildModel.JO_JOBFIE_job_fields" Role="JO_JOBFIE_job_fields" Multiplicity="1" />
+    <End Type="RebuildModel.JO_JOBINP_job_input" Role="JO_JOBINP_job_input" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JO_JOBFIE_job_fields">
+        <PropertyRef Name="JO_JOBFIE_ID" />
+      </Principal>
+      <Dependent Role="JO_JOBINP_job_input">
+        <PropertyRef Name="JO_JOBINP_JO_JOBFIE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="JO_JOBNOT_notification">
+    <Key>
+      <PropertyRef Name="JO_JOBNOT_ID" />
+    </Key>
+    <Property Name="JO_JOBNOT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JO_JOBNOT_JO_JOBANA_ID" Type="Int32" Nullable="false" />
+    <Property Name="JO_JOBNOT_NOTIFICATION1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="JO_JOBNOT_DATE_NOTIFICATION" Type="DateTime" Precision="3" />
+    <Property Name="JO_JOBNOT_DATE" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="JO_JOBANA_job_steps" Relationship="RebuildModel.FK_JO_JOBNOT_JO_JOBANA_ID" FromRole="JO_JOBNOT_notification" ToRole="JO_JOBANA_job_steps" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="US_AREGRO_area_groups">
+    <Key>
+      <PropertyRef Name="US_AREGRO_ID" />
+    </Key>
+    <Property Name="US_AREGRO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="US_AREGRO_US_AREVIS_ID" Type="Int32" Nullable="false" />
+    <Property Name="US_AREGRO_US_GROUPS_ID" Type="Int32" />
+    <Property Name="US_AREGRO_LE_AMMGRO_ID" Type="Int32" />
+    <NavigationProperty Name="US_GROUPS_groups" Relationship="RebuildModel.FK_US_VISGRO_US_GROUPS_ID" FromRole="US_AREGRO_area_groups" ToRole="US_GROUPS_groups" />
+    <NavigationProperty Name="US_AREVIS_area_visibility" Relationship="RebuildModel.FK_US_VISGRO_US_AREVIS_ID" FromRole="US_AREGRO_area_groups" ToRole="US_AREVIS_area_visibility" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="US_GROUPS_groups">
+    <Key>
+      <PropertyRef Name="US_GROUPS_ID" />
+    </Key>
+    <Property Name="US_GROUPS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="US_GROUPS_US_TIPGRU_ID" Type="Int32" Nullable="false" />
+    <Property Name="US_GROUPS_DESCRIPTION" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="US_GROUPS_FROM" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="US_GROUPS_TO" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="US_AREGRO_area_groups" Relationship="RebuildModel.FK_US_VISGRO_US_GROUPS_ID" FromRole="US_GROUPS_groups" ToRole="US_AREGRO_area_groups" />
+    <NavigationProperty Name="JO_JOBGRO_Job_groups" Relationship="RebuildModel.FK_JO_JOBGRO_US_GROUPS_ID" FromRole="US_GROUPS_groups" ToRole="JO_JOBGRO_Job_groups" />
+    <NavigationProperty Name="US_AREVIS_area_visibility" Relationship="RebuildModel.fk_arevis_groups" FromRole="US_GROUPS_groups" ToRole="US_AREVIS_area_visibility" />
+    <NavigationProperty Name="DO_CLAUTE_class_document_user" Relationship="RebuildModel.FK_DO_CLAUTE_class_document_user_US_GROUPS_groups" FromRole="US_GROUPS_groups" ToRole="DO_CLAUTE_class_document_user" />
+    <NavigationProperty Name="DO_DOCGRO_Document_groups" Relationship="RebuildModel.FK_DOCGRO_GROUPS" FromRole="US_GROUPS_groups" ToRole="DO_DOCGRO_Document_groups" />
+    <NavigationProperty Name="DO_DOSUTE_dossier_user" Relationship="RebuildModel.FK_DO_DOSUTE_dossier_user_US_GROUPS_groups" FromRole="US_GROUPS_groups" ToRole="DO_DOSUTE_dossier_user" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+    <Property Name="US_GROUPS_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_JO_JOBNOT_JO_JOBANA_ID">
+    <End Type="RebuildModel.JO_JOBANA_job_steps" Role="JO_JOBANA_job_steps" Multiplicity="1" />
+    <End Type="RebuildModel.JO_JOBNOT_notification" Role="JO_JOBNOT_notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JO_JOBANA_job_steps">
+        <PropertyRef Name="JO_JOBANA_ID" />
+      </Principal>
+      <Dependent Role="JO_JOBNOT_notification">
+        <PropertyRef Name="JO_JOBNOT_JO_JOBANA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_US_VISGRO_US_GROUPS_ID">
+    <End Type="RebuildModel.US_GROUPS_groups" Role="US_GROUPS_groups" Multiplicity="0..1" />
+    <End Type="RebuildModel.US_AREGRO_area_groups" Role="US_AREGRO_area_groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="US_GROUPS_groups">
+        <PropertyRef Name="US_GROUPS_ID" />
+      </Principal>
+      <Dependent Role="US_AREGRO_area_groups">
+        <PropertyRef Name="US_AREGRO_US_GROUPS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="JO_JOBREC_job_record">
+    <Key>
+      <PropertyRef Name="JO_JOBREC_ID" />
+    </Key>
+    <Property Name="JO_JOBREC_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JO_JOBREC_JO_JOBANA_ID" Type="Int32" Nullable="false" />
+    <Property Name="JO_JOBREC_TABLE_NAME" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="JO_JOBREC_ID_RECORD" Type="Int32" Nullable="false" />
+    <Property Name="JO_JOBREC_SELECTED" Type="Boolean" Nullable="false" />
+    <Property Name="JO_JOBREC_DATE" Type="DateTime" Precision="3" />
+    <Property Name="JO_JOBRED_USERID" Type="Int32" />
+    <NavigationProperty Name="JO_JOBANA_job_steps" Relationship="RebuildModel.FK_JO_JOBREC_JO_JOBANA_ID" FromRole="JO_JOBREC_job_record" ToRole="JO_JOBANA_job_steps" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_JO_JOBREC_JO_JOBANA_ID">
+    <End Type="RebuildModel.JO_JOBANA_job_steps" Role="JO_JOBANA_job_steps" Multiplicity="1" />
+    <End Type="RebuildModel.JO_JOBREC_job_record" Role="JO_JOBREC_job_record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JO_JOBANA_job_steps">
+        <PropertyRef Name="JO_JOBANA_ID" />
+      </Principal>
+      <Dependent Role="JO_JOBREC_job_record">
+        <PropertyRef Name="JO_JOBREC_JO_JOBANA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="JO_ACTIVE_JOBS">
+    <Key>
+      <PropertyRef Name="JO_JOBEVE_ID" />
+      <PropertyRef Name="JO_JOBEVE_JO_TIPJOB_ID" />
+      <PropertyRef Name="US_AREVIS_ID" />
+    </Key>
+    <Property Name="JO_JOBEVE_ID" Type="Int32" Nullable="false" />
+    <Property Name="JO_JOBEVE_END_DATE" Type="DateTime" Precision="3" />
+    <Property Name="JO_JOBEVE_JO_TIPJOB_ID" Type="Int32" Nullable="false" />
+    <Property Name="US_AREVIS_ID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JO_JOBGRO_Job_groups">
+    <Key>
+      <PropertyRef Name="JO_JOBGRO_ID" />
+    </Key>
+    <Property Name="JO_JOBGRO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JO_JOBGRO_JO_JOBEVE_ID" Type="Int32" Nullable="false" />
+    <Property Name="JO_JOBGRO_US_GROUPS_ID" Type="Int32" Nullable="false" />
+    <Property Name="JO_JOBGRO_US_AREVIS_ID" Type="Int32" />
+    <NavigationProperty Name="JO_JOBEVE_jobs" Relationship="RebuildModel.FK_JO_JOBGRO_Job_groups_JO_JOBEVE_jobs" FromRole="JO_JOBGRO_Job_groups" ToRole="JO_JOBEVE_jobs" />
+    <NavigationProperty Name="US_GROUPS_groups" Relationship="RebuildModel.FK_JO_JOBGRO_US_GROUPS_ID" FromRole="JO_JOBGRO_Job_groups" ToRole="US_GROUPS_groups" />
+    <NavigationProperty Name="US_AREVIS_area_visibility" Relationship="RebuildModel.FK_JO_JOBGRO_AREVIS_ID" FromRole="JO_JOBGRO_Job_groups" ToRole="US_AREVIS_area_visibility" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_JO_JOBGRO_Job_groups_JO_JOBEVE_jobs">
+    <End Type="RebuildModel.JO_JOBEVE_jobs" Role="JO_JOBEVE_jobs" Multiplicity="1" />
+    <End Type="RebuildModel.JO_JOBGRO_Job_groups" Role="JO_JOBGRO_Job_groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JO_JOBEVE_jobs">
+        <PropertyRef Name="JO_JOBEVE_ID" />
+      </Principal>
+      <Dependent Role="JO_JOBGRO_Job_groups">
+        <PropertyRef Name="JO_JOBGRO_JO_JOBEVE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JO_JOBGRO_US_GROUPS_ID">
+    <End Type="RebuildModel.US_GROUPS_groups" Role="US_GROUPS_groups" Multiplicity="1" />
+    <End Type="RebuildModel.JO_JOBGRO_Job_groups" Role="JO_JOBGRO_Job_groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="US_GROUPS_groups">
+        <PropertyRef Name="US_GROUPS_ID" />
+      </Principal>
+      <Dependent Role="JO_JOBGRO_Job_groups">
+        <PropertyRef Name="JO_JOBGRO_US_GROUPS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="JO_GET_UI_ELEMENTS_Result">
+    <Property Type="Int32" Name="JO_AREJOB_ID" Nullable="false" />
+    <Property Type="String" Name="JO_AREJOB_CODE" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="JO_AREJOB_DESCRIPTION" Nullable="false" MaxLength="1000" />
+    <Property Type="String" Name="JO_AREJOB_COLOUR" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="JO_CLAJOB_ID" Nullable="false" />
+    <Property Type="String" Name="JO_CLAJOB_CODE" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="JO_CLAJOB_DESCRIPTION" Nullable="false" MaxLength="1000" />
+    <Property Type="Int32" Name="JO_CLAJOB_JO_AREJOB_ID" Nullable="false" />
+    <Property Type="String" Name="JO_CLAJOB_COLOUR" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="JO_CLAJOB_ORDER" Nullable="false" />
+    <Property Type="Int32" Name="JO_TIPJOB_ID" Nullable="false" />
+    <Property Type="String" Name="JO_TIPJOB_CODE" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="JO_TIPJOB_DESCRIPTION" Nullable="false" MaxLength="1000" />
+    <Property Type="Int32" Name="JO_TIPJOB_JO_CLAJOB_ID" Nullable="false" />
+    <Property Type="Boolean" Name="JO_TIPJOB_FLAG_MANDATORY" Nullable="true" />
+    <Property Type="Int32" Name="JO_TIPJOB_NEXT_JO_TIPJOB_ID" Nullable="true" />
+    <Property Type="Int32" Name="JO_TIPJOB_PREV_JO_TIPJOB_ID" Nullable="true" />
+    <Property Type="Int32" Name="US_USEPRO_UPDATE_RIGHTS" Nullable="true" />
+    <Property Type="Int32" Name="US_USEPRO_DELETE_RIGHTS" Nullable="true" />
+    <Property Type="Int32" Name="US_USEPRO_EXEC_RIGHTS" Nullable="true" />
+    <Property Type="Int32" Name="US_USEPRO_EXPORT_RIGHTS" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="JO_ANAPRO_jobana_proare">
+    <Key>
+      <PropertyRef Name="JO_ANAPRO_ID" />
+    </Key>
+    <Property Name="JO_ANAPRO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JO_ANAPRO_JO_JOBANA_ID" Type="Int32" />
+    <Property Name="JO_ANAPRO_JO_PROARE_ID" Type="Int32" />
+    <NavigationProperty Name="JO_JOBANA_job_steps" Relationship="RebuildModel.FK_JO_ANAPRO_jobana_proare_JO_JOBANA_job_steps" FromRole="JO_ANAPRO_jobana_proare" ToRole="JO_JOBANA_job_steps" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_JO_ANAPRO_jobana_proare_JO_JOBANA_job_steps">
+    <End Type="RebuildModel.JO_JOBANA_job_steps" Role="JO_JOBANA_job_steps" Multiplicity="0..1" />
+    <End Type="RebuildModel.JO_ANAPRO_jobana_proare" Role="JO_ANAPRO_jobana_proare" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JO_JOBANA_job_steps">
+        <PropertyRef Name="JO_JOBANA_ID" />
+      </Principal>
+      <Dependent Role="JO_ANAPRO_jobana_proare">
+        <PropertyRef Name="JO_ANAPRO_JO_JOBANA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="US_AREVIS_area_visibility">
+    <Key>
+      <PropertyRef Name="US_AREVIS_ID" />
+    </Key>
+    <Property Name="US_AREVIS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="US_AREVIS_US_CLAVIS_ID" Type="Int32" Nullable="false" />
+    <Property Name="US_AREVIS_DESCRIPTION" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="US_AREVIS_PARENT_ID" Type="Int32" />
+    <Property Name="US_AREVIS_GROUP_TO_SEARCH" Type="Int32" />
+    <NavigationProperty Name="JO_JOBGRO_Job_groups" Relationship="RebuildModel.FK_JO_JOBGRO_AREVIS_ID" FromRole="US_AREVIS_area_visibility" ToRole="JO_JOBGRO_Job_groups" />
+    <NavigationProperty Name="US_AREGRO_area_groups" Relationship="RebuildModel.FK_US_VISGRO_US_AREVIS_ID" FromRole="US_AREVIS_area_visibility" ToRole="US_AREGRO_area_groups" />
+    <NavigationProperty Name="US_GROUPS_groups" Relationship="RebuildModel.fk_arevis_groups" FromRole="US_AREVIS_area_visibility" ToRole="US_GROUPS_groups" />
+    <Property Name="US_AREVIS_ORDER" Type="Int32" />
+    <Property Name="US_AREVIS_LOGO" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_JO_JOBGRO_AREVIS_ID">
+    <End Type="RebuildModel.US_AREVIS_area_visibility" Role="US_AREVIS_area_visibility" Multiplicity="0..1" />
+    <End Type="RebuildModel.JO_JOBGRO_Job_groups" Role="JO_JOBGRO_Job_groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="US_AREVIS_area_visibility">
+        <PropertyRef Name="US_AREVIS_ID" />
+      </Principal>
+      <Dependent Role="JO_JOBGRO_Job_groups">
+        <PropertyRef Name="JO_JOBGRO_US_AREVIS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_US_VISGRO_US_AREVIS_ID">
+    <End Type="RebuildModel.US_AREVIS_area_visibility" Role="US_AREVIS_area_visibility" Multiplicity="1" />
+    <End Type="RebuildModel.US_AREGRO_area_groups" Role="US_AREGRO_area_groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="US_AREVIS_area_visibility">
+        <PropertyRef Name="US_AREVIS_ID" />
+      </Principal>
+      <Dependent Role="US_AREGRO_area_groups">
+        <PropertyRef Name="US_AREGRO_US_AREVIS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_arevis_groups">
+    <End Type="RebuildModel.US_GROUPS_groups" Role="US_GROUPS_groups" Multiplicity="0..1" />
+    <End Type="RebuildModel.US_AREVIS_area_visibility" Role="US_AREVIS_area_visibility" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="US_GROUPS_groups">
+        <PropertyRef Name="US_GROUPS_ID" />
+      </Principal>
+      <Dependent Role="US_AREVIS_area_visibility">
+        <PropertyRef Name="US_AREVIS_GROUP_TO_SEARCH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="EV_GET_FUNCTIONS_FOR_STATUS_Result">
+    <Property Type="String" Name="EV_CLAEVE_DESCRIPTION" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="EV_TIPEVE_DESCRIPTION" Nullable="true" MaxLength="1000" />
+    <Property Type="Int32" Name="EV_EVESTA_ORDER" Nullable="false" />
+    <Property Type="Int32" Name="EV_EVESTA_FunctionID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="DO_CLAUTE_class_document_user">
+    <Key>
+      <PropertyRef Name="DO_CLAUTE_ID" />
+    </Key>
+    <Property Name="DO_CLAUTE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DO_CLAUTE_CLADOC_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_CLAUTE_US_GROUPS_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_CLAUTE_US_DEPROL_ID" Type="Int32" />
+    <Property Name="DO_CLAUTE_FLAG_WRITE" Type="Boolean" />
+    <Property Name="DO_CLAUTE_FLAG_MONITOR" Type="Boolean" />
+    <NavigationProperty Name="US_GROUPS_groups" Relationship="RebuildModel.FK_DO_CLAUTE_class_document_user_US_GROUPS_groups" FromRole="DO_CLAUTE_class_document_user" ToRole="US_GROUPS_groups" />
+    <NavigationProperty Name="DO_CLADOC_document_class" Relationship="RebuildModel.FK_DO_CLAUTE_class_document_user_DO_CLADOC_document_class" FromRole="DO_CLAUTE_class_document_user" ToRole="DO_CLADOC_document_class" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+    <Property Name="DO_CLAUTE_FLAG_ALERT_MAIL" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="DO_DOCREL_document_relation">
+    <Key>
+      <PropertyRef Name="DO_DOCREL_ID" />
+    </Key>
+    <Property Name="DO_DOCREL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DO_DOCREL_DO_DOCUME_ID" Type="Int32" />
+    <Property Name="DO_DOCREL_TABLE_NAME" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCREL_ID_RECORD" Type="Int32" />
+    <NavigationProperty Name="DO_DOCUME_documents" Relationship="RebuildModel.FK_DO_DOCREL_document_relation_DO_DOCUME_documents" FromRole="DO_DOCREL_document_relation" ToRole="DO_DOCUME_documents" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DO_STADOC_status">
+    <Key>
+      <PropertyRef Name="DO_STADOC_ID" />
+    </Key>
+    <Property Name="DO_STADOC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DO_STADOC_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DO_STADOC_DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DO_CLASTA_class_status" Relationship="RebuildModel.FK_DO_CLASTA_class_status_DO_STADOC_status" FromRole="DO_STADOC_status" ToRole="DO_CLASTA_class_status" />
+    <NavigationProperty Name="DO_STAWRK_status_workflow" Relationship="RebuildModel.FK_DO_STAWRK_status_workflow_DO_STADOC_status" FromRole="DO_STADOC_status" ToRole="DO_STAWRK_status_workflow" />
+    <Property Name="DO_STADOC_FLAG_HISTORY" Type="Boolean" />
+    <NavigationProperty Name="DO_DOCUME_documents" Relationship="RebuildModel.FK_DO_DOCUME_documents_DO_STADOC_status" FromRole="DO_STADOC_status" ToRole="DO_DOCUME_documents" />
+    <Property Name="DO_STADOC_FLAG_CAD" Type="Boolean" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+    <Property Name="DO_STADOC_FLAG_START" Type="Boolean" />
+    <NavigationProperty Name="DO_TIPDOC_document_type" Relationship="RebuildModel.FK_DO_TIPDOC_doc_DO_STADOC" FromRole="DO_STADOC_status" ToRole="DO_TIPDOC_document_type" />
+  </EntityType>
+  <Association Name="FK_DO_CLAUTE_class_document_user_US_GROUPS_groups">
+    <End Type="RebuildModel.US_GROUPS_groups" Role="US_GROUPS_groups" Multiplicity="1" />
+    <End Type="RebuildModel.DO_CLAUTE_class_document_user" Role="DO_CLAUTE_class_document_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="US_GROUPS_groups">
+        <PropertyRef Name="US_GROUPS_ID" />
+      </Principal>
+      <Dependent Role="DO_CLAUTE_class_document_user">
+        <PropertyRef Name="DO_CLAUTE_US_GROUPS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="EV_EVENT_EVENTS">
+    <Key>
+      <PropertyRef Name="EV_EVENT_ID" />
+    </Key>
+    <Property Name="EV_EVENT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EV_EVENT_EV_RULCAT_ID" Type="Int32" Nullable="false" />
+    <Property Name="EV_EVENT_EV_STAGE_ID" Type="Int32" />
+    <Property Name="EV_EVENT_MSTR_KEY_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="EV_EVENT_MSTR_KEY_VALUE" Type="Int32" />
+    <Property Name="EV_EVENT_CHLD_KEY_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="EV_EVENT_CHLD_KEY_VALUE" Type="Int32" />
+    <Property Name="EV_EVENT_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EV_EVENT_USER_ID" Type="Int32" Nullable="false" />
+    <Property Name="EV_EVENT_B_NO_VSBL" Type="Boolean" Nullable="false" />
+    <Property Name="EV_EVENT_CUSTOM_MSG" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DO_CLASTA_class_status">
+    <Key>
+      <PropertyRef Name="DO_CLASTA_ID" />
+    </Key>
+    <Property Name="DO_CLASTA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DO_CLASTA_DO_CLADOC_ID" Type="Int32" />
+    <Property Name="DO_CLASTA_DO_STADOC_ID" Type="Int32" />
+    <Property Name="DO_CLASTA_INITIAL" Type="Boolean" Nullable="false" />
+    <Property Name="DO_CLASTA_FINAL" Type="Boolean" Nullable="false" />
+    <Property Name="DO_CLASTA_ORDER" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DO_STADOC_status" Relationship="RebuildModel.FK_DO_CLASTA_class_status_DO_STADOC_status" FromRole="DO_CLASTA_class_status" ToRole="DO_STADOC_status" />
+    <NavigationProperty Name="DO_CLADOC_document_class" Relationship="RebuildModel.FK_DO_CLASTA_class_status_DO_CLADOC_document_class" FromRole="DO_CLASTA_class_status" ToRole="DO_CLADOC_document_class" />
+    <Property Name="DO_CLASTA_MONITOR_VISIBLE" Type="Boolean" Nullable="false" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_DO_CLASTA_class_status_DO_STADOC_status">
+    <End Type="RebuildModel.DO_STADOC_status" Role="DO_STADOC_status" Multiplicity="0..1" />
+    <End Type="RebuildModel.DO_CLASTA_class_status" Role="DO_CLASTA_class_status" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_STADOC_status">
+        <PropertyRef Name="DO_STADOC_ID" />
+      </Principal>
+      <Dependent Role="DO_CLASTA_class_status">
+        <PropertyRef Name="DO_CLASTA_DO_STADOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="DO_TIPDOC_document_type">
+    <Key>
+      <PropertyRef Name="DO_TIPDOC_ID" />
+    </Key>
+    <Property Name="DO_TIPDOC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DO_TIPDOC_DO_CLADOC_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_TIPDOC_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DO_TIPDOC_DESCRIPTION" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="DO_TIPDOC_FILE_MANDATORY" Type="Boolean" Nullable="false" />
+    <Property Name="DO_TIPDOC_FLAG_MANDATORY_EXP" Type="Boolean" Nullable="false" />
+    <Property Name="DO_TIPDOC_DAY_MONITOR" Type="Int32" Nullable="false" />
+    <Property Name="DO_TIPDOC_PATH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DO_TIPDOC_EXTENSIONS" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="MagicBOLayer_ID" Type="Int32" />
+    <NavigationProperty Name="DO_DOSTIP_dosssier_type_document" Relationship="RebuildModel.FK_DO_DOSTIP_dosssier_type_document_DO_TIPDOC_document_type" FromRole="DO_TIPDOC_document_type" ToRole="DO_DOSTIP_dosssier_type_document" />
+    <NavigationProperty Name="DO_OBTIDO_type_document" Relationship="RebuildModel.FK_DO_OBTIDO_type_document_DO_TIPDOC_document_type" FromRole="DO_TIPDOC_document_type" ToRole="DO_OBTIDO_type_document" />
+    <NavigationProperty Name="DO_CLADOC_document_class" Relationship="RebuildModel.FK_DO_TIPDOC_document_type_DO_CLADOC_document_class" FromRole="DO_TIPDOC_document_type" ToRole="DO_CLADOC_document_class" />
+    <NavigationProperty Name="DO_CAMUSE_fields_document_user" Relationship="RebuildModel.FK_DO_CAMUSE_fields_document_user_DO_TIPDOC_document_type" FromRole="DO_TIPDOC_document_type" ToRole="DO_CAMUSE_fields_document_user" />
+    <NavigationProperty Name="DO_DOCFIE_fields_document" Relationship="RebuildModel.FK_DO_CAMASS_fields_document_DO_TIPDOC_document_type" FromRole="DO_TIPDOC_document_type" ToRole="DO_DOCFIE_fields_document" />
+    <NavigationProperty Name="DO_DOCUME_documents" Relationship="RebuildModel.FK_DO_DOCUME_documents_DO_TIPDOC_document_type" FromRole="DO_TIPDOC_document_type" ToRole="DO_DOCUME_documents" />
+    <Property Name="DO_TIPDOC_FILE_MONITOR" Type="Boolean" Nullable="false" />
+    <Property Name="guidIdentifier" Type="Guid" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+    <Property Name="DO_TIPDOC_DAY_MONITOR_DUE" Type="Int32" Nullable="false" />
+    <Property Name="DO_TIPDOC_DO_STADOC_ID" Type="Int32" />
+    <NavigationProperty Name="DO_STADOC_status" Relationship="RebuildModel.FK_DO_TIPDOC_doc_DO_STADOC" FromRole="DO_TIPDOC_document_type" ToRole="DO_STADOC_status" />
+    <NavigationProperty Name="FL_TIPFIL_type_file" Relationship="RebuildModel.FK_FL_TIPFIL_type_file_DO_TIPDOC" FromRole="DO_TIPDOC_document_type" ToRole="FL_TIPFIL_type_file" />
+  </EntityType>
+  <EntityType Name="DO_DOCFIL_document_file">
+    <Key>
+      <PropertyRef Name="DO_DOCFIL_ID" />
+    </Key>
+    <Property Name="DO_DOCFIL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DO_DOCFIL_DO_DOCUME_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCFIL_NOTE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCFIL_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DO_DOCFIL_USERID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCFIL_DO_DOCVER_LAST" Type="Int32" />
+    <NavigationProperty Name="DO_DOCVER_versions" Relationship="RebuildModel.FK_DO_DOCFIL_document_file_DO_DOCVER_versions" FromRole="DO_DOCFIL_document_file" ToRole="DO_DOCVER_versions" />
+    <NavigationProperty Name="DO_DOCVER_versions1" Relationship="RebuildModel.FK_DO_DOCVER_versions_DO_DOCFIL_document_file" FromRole="DO_DOCFIL_document_file" ToRole="DO_DOCVER_versions" />
+    <NavigationProperty Name="DO_DOCUME_documents" Relationship="RebuildModel.FK_DO_DOCFIL_document_file_DO_DOCUME_documents" FromRole="DO_DOCFIL_document_file" ToRole="DO_DOCUME_documents" />
+    <Property Name="DO_DOCFIL_FLAG_MAIN_ASSET" Type="Boolean" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DO_DOCVER_versions">
+    <Key>
+      <PropertyRef Name="DO_DOCVER_ID" />
+    </Key>
+    <Property Name="DO_DOCVER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DO_DOCVER_DO_DOCFIL_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCVER_COUNTER" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCVER_NOTE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCVER_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DO_DOCVER_USERID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCVER_LINK_FILE" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DO_DOCFIL_document_file" Relationship="RebuildModel.FK_DO_DOCFIL_document_file_DO_DOCVER_versions" FromRole="DO_DOCVER_versions" ToRole="DO_DOCFIL_document_file" />
+    <NavigationProperty Name="DO_DOCFIL_document_file1" Relationship="RebuildModel.FK_DO_DOCVER_versions_DO_DOCFIL_document_file" FromRole="DO_DOCVER_versions" ToRole="DO_DOCFIL_document_file" />
+    <Property Name="DO_DOCVER_THUMBNAIL_LINK" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCVER_FLAG_AGGIORNATO" Type="Boolean" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_DO_DOCFIL_document_file_DO_DOCVER_versions">
+    <End Type="RebuildModel.DO_DOCVER_versions" Role="DO_DOCVER_versions" Multiplicity="0..1" />
+    <End Type="RebuildModel.DO_DOCFIL_document_file" Role="DO_DOCFIL_document_file" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_DOCVER_versions">
+        <PropertyRef Name="DO_DOCVER_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCFIL_document_file">
+        <PropertyRef Name="DO_DOCFIL_DO_DOCVER_LAST" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOCVER_versions_DO_DOCFIL_document_file">
+    <End Type="RebuildModel.DO_DOCFIL_document_file" Role="DO_DOCFIL_document_file" Multiplicity="1" />
+    <End Type="RebuildModel.DO_DOCVER_versions" Role="DO_DOCVER_versions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_DOCFIL_document_file">
+        <PropertyRef Name="DO_DOCFIL_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCVER_versions">
+        <PropertyRef Name="DO_DOCVER_DO_DOCFIL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CF_FIELDS_DATA_TYPE">
+    <Key>
+      <PropertyRef Name="CF_FIELDS_DATA_TYPE_ID" />
+    </Key>
+    <Property Name="CF_FIELDS_DATA_TYPE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CF_FIELDS_DATA_TYPE_CODE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CF_FIELDS_DATA_TYPE_NAME" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CF_FIELDS_DATA_TYPE_DATA_TYPE" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CF_FIELDS_DATA_TYPE_DESCRIPTION" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DATA_TYPE" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CHARACTER_MAXIMUM_LENGTH" Type="Int32" />
+    <Property Name="NUMERIC_PRECISION" Type="Byte" />
+    <Property Name="NUMERIC_PRECISION_RADIX" Type="Int16" />
+    <Property Name="DATETIME_PRECISION" Type="Int16" />
+    <NavigationProperty Name="DO_DOCFIE_fields_document" Relationship="RebuildModel.FK_DO_CAMASS_fields_document_CF_FIELDS_DATA_TYPE" FromRole="CF_FIELDS_DATA_TYPE" ToRole="DO_DOCFIE_fields_document" />
+    <NavigationProperty Name="DO_CAMUSE_fields_document_user" Relationship="RebuildModel.FK_DO_CAMUSE_fields_document_user_CF_FIELDS_DATA_TYPE" FromRole="CF_FIELDS_DATA_TYPE" ToRole="DO_CAMUSE_fields_document_user" />
+  </EntityType>
+  <EntityType Name="DO_V_DOCVER">
+    <Key>
+      <PropertyRef Name="DO_DOCVER_ID" />
+      <PropertyRef Name="DO_DOCVER_DO_DOCFIL_ID" />
+      <PropertyRef Name="DO_DOCVER_COUNTER" />
+      <PropertyRef Name="DO_DOCVER_DATE" />
+      <PropertyRef Name="DO_DOCVER_USERID" />
+      <PropertyRef Name="USERNAME" />
+      <PropertyRef Name="DO_DOCFIL_DO_DOCUME_ID" />
+    </Key>
+    <Property Name="DO_DOCVER_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCVER_DO_DOCFIL_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCVER_COUNTER" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCVER_NOTE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCVER_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DO_DOCVER_USERID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCVER_LINK_FILE" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="USERNAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCFIL_DO_DOCUME_ID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="usp_do_fascicolo_GetList_Result">
+    <Property Type="Int32" Name="DO_DOSSIE_ID" Nullable="false" />
+    <Property Type="String" Name="DO_DOSSIE_DESCRIPTION" Nullable="true" MaxLength="4000" />
+    <Property Type="Int32" Name="DO_Magic_BusinessObjectType_ID" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="WF_V_ACTAGG_aggregate_activities">
+    <Key>
+      <PropertyRef Name="taskTypeID" />
+      <PropertyRef Name="start" />
+      <PropertyRef Name="ActivitySource" />
+      <PropertyRef Name="ToBeAssigned" />
+    </Key>
+    <Property Name="taskTypeID" Type="Int32" Nullable="false" />
+    <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LinkedModelActivity_ID" Type="Int32" />
+    <Property Name="Activity" Type="String" MaxLength="615" FixedLength="false" Unicode="true" />
+    <Property Name="start" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ownerId" Type="Int32" />
+    <Property Name="ActivitySource" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="US_DEPROL_ID" Type="Int32" />
+    <Property Name="US_USEROL_ID" Type="Int32" />
+    <Property Name="US_USEROL_DESCRIPTION" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="US_DEPART_ID" Type="Int32" />
+    <Property Name="US_DEPART_DESCRIPTION" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MandatoryAssignment" Type="Int32" />
+    <Property Name="ToBeAssigned" Type="Int32" Nullable="false" />
+    <Property Name="Activity_counter" Type="Int32" />
+    <Property Name="taskTypeDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DO_DOSSIE_dossier">
+    <Key>
+      <PropertyRef Name="DO_DOSSIE_ID" />
+    </Key>
+    <Property Name="DO_DOSSIE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DO_DOSSIE_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOSSIE_DESCRIPTION" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOSSIE_CLADOS_ID" Type="Int32" />
+    <Property Name="DO_Magic_BusinessObjectType_ID" Type="Int32" />
+    <NavigationProperty Name="DO_CLADOS_dossier_class" Relationship="RebuildModel.FK_DOSSIE_CLADOS" FromRole="DO_DOSSIE_dossier" ToRole="DO_CLADOS_dossier_class" />
+    <NavigationProperty Name="DO_DOSTIP_dosssier_type_document" Relationship="RebuildModel.FK_DO_DOSTIP_dosssier_type_document_DO_DOSSIER_dossier" FromRole="DO_DOSSIE_dossier" ToRole="DO_DOSTIP_dosssier_type_document" />
+    <NavigationProperty Name="Magic_BusinessObjectTypes" Relationship="RebuildModel.FK_DO_DOSSIE_dossier_Magic_BusinessObjectTypes" FromRole="DO_DOSSIE_dossier" ToRole="Magic_BusinessObjectTypes" />
+    <NavigationProperty Name="DO_DOSUTE_dossier_user" Relationship="RebuildModel.FK_DO_DOSUTE_dossier_user_DO_DOSSIE_dossier" FromRole="DO_DOSSIE_dossier" ToRole="DO_DOSUTE_dossier_user" />
+    <Property Name="DO_DOSSIE_FLAG_ACTIVE" Type="Boolean" Nullable="false" />
+    <Property Name="DO_DOSSIE_FL_PRIVAT" Type="Boolean" Nullable="false" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DO_CLADOS_dossier_class">
+    <Key>
+      <PropertyRef Name="DO_CLADOS_ID" />
+    </Key>
+    <Property Name="DO_CLADOS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DO_CLADOS_CODE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DO_CLADOS_DESCRIPTION" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DO_DOSSIE_dossier" Relationship="RebuildModel.FK_DOSSIE_CLADOS" FromRole="DO_CLADOS_dossier_class" ToRole="DO_DOSSIE_dossier" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DO_DOCGRO_Document_groups">
+    <Key>
+      <PropertyRef Name="DO_DOCGRO_ID" />
+    </Key>
+    <Property Name="DO_DOCGRO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DO_DOCGRO_DO_DOCUME_ID" Type="Int32" />
+    <Property Name="DO_DOCGRO_US_GROUPS_ID" Type="Int32" />
+    <NavigationProperty Name="US_GROUPS_groups" Relationship="RebuildModel.FK_DOCGRO_GROUPS" FromRole="DO_DOCGRO_Document_groups" ToRole="US_GROUPS_groups" />
+    <NavigationProperty Name="DO_DOCUME_documents" Relationship="RebuildModel.FK_DO_DOCGRO_Document_groups_DO_DOCUME_documents" FromRole="DO_DOCGRO_Document_groups" ToRole="DO_DOCUME_documents" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DO_DOSTIP_dosssier_type_document">
+    <Key>
+      <PropertyRef Name="DO_DOSTIP_ID" />
+    </Key>
+    <Property Name="DO_DOSTIP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DO_DOSTIP_DO_DOSSIE_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOSTIP_DO_TIPDOC_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DO_DOSSIE_dossier" Relationship="RebuildModel.FK_DO_DOSTIP_dosssier_type_document_DO_DOSSIER_dossier" FromRole="DO_DOSTIP_dosssier_type_document" ToRole="DO_DOSSIE_dossier" />
+    <NavigationProperty Name="DO_TIPDOC_document_type" Relationship="RebuildModel.FK_DO_DOSTIP_dosssier_type_document_DO_TIPDOC_document_type" FromRole="DO_DOSTIP_dosssier_type_document" ToRole="DO_TIPDOC_document_type" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DO_OBTIDO_type_document">
+    <Key>
+      <PropertyRef Name="DO_OBTIDO_ID" />
+    </Key>
+    <Property Name="DO_OBTIDO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DO_OBTIDO_DO_TIPDOC_ID" Type="Int32" />
+    <Property Name="DO_OBTIDO_BusinessObjectType_ID" Type="Int32" />
+    <NavigationProperty Name="DO_TIPDOC_document_type" Relationship="RebuildModel.FK_DO_OBTIDO_type_document_DO_TIPDOC_document_type" FromRole="DO_OBTIDO_type_document" ToRole="DO_TIPDOC_document_type" />
+    <NavigationProperty Name="Magic_BusinessObjectTypes" Relationship="RebuildModel.FK_OBTIDO_BUSINESSOBJECTTYPE" FromRole="DO_OBTIDO_type_document" ToRole="Magic_BusinessObjectTypes" />
+    <Property Name="DO_OBTIDO_VIEW_MISSING" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DO_STAWRK_status_workflow">
+    <Key>
+      <PropertyRef Name="DO_STAWRK_ID" />
+    </Key>
+    <Property Name="DO_STAWRK_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DO_STAWKR_DO_STADOC_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_STAWRK_WrkStatus_Id" Type="Int32" Nullable="false" />
+    <Property Name="DO_STAWRK_WrkTypeAct_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DO_STADOC_status" Relationship="RebuildModel.FK_DO_STAWRK_status_workflow_DO_STADOC_status" FromRole="DO_STAWRK_status_workflow" ToRole="DO_STADOC_status" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_DOSSIE_CLADOS">
+    <End Type="RebuildModel.DO_CLADOS_dossier_class" Role="DO_CLADOS_dossier_class" Multiplicity="0..1" />
+    <End Type="RebuildModel.DO_DOSSIE_dossier" Role="DO_DOSSIE_dossier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_CLADOS_dossier_class">
+        <PropertyRef Name="DO_CLADOS_ID" />
+      </Principal>
+      <Dependent Role="DO_DOSSIE_dossier">
+        <PropertyRef Name="DO_DOSSIE_CLADOS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOCGRO_GROUPS">
+    <End Type="RebuildModel.US_GROUPS_groups" Role="US_GROUPS_groups" Multiplicity="0..1" />
+    <End Type="RebuildModel.DO_DOCGRO_Document_groups" Role="DO_DOCGRO_Document_groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="US_GROUPS_groups">
+        <PropertyRef Name="US_GROUPS_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCGRO_Document_groups">
+        <PropertyRef Name="DO_DOCGRO_US_GROUPS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOSTIP_dosssier_type_document_DO_DOSSIER_dossier">
+    <End Type="RebuildModel.DO_DOSSIE_dossier" Role="DO_DOSSIE_dossier" Multiplicity="1" />
+    <End Type="RebuildModel.DO_DOSTIP_dosssier_type_document" Role="DO_DOSTIP_dosssier_type_document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_DOSSIE_dossier">
+        <PropertyRef Name="DO_DOSSIE_ID" />
+      </Principal>
+      <Dependent Role="DO_DOSTIP_dosssier_type_document">
+        <PropertyRef Name="DO_DOSTIP_DO_DOSSIE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOSTIP_dosssier_type_document_DO_TIPDOC_document_type">
+    <End Type="RebuildModel.DO_TIPDOC_document_type" Role="DO_TIPDOC_document_type" Multiplicity="1" />
+    <End Type="RebuildModel.DO_DOSTIP_dosssier_type_document" Role="DO_DOSTIP_dosssier_type_document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_TIPDOC_document_type">
+        <PropertyRef Name="DO_TIPDOC_ID" />
+      </Principal>
+      <Dependent Role="DO_DOSTIP_dosssier_type_document">
+        <PropertyRef Name="DO_DOSTIP_DO_TIPDOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_OBTIDO_type_document_DO_TIPDOC_document_type">
+    <End Type="RebuildModel.DO_TIPDOC_document_type" Role="DO_TIPDOC_document_type" Multiplicity="0..1" />
+    <End Type="RebuildModel.DO_OBTIDO_type_document" Role="DO_OBTIDO_type_document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_TIPDOC_document_type">
+        <PropertyRef Name="DO_TIPDOC_ID" />
+      </Principal>
+      <Dependent Role="DO_OBTIDO_type_document">
+        <PropertyRef Name="DO_OBTIDO_DO_TIPDOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_STAWRK_status_workflow_DO_STADOC_status">
+    <End Type="RebuildModel.DO_STADOC_status" Role="DO_STADOC_status" Multiplicity="1" />
+    <End Type="RebuildModel.DO_STAWRK_status_workflow" Role="DO_STAWRK_status_workflow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_STADOC_status">
+        <PropertyRef Name="DO_STADOC_ID" />
+      </Principal>
+      <Dependent Role="DO_STAWRK_status_workflow">
+        <PropertyRef Name="DO_STAWKR_DO_STADOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="DO_CLADOC_document_class">
+    <Key>
+      <PropertyRef Name="DO_CLADOC_ID" />
+    </Key>
+    <Property Name="DO_CLADOC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DO_CLADOC_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DO_CLADOC_DESCRIPTION" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="DO_CLADOC_FLAG_PHOTO" Type="Boolean" />
+    <Property Name="DO_CLADOC_ORDER" Type="Int32" />
+    <Property Name="DO_CLADOC_PATH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DO_CLADOC_COLOR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MagicBOLayer_ID" Type="Int32" />
+    <NavigationProperty Name="DO_CLASTA_class_status" Relationship="RebuildModel.FK_DO_CLASTA_class_status_DO_CLADOC_document_class" FromRole="DO_CLADOC_document_class" ToRole="DO_CLASTA_class_status" />
+    <NavigationProperty Name="DO_CLAUTE_class_document_user" Relationship="RebuildModel.FK_DO_CLAUTE_class_document_user_DO_CLADOC_document_class" FromRole="DO_CLADOC_document_class" ToRole="DO_CLAUTE_class_document_user" />
+    <NavigationProperty Name="DO_TIPDOC_document_type" Relationship="RebuildModel.FK_DO_TIPDOC_document_type_DO_CLADOC_document_class" FromRole="DO_CLADOC_document_class" ToRole="DO_TIPDOC_document_type" />
+    <NavigationProperty Name="DO_CAMUSE_fields_document_user" Relationship="RebuildModel.FK_DO_CAMUSE_fields_document_user_DO_CLADOC_document_class" FromRole="DO_CLADOC_document_class" ToRole="DO_CAMUSE_fields_document_user" />
+    <NavigationProperty Name="DO_DOCFIE_fields_document" Relationship="RebuildModel.FK_DO_DOCFIE_fields_document_DO_CLADOC_document_class" FromRole="DO_CLADOC_document_class" ToRole="DO_DOCFIE_fields_document" />
+    <Property Name="guidIdentifier" Type="Guid" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_DO_CLASTA_class_status_DO_CLADOC_document_class">
+    <End Type="RebuildModel.DO_CLADOC_document_class" Role="DO_CLADOC_document_class" Multiplicity="0..1" />
+    <End Type="RebuildModel.DO_CLASTA_class_status" Role="DO_CLASTA_class_status" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_CLADOC_document_class">
+        <PropertyRef Name="DO_CLADOC_ID" />
+      </Principal>
+      <Dependent Role="DO_CLASTA_class_status">
+        <PropertyRef Name="DO_CLASTA_DO_CLADOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_CLAUTE_class_document_user_DO_CLADOC_document_class">
+    <End Type="RebuildModel.DO_CLADOC_document_class" Role="DO_CLADOC_document_class" Multiplicity="1" />
+    <End Type="RebuildModel.DO_CLAUTE_class_document_user" Role="DO_CLAUTE_class_document_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_CLADOC_document_class">
+        <PropertyRef Name="DO_CLADOC_ID" />
+      </Principal>
+      <Dependent Role="DO_CLAUTE_class_document_user">
+        <PropertyRef Name="DO_CLAUTE_CLADOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_TIPDOC_document_type_DO_CLADOC_document_class">
+    <End Type="RebuildModel.DO_CLADOC_document_class" Role="DO_CLADOC_document_class" Multiplicity="1" />
+    <End Type="RebuildModel.DO_TIPDOC_document_type" Role="DO_TIPDOC_document_type" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_CLADOC_document_class">
+        <PropertyRef Name="DO_CLADOC_ID" />
+      </Principal>
+      <Dependent Role="DO_TIPDOC_document_type">
+        <PropertyRef Name="DO_TIPDOC_DO_CLADOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="usp_do_fascicolo_GetDocuments_Result">
+    <Property Type="Int32" Name="DO_DOCUME_ID" Nullable="false" />
+    <Property Type="Int32" Name="DO_DOCUME_DO_TIPDOC_ID" Nullable="true" />
+    <Property Type="String" Name="DO_DOCUME_DESCRIPTION" Nullable="true" />
+    <Property Type="DateTime" Name="DO_DOCUME_ISSUE_DATE" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DO_DOCUME_EXPIRY_DATE" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="DO_DOCUME_DO_STADOC_ID" Nullable="true" />
+    <Property Type="Boolean" Name="DO_DOCUME_FLAG_NO_ACTIVE" Nullable="true" />
+    <Property Type="String" Name="DO_DOCUME_XML_CAMASS_VALUES" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="DO_DOCUME_XML_CAMUTE_VALUES" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="DO_TIPDOC_DO_CLADOC_ID" Nullable="true" />
+    <Property Type="String" Name="DO_TIPDOC_EXTENSIONS" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="DO_TIPDOC_PATH" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DO_CLADOC_PATH" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DO_STADOC_DESCRIPTION" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="MagicBOLayerID" Nullable="true" />
+    <Property Type="String" Name="DO_CLADOC_DESCRIPTION" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="DO_TIPDOC_DESCRIPTION" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="fakeforlink" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="MagicBusinessObjectList" Nullable="true" />
+    <Property Type="String" Name="OBJECT_DESCRIPTION" Nullable="true" MaxLength="1000" />
+    <Property Type="Int32" Name="OBJECT_ID" Nullable="true" />
+    <Property Type="Int32" Name="OBJECT_TYPE_ID" Nullable="true" />
+    <Property Type="String" Name="OBJECT_CODE" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="DO_V_DOCUME_MISSING">
+    <Key>
+      <PropertyRef Name="DO_CLADOC_ID" />
+      <PropertyRef Name="DO_TIPDOC_ID" />
+      <PropertyRef Name="MagicBOLayerID" />
+      <PropertyRef Name="OBJECT_DESCRIPTION" />
+      <PropertyRef Name="OBJECT_CODE" />
+      <PropertyRef Name="OBJECT_ID" />
+    </Key>
+    <Property Name="DO_CLADOC_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_CLADOC_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DO_CLADOC_DESCRIPTION" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="DO_CLADOC_PATH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DO_TIPDOC_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_TIPDOC_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DO_TIPDOC_DESCRIPTION" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="DO_TIPDOC_EXTENSIONS" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DO_TIPDOC_PATH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MagicBOLayerID" Type="Int32" Nullable="false" />
+    <Property Name="OBJECT_DESCRIPTION" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="OBJECT_CODE" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="OBJECT_ID" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="get_do_cladoc_for_user_Result">
+    <Property Type="Int32" Name="do_cladoc_id" Nullable="true" />
+    <Property Type="String" Name="do_cladoc_code" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="do_cladoc_description" Nullable="true" MaxLength="1000" />
+  </ComplexType>
+  <ComplexType Name="usp_do_dossier_GetMissingDocs_Result">
+    <Property Type="Int32" Name="DO_CLADOC_ID" Nullable="true" />
+    <Property Type="String" Name="DO_CLADOC_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DO_CLADOC_DESCRIPTION" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="DO_CLADOC_PATH" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="DO_TIPDOC_ID" Nullable="true" />
+    <Property Type="String" Name="DO_TIPDOC_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DO_TIPDOC_DESCRIPTION" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="DO_TIPDOC_EXTENSIONS" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="DO_TIPDOC_PATH" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="MagicBOLayerID" Nullable="true" />
+    <Property Type="String" Name="OBJECT_DESCRIPTION" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="OBJECT_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OBJECT_ID" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="M_TIPSAS_TIPASS">
+    <Key>
+      <PropertyRef Name="AS_TIPASS_ID" />
+      <PropertyRef Name="AS_TIPSAS_ID" />
+    </Key>
+    <Property Name="viewID" Type="Int64" />
+    <Property Name="AS_TIPASS_ID" Type="Int32" Nullable="false" />
+    <Property Name="AS_TIPASS_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AS_TIPASS_DESCRIPTION" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AS_TIPSAS_ID" Type="Int32" Nullable="false" />
+    <Property Name="AS_TIPSAS_CODICE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AS_TIPSAS_DESCRIZIONE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsChecked" Type="Boolean" />
+    <Property Name="AS_SUBTIP_ORDINE" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DO_CAMUSE_fields_document_user">
+    <Key>
+      <PropertyRef Name="DO_CAMUSE_ID" />
+    </Key>
+    <Property Name="DO_CAMUSE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DO_CAMUSE_DO_CLADOC_ID" Type="Int32" />
+    <Property Name="DO_CAMUSE_DO_TIPDOC_ID" Type="Int32" />
+    <Property Name="DO_CAMUSE_FIELD_DB" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DO_CAMUSE_CF_FIELDS_DATA_TYPE_ID" Type="Int32" />
+    <Property Name="DO_CAMUSE_MagicColumnID" Type="Int32" />
+    <NavigationProperty Name="CF_FIELDS_DATA_TYPE" Relationship="RebuildModel.FK_DO_CAMUSE_fields_document_user_CF_FIELDS_DATA_TYPE" FromRole="DO_CAMUSE_fields_document_user" ToRole="CF_FIELDS_DATA_TYPE" />
+    <NavigationProperty Name="DO_CLADOC_document_class" Relationship="RebuildModel.FK_DO_CAMUSE_fields_document_user_DO_CLADOC_document_class" FromRole="DO_CAMUSE_fields_document_user" ToRole="DO_CLADOC_document_class" />
+    <NavigationProperty Name="DO_TIPDOC_document_type" Relationship="RebuildModel.FK_DO_CAMUSE_fields_document_user_DO_TIPDOC_document_type" FromRole="DO_CAMUSE_fields_document_user" ToRole="DO_TIPDOC_document_type" />
+  </EntityType>
+  <EntityType Name="DO_DOCFIE_fields_document">
+    <Key>
+      <PropertyRef Name="DO_DOCFIE_ID" />
+    </Key>
+    <Property Name="DO_DOCFIE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DO_DOCFIE_DO_CLADOC_ID" Type="Int32" />
+    <Property Name="DO_DOCFIE_DO_TIPDOC_ID" Type="Int32" />
+    <Property Name="DO_DOCFIE_FIELD_DB" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCFIE_CF_FIELDS_DATA_TYPE_ID" Type="Int32" />
+    <Property Name="DO_DOCFIE_MagicColumnID" Type="Int32" />
+    <NavigationProperty Name="CF_FIELDS_DATA_TYPE" Relationship="RebuildModel.FK_DO_CAMASS_fields_document_CF_FIELDS_DATA_TYPE" FromRole="DO_DOCFIE_fields_document" ToRole="CF_FIELDS_DATA_TYPE" />
+    <NavigationProperty Name="DO_CLADOC_document_class" Relationship="RebuildModel.FK_DO_DOCFIE_fields_document_DO_CLADOC_document_class" FromRole="DO_DOCFIE_fields_document" ToRole="DO_CLADOC_document_class" />
+    <NavigationProperty Name="DO_TIPDOC_document_type" Relationship="RebuildModel.FK_DO_CAMASS_fields_document_DO_TIPDOC_document_type" FromRole="DO_DOCFIE_fields_document" ToRole="DO_TIPDOC_document_type" />
+  </EntityType>
+  <Association Name="FK_DO_CAMASS_fields_document_CF_FIELDS_DATA_TYPE">
+    <End Type="RebuildModel.CF_FIELDS_DATA_TYPE" Role="CF_FIELDS_DATA_TYPE" Multiplicity="0..1" />
+    <End Type="RebuildModel.DO_DOCFIE_fields_document" Role="DO_DOCFIE_fields_document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CF_FIELDS_DATA_TYPE">
+        <PropertyRef Name="CF_FIELDS_DATA_TYPE_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCFIE_fields_document">
+        <PropertyRef Name="DO_DOCFIE_CF_FIELDS_DATA_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_CAMUSE_fields_document_user_CF_FIELDS_DATA_TYPE">
+    <End Type="RebuildModel.CF_FIELDS_DATA_TYPE" Role="CF_FIELDS_DATA_TYPE" Multiplicity="0..1" />
+    <End Type="RebuildModel.DO_CAMUSE_fields_document_user" Role="DO_CAMUSE_fields_document_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CF_FIELDS_DATA_TYPE">
+        <PropertyRef Name="CF_FIELDS_DATA_TYPE_ID" />
+      </Principal>
+      <Dependent Role="DO_CAMUSE_fields_document_user">
+        <PropertyRef Name="DO_CAMUSE_CF_FIELDS_DATA_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_CAMUSE_fields_document_user_DO_CLADOC_document_class">
+    <End Type="RebuildModel.DO_CLADOC_document_class" Role="DO_CLADOC_document_class" Multiplicity="0..1" />
+    <End Type="RebuildModel.DO_CAMUSE_fields_document_user" Role="DO_CAMUSE_fields_document_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_CLADOC_document_class">
+        <PropertyRef Name="DO_CLADOC_ID" />
+      </Principal>
+      <Dependent Role="DO_CAMUSE_fields_document_user">
+        <PropertyRef Name="DO_CAMUSE_DO_CLADOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_CAMUSE_fields_document_user_DO_TIPDOC_document_type">
+    <End Type="RebuildModel.DO_TIPDOC_document_type" Role="DO_TIPDOC_document_type" Multiplicity="0..1" />
+    <End Type="RebuildModel.DO_CAMUSE_fields_document_user" Role="DO_CAMUSE_fields_document_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_TIPDOC_document_type">
+        <PropertyRef Name="DO_TIPDOC_ID" />
+      </Principal>
+      <Dependent Role="DO_CAMUSE_fields_document_user">
+        <PropertyRef Name="DO_CAMUSE_DO_TIPDOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOCFIE_fields_document_DO_CLADOC_document_class">
+    <End Type="RebuildModel.DO_CLADOC_document_class" Role="DO_CLADOC_document_class" Multiplicity="0..1" />
+    <End Type="RebuildModel.DO_DOCFIE_fields_document" Role="DO_DOCFIE_fields_document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_CLADOC_document_class">
+        <PropertyRef Name="DO_CLADOC_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCFIE_fields_document">
+        <PropertyRef Name="DO_DOCFIE_DO_CLADOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_CAMASS_fields_document_DO_TIPDOC_document_type">
+    <End Type="RebuildModel.DO_TIPDOC_document_type" Role="DO_TIPDOC_document_type" Multiplicity="0..1" />
+    <End Type="RebuildModel.DO_DOCFIE_fields_document" Role="DO_DOCFIE_fields_document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_TIPDOC_document_type">
+        <PropertyRef Name="DO_TIPDOC_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCFIE_fields_document">
+        <PropertyRef Name="DO_DOCFIE_DO_TIPDOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AS_V_LOCATION_locationextended">
+    <Key>
+      <PropertyRef Name="LOCATION_ID" />
+      <PropertyRef Name="LOCATION_DESCRIPTION" />
+    </Key>
+    <Property Name="LOCATION_ID" Type="Int32" Nullable="false" />
+    <Property Name="LOCATION_DESCRIPTION" Type="String" Nullable="false" MaxLength="508" FixedLength="false" Unicode="true" />
+    <Property Name="LOCATION_NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LOCATION_STREET_ID" Type="Int32" />
+    <Property Name="LOCATION_DESCRIPTION_LONG" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="usp_do_botypes_GetList_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="512" />
+  </ComplexType>
+  <ComplexType Name="GET_ASSET_TREE_Result">
+    <Property Type="Int32" Name="ASSET_ID" Nullable="true" />
+    <Property Type="String" Name="ASSET_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ASSET_DESCRIZIONE" Nullable="true" MaxLength="1000" />
+    <Property Type="Int32" Name="ASSET_ID_PADRE" Nullable="true" />
+    <Property Type="Int32" Name="AS_ASSET_TIPASS_ID" Nullable="true" />
+    <Property Type="Int32" Name="AS_ASSET_TIPSAS_ID" Nullable="true" />
+    <Property Type="Int32" Name="LIVELLO" Nullable="true" />
+    <Property Type="Int32" Name="AS_ASSET_LOCATION_ID" Nullable="true" />
+    <Property Type="String" Name="AS_path" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AS_TIPASS_DESCRIPTION" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="AS_TIPSAS_DESCRIZIONE" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="AS_TIPSAS_ICONA" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="MagicTemplateID" Nullable="true" />
+    <Property Type="String" Name="MagicGridName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="MagicBOLayerID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="AS_GET_ASSET_MAIN_TB_Result">
+    <Property Type="Int32" Name="AS_ASSET_ID" Nullable="true" />
+    <Property Type="String" Name="AS_ASSET_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AS_ASSET_DESCRIZIONE" Nullable="true" MaxLength="1000" />
+  </ComplexType>
+  <EntityType Name="Magic_BusinessObjectTypes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BusinessObjectType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="MagicGrid_Id" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="BODescriptionQuery" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TAGQuery" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EntityName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DO_DOSSIE_dossier" Relationship="RebuildModel.FK_DO_DOSSIE_dossier_Magic_BusinessObjectTypes" FromRole="Magic_BusinessObjectTypes" ToRole="DO_DOSSIE_dossier" />
+    <NavigationProperty Name="DO_OBTIDO_type_document" Relationship="RebuildModel.FK_OBTIDO_BUSINESSOBJECTTYPE" FromRole="Magic_BusinessObjectTypes" ToRole="DO_OBTIDO_type_document" />
+    <Property Name="MagicGridName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_DO_DOSSIE_dossier_Magic_BusinessObjectTypes">
+    <End Type="RebuildModel.Magic_BusinessObjectTypes" Role="Magic_BusinessObjectTypes" Multiplicity="0..1" />
+    <End Type="RebuildModel.DO_DOSSIE_dossier" Role="DO_DOSSIE_dossier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magic_BusinessObjectTypes">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DO_DOSSIE_dossier">
+        <PropertyRef Name="DO_Magic_BusinessObjectType_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OBTIDO_BUSINESSOBJECTTYPE">
+    <End Type="RebuildModel.Magic_BusinessObjectTypes" Role="Magic_BusinessObjectTypes" Multiplicity="0..1" />
+    <End Type="RebuildModel.DO_OBTIDO_type_document" Role="DO_OBTIDO_type_document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magic_BusinessObjectTypes">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DO_OBTIDO_type_document">
+        <PropertyRef Name="DO_OBTIDO_BusinessObjectType_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="DO_V_DOCFIE_class_doc_fields">
+    <Key>
+      <PropertyRef Name="DO_DOCFIE_ID" />
+      <PropertyRef Name="DO_DOCFIE_MagicColumnID" />
+      <PropertyRef Name="DO_DOCFIE_TAB_NAME" />
+      <PropertyRef Name="MagicGrid_ID" />
+    </Key>
+    <Property Name="DO_DOCFIE_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCFIE_DO_CLADOC_ID" Type="Int32" />
+    <Property Name="DO_DOCFIE_DO_TIPDOC_ID" Type="Int32" />
+    <Property Name="DO_DOCFIE_MANDATORY" Type="Boolean" />
+    <Property Name="DO_DOCFIE_FIELD_DB" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DO_DOCFIE_TABLE_JOIN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCFIE_FIELD_JOIN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCFIE_DESCRIPTION_JOIN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCFIE_MagicColumnID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCFIE_CF_FIELDS_DATA_TYPE_ID" Type="Int32" />
+    <Property Name="DO_DOCFIE_TAB_NAME" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCFIE_ORDINAL_POSITION" Type="Int32" />
+    <Property Name="Columns_label" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MagicGrid_ID" Type="Int32" Nullable="false" />
+    <Property Name="MagicGridName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="DO_GET_UI_ELEMENTS_Result">
+    <Property Type="Int32" Name="DO_CLADOC_ID" Nullable="false" />
+    <Property Type="String" Name="DO_CLADOC_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DO_CLADOC_DESCRIPTION" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="DO_CLADOC_COLOR" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="DO_TIPDOC_ID" Nullable="false" />
+    <Property Type="Int32" Name="DO_TIPDOC_DO_CLADOC_ID" Nullable="false" />
+    <Property Type="String" Name="DO_TIPDOC_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DO_TIPDOC_DESCRIPTION" Nullable="true" MaxLength="1000" />
+    <Property Type="Int32" Name="q_tipdoc" Nullable="false" />
+    <Property Type="Int32" Name="q_tipdoc_sca" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="AS_ASSET_asset">
+    <Key>
+      <PropertyRef Name="AS_ASSET_ID" />
+    </Key>
+    <Property Name="AS_ASSET_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AS_ASSET_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AS_ASSET_ID_PADRE" Type="Int32" />
+    <Property Name="AS_ASSET_DESCRIZIONE" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="AS_ASSET_LOCATION_ID" Type="Int32" />
+    <Property Name="AS_ASSET_TIPASS_ID" Type="Int32" Nullable="false" />
+    <Property Name="AS_ASSET_TIPSAS_ID" Type="Int32" Nullable="false" />
+    <Property Name="AS_ASSET_SASSPE_ID" Type="Int32" />
+    <Property Name="AS_ASSET_DATA_INIZIO" Type="DateTime" Precision="3" />
+    <Property Name="AS_ASSET_DATA_FINE" Type="DateTime" Precision="3" />
+    <Property Name="AS_ASSET_SUPERFICIE" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="AS_ASSET_CODE_OLD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AS_ASSET_ID_ASSET_ORIGINE" Type="Int32" />
+    <Property Name="AS_ASSET_XML_CAMASS_VALUES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AS_ASSET_XML_CAMUSE_VALUES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GROUPS_LIST" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="AS_ASSET_EV_STAGE_ID" Type="Int32" />
+    <NavigationProperty Name="AS_ASSET_asset1" Relationship="RebuildModel.FK_AS_ASSET_asset_AS_ASSET_asset" FromRole="AS_ASSET_asset" ToRole="AS_ASSET_asset1" />
+    <NavigationProperty Name="AS_ASSET_asset2" Relationship="RebuildModel.FK_AS_ASSET_asset_AS_ASSET_asset" FromRole="AS_ASSET_asset1" ToRole="AS_ASSET_asset" />
+    <Property Name="AS_ASSET_LONG_DESC" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+    <Property Name="AS_ASSET_THUMBNAIL" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_AS_ASSET_asset_AS_ASSET_asset">
+    <End Type="RebuildModel.AS_ASSET_asset" Role="AS_ASSET_asset" Multiplicity="0..1" />
+    <End Type="RebuildModel.AS_ASSET_asset" Role="AS_ASSET_asset1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AS_ASSET_asset">
+        <PropertyRef Name="AS_ASSET_ID" />
+      </Principal>
+      <Dependent Role="AS_ASSET_asset1">
+        <PropertyRef Name="AS_ASSET_ID_PADRE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="DO_DOCUME_documents">
+    <Key>
+      <PropertyRef Name="DO_DOCUME_ID" />
+    </Key>
+    <Property Name="DO_DOCUME_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DO_DOCUME_DO_TIPDOC_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCUME_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_ISSUE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="DO_DOCUME_EXPIRY_DATE" Type="DateTime" Precision="3" />
+    <Property Name="DO_DOCUME_DO_STADOC_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCUME_FLAG_NO_ACTIVE" Type="Boolean" Nullable="false" />
+    <Property Name="DO_DOCUME_XML_CAMASS_VALUES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_XML_CAMUTE_VALUES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_DATA_PROT" Type="DateTime" Precision="3" />
+    <Property Name="DO_DOCUME_NUM_PROT" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_NOTE" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_NUM" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="DO_DOCUME_CODE" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="DO_DOCUME_DATE_INS" Type="DateTime" Precision="3" />
+    <Property Name="DO_DOCUME_DATE_LAS_UPD" Type="DateTime" Precision="3" />
+    <Property Name="DO_DOCUME_USERID" Type="Int32" />
+    <Property Name="DO_DOCUME_ID_PADRE" Type="Int32" />
+    <NavigationProperty Name="DO_DOCFIL_document_file" Relationship="RebuildModel.FK_DO_DOCFIL_document_file_DO_DOCUME_documents" FromRole="DO_DOCUME_documents" ToRole="DO_DOCFIL_document_file" />
+    <NavigationProperty Name="DO_DOCGRO_Document_groups" Relationship="RebuildModel.FK_DO_DOCGRO_Document_groups_DO_DOCUME_documents" FromRole="DO_DOCUME_documents" ToRole="DO_DOCGRO_Document_groups" />
+    <NavigationProperty Name="DO_DOCREL_document_relation" Relationship="RebuildModel.FK_DO_DOCREL_document_relation_DO_DOCUME_documents" FromRole="DO_DOCUME_documents" ToRole="DO_DOCREL_document_relation" />
+    <NavigationProperty Name="DO_DOCUME_documents1" Relationship="RebuildModel.FK_DO_DOCUME_DO_DOCUME_padre" FromRole="DO_DOCUME_documents" ToRole="DO_DOCUME_documents1" />
+    <NavigationProperty Name="DO_DOCUME_documents2" Relationship="RebuildModel.FK_DO_DOCUME_DO_DOCUME_padre" FromRole="DO_DOCUME_documents1" ToRole="DO_DOCUME_documents" />
+    <NavigationProperty Name="DO_DOCUME_documents11" Relationship="RebuildModel.FK_DO_DOCUME_documents_DO_DOCUME_documents" FromRole="DO_DOCUME_documents" ToRole="DO_DOCUME_documents1" />
+    <NavigationProperty Name="DO_DOCUME_documents3" Relationship="RebuildModel.FK_DO_DOCUME_documents_DO_DOCUME_documents" FromRole="DO_DOCUME_documents1" ToRole="DO_DOCUME_documents" />
+    <NavigationProperty Name="DO_STADOC_status" Relationship="RebuildModel.FK_DO_DOCUME_documents_DO_STADOC_status" FromRole="DO_DOCUME_documents" ToRole="DO_STADOC_status" />
+    <NavigationProperty Name="DO_TIPDOC_document_type" Relationship="RebuildModel.FK_DO_DOCUME_documents_DO_TIPDOC_document_type" FromRole="DO_DOCUME_documents" ToRole="DO_TIPDOC_document_type" />
+    <Property Name="GROUPS_LIST" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_FL_PRIVAT" Type="Boolean" Nullable="false" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_DO_DOCFIL_document_file_DO_DOCUME_documents">
+    <End Type="RebuildModel.DO_DOCUME_documents" Role="DO_DOCUME_documents" Multiplicity="1" />
+    <End Type="RebuildModel.DO_DOCFIL_document_file" Role="DO_DOCFIL_document_file" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_DOCUME_documents">
+        <PropertyRef Name="DO_DOCUME_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCFIL_document_file">
+        <PropertyRef Name="DO_DOCFIL_DO_DOCUME_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOCGRO_Document_groups_DO_DOCUME_documents">
+    <End Type="RebuildModel.DO_DOCUME_documents" Role="DO_DOCUME_documents" Multiplicity="0..1" />
+    <End Type="RebuildModel.DO_DOCGRO_Document_groups" Role="DO_DOCGRO_Document_groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_DOCUME_documents">
+        <PropertyRef Name="DO_DOCUME_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCGRO_Document_groups">
+        <PropertyRef Name="DO_DOCGRO_DO_DOCUME_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOCREL_document_relation_DO_DOCUME_documents">
+    <End Type="RebuildModel.DO_DOCUME_documents" Role="DO_DOCUME_documents" Multiplicity="0..1" />
+    <End Type="RebuildModel.DO_DOCREL_document_relation" Role="DO_DOCREL_document_relation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_DOCUME_documents">
+        <PropertyRef Name="DO_DOCUME_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCREL_document_relation">
+        <PropertyRef Name="DO_DOCREL_DO_DOCUME_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOCUME_DO_DOCUME_padre">
+    <End Type="RebuildModel.DO_DOCUME_documents" Role="DO_DOCUME_documents" Multiplicity="0..1" />
+    <End Type="RebuildModel.DO_DOCUME_documents" Role="DO_DOCUME_documents1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_DOCUME_documents">
+        <PropertyRef Name="DO_DOCUME_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCUME_documents1">
+        <PropertyRef Name="DO_DOCUME_ID_PADRE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOCUME_documents_DO_DOCUME_documents">
+    <End Type="RebuildModel.DO_DOCUME_documents" Role="DO_DOCUME_documents" Multiplicity="1" />
+    <End Type="RebuildModel.DO_DOCUME_documents" Role="DO_DOCUME_documents1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DO_DOCUME_documents">
+        <PropertyRef Name="DO_DOCUME_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCUME_documents1">
+        <PropertyRef Name="DO_DOCUME_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOCUME_documents_DO_STADOC_status">
+    <End Type="RebuildModel.DO_STADOC_status" Role="DO_STADOC_status" Multiplicity="1" />
+    <End Type="RebuildModel.DO_DOCUME_documents" Role="DO_DOCUME_documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_STADOC_status">
+        <PropertyRef Name="DO_STADOC_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCUME_documents">
+        <PropertyRef Name="DO_DOCUME_DO_STADOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOCUME_documents_DO_TIPDOC_document_type">
+    <End Type="RebuildModel.DO_TIPDOC_document_type" Role="DO_TIPDOC_document_type" Multiplicity="1" />
+    <End Type="RebuildModel.DO_DOCUME_documents" Role="DO_DOCUME_documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_TIPDOC_document_type">
+        <PropertyRef Name="DO_TIPDOC_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCUME_documents">
+        <PropertyRef Name="DO_DOCUME_DO_TIPDOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="DO_V_DOCFIL">
+    <Key>
+      <PropertyRef Name="DO_DOCFIL_ID" />
+      <PropertyRef Name="DO_DOCFIL_DO_DOCUME_ID" />
+      <PropertyRef Name="DO_DOCFIL_DATE" />
+      <PropertyRef Name="DO_DOCFIL_USERID" />
+      <PropertyRef Name="DO_DOCVER_COUNTER" />
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="DO_TIPDOC_ID" />
+      <PropertyRef Name="DO_CLADOC_ID" />
+      <PropertyRef Name="DO_DOCUME_DO_STADOC_ID" />
+      <PropertyRef Name="DO_DOCVER_ID" />
+    </Key>
+    <Property Name="DO_DOCFIL_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCFIL_DO_DOCUME_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCFIL_NOTE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCFIL_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DO_DOCFIL_USERID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCVER_COUNTER" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCVER_NOTE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCVER_LINK_FILE" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DO_TIPDOC_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_TIPDOC_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DO_TIPDOC_DESCRIPTION" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="DO_TIPDOC_PATH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DO_CLADOC_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_CLADOC_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DO_CLADOC_DESCRIPTION" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="DO_CLADOC_PATH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_ISSUE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="DO_DOCUME_EXPIRY_DATE" Type="DateTime" Precision="3" />
+    <Property Name="DO_DOCUME_DO_STADOC_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCUME_FLAG_NO_ACTIVE" Type="Boolean" Nullable="false" />
+    <Property Name="DO_DOCUME_XML_CAMASS_VALUES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_XML_CAMUTE_VALUES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_DATA_PROT" Type="DateTime" Precision="3" />
+    <Property Name="DO_DOCUME_NUM_PROT" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_NOTE" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_NUM" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="DO_DOCUME_CODE" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="DO_DOCUME_ID_PADRE" Type="Int32" />
+    <Property Name="DO_DOCFIL_FLAG_MAIN_ASSET" Type="Boolean" />
+    <Property Name="DO_TIPDOC_EXTENSIONS" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DO_CLADOC_FLAG_PHOTO" Type="Boolean" />
+    <Property Name="DO_DOCVER_THUMBNAIL" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCVER_ID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DO_V_DOCUME_ENTITY">
+    <Key>
+      <PropertyRef Name="DO_DOCUME_ID" />
+      <PropertyRef Name="DO_DOCUME_DO_TIPDOC_ID" />
+      <PropertyRef Name="DO_DOCUME_DO_STADOC_ID" />
+      <PropertyRef Name="DO_TIPDOC_DO_CLADOC_ID" />
+      <PropertyRef Name="fakeforlink" />
+      <PropertyRef Name="DO_DOCUME_FL_PRIVAT" />
+    </Key>
+    <Property Name="DO_DOCUME_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCUME_DO_TIPDOC_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCUME_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_ISSUE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="DO_DOCUME_EXPIRY_DATE" Type="DateTime" Precision="3" />
+    <Property Name="DO_DOCUME_DO_STADOC_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCUME_FLAG_NO_ACTIVE" Type="Boolean" Nullable="false" />
+    <Property Name="DO_DOCUME_XML_CAMASS_VALUES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_XML_CAMUTE_VALUES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_TIPDOC_DO_CLADOC_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_TIPDOC_EXTENSIONS" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DO_TIPDOC_PATH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DO_CLADOC_PATH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DO_STADOC_DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MagicBOLayerID" Type="Int32" />
+    <Property Name="fakeforlink" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="DO_CLADOC_DESCRIPTION" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="DO_TIPDOC_DESCRIPTION" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCREL_ID_RECORD" Type="Int32" />
+    <Property Name="DO_DOCREL_TABLE_NAME" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_DATA_PROT" Type="DateTime" Precision="3" />
+    <Property Name="DO_DOCUME_NUM_PROT" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_NOTE" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_NUM" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="DO_DOCUME_CODE" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="DO_DOCUME_ID_PADRE" Type="Int32" />
+    <Property Name="DO_CLADOC_FLAG_PHOTO" Type="Boolean" />
+    <Property Name="DO_DOCUME_FLAG_FATHER" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="GROUPS_LIST" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_FL_PRIVAT" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="DO_SP_DOCUMENTS_L_Result">
+    <Property Type="Int32" Name="DO_DOCUME_ID" Nullable="false" />
+    <Property Type="Int32" Name="DO_DOCUME_DO_TIPDOC_ID" Nullable="false" />
+    <Property Type="String" Name="DO_DOCUME_DESCRIPTION" Nullable="true" />
+    <Property Type="DateTime" Name="DO_DOCUME_ISSUE_DATE" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DO_DOCUME_EXPIRY_DATE" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="DO_DOCUME_DO_STADOC_ID" Nullable="false" />
+    <Property Type="Boolean" Name="DO_DOCUME_FLAG_NO_ACTIVE" Nullable="true" />
+    <Property Type="String" Name="DO_DOCUME_XML_CAMASS_VALUES" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="DO_DOCUME_XML_CAMUTE_VALUES" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="DO_TIPDOC_DO_CLADOC_ID" Nullable="false" />
+    <Property Type="String" Name="DO_TIPDOC_EXTENSIONS" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="DO_TIPDOC_PATH" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DO_CLADOC_PATH" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DO_STADOC_DESCRIPTION" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="MagicBOLayerID" Nullable="true" />
+    <Property Type="String" Name="DO_CLADOC_DESCRIPTION" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="DO_TIPDOC_DESCRIPTION" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="fakeforlink" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="MagicBusinessObjectList" Nullable="true" />
+    <Property Type="String" Name="OBJECT_DESCRIPTION" Nullable="false" MaxLength="1" />
+    <Property Type="Int32" Name="OBJECT_ID" Nullable="false" />
+    <Property Type="Int32" Name="OBJECT_TYPE_ID" Nullable="false" />
+    <Property Type="String" Name="OBJECT_CODE" Nullable="false" MaxLength="1" />
+    <Property Type="DateTime" Name="DO_DOCUME_DATA_PROT" Nullable="true" Precision="23" />
+    <Property Type="String" Name="DO_DOCUME_NUM_PROT" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="DO_DOCUME_NOTE" Nullable="true" MaxLength="2000" />
+    <Property Type="String" Name="DO_DOCUME_NUM" Nullable="true" MaxLength="120" />
+    <Property Type="String" Name="DO_DOCUME_CODE" Nullable="true" MaxLength="120" />
+    <Property Type="Int32" Name="DO_DOCUME_ID_PADRE" Nullable="true" />
+    <Property Type="String" Name="DO_DOCUME_CODE_PADRE" Nullable="true" MaxLength="120" />
+    <Property Type="Int32" Name="Editable" Nullable="false" />
+    <Property Type="Int32" Name="EXISTS_FILE" Nullable="false" />
+    <Property Type="DateTime" Name="DO_DOCUME_DATE_INS" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DO_DOCUME_DATE_LAS_UPD" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="DO_DOCUME_USERID" Nullable="true" />
+    <Property Type="Int32" Name="iddoc" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="DO_V_DOCUME">
+    <Key>
+      <PropertyRef Name="DO_DOCUME_ID" />
+      <PropertyRef Name="DO_DOCUME_DO_TIPDOC_ID" />
+      <PropertyRef Name="DO_DOCUME_DO_STADOC_ID" />
+      <PropertyRef Name="DO_DOCUME_FLAG_NO_ACTIVE" />
+      <PropertyRef Name="DO_TIPDOC_DO_CLADOC_ID" />
+      <PropertyRef Name="fakeforlink" />
+      <PropertyRef Name="OBJECT_DESCRIPTION" />
+      <PropertyRef Name="OBJECT_ID" />
+      <PropertyRef Name="OBJECT_TYPE_ID" />
+      <PropertyRef Name="OBJECT_CODE" />
+      <PropertyRef Name="Editable" />
+      <PropertyRef Name="DO_DOCUME_FL_PRIVAT" />
+      <PropertyRef Name="DO_STADOC_FLAG_HISTORY" />
+    </Key>
+    <Property Name="DO_DOCUME_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCUME_DO_TIPDOC_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCUME_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_ISSUE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="DO_DOCUME_EXPIRY_DATE" Type="DateTime" Precision="3" />
+    <Property Name="DO_DOCUME_DO_STADOC_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOCUME_FLAG_NO_ACTIVE" Type="Boolean" Nullable="false" />
+    <Property Name="DO_DOCUME_XML_CAMASS_VALUES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_XML_CAMUTE_VALUES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_TIPDOC_DO_CLADOC_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_TIPDOC_EXTENSIONS" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DO_TIPDOC_PATH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DO_CLADOC_PATH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DO_STADOC_DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MagicBOLayerID" Type="Int32" />
+    <Property Name="DO_CLADOC_DESCRIPTION" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="DO_TIPDOC_DESCRIPTION" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="fakeforlink" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="MagicBusinessObjectList" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OBJECT_DESCRIPTION" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="OBJECT_ID" Type="Int32" Nullable="false" />
+    <Property Name="OBJECT_TYPE_ID" Type="Int32" Nullable="false" />
+    <Property Name="OBJECT_CODE" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="DO_DOCUME_DATA_PROT" Type="DateTime" Precision="3" />
+    <Property Name="DO_DOCUME_NUM_PROT" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_NOTE" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_NUM" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="DO_DOCUME_CODE" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="DO_DOCUME_ID_PADRE" Type="Int32" />
+    <Property Name="DO_DOCUME_CODE_PADRE" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="Editable" Type="Int32" Nullable="false" />
+    <Property Name="EXISTS_FILE" Type="Boolean" />
+    <Property Name="DO_DOCUME_DATE_INS" Type="DateTime" Precision="3" />
+    <Property Name="DO_DOCUME_DATE_LAS_UPD" Type="DateTime" Precision="3" />
+    <Property Name="DO_DOCUME_USERID" Type="Int32" />
+    <Property Name="DO_CLADOC_FLAG_PHOTO" Type="Boolean" />
+    <Property Name="DO_DOCUME_FLAG_FATHER" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="GROUPS_LIST" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="DO_DOCUME_FL_PRIVAT" Type="Boolean" Nullable="false" />
+    <Property Name="DO_STADOC_FLAG_HISTORY" Type="Boolean" Nullable="false" />
+    <Property Name="DO_TIPDOC_LISTA" Type="String" MaxLength="1053" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="PP_GET_UI_ELEMENTS_Result">
+    <Property Type="Int32" Name="PP_CLAPRO_ID" Nullable="false" />
+    <Property Type="Int32" Name="PP_CLAPRO_US_APPARE_ID" Nullable="false" />
+    <Property Type="String" Name="PP_CLAPRO_DESCRIPTION" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="PP_CLAPRO_COLOUR" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="PP_PROTYP_ID" Nullable="false" />
+    <Property Type="Int32" Name="PP_PROTYP_PP_CLAPRO_ID" Nullable="false" />
+    <Property Type="String" Name="PP_PROTYP_DESCRIPTION" Nullable="false" MaxLength="500" />
+    <Property Type="Int32" Name="PP_PROPER_ID" Nullable="false" />
+    <Property Type="Int32" Name="PP_PROPER_PP_PROTYP_ID" Nullable="false" />
+    <Property Type="String" Name="PP_PROPER_DESCRIPTION" Nullable="false" MaxLength="500" />
+    <Property Type="Int32" Name="PP_PROBUT_ID" Nullable="false" />
+    <Property Type="Int32" Name="PP_PROBUT_PP_PROPER_ID" Nullable="false" />
+    <Property Type="String" Name="PP_PROBUT_LABEL" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="PP_PROBUT_SP_EXECUTE" Nullable="false" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="GetWaterMarkForUser_Result">
+    <Property Type="Boolean" Name="US_ROLDEP_WATERMARK" Nullable="false" />
+    <Property Type="String" Name="US_ROLDEP_WATERMARK_PRE" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="US_ROLDEP_WATERMARK_POST" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <EntityType Name="DO_DOSUTE_dossier_user">
+    <Key>
+      <PropertyRef Name="DO_DOSUTE_ID" />
+    </Key>
+    <Property Name="DO_DOSUTE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DO_DOSUTE_DO_DOSSIE_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOSUTE_US_GROUPS_ID" Type="Int32" Nullable="false" />
+    <Property Name="DO_DOSUTE_US_DEPROL_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DO_DOSSIE_dossier" Relationship="RebuildModel.FK_DO_DOSUTE_dossier_user_DO_DOSSIE_dossier" FromRole="DO_DOSUTE_dossier_user" ToRole="DO_DOSSIE_dossier" />
+    <NavigationProperty Name="US_GROUPS_groups" Relationship="RebuildModel.FK_DO_DOSUTE_dossier_user_US_GROUPS_groups" FromRole="DO_DOSUTE_dossier_user" ToRole="US_GROUPS_groups" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_DO_DOSUTE_dossier_user_DO_DOSSIE_dossier">
+    <End Type="RebuildModel.DO_DOSSIE_dossier" Role="DO_DOSSIE_dossier" Multiplicity="1" />
+    <End Type="RebuildModel.DO_DOSUTE_dossier_user" Role="DO_DOSUTE_dossier_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_DOSSIE_dossier">
+        <PropertyRef Name="DO_DOSSIE_ID" />
+      </Principal>
+      <Dependent Role="DO_DOSUTE_dossier_user">
+        <PropertyRef Name="DO_DOSUTE_DO_DOSSIE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOSUTE_dossier_user_US_GROUPS_groups">
+    <End Type="RebuildModel.US_GROUPS_groups" Role="US_GROUPS_groups" Multiplicity="1" />
+    <End Type="RebuildModel.DO_DOSUTE_dossier_user" Role="DO_DOSUTE_dossier_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="US_GROUPS_groups">
+        <PropertyRef Name="US_GROUPS_ID" />
+      </Principal>
+      <Dependent Role="DO_DOSUTE_dossier_user">
+        <PropertyRef Name="DO_DOSUTE_US_GROUPS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="utf_us_aregrid_cross_Result">
+    <Property Type="Int64" Name="US_AREGRI_ID" Nullable="true" />
+    <Property Type="Decimal" Name="US_AREGRI_MagicGridID" Nullable="true" Precision="18" Scale="3" />
+    <Property Type="Boolean" Name="Checked" Nullable="true" />
+    <Property Type="Int32" Name="US_AREGRI_US_PROARE_ID" Nullable="true" />
+    <Property Type="Int32" Name="US_PROARE_US_ARETYP_ID" Nullable="false" />
+    <Property Type="String" Name="US_PROARE_CODE" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="US_PROARE_DESCRIPTION" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MagicGridName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="US_AREGRI_Arepro_Grids">
+    <Key>
+      <PropertyRef Name="US_AREGRI_ID" />
+    </Key>
+    <Property Name="US_AREGRI_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="US_AREGRI_US_PROARE_ID" Type="Int32" />
+    <Property Name="US_AREGRI_MagicGridID" Type="Int32" />
+    <Property Name="MagicGridName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GridGUID" Type="Guid" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+    <Property Name="guidIdentifier" Type="Guid" />
+  </EntityType>
+  <EntityType Name="US_AREFUN__Arepro_Functions">
+    <Key>
+      <PropertyRef Name="US_AREFUN_ID" />
+    </Key>
+    <Property Name="US_AREFUN_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="US_AREFUN_US_PROARE_ID" Type="Int32" />
+    <Property Name="US_AREFUN_FunctionID" Type="Int32" />
+    <Property Name="FunctionGUID" Type="Guid" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="cUserId" Type="Int32" />
+    <Property Name="guidIdentifier" Type="Guid" />
+  </EntityType>
+  <ComplexType Name="utf_us_arefun_cross_Result">
+    <Property Type="Int64" Name="US_AREFUN_ID" Nullable="true" />
+    <Property Type="Decimal" Name="US_AREFUN_FunctionID" Nullable="true" Precision="18" Scale="3" />
+    <Property Type="Boolean" Name="Checked" Nullable="true" />
+    <Property Type="Int32" Name="US_AREFUN_US_PROARE_ID" Nullable="true" />
+    <Property Type="Int32" Name="US_PROARE_US_ARETYP_ID" Nullable="false" />
+    <Property Type="String" Name="US_PROARE_CODE" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="US_PROARE_DESCRIPTION" Nullable="true" MaxLength="100" />
+    <Property Type="Guid" Name="FunctionGUID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="utf_AS_V_ASSET_assetgroups_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="AS_ASSET_ID" Nullable="true" />
+    <Property Type="Int32" Name="US_GROUPS_ID" Nullable="true" />
+    <Property Type="String" Name="US_GROUPS_DESCRIPTION" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="US_GROUPS_US_TIPGRU_ID" Nullable="true" />
+    <Property Type="String" Name="US_TIPGRU_DESCRIPTION" Nullable="true" MaxLength="1000" />
+    <Property Type="Int32" Name="US_AREVIS_ID" Nullable="true" />
+    <Property Type="Int32" Name="AS_ASSGRO_ID" Nullable="true" />
+    <Property Type="Boolean" Name="Checked" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="utf_US_V_GROUPS_groupsassets_Result">
+    <Property Type="Int32" Name="AS_ASSGRO_ID" Nullable="false" />
+    <Property Type="Boolean" Name="Checked" Nullable="true" />
+    <Property Type="Int32" Name="AS_ASSET_ID" Nullable="true" />
+    <Property Type="String" Name="as_asset_code" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="US_GROUPS_ID" Nullable="true" />
+    <Property Type="String" Name="AS_ASSET_DESCRIZIONE" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="AS_TIPSAS_DESCRIPTION" Nullable="true" MaxLength="500" />
+    <Property Type="Boolean" Name="LINK_DOCS" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="WF_V_ACTCAL_activities_calendar">
+    <Key>
+      <PropertyRef Name="taskId" />
+      <PropertyRef Name="start" />
+      <PropertyRef Name="RequiresCheckList" />
+      <PropertyRef Name="RequiresDocUpload" />
+      <PropertyRef Name="MandatoryAssignment" />
+      <PropertyRef Name="GenerateBO" />
+    </Key>
+    <Property Name="taskId" Type="Int32" Nullable="false" />
+    <Property Name="start" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="taskTypeID" Type="Int32" />
+    <Property Name="LinkedModelActivity_ID" Type="Int32" />
+    <Property Name="ownerId" Type="Int32" />
+    <Property Name="title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DueDate" Type="DateTime" Precision="3" />
+    <Property Name="ProcessFunction_ID" Type="Int32" />
+    <Property Name="ACT_BO_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_BO_Type_ID" Type="Int32" />
+    <Property Name="ActivityInstance_ID" Type="Int32" />
+    <Property Name="WF_BO_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WF_BO_Type_ID" Type="Int32" />
+    <Property Name="RequiresCheckList" Type="Int32" Nullable="false" />
+    <Property Name="RequiresDocUpload" Type="Int32" Nullable="false" />
+    <Property Name="MandatoryAssignment" Type="Int32" Nullable="false" />
+    <Property Name="GenerateBO" Type="Boolean" Nullable="false" />
+    <Property Name="actionid" Type="Int32" />
+    <Property Name="actiontype" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="actioncommand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="actionfilter" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="FunctionGUID" Type="Guid" />
+    <Property Name="PrecOutStatus" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PrecActivityType" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="UploadedFile" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AS_V_ASSET_assetExtended">
+    <Key>
+      <PropertyRef Name="AS_ASSET_ID" />
+      <PropertyRef Name="AS_ASSET_TIPASS_ID" />
+      <PropertyRef Name="AS_ASSET_TIPSAS_ID" />
+      <PropertyRef Name="US_AREVIS_ID" />
+      <PropertyRef Name="Visible_group" />
+      <PropertyRef Name="HasImage" />
+    </Key>
+    <Property Name="AS_ASSET_ID" Type="Int32" Nullable="false" />
+    <Property Name="AS_ASSET_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AS_ASSET_ID_PADRE" Type="Int32" />
+    <Property Name="AS_ASSET_DESCRIZIONE" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="AS_ASSET_LOCATION_ID" Type="Int32" />
+    <Property Name="AS_ASSET_TIPASS_ID" Type="Int32" Nullable="false" />
+    <Property Name="AS_ASSET_TIPSAS_ID" Type="Int32" Nullable="false" />
+    <Property Name="AS_ASSET_SASSPE_ID" Type="Int32" />
+    <Property Name="AS_ASSET_DATA_INIZIO" Type="DateTime" Precision="3" />
+    <Property Name="AS_ASSET_DATA_FINE" Type="DateTime" Precision="3" />
+    <Property Name="AS_ASSET_SUPERFICIE" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="AS_ASSET_CODE_OLD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AS_ASSET_ID_ASSET_ORIGINE" Type="Int32" />
+    <Property Name="AS_ASSET_ADDRESS" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LOCATION_NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LOCATION_STREET_ID" Type="Int32" />
+    <Property Name="LOCATION_LATITUDE" Type="Decimal" Precision="11" Scale="7" />
+    <Property Name="LOCATION_LONGITUDE" Type="Decimal" Precision="11" Scale="7" />
+    <Property Name="P_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="AS_ASSET_XML_CAMASS_VALUES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AS_ASSET_XML_CAMUSE_VALUES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GROUPS_LIST" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="US_AREVIS_ID" Type="Int32" Nullable="false" />
+    <Property Name="MagicBOLayerID" Type="Int32" />
+    <Property Name="DEFAULT_GROUP_ID" Type="Int32" />
+    <Property Name="GROUP_TO_SEARCH" Type="Int32" />
+    <Property Name="AS_ASSET_EV_STAGE_ID" Type="Int32" />
+    <Property Name="AS_TIPSAS_DESCRIPTION" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DESCR_FOR_SEARCH" Type="String" MaxLength="1556" FixedLength="false" Unicode="true" />
+    <Property Name="Visible_group" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Main_Image_Thumbnail" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="HasImage" Type="Int32" Nullable="false" />
+    <Property Name="AS_ASSET_LONG_DESC" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_DO_TIPDOC_doc_DO_STADOC">
+    <End Type="RebuildModel.DO_STADOC_status" Role="DO_STADOC_status" Multiplicity="0..1" />
+    <End Type="RebuildModel.DO_TIPDOC_document_type" Role="DO_TIPDOC_document_type" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_STADOC_status">
+        <PropertyRef Name="DO_STADOC_ID" />
+      </Principal>
+      <Dependent Role="DO_TIPDOC_document_type">
+        <PropertyRef Name="DO_TIPDOC_DO_STADOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="EX_EXCTIP_type_excel">
+    <Key>
+      <PropertyRef Name="EX_EXCTIP_ID" />
+    </Key>
+    <Property Name="EX_EXCTIP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EX_EXCTIP_CODE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EX_EXCTIP_DESCRIPTION" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FL_FILINP_input_file" Relationship="RebuildModel.FK_FL_FILINP_input_excel_EX_EXCTIP_type_excel" FromRole="EX_EXCTIP_type_excel" ToRole="FL_FILINP_input_file" />
+    <NavigationProperty Name="FL_RECFIL_fields" Relationship="RebuildModel.FK_FL_RECFIL_fields_EX_EXCTIP" FromRole="EX_EXCTIP_type_excel" ToRole="FL_RECFIL_fields" />
+  </EntityType>
+  <EntityType Name="FL_CLAFIL_class_file">
+    <Key>
+      <PropertyRef Name="FL_CLAFIL_ID" />
+    </Key>
+    <Property Name="FL_CLAFIL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FL_CLAFIL_CODE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FL_CLAFIL_DESCRIPTION" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="FL_CLAFIL_COLOR" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FL_TIPFIL_type_file" Relationship="RebuildModel.FK_FL_TIPFIL_type_file_FL_CLAFIL_class_file" FromRole="FL_CLAFIL_class_file" ToRole="FL_TIPFIL_type_file" />
+  </EntityType>
+  <EntityType Name="FL_FILINP_input_file">
+    <Key>
+      <PropertyRef Name="FL_FILINP_ID" />
+    </Key>
+    <Property Name="FL_FILINP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FL_FILINP_FL_TIPFIL_ID" Type="Int32" Nullable="false" />
+    <Property Name="FL_FILINP_ORDER" Type="Int32" Nullable="false" />
+    <Property Name="FL_FILINP_COLUMN_NAME" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FL_FILINP_MANDATORY" Type="Boolean" />
+    <Property Name="FL_FILINP_EX_EXCTIP_ID" Type="Int32" Nullable="false" />
+    <Property Name="FL_FILINP_TABLE_JOIN" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FL_FILINP_FIELD_JOIN" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FL_FILINP_DESCRIPTION_JOIN" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FL_FILINP_FLAG_VISIBILITY" Type="Boolean" />
+    <Property Name="FL_FILINP_FLAG_LIST" Type="Boolean" />
+    <Property Name="FL_FILINP_CONDITION_VALID" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FL_FILINP_DATAROLE_ID" Type="Int32" />
+    <Property Name="FL_FILINP_FIELD_DB_FOR_UPDATE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="EX_EXCTIP_type_excel" Relationship="RebuildModel.FK_FL_FILINP_input_excel_EX_EXCTIP_type_excel" FromRole="FL_FILINP_input_file" ToRole="EX_EXCTIP_type_excel" />
+    <NavigationProperty Name="FL_TIPFIL_type_file" Relationship="RebuildModel.FK_FL_FILINP_input_file_FL_TIPFIL_type_file" FromRole="FL_FILINP_input_file" ToRole="FL_TIPFIL_type_file" />
+  </EntityType>
+  <EntityType Name="FL_TIPFIL_type_file">
+    <Key>
+      <PropertyRef Name="FL_TIPFIL_ID" />
+    </Key>
+    <Property Name="FL_TIPFIL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FL_TIPFIL_FL_CLAFIL_ID" Type="Int32" Nullable="false" />
+    <Property Name="FL_TIPFIL_CODE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FL_TIPFIL_DESCRIPTION" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="FL_TIPFIL_FLAG_HEADING" Type="Boolean" Nullable="false" />
+    <Property Name="FL_TIPFIL_DELIMITER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FL_TIPFIL_LENGH_FIX" Type="Boolean" Nullable="false" />
+    <Property Name="FL_TIPFIL_LENGHT_RECORD" Type="Int32" />
+    <Property Name="FL_TIPFIL_OUTPUT" Type="Boolean" Nullable="false" />
+    <Property Name="FL_TIPFIL_SP_EXEC" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="FL_TIPFIL_EXTENSION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FL_TIPFIL_SITO_FTP" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FL_TIPFIL_DO_TIPDOC_ID" Type="Int32" />
+    <Property Name="FL_TIPFIL_FILE_NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DO_TIPDOC_document_type" Relationship="RebuildModel.FK_FL_TIPFIL_type_file_DO_TIPDOC" FromRole="FL_TIPFIL_type_file" ToRole="DO_TIPDOC_document_type" />
+    <NavigationProperty Name="FL_CLAFIL_class_file" Relationship="RebuildModel.FK_FL_TIPFIL_type_file_FL_CLAFIL_class_file" FromRole="FL_TIPFIL_type_file" ToRole="FL_CLAFIL_class_file" />
+    <NavigationProperty Name="FL_FILINP_input_file" Relationship="RebuildModel.FK_FL_FILINP_input_file_FL_TIPFIL_type_file" FromRole="FL_TIPFIL_type_file" ToRole="FL_FILINP_input_file" />
+    <NavigationProperty Name="FL_RECFIL_fields" Relationship="RebuildModel.FK_FL_RECFIL_type_record_FL_TIPFIL_type_file" FromRole="FL_TIPFIL_type_file" ToRole="FL_RECFIL_fields" />
+  </EntityType>
+  <Association Name="FK_FL_TIPFIL_type_file_DO_TIPDOC">
+    <End Type="RebuildModel.DO_TIPDOC_document_type" Role="DO_TIPDOC_document_type" Multiplicity="0..1" />
+    <End Type="RebuildModel.FL_TIPFIL_type_file" Role="FL_TIPFIL_type_file" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_TIPDOC_document_type">
+        <PropertyRef Name="DO_TIPDOC_ID" />
+      </Principal>
+      <Dependent Role="FL_TIPFIL_type_file">
+        <PropertyRef Name="FL_TIPFIL_DO_TIPDOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FL_FILINP_input_excel_EX_EXCTIP_type_excel">
+    <End Type="RebuildModel.EX_EXCTIP_type_excel" Role="EX_EXCTIP_type_excel" Multiplicity="1" />
+    <End Type="RebuildModel.FL_FILINP_input_file" Role="FL_FILINP_input_file" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EX_EXCTIP_type_excel">
+        <PropertyRef Name="EX_EXCTIP_ID" />
+      </Principal>
+      <Dependent Role="FL_FILINP_input_file">
+        <PropertyRef Name="FL_FILINP_EX_EXCTIP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FL_TIPFIL_type_file_FL_CLAFIL_class_file">
+    <End Type="RebuildModel.FL_CLAFIL_class_file" Role="FL_CLAFIL_class_file" Multiplicity="1" />
+    <End Type="RebuildModel.FL_TIPFIL_type_file" Role="FL_TIPFIL_type_file" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FL_CLAFIL_class_file">
+        <PropertyRef Name="FL_CLAFIL_ID" />
+      </Principal>
+      <Dependent Role="FL_TIPFIL_type_file">
+        <PropertyRef Name="FL_TIPFIL_FL_CLAFIL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FL_FILINP_input_file_FL_TIPFIL_type_file">
+    <End Type="RebuildModel.FL_TIPFIL_type_file" Role="FL_TIPFIL_type_file" Multiplicity="1" />
+    <End Type="RebuildModel.FL_FILINP_input_file" Role="FL_FILINP_input_file" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FL_TIPFIL_type_file">
+        <PropertyRef Name="FL_TIPFIL_ID" />
+      </Principal>
+      <Dependent Role="FL_FILINP_input_file">
+        <PropertyRef Name="FL_FILINP_FL_TIPFIL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="FL_RECFIL_fields">
+    <Key>
+      <PropertyRef Name="FL_RECFIL_ID" />
+    </Key>
+    <Property Name="FL_RECFIL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FL_RECFIL_FL_TIPFIL_ID" Type="Int32" Nullable="false" />
+    <Property Name="FL_RECFIL_NR_FIELD" Type="Int32" Nullable="false" />
+    <Property Name="FL_RECFIL_DESCRIPTION" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FL_RECFIL_FIELD_NAME_EXCT" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="FL_RECFIL_LENGHT" Type="Int32" />
+    <Property Name="FL_RECFIL_FL_FORMAT_ID" Type="Int32" />
+    <Property Name="FL_RECFIL_EX_EXCTIP_ID" Type="Int32" />
+    <Property Name="FL_RECFIL_ALLOW_NULL" Type="Boolean" Nullable="false" />
+    <Property Name="FL_RECFIL_DEFAULT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FL_RECFIL_NAME_HEADER" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FL_RECFIL_FILLER" Type="Boolean" Nullable="false" />
+    <Property Name="FL_RECFIL_VALUE_ALLOWED" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FL_RECFIL_TABLE_JOIN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="FL_RECFIL_FIELD_JOIN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="EX_EXCTIP_type_excel" Relationship="RebuildModel.FK_FL_RECFIL_fields_EX_EXCTIP" FromRole="FL_RECFIL_fields" ToRole="EX_EXCTIP_type_excel" />
+    <NavigationProperty Name="FL_TIPFIL_type_file" Relationship="RebuildModel.FK_FL_RECFIL_type_record_FL_TIPFIL_type_file" FromRole="FL_RECFIL_fields" ToRole="FL_TIPFIL_type_file" />
+    <NavigationProperty Name="FL_FORMAT_format" Relationship="RebuildModel.FK_FL_RECFIL_type_record_FL_FORMAT_format" FromRole="FL_RECFIL_fields" ToRole="FL_FORMAT_format" />
+  </EntityType>
+  <Association Name="FK_FL_RECFIL_fields_EX_EXCTIP">
+    <End Type="RebuildModel.EX_EXCTIP_type_excel" Role="EX_EXCTIP_type_excel" Multiplicity="0..1" />
+    <End Type="RebuildModel.FL_RECFIL_fields" Role="FL_RECFIL_fields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EX_EXCTIP_type_excel">
+        <PropertyRef Name="EX_EXCTIP_ID" />
+      </Principal>
+      <Dependent Role="FL_RECFIL_fields">
+        <PropertyRef Name="FL_RECFIL_EX_EXCTIP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FL_RECFIL_type_record_FL_TIPFIL_type_file">
+    <End Type="RebuildModel.FL_TIPFIL_type_file" Role="FL_TIPFIL_type_file" Multiplicity="1" />
+    <End Type="RebuildModel.FL_RECFIL_fields" Role="FL_RECFIL_fields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FL_TIPFIL_type_file">
+        <PropertyRef Name="FL_TIPFIL_ID" />
+      </Principal>
+      <Dependent Role="FL_RECFIL_fields">
+        <PropertyRef Name="FL_RECFIL_FL_TIPFIL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="FL_FORMAT_format">
+    <Key>
+      <PropertyRef Name="FL_FORMAT_ID" />
+    </Key>
+    <Property Name="FL_FORMAT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FL_FORMAT_CODE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FL_FORMAT_DESCRIPTION" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="FL_FORMAT_PATTERN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FL_RECFIL_fields" Relationship="RebuildModel.FK_FL_RECFIL_type_record_FL_FORMAT_format" FromRole="FL_FORMAT_format" ToRole="FL_RECFIL_fields" />
+  </EntityType>
+  <Association Name="FK_FL_RECFIL_type_record_FL_FORMAT_format">
+    <End Type="RebuildModel.FL_FORMAT_format" Role="FL_FORMAT_format" Multiplicity="0..1" />
+    <End Type="RebuildModel.FL_RECFIL_fields" Role="FL_RECFIL_fields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FL_FORMAT_format">
+        <PropertyRef Name="FL_FORMAT_ID" />
+      </Principal>
+      <Dependent Role="FL_RECFIL_fields">
+        <PropertyRef Name="FL_RECFIL_FL_FORMAT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

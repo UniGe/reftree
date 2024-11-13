@@ -1,0 +1,2299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RebuildModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AS_ASSET_asset">
+    <Key>
+      <PropertyRef Name="AS_ASSET_ID" />
+    </Key>
+    <Property Name="AS_ASSET_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AS_ASSET_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="AS_ASSET_ID_PADRE" Type="int" />
+    <Property Name="AS_ASSET_DESCRIZIONE" Type="nvarchar" MaxLength="1000" />
+    <Property Name="AS_ASSET_LOCATION_ID" Type="int" />
+    <Property Name="AS_ASSET_TIPASS_ID" Type="int" Nullable="false" />
+    <Property Name="AS_ASSET_TIPSAS_ID" Type="int" Nullable="false" />
+    <Property Name="AS_ASSET_SASSPE_ID" Type="int" />
+    <Property Name="AS_ASSET_DATA_INIZIO" Type="datetime" />
+    <Property Name="AS_ASSET_DATA_FINE" Type="datetime" />
+    <Property Name="AS_ASSET_SUPERFICIE" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="AS_ASSET_CODE_OLD" Type="nvarchar" MaxLength="50" />
+    <Property Name="AS_ASSET_ID_ASSET_ORIGINE" Type="int" />
+    <Property Name="AS_ASSET_XML_CAMASS_VALUES" Type="xml" />
+    <Property Name="AS_ASSET_XML_CAMUSE_VALUES" Type="xml" />
+    <Property Name="GROUPS_LIST" Type="nvarchar" MaxLength="4000" />
+    <Property Name="AS_ASSET_EV_STAGE_ID" Type="int" />
+    <Property Name="AS_ASSET_LONG_DESC" Type="nvarchar" MaxLength="2000" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="AS_ASSET_THUMBNAIL" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="AS_SUBTIP_asset_subtipo">
+    <Key>
+      <PropertyRef Name="AS_SUBTIP_ID" />
+    </Key>
+    <Property Name="AS_SUBTIP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AS_SUBTIP_TIPASS_ID" Type="int" Nullable="false" />
+    <Property Name="AS_SUBTIP_TIPSAS_ID" Type="int" Nullable="false" />
+    <Property Name="AS_SUBTIP_ORDINE" Type="int" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CF_FIELDS_DATA_TYPE">
+    <Key>
+      <PropertyRef Name="CF_FIELDS_DATA_TYPE_ID" />
+    </Key>
+    <Property Name="CF_FIELDS_DATA_TYPE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CF_FIELDS_DATA_TYPE_CODE" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CF_FIELDS_DATA_TYPE_NAME" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="CF_FIELDS_DATA_TYPE_DATA_TYPE" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="CF_FIELDS_DATA_TYPE_DESCRIPTION" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="DATA_TYPE" Type="nvarchar" MaxLength="128" />
+    <Property Name="CHARACTER_MAXIMUM_LENGTH" Type="int" />
+    <Property Name="NUMERIC_PRECISION" Type="tinyint" />
+    <Property Name="NUMERIC_PRECISION_RADIX" Type="smallint" />
+    <Property Name="DATETIME_PRECISION" Type="smallint" />
+  </EntityType>
+  <EntityType Name="DO_CAMUSE_fields_document_user">
+    <Key>
+      <PropertyRef Name="DO_CAMUSE_ID" />
+    </Key>
+    <Property Name="DO_CAMUSE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DO_CAMUSE_DO_CLADOC_ID" Type="int" />
+    <Property Name="DO_CAMUSE_DO_TIPDOC_ID" Type="int" />
+    <Property Name="DO_CAMUSE_FIELD_DB" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="DO_CAMUSE_CF_FIELDS_DATA_TYPE_ID" Type="int" />
+    <Property Name="DO_CAMUSE_MagicColumnID" Type="int" />
+  </EntityType>
+  <EntityType Name="DO_CLADOC_document_class">
+    <Key>
+      <PropertyRef Name="DO_CLADOC_ID" />
+    </Key>
+    <Property Name="DO_CLADOC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DO_CLADOC_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="DO_CLADOC_DESCRIPTION" Type="nvarchar" MaxLength="1000" />
+    <Property Name="DO_CLADOC_FLAG_PHOTO" Type="bit" />
+    <Property Name="DO_CLADOC_ORDER" Type="int" />
+    <Property Name="DO_CLADOC_PATH" Type="nvarchar" MaxLength="50" />
+    <Property Name="DO_CLADOC_COLOR" Type="nvarchar" MaxLength="50" />
+    <Property Name="MagicBOLayer_ID" Type="int" />
+    <Property Name="guidIdentifier" Type="uniqueidentifier" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DO_CLADOS_dossier_class">
+    <Key>
+      <PropertyRef Name="DO_CLADOS_ID" />
+    </Key>
+    <Property Name="DO_CLADOS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DO_CLADOS_CODE" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DO_CLADOS_DESCRIPTION" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DO_CLASTA_class_status">
+    <Key>
+      <PropertyRef Name="DO_CLASTA_ID" />
+    </Key>
+    <Property Name="DO_CLASTA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DO_CLASTA_DO_CLADOC_ID" Type="int" />
+    <Property Name="DO_CLASTA_DO_STADOC_ID" Type="int" />
+    <Property Name="DO_CLASTA_INITIAL" Type="bit" Nullable="false" />
+    <Property Name="DO_CLASTA_FINAL" Type="bit" Nullable="false" />
+    <Property Name="DO_CLASTA_ORDER" Type="int" Nullable="false" />
+    <Property Name="DO_CLASTA_MONITOR_VISIBLE" Type="bit" Nullable="false" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DO_CLAUTE_class_document_user">
+    <Key>
+      <PropertyRef Name="DO_CLAUTE_ID" />
+    </Key>
+    <Property Name="DO_CLAUTE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DO_CLAUTE_CLADOC_ID" Type="int" Nullable="false" />
+    <Property Name="DO_CLAUTE_US_GROUPS_ID" Type="int" Nullable="false" />
+    <Property Name="DO_CLAUTE_US_DEPROL_ID" Type="int" />
+    <Property Name="DO_CLAUTE_FLAG_WRITE" Type="bit" />
+    <Property Name="DO_CLAUTE_FLAG_MONITOR" Type="bit" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="DO_CLAUTE_FLAG_ALERT_MAIL" Type="bit" />
+  </EntityType>
+  <EntityType Name="DO_DOCFIE_fields_document">
+    <Key>
+      <PropertyRef Name="DO_DOCFIE_ID" />
+    </Key>
+    <Property Name="DO_DOCFIE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DO_DOCFIE_DO_CLADOC_ID" Type="int" />
+    <Property Name="DO_DOCFIE_DO_TIPDOC_ID" Type="int" />
+    <Property Name="DO_DOCFIE_FIELD_DB" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="DO_DOCFIE_CF_FIELDS_DATA_TYPE_ID" Type="int" />
+    <Property Name="DO_DOCFIE_MagicColumnID" Type="int" />
+  </EntityType>
+  <EntityType Name="DO_DOCFIL_document_file">
+    <Key>
+      <PropertyRef Name="DO_DOCFIL_ID" />
+    </Key>
+    <Property Name="DO_DOCFIL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DO_DOCFIL_DO_DOCUME_ID" Type="int" Nullable="false" />
+    <Property Name="DO_DOCFIL_NOTE" Type="nvarchar(max)" />
+    <Property Name="DO_DOCFIL_DATE" Type="datetime" Nullable="false" />
+    <Property Name="DO_DOCFIL_USERID" Type="int" Nullable="false" />
+    <Property Name="DO_DOCFIL_DO_DOCVER_LAST" Type="int" />
+    <Property Name="DO_DOCFIL_FLAG_MAIN_ASSET" Type="bit" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DO_DOCGRO_Document_groups">
+    <Key>
+      <PropertyRef Name="DO_DOCGRO_ID" />
+    </Key>
+    <Property Name="DO_DOCGRO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DO_DOCGRO_DO_DOCUME_ID" Type="int" />
+    <Property Name="DO_DOCGRO_US_GROUPS_ID" Type="int" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DO_DOCREL_document_relation">
+    <Key>
+      <PropertyRef Name="DO_DOCREL_ID" />
+    </Key>
+    <Property Name="DO_DOCREL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DO_DOCREL_DO_DOCUME_ID" Type="int" />
+    <Property Name="DO_DOCREL_TABLE_NAME" Type="nvarchar" MaxLength="256" />
+    <Property Name="DO_DOCREL_ID_RECORD" Type="int" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DO_DOCUME_documents">
+    <Key>
+      <PropertyRef Name="DO_DOCUME_ID" />
+    </Key>
+    <Property Name="DO_DOCUME_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DO_DOCUME_DO_TIPDOC_ID" Type="int" Nullable="false" />
+    <Property Name="DO_DOCUME_DESCRIPTION" Type="nvarchar(max)" />
+    <Property Name="DO_DOCUME_ISSUE_DATE" Type="datetime" />
+    <Property Name="DO_DOCUME_EXPIRY_DATE" Type="datetime" />
+    <Property Name="DO_DOCUME_DO_STADOC_ID" Type="int" Nullable="false" />
+    <Property Name="DO_DOCUME_FLAG_NO_ACTIVE" Type="bit" Nullable="false" />
+    <Property Name="DO_DOCUME_XML_CAMASS_VALUES" Type="xml" />
+    <Property Name="DO_DOCUME_XML_CAMUTE_VALUES" Type="xml" />
+    <Property Name="DO_DOCUME_DATA_PROT" Type="datetime" />
+    <Property Name="DO_DOCUME_NUM_PROT" Type="nvarchar" MaxLength="500" />
+    <Property Name="DO_DOCUME_NOTE" Type="nvarchar" MaxLength="2000" />
+    <Property Name="DO_DOCUME_NUM" Type="varchar" MaxLength="120" />
+    <Property Name="DO_DOCUME_CODE" Type="varchar" MaxLength="120" />
+    <Property Name="DO_DOCUME_DATE_INS" Type="datetime" />
+    <Property Name="DO_DOCUME_DATE_LAS_UPD" Type="datetime" />
+    <Property Name="DO_DOCUME_USERID" Type="int" />
+    <Property Name="DO_DOCUME_ID_PADRE" Type="int" />
+    <Property Name="GROUPS_LIST" Type="nvarchar" MaxLength="4000" />
+    <Property Name="DO_DOCUME_FL_PRIVAT" Type="bit" Nullable="false" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DO_DOCVER_versions">
+    <Key>
+      <PropertyRef Name="DO_DOCVER_ID" />
+    </Key>
+    <Property Name="DO_DOCVER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DO_DOCVER_DO_DOCFIL_ID" Type="int" Nullable="false" />
+    <Property Name="DO_DOCVER_COUNTER" Type="int" Nullable="false" />
+    <Property Name="DO_DOCVER_NOTE" Type="nvarchar(max)" />
+    <Property Name="DO_DOCVER_DATE" Type="datetime" Nullable="false" />
+    <Property Name="DO_DOCVER_USERID" Type="int" Nullable="false" />
+    <Property Name="DO_DOCVER_LINK_FILE" Type="nvarchar" MaxLength="1000" />
+    <Property Name="DO_DOCVER_THUMBNAIL_LINK" Type="nvarchar" MaxLength="1000" />
+    <Property Name="DO_DOCVER_FLAG_AGGIORNATO" Type="bit" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DO_DOSSIE_dossier">
+    <Key>
+      <PropertyRef Name="DO_DOSSIE_ID" />
+    </Key>
+    <Property Name="DO_DOSSIE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DO_DOSSIE_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="DO_DOSSIE_DESCRIPTION" Type="nvarchar" MaxLength="4000" />
+    <Property Name="DO_DOSSIE_CLADOS_ID" Type="int" />
+    <Property Name="DO_Magic_BusinessObjectType_ID" Type="int" />
+    <Property Name="DO_DOSSIE_FLAG_ACTIVE" Type="bit" Nullable="false" />
+    <Property Name="DO_DOSSIE_FL_PRIVAT" Type="bit" Nullable="false" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DO_DOSTIP_dosssier_type_document">
+    <Key>
+      <PropertyRef Name="DO_DOSTIP_ID" />
+    </Key>
+    <Property Name="DO_DOSTIP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DO_DOSTIP_DO_DOSSIE_ID" Type="int" Nullable="false" />
+    <Property Name="DO_DOSTIP_DO_TIPDOC_ID" Type="int" Nullable="false" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DO_DOSUTE_dossier_user">
+    <Key>
+      <PropertyRef Name="DO_DOSUTE_ID" />
+    </Key>
+    <Property Name="DO_DOSUTE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DO_DOSUTE_DO_DOSSIE_ID" Type="int" Nullable="false" />
+    <Property Name="DO_DOSUTE_US_GROUPS_ID" Type="int" Nullable="false" />
+    <Property Name="DO_DOSUTE_US_DEPROL_ID" Type="int" Nullable="false" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DO_OBTIDO_type_document">
+    <Key>
+      <PropertyRef Name="DO_OBTIDO_ID" />
+    </Key>
+    <Property Name="DO_OBTIDO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DO_OBTIDO_DO_TIPDOC_ID" Type="int" />
+    <Property Name="DO_OBTIDO_BusinessObjectType_ID" Type="int" />
+    <Property Name="DO_OBTIDO_VIEW_MISSING" Type="nvarchar" MaxLength="500" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DO_STADOC_status">
+    <Key>
+      <PropertyRef Name="DO_STADOC_ID" />
+    </Key>
+    <Property Name="DO_STADOC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DO_STADOC_CODE" Type="nvarchar" MaxLength="10" />
+    <Property Name="DO_STADOC_DESCRIPTION" Type="nvarchar" MaxLength="100" />
+    <Property Name="DO_STADOC_FLAG_HISTORY" Type="bit" />
+    <Property Name="DO_STADOC_FLAG_CAD" Type="bit" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="DO_STADOC_FLAG_START" Type="bit" />
+  </EntityType>
+  <EntityType Name="DO_STAWRK_status_workflow">
+    <Key>
+      <PropertyRef Name="DO_STAWRK_ID" />
+    </Key>
+    <Property Name="DO_STAWRK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DO_STAWKR_DO_STADOC_ID" Type="int" Nullable="false" />
+    <Property Name="DO_STAWRK_WrkStatus_Id" Type="int" Nullable="false" />
+    <Property Name="DO_STAWRK_WrkTypeAct_id" Type="int" Nullable="false" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DO_TIPDOC_document_type">
+    <Key>
+      <PropertyRef Name="DO_TIPDOC_ID" />
+    </Key>
+    <Property Name="DO_TIPDOC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DO_TIPDOC_DO_CLADOC_ID" Type="int" Nullable="false" />
+    <Property Name="DO_TIPDOC_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="DO_TIPDOC_DESCRIPTION" Type="nvarchar" MaxLength="1000" />
+    <Property Name="DO_TIPDOC_FILE_MANDATORY" Type="bit" Nullable="false" />
+    <Property Name="DO_TIPDOC_FLAG_MANDATORY_EXP" Type="bit" Nullable="false" />
+    <Property Name="DO_TIPDOC_DAY_MONITOR" Type="int" Nullable="false" />
+    <Property Name="DO_TIPDOC_PATH" Type="nvarchar" MaxLength="50" />
+    <Property Name="DO_TIPDOC_EXTENSIONS" Type="nvarchar" MaxLength="500" />
+    <Property Name="MagicBOLayer_ID" Type="int" />
+    <Property Name="DO_TIPDOC_FILE_MONITOR" Type="bit" Nullable="false" />
+    <Property Name="guidIdentifier" Type="uniqueidentifier" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="DO_TIPDOC_DAY_MONITOR_DUE" Type="int" Nullable="false" />
+    <Property Name="DO_TIPDOC_DO_STADOC_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="EV_EVENT_EVENTS">
+    <Key>
+      <PropertyRef Name="EV_EVENT_ID" />
+    </Key>
+    <Property Name="EV_EVENT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EV_EVENT_EV_RULCAT_ID" Type="int" Nullable="false" />
+    <Property Name="EV_EVENT_EV_STAGE_ID" Type="int" />
+    <Property Name="EV_EVENT_MSTR_KEY_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="EV_EVENT_MSTR_KEY_VALUE" Type="int" />
+    <Property Name="EV_EVENT_CHLD_KEY_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="EV_EVENT_CHLD_KEY_VALUE" Type="int" />
+    <Property Name="EV_EVENT_DATE" Type="datetime" Nullable="false" />
+    <Property Name="EV_EVENT_USER_ID" Type="int" Nullable="false" />
+    <Property Name="EV_EVENT_B_NO_VSBL" Type="bit" Nullable="false" />
+    <Property Name="EV_EVENT_CUSTOM_MSG" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="EX_EXCTIP_type_excel">
+    <Key>
+      <PropertyRef Name="EX_EXCTIP_ID" />
+    </Key>
+    <Property Name="EX_EXCTIP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EX_EXCTIP_CODE" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EX_EXCTIP_DESCRIPTION" Type="nvarchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FL_CLAFIL_class_file">
+    <Key>
+      <PropertyRef Name="FL_CLAFIL_ID" />
+    </Key>
+    <Property Name="FL_CLAFIL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FL_CLAFIL_CODE" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FL_CLAFIL_DESCRIPTION" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="FL_CLAFIL_COLOR" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FL_FILINP_input_file">
+    <Key>
+      <PropertyRef Name="FL_FILINP_ID" />
+    </Key>
+    <Property Name="FL_FILINP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FL_FILINP_FL_TIPFIL_ID" Type="int" Nullable="false" />
+    <Property Name="FL_FILINP_ORDER" Type="int" Nullable="false" />
+    <Property Name="FL_FILINP_COLUMN_NAME" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="FL_FILINP_MANDATORY" Type="bit" />
+    <Property Name="FL_FILINP_EX_EXCTIP_ID" Type="int" Nullable="false" />
+    <Property Name="FL_FILINP_TABLE_JOIN" Type="nvarchar" MaxLength="500" />
+    <Property Name="FL_FILINP_FIELD_JOIN" Type="nvarchar" MaxLength="500" />
+    <Property Name="FL_FILINP_DESCRIPTION_JOIN" Type="nvarchar" MaxLength="500" />
+    <Property Name="FL_FILINP_FLAG_VISIBILITY" Type="bit" />
+    <Property Name="FL_FILINP_FLAG_LIST" Type="bit" />
+    <Property Name="FL_FILINP_CONDITION_VALID" Type="nvarchar" MaxLength="500" />
+    <Property Name="FL_FILINP_DATAROLE_ID" Type="int" />
+    <Property Name="FL_FILINP_FIELD_DB_FOR_UPDATE" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="FL_FORMAT_format">
+    <Key>
+      <PropertyRef Name="FL_FORMAT_ID" />
+    </Key>
+    <Property Name="FL_FORMAT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FL_FORMAT_CODE" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FL_FORMAT_DESCRIPTION" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="FL_FORMAT_PATTERN" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="FL_RECFIL_fields">
+    <Key>
+      <PropertyRef Name="FL_RECFIL_ID" />
+    </Key>
+    <Property Name="FL_RECFIL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FL_RECFIL_FL_TIPFIL_ID" Type="int" Nullable="false" />
+    <Property Name="FL_RECFIL_NR_FIELD" Type="int" Nullable="false" />
+    <Property Name="FL_RECFIL_DESCRIPTION" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="FL_RECFIL_FIELD_NAME_EXCT" Type="nvarchar" MaxLength="150" />
+    <Property Name="FL_RECFIL_LENGHT" Type="int" />
+    <Property Name="FL_RECFIL_FL_FORMAT_ID" Type="int" />
+    <Property Name="FL_RECFIL_EX_EXCTIP_ID" Type="int" />
+    <Property Name="FL_RECFIL_ALLOW_NULL" Type="bit" Nullable="false" />
+    <Property Name="FL_RECFIL_DEFAULT" Type="nvarchar" MaxLength="50" />
+    <Property Name="FL_RECFIL_NAME_HEADER" Type="nvarchar" MaxLength="500" />
+    <Property Name="FL_RECFIL_FILLER" Type="bit" Nullable="false" />
+    <Property Name="FL_RECFIL_VALUE_ALLOWED" Type="nvarchar(max)" />
+    <Property Name="FL_RECFIL_TABLE_JOIN" Type="nvarchar" MaxLength="150" />
+    <Property Name="FL_RECFIL_FIELD_JOIN" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="FL_TIPFIL_type_file">
+    <Key>
+      <PropertyRef Name="FL_TIPFIL_ID" />
+    </Key>
+    <Property Name="FL_TIPFIL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FL_TIPFIL_FL_CLAFIL_ID" Type="int" Nullable="false" />
+    <Property Name="FL_TIPFIL_CODE" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FL_TIPFIL_DESCRIPTION" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="FL_TIPFIL_FLAG_HEADING" Type="bit" Nullable="false" />
+    <Property Name="FL_TIPFIL_DELIMITER" Type="nvarchar" MaxLength="50" />
+    <Property Name="FL_TIPFIL_LENGH_FIX" Type="bit" Nullable="false" />
+    <Property Name="FL_TIPFIL_LENGHT_RECORD" Type="int" />
+    <Property Name="FL_TIPFIL_OUTPUT" Type="bit" Nullable="false" />
+    <Property Name="FL_TIPFIL_SP_EXEC" Type="nvarchar" MaxLength="150" />
+    <Property Name="FL_TIPFIL_EXTENSION" Type="nvarchar" MaxLength="50" />
+    <Property Name="FL_TIPFIL_SITO_FTP" Type="nvarchar" MaxLength="500" />
+    <Property Name="FL_TIPFIL_DO_TIPDOC_ID" Type="int" />
+    <Property Name="FL_TIPFIL_FILE_NAME" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="JO_ANAPRO_jobana_proare">
+    <Key>
+      <PropertyRef Name="JO_ANAPRO_ID" />
+    </Key>
+    <Property Name="JO_ANAPRO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JO_ANAPRO_JO_JOBANA_ID" Type="int" />
+    <Property Name="JO_ANAPRO_JO_PROARE_ID" Type="int" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="JO_EXEORD_execution_order">
+    <Key>
+      <PropertyRef Name="JO_EXEORD_ID" />
+    </Key>
+    <Property Name="JO_EXEORD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JO_EXEORD_JO_STAJOB_ID" Type="int" Nullable="false" />
+    <Property Name="JO_EXEORD_JO_TIPJOB_ID" Type="int" Nullable="false" />
+    <Property Name="JO_EXEORD_ORDINE" Type="int" Nullable="false" />
+    <Property Name="JO_EXEORD_STORED" Type="nvarchar" MaxLength="500" />
+    <Property Name="JO_EXEORD_STORED_UNDO" Type="nvarchar" MaxLength="500" />
+    <Property Name="JO_EXEORD_FLAG_END" Type="bit" />
+    <Property Name="JO_EXEORD_VIEW_POST" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="JO_JOBANA_job_steps">
+    <Key>
+      <PropertyRef Name="JO_JOBANA_ID" />
+    </Key>
+    <Property Name="JO_JOBANA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JO_JOBANA_JO_JOBEVE_ID" Type="int" Nullable="false" />
+    <Property Name="JO_JOBANA_JO_EXEORD_ID" Type="int" Nullable="false" />
+    <Property Name="JO_JOBANA_START_DATE" Type="datetime" />
+    <Property Name="JO_JOBANA_END_DATE" Type="datetime" />
+    <Property Name="JO_JOBANA_ERROR" Type="nvarchar(max)" />
+    <Property Name="JO_JOBANA_CANCELLATION_DATE" Type="datetime" />
+    <Property Name="JO_JOBANA_XMLPARAMS" Type="nvarchar(max)" />
+    <Property Name="JO_JOBANA_USER_ID" Type="int" />
+    <Property Name="JO_JOBANA_STATUS" Type="smallint" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="JO_JOBEVE_jobs">
+    <Key>
+      <PropertyRef Name="JO_JOBEVE_ID" />
+    </Key>
+    <Property Name="JO_JOBEVE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JO_JOBEVE_JO_TIPJOB_ID" Type="int" Nullable="false" />
+    <Property Name="JO_JOBEVE_JO_LAST_EXEORD_ID" Type="int" Nullable="false" />
+    <Property Name="JO_JOBEVE_START_DATE" Type="datetime" />
+    <Property Name="JO_JOBEVE_END_DATE" Type="datetime" />
+    <Property Name="JO_JOBEVE_NOTE" Type="nvarchar(max)" />
+    <Property Name="JO_JOBEVE_USER_ID" Type="int" Nullable="false" />
+    <Property Name="JO_JOBEVE_TASKID" Type="int" />
+    <Property Name="JO_JOBEVE_CANCELLATION_DATE" Type="datetime" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="JO_JOBFIE_job_fields">
+    <Key>
+      <PropertyRef Name="JO_JOBFIE_ID" />
+    </Key>
+    <Property Name="JO_JOBFIE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JO_JOBFIE_JO_EXEORD_ID" Type="int" Nullable="false" />
+    <Property Name="JO_JOBFIE_ORDER" Type="int" Nullable="false" />
+    <Property Name="JO_JOBFIE_COLUMN_NAME" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="JO_JOBFIE_COLUMN_TYPE" Type="nvarchar" MaxLength="20" />
+    <Property Name="JO_JOBFIE_MANDATORY" Type="bit" />
+    <Property Name="JO_JOBFIE_COLUMN_TABLE_JOIN" Type="nvarchar" MaxLength="500" />
+    <Property Name="JO_JOBFIE_DESCRIPT_TABLE_JOIN" Type="nvarchar" MaxLength="500" />
+    <Property Name="JO_JOBFIE_FLAG_USER_TABLE_JOIN" Type="bit" />
+    <Property Name="JO_JOBFIE_COLUMN_FATHER" Type="nvarchar" MaxLength="500" />
+    <Property Name="JO_JOBFIE_COLUMN_JOIN_FATHER" Type="nvarchar" MaxLength="50" />
+    <Property Name="JO_JOBFIE_DATAROLE_ID" Type="int" />
+    <Property Name="JO_JOBFIE_TABLE_JOIN" Type="nvarchar" MaxLength="100" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="JO_JOBGRO_Job_groups">
+    <Key>
+      <PropertyRef Name="JO_JOBGRO_ID" />
+    </Key>
+    <Property Name="JO_JOBGRO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JO_JOBGRO_JO_JOBEVE_ID" Type="int" Nullable="false" />
+    <Property Name="JO_JOBGRO_US_GROUPS_ID" Type="int" Nullable="false" />
+    <Property Name="JO_JOBGRO_US_AREVIS_ID" Type="int" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="JO_JOBINP_job_input">
+    <Key>
+      <PropertyRef Name="JO_JOBINP_ID" />
+    </Key>
+    <Property Name="JO_JOBINP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JO_JOBINP_JO_JOBANA_ID" Type="int" Nullable="false" />
+    <Property Name="JO_JOBINP_JO_JOBFIE_ID" Type="int" Nullable="false" />
+    <Property Name="JO_JOBINP_VALUE" Type="nvarchar" MaxLength="1000" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="JO_JOBNOT_notification">
+    <Key>
+      <PropertyRef Name="JO_JOBNOT_ID" />
+    </Key>
+    <Property Name="JO_JOBNOT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JO_JOBNOT_JO_JOBANA_ID" Type="int" Nullable="false" />
+    <Property Name="JO_JOBNOT_NOTIFICATION" Type="nvarchar(max)" />
+    <Property Name="JO_JOBNOT_DATE_NOTIFICATION" Type="datetime" />
+    <Property Name="JO_JOBNOT_DATE" Type="datetime" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="JO_JOBREC_job_record">
+    <Key>
+      <PropertyRef Name="JO_JOBREC_ID" />
+    </Key>
+    <Property Name="JO_JOBREC_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JO_JOBREC_JO_JOBANA_ID" Type="int" Nullable="false" />
+    <Property Name="JO_JOBREC_TABLE_NAME" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="JO_JOBREC_ID_RECORD" Type="int" Nullable="false" />
+    <Property Name="JO_JOBREC_SELECTED" Type="bit" Nullable="false" />
+    <Property Name="JO_JOBREC_DATE" Type="datetime" />
+    <Property Name="JO_JOBRED_USERID" Type="int" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="US_AREFUN__Arepro_Functions">
+    <Key>
+      <PropertyRef Name="US_AREFUN_ID" />
+    </Key>
+    <Property Name="US_AREFUN_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="US_AREFUN_US_PROARE_ID" Type="int" />
+    <Property Name="US_AREFUN_FunctionID" Type="int" />
+    <Property Name="FunctionGUID" Type="uniqueidentifier" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="guidIdentifier" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="US_AREGRI_Arepro_Grids">
+    <Key>
+      <PropertyRef Name="US_AREGRI_ID" />
+    </Key>
+    <Property Name="US_AREGRI_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="US_AREGRI_US_PROARE_ID" Type="int" />
+    <Property Name="US_AREGRI_MagicGridID" Type="int" />
+    <Property Name="MagicGridName" Type="varchar" MaxLength="50" />
+    <Property Name="GridGUID" Type="uniqueidentifier" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="guidIdentifier" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="US_AREGRO_area_groups">
+    <Key>
+      <PropertyRef Name="US_AREGRO_ID" />
+    </Key>
+    <Property Name="US_AREGRO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="US_AREGRO_US_AREVIS_ID" Type="int" Nullable="false" />
+    <Property Name="US_AREGRO_US_GROUPS_ID" Type="int" />
+    <Property Name="US_AREGRO_LE_AMMGRO_ID" Type="int" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="US_AREVIS_area_visibility">
+    <Key>
+      <PropertyRef Name="US_AREVIS_ID" />
+    </Key>
+    <Property Name="US_AREVIS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="US_AREVIS_US_CLAVIS_ID" Type="int" Nullable="false" />
+    <Property Name="US_AREVIS_DESCRIPTION" Type="nvarchar" MaxLength="1000" />
+    <Property Name="US_AREVIS_PARENT_ID" Type="int" />
+    <Property Name="US_AREVIS_GROUP_TO_SEARCH" Type="int" />
+    <Property Name="US_AREVIS_ORDER" Type="int" />
+    <Property Name="US_AREVIS_LOGO" Type="nvarchar" MaxLength="500" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="US_GROUPS_groups">
+    <Key>
+      <PropertyRef Name="US_GROUPS_ID" />
+    </Key>
+    <Property Name="US_GROUPS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="US_GROUPS_US_TIPGRU_ID" Type="int" Nullable="false" />
+    <Property Name="US_GROUPS_DESCRIPTION" Type="nvarchar" MaxLength="500" />
+    <Property Name="US_GROUPS_FROM" Type="datetime" Nullable="false" />
+    <Property Name="US_GROUPS_TO" Type="datetime" />
+    <Property Name="cUserId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="US_GROUPS_CODE" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Magic_BusinessObjectTypes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BusinessObjectType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="512" Nullable="false" />
+    <Property Name="MagicGrid_Id" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="BODescriptionQuery" Type="varchar(max)" />
+    <Property Name="TAGQuery" Type="varchar(max)" />
+    <Property Name="EntityName" Type="nvarchar" MaxLength="128" />
+    <Property Name="MagicGridName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'refTree_dev.core.AS_V_ASSET_assetExtended' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AS_V_ASSET_assetExtended">
+    <Key>
+      <PropertyRef Name="AS_ASSET_ID" />
+      <PropertyRef Name="AS_ASSET_TIPASS_ID" />
+      <PropertyRef Name="AS_ASSET_TIPSAS_ID" />
+      <PropertyRef Name="US_AREVIS_ID" />
+      <PropertyRef Name="Visible_group" />
+      <PropertyRef Name="HasImage" />
+    </Key>
+    <Property Name="AS_ASSET_ID" Type="int" Nullable="false" />
+    <Property Name="AS_ASSET_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="AS_ASSET_ID_PADRE" Type="int" />
+    <Property Name="AS_ASSET_DESCRIZIONE" Type="nvarchar" MaxLength="1000" />
+    <Property Name="AS_ASSET_LOCATION_ID" Type="int" />
+    <Property Name="AS_ASSET_TIPASS_ID" Type="int" Nullable="false" />
+    <Property Name="AS_ASSET_TIPSAS_ID" Type="int" Nullable="false" />
+    <Property Name="AS_ASSET_SASSPE_ID" Type="int" />
+    <Property Name="AS_ASSET_DATA_INIZIO" Type="datetime" />
+    <Property Name="AS_ASSET_DATA_FINE" Type="datetime" />
+    <Property Name="AS_ASSET_SUPERFICIE" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="AS_ASSET_CODE_OLD" Type="nvarchar" MaxLength="50" />
+    <Property Name="AS_ASSET_ID_ASSET_ORIGINE" Type="int" />
+    <Property Name="AS_ASSET_ADDRESS" Type="nvarchar" MaxLength="500" />
+    <Property Name="LOCATION_NUMBER" Type="varchar" MaxLength="50" />
+    <Property Name="LOCATION_STREET_ID" Type="int" />
+    <Property Name="LOCATION_LATITUDE" Type="decimal" Precision="11" Scale="7" />
+    <Property Name="LOCATION_LONGITUDE" Type="decimal" Precision="11" Scale="7" />
+    <Property Name="P_CODE" Type="nvarchar" MaxLength="10" />
+    <Property Name="AS_ASSET_XML_CAMASS_VALUES" Type="xml" />
+    <Property Name="AS_ASSET_XML_CAMUSE_VALUES" Type="xml" />
+    <Property Name="GROUPS_LIST" Type="nvarchar" MaxLength="4000" />
+    <Property Name="US_AREVIS_ID" Type="int" Nullable="false" />
+    <Property Name="MagicBOLayerID" Type="int" />
+    <Property Name="DEFAULT_GROUP_ID" Type="int" />
+    <Property Name="GROUP_TO_SEARCH" Type="int" />
+    <Property Name="AS_ASSET_EV_STAGE_ID" Type="int" />
+    <Property Name="AS_TIPSAS_DESCRIPTION" Type="nvarchar" MaxLength="500" />
+    <Property Name="DESCR_FOR_SEARCH" Type="nvarchar" MaxLength="1556" />
+    <Property Name="Visible_group" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Main_Image_Thumbnail" Type="nvarchar" MaxLength="1000" />
+    <Property Name="HasImage" Type="int" Nullable="false" />
+    <Property Name="AS_ASSET_LONG_DESC" Type="nvarchar" MaxLength="2000" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'refTree_dev.core.AS_V_LOCATION_locationextended' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AS_V_LOCATION_locationextended">
+    <Key>
+      <PropertyRef Name="LOCATION_ID" />
+      <PropertyRef Name="LOCATION_DESCRIPTION" />
+    </Key>
+    <Property Name="LOCATION_ID" Type="int" Nullable="false" />
+    <Property Name="LOCATION_DESCRIPTION" Type="nvarchar" MaxLength="508" Nullable="false" />
+    <Property Name="LOCATION_NUMBER" Type="varchar" MaxLength="50" />
+    <Property Name="LOCATION_STREET_ID" Type="int" />
+    <Property Name="LOCATION_DESCRIPTION_LONG" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'refTree_dev.core.DO_V_DOCFIE_class_doc_fields' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DO_V_DOCFIE_class_doc_fields">
+    <Key>
+      <PropertyRef Name="DO_DOCFIE_ID" />
+      <PropertyRef Name="DO_DOCFIE_MagicColumnID" />
+      <PropertyRef Name="DO_DOCFIE_TAB_NAME" />
+      <PropertyRef Name="MagicGrid_ID" />
+    </Key>
+    <Property Name="DO_DOCFIE_ID" Type="int" Nullable="false" />
+    <Property Name="DO_DOCFIE_DO_CLADOC_ID" Type="int" />
+    <Property Name="DO_DOCFIE_DO_TIPDOC_ID" Type="int" />
+    <Property Name="DO_DOCFIE_MANDATORY" Type="bit" />
+    <Property Name="DO_DOCFIE_FIELD_DB" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="DO_DOCFIE_TABLE_JOIN" Type="nvarchar" MaxLength="100" />
+    <Property Name="DO_DOCFIE_FIELD_JOIN" Type="nvarchar" MaxLength="100" />
+    <Property Name="DO_DOCFIE_DESCRIPTION_JOIN" Type="nvarchar" MaxLength="100" />
+    <Property Name="DO_DOCFIE_MagicColumnID" Type="int" Nullable="false" />
+    <Property Name="DO_DOCFIE_CF_FIELDS_DATA_TYPE_ID" Type="int" />
+    <Property Name="DO_DOCFIE_TAB_NAME" Type="int" Nullable="false" />
+    <Property Name="DO_DOCFIE_ORDINAL_POSITION" Type="int" />
+    <Property Name="Columns_label" Type="nvarchar" MaxLength="100" />
+    <Property Name="MagicGrid_ID" Type="int" Nullable="false" />
+    <Property Name="MagicGridName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'refTree_dev.core.DO_V_DOCFIL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DO_V_DOCFIL">
+    <Key>
+      <PropertyRef Name="DO_DOCFIL_ID" />
+      <PropertyRef Name="DO_DOCFIL_DO_DOCUME_ID" />
+      <PropertyRef Name="DO_DOCFIL_DATE" />
+      <PropertyRef Name="DO_DOCFIL_USERID" />
+      <PropertyRef Name="DO_DOCVER_COUNTER" />
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="DO_TIPDOC_ID" />
+      <PropertyRef Name="DO_CLADOC_ID" />
+      <PropertyRef Name="DO_DOCUME_DO_STADOC_ID" />
+      <PropertyRef Name="DO_DOCVER_ID" />
+    </Key>
+    <Property Name="DO_DOCFIL_ID" Type="int" Nullable="false" />
+    <Property Name="DO_DOCFIL_DO_DOCUME_ID" Type="int" Nullable="false" />
+    <Property Name="DO_DOCFIL_NOTE" Type="nvarchar(max)" />
+    <Property Name="DO_DOCFIL_DATE" Type="datetime" Nullable="false" />
+    <Property Name="DO_DOCFIL_USERID" Type="int" Nullable="false" />
+    <Property Name="DO_DOCVER_COUNTER" Type="int" Nullable="false" />
+    <Property Name="DO_DOCVER_NOTE" Type="nvarchar(max)" />
+    <Property Name="DO_DOCVER_LINK_FILE" Type="nvarchar" MaxLength="1000" />
+    <Property Name="DO_DOCFIL_FLAG_MAIN_ASSET" Type="bit" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DO_TIPDOC_ID" Type="int" Nullable="false" />
+    <Property Name="DO_TIPDOC_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="DO_TIPDOC_DESCRIPTION" Type="nvarchar" MaxLength="1000" />
+    <Property Name="DO_TIPDOC_PATH" Type="nvarchar" MaxLength="50" />
+    <Property Name="DO_CLADOC_ID" Type="int" Nullable="false" />
+    <Property Name="DO_CLADOC_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="DO_CLADOC_DESCRIPTION" Type="nvarchar" MaxLength="1000" />
+    <Property Name="DO_CLADOC_PATH" Type="nvarchar" MaxLength="50" />
+    <Property Name="DO_DOCUME_DESCRIPTION" Type="nvarchar(max)" />
+    <Property Name="DO_DOCUME_ISSUE_DATE" Type="datetime" />
+    <Property Name="DO_DOCUME_EXPIRY_DATE" Type="datetime" />
+    <Property Name="DO_DOCUME_DO_STADOC_ID" Type="int" Nullable="false" />
+    <Property Name="DO_DOCUME_FLAG_NO_ACTIVE" Type="bit" Nullable="false" />
+    <Property Name="DO_DOCUME_XML_CAMASS_VALUES" Type="xml" />
+    <Property Name="DO_DOCUME_XML_CAMUTE_VALUES" Type="xml" />
+    <Property Name="DO_DOCUME_DATA_PROT" Type="datetime" />
+    <Property Name="DO_DOCUME_NUM_PROT" Type="nvarchar" MaxLength="500" />
+    <Property Name="DO_DOCUME_NOTE" Type="nvarchar" MaxLength="2000" />
+    <Property Name="DO_DOCUME_NUM" Type="varchar" MaxLength="120" />
+    <Property Name="DO_DOCUME_CODE" Type="varchar" MaxLength="120" />
+    <Property Name="DO_DOCUME_ID_PADRE" Type="int" />
+    <Property Name="DO_TIPDOC_EXTENSIONS" Type="nvarchar" MaxLength="500" />
+    <Property Name="DO_CLADOC_FLAG_PHOTO" Type="bit" />
+    <Property Name="DO_DOCVER_THUMBNAIL" Type="nvarchar" MaxLength="1000" />
+    <Property Name="DO_DOCVER_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'refTree_dev.core.DO_V_DOCUME' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DO_V_DOCUME">
+    <Key>
+      <PropertyRef Name="DO_DOCUME_ID" />
+      <PropertyRef Name="DO_DOCUME_DO_TIPDOC_ID" />
+      <PropertyRef Name="DO_DOCUME_DO_STADOC_ID" />
+      <PropertyRef Name="DO_DOCUME_FLAG_NO_ACTIVE" />
+      <PropertyRef Name="DO_TIPDOC_DO_CLADOC_ID" />
+      <PropertyRef Name="fakeforlink" />
+      <PropertyRef Name="OBJECT_DESCRIPTION" />
+      <PropertyRef Name="OBJECT_ID" />
+      <PropertyRef Name="OBJECT_TYPE_ID" />
+      <PropertyRef Name="OBJECT_CODE" />
+      <PropertyRef Name="DO_DOCUME_FL_PRIVAT" />
+      <PropertyRef Name="Editable" />
+      <PropertyRef Name="DO_STADOC_FLAG_HISTORY" />
+    </Key>
+    <Property Name="DO_DOCUME_ID" Type="int" Nullable="false" />
+    <Property Name="DO_DOCUME_DO_TIPDOC_ID" Type="int" Nullable="false" />
+    <Property Name="DO_DOCUME_DESCRIPTION" Type="nvarchar(max)" />
+    <Property Name="DO_DOCUME_ISSUE_DATE" Type="datetime" />
+    <Property Name="DO_DOCUME_EXPIRY_DATE" Type="datetime" />
+    <Property Name="DO_DOCUME_DO_STADOC_ID" Type="int" Nullable="false" />
+    <Property Name="DO_DOCUME_FLAG_NO_ACTIVE" Type="bit" Nullable="false" />
+    <Property Name="DO_DOCUME_XML_CAMASS_VALUES" Type="xml" />
+    <Property Name="DO_DOCUME_XML_CAMUTE_VALUES" Type="xml" />
+    <Property Name="DO_TIPDOC_DO_CLADOC_ID" Type="int" Nullable="false" />
+    <Property Name="DO_TIPDOC_EXTENSIONS" Type="nvarchar" MaxLength="500" />
+    <Property Name="DO_TIPDOC_PATH" Type="nvarchar" MaxLength="50" />
+    <Property Name="DO_CLADOC_PATH" Type="nvarchar" MaxLength="50" />
+    <Property Name="DO_STADOC_DESCRIPTION" Type="nvarchar" MaxLength="100" />
+    <Property Name="MagicBOLayerID" Type="int" />
+    <Property Name="DO_CLADOC_DESCRIPTION" Type="nvarchar" MaxLength="1000" />
+    <Property Name="DO_TIPDOC_DESCRIPTION" Type="nvarchar" MaxLength="1000" />
+    <Property Name="fakeforlink" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="MagicBusinessObjectList" Type="nvarchar(max)" />
+    <Property Name="OBJECT_DESCRIPTION" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="OBJECT_ID" Type="int" Nullable="false" />
+    <Property Name="OBJECT_TYPE_ID" Type="int" Nullable="false" />
+    <Property Name="OBJECT_CODE" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="DO_DOCUME_DATA_PROT" Type="datetime" />
+    <Property Name="DO_DOCUME_NUM_PROT" Type="nvarchar" MaxLength="500" />
+    <Property Name="DO_DOCUME_NOTE" Type="nvarchar" MaxLength="2000" />
+    <Property Name="DO_DOCUME_NUM" Type="varchar" MaxLength="120" />
+    <Property Name="DO_DOCUME_CODE" Type="varchar" MaxLength="120" />
+    <Property Name="DO_DOCUME_ID_PADRE" Type="int" />
+    <Property Name="DO_DOCUME_FL_PRIVAT" Type="bit" Nullable="false" />
+    <Property Name="DO_DOCUME_CODE_PADRE" Type="varchar" MaxLength="120" />
+    <Property Name="Editable" Type="int" Nullable="false" />
+    <Property Name="EXISTS_FILE" Type="bit" />
+    <Property Name="DO_DOCUME_DATE_INS" Type="datetime" />
+    <Property Name="DO_DOCUME_DATE_LAS_UPD" Type="datetime" />
+    <Property Name="DO_DOCUME_USERID" Type="int" />
+    <Property Name="DO_CLADOC_FLAG_PHOTO" Type="bit" />
+    <Property Name="DO_DOCUME_FLAG_FATHER" Type="varchar" MaxLength="6" />
+    <Property Name="GROUPS_LIST" Type="nvarchar" MaxLength="4000" />
+    <Property Name="DO_STADOC_FLAG_HISTORY" Type="bit" Nullable="false" />
+    <Property Name="DO_TIPDOC_LISTA" Type="nvarchar" MaxLength="1053" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'refTree_dev.core.DO_V_DOCUME_ENTITY' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DO_V_DOCUME_ENTITY">
+    <Key>
+      <PropertyRef Name="DO_DOCUME_ID" />
+      <PropertyRef Name="DO_DOCUME_DO_TIPDOC_ID" />
+      <PropertyRef Name="DO_DOCUME_DO_STADOC_ID" />
+      <PropertyRef Name="DO_TIPDOC_DO_CLADOC_ID" />
+      <PropertyRef Name="fakeforlink" />
+      <PropertyRef Name="DO_DOCUME_FL_PRIVAT" />
+    </Key>
+    <Property Name="DO_DOCUME_ID" Type="int" Nullable="false" />
+    <Property Name="DO_DOCUME_DO_TIPDOC_ID" Type="int" Nullable="false" />
+    <Property Name="DO_DOCUME_DESCRIPTION" Type="nvarchar(max)" />
+    <Property Name="DO_DOCUME_ISSUE_DATE" Type="datetime" />
+    <Property Name="DO_DOCUME_EXPIRY_DATE" Type="datetime" />
+    <Property Name="DO_DOCUME_DO_STADOC_ID" Type="int" Nullable="false" />
+    <Property Name="DO_DOCUME_FLAG_NO_ACTIVE" Type="bit" Nullable="false" />
+    <Property Name="DO_DOCUME_XML_CAMASS_VALUES" Type="xml" />
+    <Property Name="DO_DOCUME_XML_CAMUTE_VALUES" Type="xml" />
+    <Property Name="DO_TIPDOC_DO_CLADOC_ID" Type="int" Nullable="false" />
+    <Property Name="DO_TIPDOC_EXTENSIONS" Type="nvarchar" MaxLength="500" />
+    <Property Name="DO_TIPDOC_PATH" Type="nvarchar" MaxLength="50" />
+    <Property Name="DO_CLADOC_PATH" Type="nvarchar" MaxLength="50" />
+    <Property Name="DO_STADOC_DESCRIPTION" Type="nvarchar" MaxLength="100" />
+    <Property Name="MagicBOLayerID" Type="int" />
+    <Property Name="fakeforlink" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="DO_CLADOC_DESCRIPTION" Type="nvarchar" MaxLength="1000" />
+    <Property Name="DO_TIPDOC_DESCRIPTION" Type="nvarchar" MaxLength="1000" />
+    <Property Name="DO_DOCREL_ID_RECORD" Type="int" />
+    <Property Name="DO_DOCREL_TABLE_NAME" Type="nvarchar" MaxLength="256" />
+    <Property Name="DO_DOCUME_DATA_PROT" Type="datetime" />
+    <Property Name="DO_DOCUME_NUM_PROT" Type="nvarchar" MaxLength="500" />
+    <Property Name="DO_DOCUME_NOTE" Type="nvarchar" MaxLength="2000" />
+    <Property Name="DO_DOCUME_NUM" Type="varchar" MaxLength="120" />
+    <Property Name="DO_DOCUME_CODE" Type="varchar" MaxLength="120" />
+    <Property Name="DO_DOCUME_ID_PADRE" Type="int" />
+    <Property Name="DO_DOCUME_FL_PRIVAT" Type="bit" Nullable="false" />
+    <Property Name="DO_CLADOC_FLAG_PHOTO" Type="bit" />
+    <Property Name="DO_DOCUME_FLAG_FATHER" Type="varchar" MaxLength="6" />
+    <Property Name="GROUPS_LIST" Type="nvarchar" MaxLength="4000" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'refTree_dev.core.DO_V_DOCUME_MISSING' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DO_V_DOCUME_MISSING">
+    <Key>
+      <PropertyRef Name="DO_CLADOC_ID" />
+      <PropertyRef Name="DO_TIPDOC_ID" />
+      <PropertyRef Name="MagicBOLayerID" />
+      <PropertyRef Name="OBJECT_DESCRIPTION" />
+      <PropertyRef Name="OBJECT_CODE" />
+      <PropertyRef Name="OBJECT_ID" />
+    </Key>
+    <Property Name="DO_CLADOC_ID" Type="int" Nullable="false" />
+    <Property Name="DO_CLADOC_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="DO_CLADOC_DESCRIPTION" Type="nvarchar" MaxLength="1000" />
+    <Property Name="DO_CLADOC_PATH" Type="nvarchar" MaxLength="50" />
+    <Property Name="DO_TIPDOC_ID" Type="int" Nullable="false" />
+    <Property Name="DO_TIPDOC_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="DO_TIPDOC_DESCRIPTION" Type="nvarchar" MaxLength="1000" />
+    <Property Name="DO_TIPDOC_EXTENSIONS" Type="nvarchar" MaxLength="500" />
+    <Property Name="DO_TIPDOC_PATH" Type="nvarchar" MaxLength="50" />
+    <Property Name="MagicBOLayerID" Type="int" Nullable="false" />
+    <Property Name="OBJECT_DESCRIPTION" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="OBJECT_CODE" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="OBJECT_ID" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'refTree_dev.core.DO_V_DOCVER' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DO_V_DOCVER">
+    <Key>
+      <PropertyRef Name="DO_DOCVER_ID" />
+      <PropertyRef Name="DO_DOCVER_DO_DOCFIL_ID" />
+      <PropertyRef Name="DO_DOCVER_COUNTER" />
+      <PropertyRef Name="DO_DOCVER_DATE" />
+      <PropertyRef Name="DO_DOCVER_USERID" />
+      <PropertyRef Name="USERNAME" />
+      <PropertyRef Name="DO_DOCFIL_DO_DOCUME_ID" />
+    </Key>
+    <Property Name="DO_DOCVER_ID" Type="int" Nullable="false" />
+    <Property Name="DO_DOCVER_DO_DOCFIL_ID" Type="int" Nullable="false" />
+    <Property Name="DO_DOCVER_COUNTER" Type="int" Nullable="false" />
+    <Property Name="DO_DOCVER_NOTE" Type="nvarchar(max)" />
+    <Property Name="DO_DOCVER_DATE" Type="datetime" Nullable="false" />
+    <Property Name="DO_DOCVER_USERID" Type="int" Nullable="false" />
+    <Property Name="DO_DOCVER_LINK_FILE" Type="nvarchar" MaxLength="1000" />
+    <Property Name="USERNAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DO_DOCFIL_DO_DOCUME_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'refTree_dev.core.JO_ACTIVE_JOBS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="JO_ACTIVE_JOBS">
+    <Key>
+      <PropertyRef Name="JO_JOBEVE_ID" />
+      <PropertyRef Name="JO_JOBEVE_JO_TIPJOB_ID" />
+      <PropertyRef Name="US_AREVIS_ID" />
+    </Key>
+    <Property Name="JO_JOBEVE_ID" Type="int" Nullable="false" />
+    <Property Name="JO_JOBEVE_END_DATE" Type="datetime" />
+    <Property Name="JO_JOBEVE_JO_TIPJOB_ID" Type="int" Nullable="false" />
+    <Property Name="US_AREVIS_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'refTree_dev.core.M_TIPSAS_TIPASS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="M_TIPSAS_TIPASS">
+    <Key>
+      <PropertyRef Name="AS_TIPASS_ID" />
+      <PropertyRef Name="AS_TIPSAS_ID" />
+    </Key>
+    <Property Name="viewID" Type="bigint" />
+    <Property Name="AS_TIPASS_ID" Type="int" Nullable="false" />
+    <Property Name="AS_TIPASS_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="AS_TIPASS_DESCRIPTION" Type="nvarchar" MaxLength="500" />
+    <Property Name="AS_TIPSAS_ID" Type="int" Nullable="false" />
+    <Property Name="AS_TIPSAS_CODICE" Type="nvarchar" MaxLength="50" />
+    <Property Name="AS_TIPSAS_DESCRIZIONE" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsChecked" Type="bit" />
+    <Property Name="AS_SUBTIP_ORDINE" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'refTree_dev.core.STREET_V_streetExtended' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="STREET_V_streetExtended">
+    <Key>
+      <PropertyRef Name="STREET_ID" />
+      <PropertyRef Name="LOCATION_DESCRIPTION" />
+    </Key>
+    <Property Name="STREET_ID" Type="int" Nullable="false" />
+    <Property Name="LOCATION_DESCRIPTION" Type="nvarchar" MaxLength="508" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'refTree_dev.core.WF_V_ACTAGG_aggregate_activities' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="WF_V_ACTAGG_aggregate_activities">
+    <Key>
+      <PropertyRef Name="taskTypeID" />
+      <PropertyRef Name="ActivitySource" />
+      <PropertyRef Name="ToBeAssigned" />
+      <PropertyRef Name="start" />
+    </Key>
+    <Property Name="taskTypeID" Type="int" Nullable="false" />
+    <Property Name="taskTypeDescription" Type="nvarchar" MaxLength="100" />
+    <Property Name="Color" Type="nvarchar" MaxLength="50" />
+    <Property Name="LinkedModelActivity_ID" Type="int" />
+    <Property Name="Activity" Type="nvarchar" MaxLength="615" />
+    <Property Name="start" Type="date" Nullable="false" />
+    <Property Name="ownerId" Type="int" />
+    <Property Name="ActivitySource" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="US_DEPROL_ID" Type="int" />
+    <Property Name="US_USEROL_ID" Type="int" />
+    <Property Name="US_USEROL_DESCRIPTION" Type="nvarchar" MaxLength="200" />
+    <Property Name="US_DEPART_ID" Type="int" />
+    <Property Name="US_DEPART_DESCRIPTION" Type="nvarchar" MaxLength="200" />
+    <Property Name="MandatoryAssignment" Type="int" />
+    <Property Name="ToBeAssigned" Type="int" Nullable="false" />
+    <Property Name="Activity_counter" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'refTree_dev.core.WF_V_ACTCAL_activities_calendar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="WF_V_ACTCAL_activities_calendar">
+    <Key>
+      <PropertyRef Name="taskId" />
+      <PropertyRef Name="start" />
+      <PropertyRef Name="RequiresCheckList" />
+      <PropertyRef Name="RequiresDocUpload" />
+      <PropertyRef Name="MandatoryAssignment" />
+      <PropertyRef Name="GenerateBO" />
+    </Key>
+    <Property Name="taskId" Type="int" Nullable="false" />
+    <Property Name="start" Type="datetime" Nullable="false" />
+    <Property Name="taskTypeID" Type="int" />
+    <Property Name="LinkedModelActivity_ID" Type="int" />
+    <Property Name="ownerId" Type="int" />
+    <Property Name="title" Type="nvarchar" MaxLength="200" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="DueDate" Type="datetime" />
+    <Property Name="ProcessFunction_ID" Type="int" />
+    <Property Name="ACT_BO_ID" Type="varchar" MaxLength="50" />
+    <Property Name="ACT_BO_Type_ID" Type="int" />
+    <Property Name="ActivityInstance_ID" Type="int" />
+    <Property Name="WF_BO_ID" Type="varchar" MaxLength="50" />
+    <Property Name="WF_BO_Type_ID" Type="int" />
+    <Property Name="RequiresCheckList" Type="int" Nullable="false" />
+    <Property Name="RequiresDocUpload" Type="int" Nullable="false" />
+    <Property Name="MandatoryAssignment" Type="int" Nullable="false" />
+    <Property Name="GenerateBO" Type="bit" Nullable="false" />
+    <Property Name="actionid" Type="int" />
+    <Property Name="actiontype" Type="varchar" MaxLength="20" />
+    <Property Name="actioncommand" Type="nvarchar(max)" />
+    <Property Name="actionfilter" Type="nvarchar" MaxLength="1000" />
+    <Property Name="FunctionGUID" Type="uniqueidentifier" />
+    <Property Name="PrecOutStatus" Type="varchar" MaxLength="500" />
+    <Property Name="PrecActivityType" Type="varchar" MaxLength="500" />
+    <Property Name="Note" Type="varchar" MaxLength="500" />
+    <Property Name="UploadedFile" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <Association Name="fk_arevis_groups">
+    <End Role="US_GROUPS_groups" Type="Self.US_GROUPS_groups" Multiplicity="0..1" />
+    <End Role="US_AREVIS_area_visibility" Type="Self.US_AREVIS_area_visibility" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="US_GROUPS_groups">
+        <PropertyRef Name="US_GROUPS_ID" />
+      </Principal>
+      <Dependent Role="US_AREVIS_area_visibility">
+        <PropertyRef Name="US_AREVIS_GROUP_TO_SEARCH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AS_ASSET_asset_AS_ASSET_asset">
+    <End Role="AS_ASSET_asset" Type="Self.AS_ASSET_asset" Multiplicity="0..1" />
+    <End Role="AS_ASSET_asset1" Type="Self.AS_ASSET_asset" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AS_ASSET_asset">
+        <PropertyRef Name="AS_ASSET_ID" />
+      </Principal>
+      <Dependent Role="AS_ASSET_asset1">
+        <PropertyRef Name="AS_ASSET_ID_PADRE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_CAMASS_fields_document_CF_FIELDS_DATA_TYPE">
+    <End Role="CF_FIELDS_DATA_TYPE" Type="Self.CF_FIELDS_DATA_TYPE" Multiplicity="0..1" />
+    <End Role="DO_DOCFIE_fields_document" Type="Self.DO_DOCFIE_fields_document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CF_FIELDS_DATA_TYPE">
+        <PropertyRef Name="CF_FIELDS_DATA_TYPE_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCFIE_fields_document">
+        <PropertyRef Name="DO_DOCFIE_CF_FIELDS_DATA_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_CAMASS_fields_document_DO_TIPDOC_document_type">
+    <End Role="DO_TIPDOC_document_type" Type="Self.DO_TIPDOC_document_type" Multiplicity="0..1" />
+    <End Role="DO_DOCFIE_fields_document" Type="Self.DO_DOCFIE_fields_document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_TIPDOC_document_type">
+        <PropertyRef Name="DO_TIPDOC_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCFIE_fields_document">
+        <PropertyRef Name="DO_DOCFIE_DO_TIPDOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_CAMUSE_fields_document_user_CF_FIELDS_DATA_TYPE">
+    <End Role="CF_FIELDS_DATA_TYPE" Type="Self.CF_FIELDS_DATA_TYPE" Multiplicity="0..1" />
+    <End Role="DO_CAMUSE_fields_document_user" Type="Self.DO_CAMUSE_fields_document_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CF_FIELDS_DATA_TYPE">
+        <PropertyRef Name="CF_FIELDS_DATA_TYPE_ID" />
+      </Principal>
+      <Dependent Role="DO_CAMUSE_fields_document_user">
+        <PropertyRef Name="DO_CAMUSE_CF_FIELDS_DATA_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_CAMUSE_fields_document_user_DO_CLADOC_document_class">
+    <End Role="DO_CLADOC_document_class" Type="Self.DO_CLADOC_document_class" Multiplicity="0..1" />
+    <End Role="DO_CAMUSE_fields_document_user" Type="Self.DO_CAMUSE_fields_document_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_CLADOC_document_class">
+        <PropertyRef Name="DO_CLADOC_ID" />
+      </Principal>
+      <Dependent Role="DO_CAMUSE_fields_document_user">
+        <PropertyRef Name="DO_CAMUSE_DO_CLADOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_CAMUSE_fields_document_user_DO_TIPDOC_document_type">
+    <End Role="DO_TIPDOC_document_type" Type="Self.DO_TIPDOC_document_type" Multiplicity="0..1" />
+    <End Role="DO_CAMUSE_fields_document_user" Type="Self.DO_CAMUSE_fields_document_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_TIPDOC_document_type">
+        <PropertyRef Name="DO_TIPDOC_ID" />
+      </Principal>
+      <Dependent Role="DO_CAMUSE_fields_document_user">
+        <PropertyRef Name="DO_CAMUSE_DO_TIPDOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_CLASTA_class_status_DO_CLADOC_document_class">
+    <End Role="DO_CLADOC_document_class" Type="Self.DO_CLADOC_document_class" Multiplicity="0..1" />
+    <End Role="DO_CLASTA_class_status" Type="Self.DO_CLASTA_class_status" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_CLADOC_document_class">
+        <PropertyRef Name="DO_CLADOC_ID" />
+      </Principal>
+      <Dependent Role="DO_CLASTA_class_status">
+        <PropertyRef Name="DO_CLASTA_DO_CLADOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_CLASTA_class_status_DO_STADOC_status">
+    <End Role="DO_STADOC_status" Type="Self.DO_STADOC_status" Multiplicity="0..1" />
+    <End Role="DO_CLASTA_class_status" Type="Self.DO_CLASTA_class_status" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_STADOC_status">
+        <PropertyRef Name="DO_STADOC_ID" />
+      </Principal>
+      <Dependent Role="DO_CLASTA_class_status">
+        <PropertyRef Name="DO_CLASTA_DO_STADOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_CLAUTE_class_document_user_DO_CLADOC_document_class">
+    <End Role="DO_CLADOC_document_class" Type="Self.DO_CLADOC_document_class" Multiplicity="1" />
+    <End Role="DO_CLAUTE_class_document_user" Type="Self.DO_CLAUTE_class_document_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_CLADOC_document_class">
+        <PropertyRef Name="DO_CLADOC_ID" />
+      </Principal>
+      <Dependent Role="DO_CLAUTE_class_document_user">
+        <PropertyRef Name="DO_CLAUTE_CLADOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_CLAUTE_class_document_user_US_GROUPS_groups">
+    <End Role="US_GROUPS_groups" Type="Self.US_GROUPS_groups" Multiplicity="1" />
+    <End Role="DO_CLAUTE_class_document_user" Type="Self.DO_CLAUTE_class_document_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="US_GROUPS_groups">
+        <PropertyRef Name="US_GROUPS_ID" />
+      </Principal>
+      <Dependent Role="DO_CLAUTE_class_document_user">
+        <PropertyRef Name="DO_CLAUTE_US_GROUPS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOCFIE_fields_document_DO_CLADOC_document_class">
+    <End Role="DO_CLADOC_document_class" Type="Self.DO_CLADOC_document_class" Multiplicity="0..1" />
+    <End Role="DO_DOCFIE_fields_document" Type="Self.DO_DOCFIE_fields_document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_CLADOC_document_class">
+        <PropertyRef Name="DO_CLADOC_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCFIE_fields_document">
+        <PropertyRef Name="DO_DOCFIE_DO_CLADOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOCFIL_document_file_DO_DOCUME_documents">
+    <End Role="DO_DOCUME_documents" Type="Self.DO_DOCUME_documents" Multiplicity="1" />
+    <End Role="DO_DOCFIL_document_file" Type="Self.DO_DOCFIL_document_file" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_DOCUME_documents">
+        <PropertyRef Name="DO_DOCUME_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCFIL_document_file">
+        <PropertyRef Name="DO_DOCFIL_DO_DOCUME_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOCFIL_document_file_DO_DOCVER_versions">
+    <End Role="DO_DOCVER_versions" Type="Self.DO_DOCVER_versions" Multiplicity="0..1" />
+    <End Role="DO_DOCFIL_document_file" Type="Self.DO_DOCFIL_document_file" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_DOCVER_versions">
+        <PropertyRef Name="DO_DOCVER_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCFIL_document_file">
+        <PropertyRef Name="DO_DOCFIL_DO_DOCVER_LAST" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOCGRO_Document_groups_DO_DOCUME_documents">
+    <End Role="DO_DOCUME_documents" Type="Self.DO_DOCUME_documents" Multiplicity="0..1" />
+    <End Role="DO_DOCGRO_Document_groups" Type="Self.DO_DOCGRO_Document_groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_DOCUME_documents">
+        <PropertyRef Name="DO_DOCUME_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCGRO_Document_groups">
+        <PropertyRef Name="DO_DOCGRO_DO_DOCUME_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOCREL_document_relation_DO_DOCUME_documents">
+    <End Role="DO_DOCUME_documents" Type="Self.DO_DOCUME_documents" Multiplicity="0..1" />
+    <End Role="DO_DOCREL_document_relation" Type="Self.DO_DOCREL_document_relation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_DOCUME_documents">
+        <PropertyRef Name="DO_DOCUME_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCREL_document_relation">
+        <PropertyRef Name="DO_DOCREL_DO_DOCUME_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOCUME_DO_DOCUME_padre">
+    <End Role="DO_DOCUME_documents" Type="Self.DO_DOCUME_documents" Multiplicity="0..1" />
+    <End Role="DO_DOCUME_documents1" Type="Self.DO_DOCUME_documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_DOCUME_documents">
+        <PropertyRef Name="DO_DOCUME_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCUME_documents1">
+        <PropertyRef Name="DO_DOCUME_ID_PADRE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOCUME_documents_DO_TIPDOC_document_type">
+    <End Role="DO_TIPDOC_document_type" Type="Self.DO_TIPDOC_document_type" Multiplicity="1" />
+    <End Role="DO_DOCUME_documents" Type="Self.DO_DOCUME_documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_TIPDOC_document_type">
+        <PropertyRef Name="DO_TIPDOC_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCUME_documents">
+        <PropertyRef Name="DO_DOCUME_DO_TIPDOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOCVER_versions_DO_DOCFIL_document_file">
+    <End Role="DO_DOCFIL_document_file" Type="Self.DO_DOCFIL_document_file" Multiplicity="1" />
+    <End Role="DO_DOCVER_versions" Type="Self.DO_DOCVER_versions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_DOCFIL_document_file">
+        <PropertyRef Name="DO_DOCFIL_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCVER_versions">
+        <PropertyRef Name="DO_DOCVER_DO_DOCFIL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOSSIE_dossier_Magic_BusinessObjectTypes">
+    <End Role="Magic_BusinessObjectTypes" Type="Self.Magic_BusinessObjectTypes" Multiplicity="0..1" />
+    <End Role="DO_DOSSIE_dossier" Type="Self.DO_DOSSIE_dossier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magic_BusinessObjectTypes">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DO_DOSSIE_dossier">
+        <PropertyRef Name="DO_Magic_BusinessObjectType_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOSTIP_dosssier_type_document_DO_DOSSIER_dossier">
+    <End Role="DO_DOSSIE_dossier" Type="Self.DO_DOSSIE_dossier" Multiplicity="1" />
+    <End Role="DO_DOSTIP_dosssier_type_document" Type="Self.DO_DOSTIP_dosssier_type_document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_DOSSIE_dossier">
+        <PropertyRef Name="DO_DOSSIE_ID" />
+      </Principal>
+      <Dependent Role="DO_DOSTIP_dosssier_type_document">
+        <PropertyRef Name="DO_DOSTIP_DO_DOSSIE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOSTIP_dosssier_type_document_DO_TIPDOC_document_type">
+    <End Role="DO_TIPDOC_document_type" Type="Self.DO_TIPDOC_document_type" Multiplicity="1" />
+    <End Role="DO_DOSTIP_dosssier_type_document" Type="Self.DO_DOSTIP_dosssier_type_document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_TIPDOC_document_type">
+        <PropertyRef Name="DO_TIPDOC_ID" />
+      </Principal>
+      <Dependent Role="DO_DOSTIP_dosssier_type_document">
+        <PropertyRef Name="DO_DOSTIP_DO_TIPDOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOSUTE_dossier_user_DO_DOSSIE_dossier">
+    <End Role="DO_DOSSIE_dossier" Type="Self.DO_DOSSIE_dossier" Multiplicity="1" />
+    <End Role="DO_DOSUTE_dossier_user" Type="Self.DO_DOSUTE_dossier_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_DOSSIE_dossier">
+        <PropertyRef Name="DO_DOSSIE_ID" />
+      </Principal>
+      <Dependent Role="DO_DOSUTE_dossier_user">
+        <PropertyRef Name="DO_DOSUTE_DO_DOSSIE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_DOSUTE_dossier_user_US_GROUPS_groups">
+    <End Role="US_GROUPS_groups" Type="Self.US_GROUPS_groups" Multiplicity="1" />
+    <End Role="DO_DOSUTE_dossier_user" Type="Self.DO_DOSUTE_dossier_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="US_GROUPS_groups">
+        <PropertyRef Name="US_GROUPS_ID" />
+      </Principal>
+      <Dependent Role="DO_DOSUTE_dossier_user">
+        <PropertyRef Name="DO_DOSUTE_US_GROUPS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_OBTIDO_type_document_DO_TIPDOC_document_type">
+    <End Role="DO_TIPDOC_document_type" Type="Self.DO_TIPDOC_document_type" Multiplicity="0..1" />
+    <End Role="DO_OBTIDO_type_document" Type="Self.DO_OBTIDO_type_document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_TIPDOC_document_type">
+        <PropertyRef Name="DO_TIPDOC_ID" />
+      </Principal>
+      <Dependent Role="DO_OBTIDO_type_document">
+        <PropertyRef Name="DO_OBTIDO_DO_TIPDOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_STAWRK_status_workflow_DO_STADOC_status">
+    <End Role="DO_STADOC_status" Type="Self.DO_STADOC_status" Multiplicity="1" />
+    <End Role="DO_STAWRK_status_workflow" Type="Self.DO_STAWRK_status_workflow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_STADOC_status">
+        <PropertyRef Name="DO_STADOC_ID" />
+      </Principal>
+      <Dependent Role="DO_STAWRK_status_workflow">
+        <PropertyRef Name="DO_STAWKR_DO_STADOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_TIPDOC_doc_DO_STADOC">
+    <End Role="DO_STADOC_status" Type="Self.DO_STADOC_status" Multiplicity="0..1" />
+    <End Role="DO_TIPDOC_document_type" Type="Self.DO_TIPDOC_document_type" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_STADOC_status">
+        <PropertyRef Name="DO_STADOC_ID" />
+      </Principal>
+      <Dependent Role="DO_TIPDOC_document_type">
+        <PropertyRef Name="DO_TIPDOC_DO_STADOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DO_TIPDOC_document_type_DO_CLADOC_document_class">
+    <End Role="DO_CLADOC_document_class" Type="Self.DO_CLADOC_document_class" Multiplicity="1" />
+    <End Role="DO_TIPDOC_document_type" Type="Self.DO_TIPDOC_document_type" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_CLADOC_document_class">
+        <PropertyRef Name="DO_CLADOC_ID" />
+      </Principal>
+      <Dependent Role="DO_TIPDOC_document_type">
+        <PropertyRef Name="DO_TIPDOC_DO_CLADOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOCGRO_GROUPS">
+    <End Role="US_GROUPS_groups" Type="Self.US_GROUPS_groups" Multiplicity="0..1" />
+    <End Role="DO_DOCGRO_Document_groups" Type="Self.DO_DOCGRO_Document_groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="US_GROUPS_groups">
+        <PropertyRef Name="US_GROUPS_ID" />
+      </Principal>
+      <Dependent Role="DO_DOCGRO_Document_groups">
+        <PropertyRef Name="DO_DOCGRO_US_GROUPS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOSSIE_CLADOS">
+    <End Role="DO_CLADOS_dossier_class" Type="Self.DO_CLADOS_dossier_class" Multiplicity="0..1" />
+    <End Role="DO_DOSSIE_dossier" Type="Self.DO_DOSSIE_dossier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_CLADOS_dossier_class">
+        <PropertyRef Name="DO_CLADOS_ID" />
+      </Principal>
+      <Dependent Role="DO_DOSSIE_dossier">
+        <PropertyRef Name="DO_DOSSIE_CLADOS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FL_FILINP_input_excel_EX_EXCTIP_type_excel">
+    <End Role="EX_EXCTIP_type_excel" Type="Self.EX_EXCTIP_type_excel" Multiplicity="1" />
+    <End Role="FL_FILINP_input_file" Type="Self.FL_FILINP_input_file" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EX_EXCTIP_type_excel">
+        <PropertyRef Name="EX_EXCTIP_ID" />
+      </Principal>
+      <Dependent Role="FL_FILINP_input_file">
+        <PropertyRef Name="FL_FILINP_EX_EXCTIP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FL_FILINP_input_file_FL_TIPFIL_type_file">
+    <End Role="FL_TIPFIL_type_file" Type="Self.FL_TIPFIL_type_file" Multiplicity="1" />
+    <End Role="FL_FILINP_input_file" Type="Self.FL_FILINP_input_file" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FL_TIPFIL_type_file">
+        <PropertyRef Name="FL_TIPFIL_ID" />
+      </Principal>
+      <Dependent Role="FL_FILINP_input_file">
+        <PropertyRef Name="FL_FILINP_FL_TIPFIL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FL_RECFIL_fields_EX_EXCTIP">
+    <End Role="EX_EXCTIP_type_excel" Type="Self.EX_EXCTIP_type_excel" Multiplicity="0..1" />
+    <End Role="FL_RECFIL_fields" Type="Self.FL_RECFIL_fields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EX_EXCTIP_type_excel">
+        <PropertyRef Name="EX_EXCTIP_ID" />
+      </Principal>
+      <Dependent Role="FL_RECFIL_fields">
+        <PropertyRef Name="FL_RECFIL_EX_EXCTIP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FL_RECFIL_type_record_FL_FORMAT_format">
+    <End Role="FL_FORMAT_format" Type="Self.FL_FORMAT_format" Multiplicity="0..1" />
+    <End Role="FL_RECFIL_fields" Type="Self.FL_RECFIL_fields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FL_FORMAT_format">
+        <PropertyRef Name="FL_FORMAT_ID" />
+      </Principal>
+      <Dependent Role="FL_RECFIL_fields">
+        <PropertyRef Name="FL_RECFIL_FL_FORMAT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FL_RECFIL_type_record_FL_TIPFIL_type_file">
+    <End Role="FL_TIPFIL_type_file" Type="Self.FL_TIPFIL_type_file" Multiplicity="1" />
+    <End Role="FL_RECFIL_fields" Type="Self.FL_RECFIL_fields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FL_TIPFIL_type_file">
+        <PropertyRef Name="FL_TIPFIL_ID" />
+      </Principal>
+      <Dependent Role="FL_RECFIL_fields">
+        <PropertyRef Name="FL_RECFIL_FL_TIPFIL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FL_TIPFIL_type_file_DO_TIPDOC">
+    <End Role="DO_TIPDOC_document_type" Type="Self.DO_TIPDOC_document_type" Multiplicity="0..1" />
+    <End Role="FL_TIPFIL_type_file" Type="Self.FL_TIPFIL_type_file" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DO_TIPDOC_document_type">
+        <PropertyRef Name="DO_TIPDOC_ID" />
+      </Principal>
+      <Dependent Role="FL_TIPFIL_type_file">
+        <PropertyRef Name="FL_TIPFIL_DO_TIPDOC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FL_TIPFIL_type_file_FL_CLAFIL_class_file">
+    <End Role="FL_CLAFIL_class_file" Type="Self.FL_CLAFIL_class_file" Multiplicity="1" />
+    <End Role="FL_TIPFIL_type_file" Type="Self.FL_TIPFIL_type_file" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FL_CLAFIL_class_file">
+        <PropertyRef Name="FL_CLAFIL_ID" />
+      </Principal>
+      <Dependent Role="FL_TIPFIL_type_file">
+        <PropertyRef Name="FL_TIPFIL_FL_CLAFIL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JO_ANAPRO_jobana_proare_JO_JOBANA_job_steps">
+    <End Role="JO_JOBANA_job_steps" Type="Self.JO_JOBANA_job_steps" Multiplicity="0..1" />
+    <End Role="JO_ANAPRO_jobana_proare" Type="Self.JO_ANAPRO_jobana_proare" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JO_JOBANA_job_steps">
+        <PropertyRef Name="JO_JOBANA_ID" />
+      </Principal>
+      <Dependent Role="JO_ANAPRO_jobana_proare">
+        <PropertyRef Name="JO_ANAPRO_JO_JOBANA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JO_JOBANA_JO_EXEORD_ID">
+    <End Role="JO_EXEORD_execution_order" Type="Self.JO_EXEORD_execution_order" Multiplicity="1" />
+    <End Role="JO_JOBANA_job_steps" Type="Self.JO_JOBANA_job_steps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JO_EXEORD_execution_order">
+        <PropertyRef Name="JO_EXEORD_ID" />
+      </Principal>
+      <Dependent Role="JO_JOBANA_job_steps">
+        <PropertyRef Name="JO_JOBANA_JO_EXEORD_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JO_JOBANA_JO_JOBEVE_ID">
+    <End Role="JO_JOBEVE_jobs" Type="Self.JO_JOBEVE_jobs" Multiplicity="1" />
+    <End Role="JO_JOBANA_job_steps" Type="Self.JO_JOBANA_job_steps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JO_JOBEVE_jobs">
+        <PropertyRef Name="JO_JOBEVE_ID" />
+      </Principal>
+      <Dependent Role="JO_JOBANA_job_steps">
+        <PropertyRef Name="JO_JOBANA_JO_JOBEVE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JO_JOBFIE_JO_EXEORD_ID">
+    <End Role="JO_EXEORD_execution_order" Type="Self.JO_EXEORD_execution_order" Multiplicity="1" />
+    <End Role="JO_JOBFIE_job_fields" Type="Self.JO_JOBFIE_job_fields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JO_EXEORD_execution_order">
+        <PropertyRef Name="JO_EXEORD_ID" />
+      </Principal>
+      <Dependent Role="JO_JOBFIE_job_fields">
+        <PropertyRef Name="JO_JOBFIE_JO_EXEORD_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JO_JOBGRO_AREVIS_ID">
+    <End Role="US_AREVIS_area_visibility" Type="Self.US_AREVIS_area_visibility" Multiplicity="0..1" />
+    <End Role="JO_JOBGRO_Job_groups" Type="Self.JO_JOBGRO_Job_groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="US_AREVIS_area_visibility">
+        <PropertyRef Name="US_AREVIS_ID" />
+      </Principal>
+      <Dependent Role="JO_JOBGRO_Job_groups">
+        <PropertyRef Name="JO_JOBGRO_US_AREVIS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JO_JOBGRO_Job_groups_JO_JOBEVE_jobs">
+    <End Role="JO_JOBEVE_jobs" Type="Self.JO_JOBEVE_jobs" Multiplicity="1" />
+    <End Role="JO_JOBGRO_Job_groups" Type="Self.JO_JOBGRO_Job_groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JO_JOBEVE_jobs">
+        <PropertyRef Name="JO_JOBEVE_ID" />
+      </Principal>
+      <Dependent Role="JO_JOBGRO_Job_groups">
+        <PropertyRef Name="JO_JOBGRO_JO_JOBEVE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JO_JOBGRO_US_GROUPS_ID">
+    <End Role="US_GROUPS_groups" Type="Self.US_GROUPS_groups" Multiplicity="1" />
+    <End Role="JO_JOBGRO_Job_groups" Type="Self.JO_JOBGRO_Job_groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="US_GROUPS_groups">
+        <PropertyRef Name="US_GROUPS_ID" />
+      </Principal>
+      <Dependent Role="JO_JOBGRO_Job_groups">
+        <PropertyRef Name="JO_JOBGRO_US_GROUPS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JO_JOBINP_JO_JOBANA_ID">
+    <End Role="JO_JOBANA_job_steps" Type="Self.JO_JOBANA_job_steps" Multiplicity="1" />
+    <End Role="JO_JOBINP_job_input" Type="Self.JO_JOBINP_job_input" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JO_JOBANA_job_steps">
+        <PropertyRef Name="JO_JOBANA_ID" />
+      </Principal>
+      <Dependent Role="JO_JOBINP_job_input">
+        <PropertyRef Name="JO_JOBINP_JO_JOBANA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JO_JOBINP_JO_JOBFIE_ID">
+    <End Role="JO_JOBFIE_job_fields" Type="Self.JO_JOBFIE_job_fields" Multiplicity="1" />
+    <End Role="JO_JOBINP_job_input" Type="Self.JO_JOBINP_job_input" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JO_JOBFIE_job_fields">
+        <PropertyRef Name="JO_JOBFIE_ID" />
+      </Principal>
+      <Dependent Role="JO_JOBINP_job_input">
+        <PropertyRef Name="JO_JOBINP_JO_JOBFIE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JO_JOBNOT_JO_JOBANA_ID">
+    <End Role="JO_JOBANA_job_steps" Type="Self.JO_JOBANA_job_steps" Multiplicity="1" />
+    <End Role="JO_JOBNOT_notification" Type="Self.JO_JOBNOT_notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JO_JOBANA_job_steps">
+        <PropertyRef Name="JO_JOBANA_ID" />
+      </Principal>
+      <Dependent Role="JO_JOBNOT_notification">
+        <PropertyRef Name="JO_JOBNOT_JO_JOBANA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JO_JOBREC_JO_JOBANA_ID">
+    <End Role="JO_JOBANA_job_steps" Type="Self.JO_JOBANA_job_steps" Multiplicity="1" />
+    <End Role="JO_JOBREC_job_record" Type="Self.JO_JOBREC_job_record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JO_JOBANA_job_steps">
+        <PropertyRef Name="JO_JOBANA_ID" />
+      </Principal>
+      <Dependent Role="JO_JOBREC_job_record">
+        <PropertyRef Name="JO_JOBREC_JO_JOBANA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OBTIDO_BUSINESSOBJECTTYPE">
+    <End Role="Magic_BusinessObjectTypes" Type="Self.Magic_BusinessObjectTypes" Multiplicity="0..1" />
+    <End Role="DO_OBTIDO_type_document" Type="Self.DO_OBTIDO_type_document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magic_BusinessObjectTypes">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DO_OBTIDO_type_document">
+        <PropertyRef Name="DO_OBTIDO_BusinessObjectType_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_US_VISGRO_US_AREVIS_ID">
+    <End Role="US_AREVIS_area_visibility" Type="Self.US_AREVIS_area_visibility" Multiplicity="1" />
+    <End Role="US_AREGRO_area_groups" Type="Self.US_AREGRO_area_groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="US_AREVIS_area_visibility">
+        <PropertyRef Name="US_AREVIS_ID" />
+      </Principal>
+      <Dependent Role="US_AREGRO_area_groups">
+        <PropertyRef Name="US_AREGRO_US_AREVIS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_US_VISGRO_US_GROUPS_ID">
+    <End Role="US_GROUPS_groups" Type="Self.US_GROUPS_groups" Multiplicity="0..1" />
+    <End Role="US_AREGRO_area_groups" Type="Self.US_AREGRO_area_groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="US_GROUPS_groups">
+        <PropertyRef Name="US_GROUPS_ID" />
+      </Principal>
+      <Dependent Role="US_AREGRO_area_groups">
+        <PropertyRef Name="US_AREGRO_US_GROUPS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="cl_sp_ctr_field_event" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="config">
+    <Parameter Name="Schema" Type="nvarchar" Mode="In" />
+    <Parameter Name="table_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="key" Type="nvarchar" Mode="In" />
+    <Parameter Name="Field_key" Type="nvarchar" Mode="In" />
+    <Parameter Name="CultureId" Type="int" Mode="In" />
+    <Parameter Name="Ev_stage_id" Type="int" Mode="In" />
+    <Parameter Name="Text_err" Type="nvarchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="AS_GET_ASSET_MAIN_TB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="core">
+    <Parameter Name="As_asset_id" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="AS_ASSET_ID" Type="int" />
+          <Property Name="AS_ASSET_CODE" Type="varchar" MaxLength="50" />
+          <Property Name="AS_ASSET_DESCRIZIONE" Type="nvarchar" MaxLength="1000" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="DO_GET_UI_ELEMENTS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="core">
+    <Parameter Name="user_id" Type="int" Mode="In" />
+    <Parameter Name="arevis_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DO_SP_DOCUMENTS_L" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="core">
+    <Parameter Name="xmlinput" Type="xml" Mode="In" />
+    <Parameter Name="count" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="EV_GET_FUNCTIONS_FOR_STATUS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="core">
+    <Parameter Name="table_name" Type="varchar" Mode="In" />
+    <Parameter Name="id_record" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GET_ASSET_TREE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="core">
+    <Parameter Name="AS_ASSET_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="get_do_cladoc_for_user" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="core">
+    <Parameter Name="xmlInput" Type="xml" Mode="In" />
+    <Parameter Name="count" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="GET_TIPSAS_DETAILTOHIDE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="core">
+    <Parameter Name="tipsas_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllowedTipSasForAsset" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="core">
+    <Parameter Name="asset_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllowedTipSasFromParent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="core">
+    <Parameter Name="tipsasparent_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetCodeForObject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="core" ReturnType="nvarchar">
+    <Parameter Name="objecttype" Type="nvarchar" Mode="In" />
+    <Parameter Name="objectid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetWaterMarkForUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="core">
+    <Parameter Name="idUser" Type="int" Mode="In" />
+    <Parameter Name="ugvi" Type="int" Mode="In" />
+  </Function>
+  <Function Name="JO_GET_UI_ELEMENTS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="core">
+    <Parameter Name="user_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="JO_JOBNOT_setasnotified" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="core">
+    <Parameter Name="notificationid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PP_GET_UI_ELEMENTS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="core">
+    <Parameter Name="user_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_do_botypes_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="core">
+    <Parameter Name="xmlInput" Type="xml" Mode="In" />
+  </Function>
+  <Function Name="usp_do_dossier_GetMissingDocs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="core">
+    <Parameter Name="xmlInput" Type="xml" Mode="In" />
+    <Parameter Name="count" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="usp_do_fascicolo_GetDocuments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="core">
+    <Parameter Name="xmlInput" Type="xml" Mode="In" />
+    <Parameter Name="count" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="usp_do_fascicolo_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="core">
+    <Parameter Name="xmlInput" Type="xml" Mode="In" />
+  </Function>
+  <Function Name="usp_Getgroupsfromarevis" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="core">
+    <Parameter Name="USERID" Type="int" Mode="In" />
+    <Parameter Name="AREVISID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="utf_AS_V_ASSET_assetgroups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="core">
+    <Parameter Name="iAssetId" Type="int" Mode="In" />
+    <Parameter Name="iArevisId" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Checked" Type="bit" />
+          <Property Name="AS_ASSET_ID" Type="int" />
+          <Property Name="US_GROUPS_ID" Type="int" />
+          <Property Name="US_GROUPS_DESCRIPTION" Type="nvarchar" MaxLength="500" />
+          <Property Name="US_GROUPS_US_TIPGRU_ID" Type="int" />
+          <Property Name="US_TIPGRU_DESCRIPTION" Type="nvarchar" MaxLength="1000" />
+          <Property Name="US_AREVIS_ID" Type="int" />
+          <Property Name="AS_ASSGRO_ID" Type="int" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="utf_us_arefun_cross" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="core">
+    <Parameter Name="functionid" Type="int" Mode="In" />
+    <Parameter Name="functionguid" Type="uniqueidentifier" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="US_AREFUN_ID" Type="bigint" />
+          <Property Name="US_AREFUN_FunctionID" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Checked" Type="bit" />
+          <Property Name="US_AREFUN_US_PROARE_ID" Type="int" />
+          <Property Name="US_PROARE_US_ARETYP_ID" Type="int" Nullable="false" />
+          <Property Name="US_PROARE_CODE" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="US_PROARE_DESCRIPTION" Type="nvarchar" MaxLength="100" />
+          <Property Name="FunctionGUID" Type="uniqueidentifier" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="utf_us_aregrid_cross" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="core">
+    <Parameter Name="magicgridname" Type="varchar" Mode="In" />
+    <Parameter Name="magicgridid" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="US_AREGRI_ID" Type="bigint" />
+          <Property Name="US_AREGRI_MagicGridID" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Checked" Type="bit" />
+          <Property Name="US_AREGRI_US_PROARE_ID" Type="int" />
+          <Property Name="US_PROARE_US_ARETYP_ID" Type="int" Nullable="false" />
+          <Property Name="US_PROARE_CODE" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="US_PROARE_DESCRIPTION" Type="nvarchar" MaxLength="100" />
+          <Property Name="MagicGridName" Type="varchar" MaxLength="50" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="utf_US_V_GROUPS_groupsassets" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="core">
+    <Parameter Name="iGroupId" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="AS_ASSGRO_ID" Type="int" Nullable="false" />
+          <Property Name="Checked" Type="bit" />
+          <Property Name="AS_ASSET_ID" Type="int" />
+          <Property Name="as_asset_code" Type="nvarchar" MaxLength="50" />
+          <Property Name="US_GROUPS_ID" Type="int" />
+          <Property Name="AS_ASSET_DESCRIZIONE" Type="nvarchar" MaxLength="500" />
+          <Property Name="AS_TIPSAS_DESCRIPTION" Type="nvarchar" MaxLength="500" />
+          <Property Name="LINK_DOCS" Type="bit" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <EntityContainer Name="RebuildModelStoreContainer">
+    <EntitySet Name="AS_ASSET_asset" EntityType="Self.AS_ASSET_asset" Schema="core" store:Type="Tables" />
+    <EntitySet Name="AS_SUBTIP_asset_subtipo" EntityType="Self.AS_SUBTIP_asset_subtipo" Schema="core" store:Type="Tables" />
+    <EntitySet Name="CF_FIELDS_DATA_TYPE" EntityType="Self.CF_FIELDS_DATA_TYPE" Schema="core" store:Type="Tables" />
+    <EntitySet Name="DO_CAMUSE_fields_document_user" EntityType="Self.DO_CAMUSE_fields_document_user" Schema="core" store:Type="Tables" />
+    <EntitySet Name="DO_CLADOC_document_class" EntityType="Self.DO_CLADOC_document_class" Schema="core" store:Type="Tables" />
+    <EntitySet Name="DO_CLADOS_dossier_class" EntityType="Self.DO_CLADOS_dossier_class" Schema="core" store:Type="Tables" />
+    <EntitySet Name="DO_CLASTA_class_status" EntityType="Self.DO_CLASTA_class_status" Schema="core" store:Type="Tables" />
+    <EntitySet Name="DO_CLAUTE_class_document_user" EntityType="Self.DO_CLAUTE_class_document_user" Schema="core" store:Type="Tables" />
+    <EntitySet Name="DO_DOCFIE_fields_document" EntityType="Self.DO_DOCFIE_fields_document" Schema="core" store:Type="Tables" />
+    <EntitySet Name="DO_DOCFIL_document_file" EntityType="Self.DO_DOCFIL_document_file" Schema="core" store:Type="Tables" />
+    <EntitySet Name="DO_DOCGRO_Document_groups" EntityType="Self.DO_DOCGRO_Document_groups" Schema="core" store:Type="Tables" />
+    <EntitySet Name="DO_DOCREL_document_relation" EntityType="Self.DO_DOCREL_document_relation" Schema="core" store:Type="Tables" />
+    <EntitySet Name="DO_DOCUME_documents" EntityType="Self.DO_DOCUME_documents" Schema="core" store:Type="Tables" />
+    <EntitySet Name="DO_DOCVER_versions" EntityType="Self.DO_DOCVER_versions" Schema="core" store:Type="Tables" />
+    <EntitySet Name="DO_DOSSIE_dossier" EntityType="Self.DO_DOSSIE_dossier" Schema="core" store:Type="Tables" />
+    <EntitySet Name="DO_DOSTIP_dosssier_type_document" EntityType="Self.DO_DOSTIP_dosssier_type_document" Schema="core" store:Type="Tables" />
+    <EntitySet Name="DO_DOSUTE_dossier_user" EntityType="Self.DO_DOSUTE_dossier_user" Schema="core" store:Type="Tables" />
+    <EntitySet Name="DO_OBTIDO_type_document" EntityType="Self.DO_OBTIDO_type_document" Schema="core" store:Type="Tables" />
+    <EntitySet Name="DO_STADOC_status" EntityType="Self.DO_STADOC_status" Schema="core" store:Type="Tables" />
+    <EntitySet Name="DO_STAWRK_status_workflow" EntityType="Self.DO_STAWRK_status_workflow" Schema="core" store:Type="Tables" />
+    <EntitySet Name="DO_TIPDOC_document_type" EntityType="Self.DO_TIPDOC_document_type" Schema="core" store:Type="Tables" />
+    <EntitySet Name="EV_EVENT_EVENTS" EntityType="Self.EV_EVENT_EVENTS" Schema="core" store:Type="Tables" />
+    <EntitySet Name="EX_EXCTIP_type_excel" EntityType="Self.EX_EXCTIP_type_excel" Schema="core" store:Type="Tables" />
+    <EntitySet Name="FL_CLAFIL_class_file" EntityType="Self.FL_CLAFIL_class_file" Schema="core" store:Type="Tables" />
+    <EntitySet Name="FL_FILINP_input_file" EntityType="Self.FL_FILINP_input_file" Schema="core" store:Type="Tables" />
+    <EntitySet Name="FL_FORMAT_format" EntityType="Self.FL_FORMAT_format" Schema="core" store:Type="Tables" />
+    <EntitySet Name="FL_RECFIL_fields" EntityType="Self.FL_RECFIL_fields" Schema="core" store:Type="Tables" />
+    <EntitySet Name="FL_TIPFIL_type_file" EntityType="Self.FL_TIPFIL_type_file" Schema="core" store:Type="Tables" />
+    <EntitySet Name="JO_ANAPRO_jobana_proare" EntityType="Self.JO_ANAPRO_jobana_proare" Schema="core" store:Type="Tables" />
+    <EntitySet Name="JO_EXEORD_execution_order" EntityType="Self.JO_EXEORD_execution_order" Schema="core" store:Type="Tables" />
+    <EntitySet Name="JO_JOBANA_job_steps" EntityType="Self.JO_JOBANA_job_steps" Schema="core" store:Type="Tables" />
+    <EntitySet Name="JO_JOBEVE_jobs" EntityType="Self.JO_JOBEVE_jobs" Schema="core" store:Type="Tables" />
+    <EntitySet Name="JO_JOBFIE_job_fields" EntityType="Self.JO_JOBFIE_job_fields" Schema="core" store:Type="Tables" />
+    <EntitySet Name="JO_JOBGRO_Job_groups" EntityType="Self.JO_JOBGRO_Job_groups" Schema="core" store:Type="Tables" />
+    <EntitySet Name="JO_JOBINP_job_input" EntityType="Self.JO_JOBINP_job_input" Schema="core" store:Type="Tables" />
+    <EntitySet Name="JO_JOBNOT_notification" EntityType="Self.JO_JOBNOT_notification" Schema="core" store:Type="Tables" />
+    <EntitySet Name="JO_JOBREC_job_record" EntityType="Self.JO_JOBREC_job_record" Schema="core" store:Type="Tables" />
+    <EntitySet Name="US_AREFUN__Arepro_Functions" EntityType="Self.US_AREFUN__Arepro_Functions" Schema="core" store:Type="Tables" />
+    <EntitySet Name="US_AREGRI_Arepro_Grids" EntityType="Self.US_AREGRI_Arepro_Grids" Schema="core" store:Type="Tables" />
+    <EntitySet Name="US_AREGRO_area_groups" EntityType="Self.US_AREGRO_area_groups" Schema="core" store:Type="Tables" />
+    <EntitySet Name="US_AREVIS_area_visibility" EntityType="Self.US_AREVIS_area_visibility" Schema="core" store:Type="Tables" />
+    <EntitySet Name="US_GROUPS_groups" EntityType="Self.US_GROUPS_groups" Schema="core" store:Type="Tables" />
+    <EntitySet Name="Magic_BusinessObjectTypes" EntityType="Self.Magic_BusinessObjectTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AS_V_ASSET_assetExtended" EntityType="Self.AS_V_ASSET_assetExtended" store:Type="Views" store:Schema="core">
+      <DefiningQuery>SELECT 
+    [AS_V_ASSET_assetExtended].[AS_ASSET_ID] AS [AS_ASSET_ID], 
+    [AS_V_ASSET_assetExtended].[AS_ASSET_CODE] AS [AS_ASSET_CODE], 
+    [AS_V_ASSET_assetExtended].[AS_ASSET_ID_PADRE] AS [AS_ASSET_ID_PADRE], 
+    [AS_V_ASSET_assetExtended].[AS_ASSET_DESCRIZIONE] AS [AS_ASSET_DESCRIZIONE], 
+    [AS_V_ASSET_assetExtended].[AS_ASSET_LOCATION_ID] AS [AS_ASSET_LOCATION_ID], 
+    [AS_V_ASSET_assetExtended].[AS_ASSET_TIPASS_ID] AS [AS_ASSET_TIPASS_ID], 
+    [AS_V_ASSET_assetExtended].[AS_ASSET_TIPSAS_ID] AS [AS_ASSET_TIPSAS_ID], 
+    [AS_V_ASSET_assetExtended].[AS_ASSET_SASSPE_ID] AS [AS_ASSET_SASSPE_ID], 
+    [AS_V_ASSET_assetExtended].[AS_ASSET_DATA_INIZIO] AS [AS_ASSET_DATA_INIZIO], 
+    [AS_V_ASSET_assetExtended].[AS_ASSET_DATA_FINE] AS [AS_ASSET_DATA_FINE], 
+    [AS_V_ASSET_assetExtended].[AS_ASSET_SUPERFICIE] AS [AS_ASSET_SUPERFICIE], 
+    [AS_V_ASSET_assetExtended].[AS_ASSET_CODE_OLD] AS [AS_ASSET_CODE_OLD], 
+    [AS_V_ASSET_assetExtended].[AS_ASSET_ID_ASSET_ORIGINE] AS [AS_ASSET_ID_ASSET_ORIGINE], 
+    [AS_V_ASSET_assetExtended].[AS_ASSET_ADDRESS] AS [AS_ASSET_ADDRESS], 
+    [AS_V_ASSET_assetExtended].[LOCATION_NUMBER] AS [LOCATION_NUMBER], 
+    [AS_V_ASSET_assetExtended].[LOCATION_STREET_ID] AS [LOCATION_STREET_ID], 
+    [AS_V_ASSET_assetExtended].[LOCATION_LATITUDE] AS [LOCATION_LATITUDE], 
+    [AS_V_ASSET_assetExtended].[LOCATION_LONGITUDE] AS [LOCATION_LONGITUDE], 
+    [AS_V_ASSET_assetExtended].[P_CODE] AS [P_CODE], 
+    [AS_V_ASSET_assetExtended].[AS_ASSET_XML_CAMASS_VALUES] AS [AS_ASSET_XML_CAMASS_VALUES], 
+    [AS_V_ASSET_assetExtended].[AS_ASSET_XML_CAMUSE_VALUES] AS [AS_ASSET_XML_CAMUSE_VALUES], 
+    [AS_V_ASSET_assetExtended].[GROUPS_LIST] AS [GROUPS_LIST], 
+    [AS_V_ASSET_assetExtended].[US_AREVIS_ID] AS [US_AREVIS_ID], 
+    [AS_V_ASSET_assetExtended].[MagicBOLayerID] AS [MagicBOLayerID], 
+    [AS_V_ASSET_assetExtended].[DEFAULT_GROUP_ID] AS [DEFAULT_GROUP_ID], 
+    [AS_V_ASSET_assetExtended].[GROUP_TO_SEARCH] AS [GROUP_TO_SEARCH], 
+    [AS_V_ASSET_assetExtended].[AS_ASSET_EV_STAGE_ID] AS [AS_ASSET_EV_STAGE_ID], 
+    [AS_V_ASSET_assetExtended].[AS_TIPSAS_DESCRIPTION] AS [AS_TIPSAS_DESCRIPTION], 
+    [AS_V_ASSET_assetExtended].[DESCR_FOR_SEARCH] AS [DESCR_FOR_SEARCH], 
+    [AS_V_ASSET_assetExtended].[Visible_group] AS [Visible_group], 
+    [AS_V_ASSET_assetExtended].[Main_Image_Thumbnail] AS [Main_Image_Thumbnail], 
+    [AS_V_ASSET_assetExtended].[HasImage] AS [HasImage], 
+    [AS_V_ASSET_assetExtended].[AS_ASSET_LONG_DESC] AS [AS_ASSET_LONG_DESC]
+    FROM [core].[AS_V_ASSET_assetExtended] AS [AS_V_ASSET_assetExtended]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AS_V_LOCATION_locationextended" EntityType="Self.AS_V_LOCATION_locationextended" store:Type="Views" store:Schema="core">
+      <DefiningQuery>SELECT 
+    [AS_V_LOCATION_locationextended].[LOCATION_ID] AS [LOCATION_ID], 
+    [AS_V_LOCATION_locationextended].[LOCATION_DESCRIPTION] AS [LOCATION_DESCRIPTION], 
+    [AS_V_LOCATION_locationextended].[LOCATION_NUMBER] AS [LOCATION_NUMBER], 
+    [AS_V_LOCATION_locationextended].[LOCATION_STREET_ID] AS [LOCATION_STREET_ID], 
+    [AS_V_LOCATION_locationextended].[LOCATION_DESCRIPTION_LONG] AS [LOCATION_DESCRIPTION_LONG]
+    FROM [core].[AS_V_LOCATION_locationextended] AS [AS_V_LOCATION_locationextended]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DO_V_DOCFIE_class_doc_fields" EntityType="Self.DO_V_DOCFIE_class_doc_fields" store:Type="Views" store:Schema="core">
+      <DefiningQuery>SELECT 
+    [DO_V_DOCFIE_class_doc_fields].[DO_DOCFIE_ID] AS [DO_DOCFIE_ID], 
+    [DO_V_DOCFIE_class_doc_fields].[DO_DOCFIE_DO_CLADOC_ID] AS [DO_DOCFIE_DO_CLADOC_ID], 
+    [DO_V_DOCFIE_class_doc_fields].[DO_DOCFIE_DO_TIPDOC_ID] AS [DO_DOCFIE_DO_TIPDOC_ID], 
+    [DO_V_DOCFIE_class_doc_fields].[DO_DOCFIE_MANDATORY] AS [DO_DOCFIE_MANDATORY], 
+    [DO_V_DOCFIE_class_doc_fields].[DO_DOCFIE_FIELD_DB] AS [DO_DOCFIE_FIELD_DB], 
+    [DO_V_DOCFIE_class_doc_fields].[DO_DOCFIE_TABLE_JOIN] AS [DO_DOCFIE_TABLE_JOIN], 
+    [DO_V_DOCFIE_class_doc_fields].[DO_DOCFIE_FIELD_JOIN] AS [DO_DOCFIE_FIELD_JOIN], 
+    [DO_V_DOCFIE_class_doc_fields].[DO_DOCFIE_DESCRIPTION_JOIN] AS [DO_DOCFIE_DESCRIPTION_JOIN], 
+    [DO_V_DOCFIE_class_doc_fields].[DO_DOCFIE_MagicColumnID] AS [DO_DOCFIE_MagicColumnID], 
+    [DO_V_DOCFIE_class_doc_fields].[DO_DOCFIE_CF_FIELDS_DATA_TYPE_ID] AS [DO_DOCFIE_CF_FIELDS_DATA_TYPE_ID], 
+    [DO_V_DOCFIE_class_doc_fields].[DO_DOCFIE_TAB_NAME] AS [DO_DOCFIE_TAB_NAME], 
+    [DO_V_DOCFIE_class_doc_fields].[DO_DOCFIE_ORDINAL_POSITION] AS [DO_DOCFIE_ORDINAL_POSITION], 
+    [DO_V_DOCFIE_class_doc_fields].[Columns_label] AS [Columns_label], 
+    [DO_V_DOCFIE_class_doc_fields].[MagicGrid_ID] AS [MagicGrid_ID], 
+    [DO_V_DOCFIE_class_doc_fields].[MagicGridName] AS [MagicGridName]
+    FROM [core].[DO_V_DOCFIE_class_doc_fields] AS [DO_V_DOCFIE_class_doc_fields]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DO_V_DOCFIL" EntityType="Self.DO_V_DOCFIL" store:Type="Views" store:Schema="core">
+      <DefiningQuery>SELECT 
+    [DO_V_DOCFIL].[DO_DOCFIL_ID] AS [DO_DOCFIL_ID], 
+    [DO_V_DOCFIL].[DO_DOCFIL_DO_DOCUME_ID] AS [DO_DOCFIL_DO_DOCUME_ID], 
+    [DO_V_DOCFIL].[DO_DOCFIL_NOTE] AS [DO_DOCFIL_NOTE], 
+    [DO_V_DOCFIL].[DO_DOCFIL_DATE] AS [DO_DOCFIL_DATE], 
+    [DO_V_DOCFIL].[DO_DOCFIL_USERID] AS [DO_DOCFIL_USERID], 
+    [DO_V_DOCFIL].[DO_DOCVER_COUNTER] AS [DO_DOCVER_COUNTER], 
+    [DO_V_DOCFIL].[DO_DOCVER_NOTE] AS [DO_DOCVER_NOTE], 
+    [DO_V_DOCFIL].[DO_DOCVER_LINK_FILE] AS [DO_DOCVER_LINK_FILE], 
+    [DO_V_DOCFIL].[DO_DOCFIL_FLAG_MAIN_ASSET] AS [DO_DOCFIL_FLAG_MAIN_ASSET], 
+    [DO_V_DOCFIL].[Username] AS [Username], 
+    [DO_V_DOCFIL].[DO_TIPDOC_ID] AS [DO_TIPDOC_ID], 
+    [DO_V_DOCFIL].[DO_TIPDOC_CODE] AS [DO_TIPDOC_CODE], 
+    [DO_V_DOCFIL].[DO_TIPDOC_DESCRIPTION] AS [DO_TIPDOC_DESCRIPTION], 
+    [DO_V_DOCFIL].[DO_TIPDOC_PATH] AS [DO_TIPDOC_PATH], 
+    [DO_V_DOCFIL].[DO_CLADOC_ID] AS [DO_CLADOC_ID], 
+    [DO_V_DOCFIL].[DO_CLADOC_CODE] AS [DO_CLADOC_CODE], 
+    [DO_V_DOCFIL].[DO_CLADOC_DESCRIPTION] AS [DO_CLADOC_DESCRIPTION], 
+    [DO_V_DOCFIL].[DO_CLADOC_PATH] AS [DO_CLADOC_PATH], 
+    [DO_V_DOCFIL].[DO_DOCUME_DESCRIPTION] AS [DO_DOCUME_DESCRIPTION], 
+    [DO_V_DOCFIL].[DO_DOCUME_ISSUE_DATE] AS [DO_DOCUME_ISSUE_DATE], 
+    [DO_V_DOCFIL].[DO_DOCUME_EXPIRY_DATE] AS [DO_DOCUME_EXPIRY_DATE], 
+    [DO_V_DOCFIL].[DO_DOCUME_DO_STADOC_ID] AS [DO_DOCUME_DO_STADOC_ID], 
+    [DO_V_DOCFIL].[DO_DOCUME_FLAG_NO_ACTIVE] AS [DO_DOCUME_FLAG_NO_ACTIVE], 
+    [DO_V_DOCFIL].[DO_DOCUME_XML_CAMASS_VALUES] AS [DO_DOCUME_XML_CAMASS_VALUES], 
+    [DO_V_DOCFIL].[DO_DOCUME_XML_CAMUTE_VALUES] AS [DO_DOCUME_XML_CAMUTE_VALUES], 
+    [DO_V_DOCFIL].[DO_DOCUME_DATA_PROT] AS [DO_DOCUME_DATA_PROT], 
+    [DO_V_DOCFIL].[DO_DOCUME_NUM_PROT] AS [DO_DOCUME_NUM_PROT], 
+    [DO_V_DOCFIL].[DO_DOCUME_NOTE] AS [DO_DOCUME_NOTE], 
+    [DO_V_DOCFIL].[DO_DOCUME_NUM] AS [DO_DOCUME_NUM], 
+    [DO_V_DOCFIL].[DO_DOCUME_CODE] AS [DO_DOCUME_CODE], 
+    [DO_V_DOCFIL].[DO_DOCUME_ID_PADRE] AS [DO_DOCUME_ID_PADRE], 
+    [DO_V_DOCFIL].[DO_TIPDOC_EXTENSIONS] AS [DO_TIPDOC_EXTENSIONS], 
+    [DO_V_DOCFIL].[DO_CLADOC_FLAG_PHOTO] AS [DO_CLADOC_FLAG_PHOTO], 
+    [DO_V_DOCFIL].[DO_DOCVER_THUMBNAIL] AS [DO_DOCVER_THUMBNAIL], 
+    [DO_V_DOCFIL].[DO_DOCVER_ID] AS [DO_DOCVER_ID]
+    FROM [core].[DO_V_DOCFIL] AS [DO_V_DOCFIL]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DO_V_DOCUME" EntityType="Self.DO_V_DOCUME" store:Type="Views" store:Schema="core">
+      <DefiningQuery>SELECT 
+    [DO_V_DOCUME].[DO_DOCUME_ID] AS [DO_DOCUME_ID], 
+    [DO_V_DOCUME].[DO_DOCUME_DO_TIPDOC_ID] AS [DO_DOCUME_DO_TIPDOC_ID], 
+    [DO_V_DOCUME].[DO_DOCUME_DESCRIPTION] AS [DO_DOCUME_DESCRIPTION], 
+    [DO_V_DOCUME].[DO_DOCUME_ISSUE_DATE] AS [DO_DOCUME_ISSUE_DATE], 
+    [DO_V_DOCUME].[DO_DOCUME_EXPIRY_DATE] AS [DO_DOCUME_EXPIRY_DATE], 
+    [DO_V_DOCUME].[DO_DOCUME_DO_STADOC_ID] AS [DO_DOCUME_DO_STADOC_ID], 
+    [DO_V_DOCUME].[DO_DOCUME_FLAG_NO_ACTIVE] AS [DO_DOCUME_FLAG_NO_ACTIVE], 
+    [DO_V_DOCUME].[DO_DOCUME_XML_CAMASS_VALUES] AS [DO_DOCUME_XML_CAMASS_VALUES], 
+    [DO_V_DOCUME].[DO_DOCUME_XML_CAMUTE_VALUES] AS [DO_DOCUME_XML_CAMUTE_VALUES], 
+    [DO_V_DOCUME].[DO_TIPDOC_DO_CLADOC_ID] AS [DO_TIPDOC_DO_CLADOC_ID], 
+    [DO_V_DOCUME].[DO_TIPDOC_EXTENSIONS] AS [DO_TIPDOC_EXTENSIONS], 
+    [DO_V_DOCUME].[DO_TIPDOC_PATH] AS [DO_TIPDOC_PATH], 
+    [DO_V_DOCUME].[DO_CLADOC_PATH] AS [DO_CLADOC_PATH], 
+    [DO_V_DOCUME].[DO_STADOC_DESCRIPTION] AS [DO_STADOC_DESCRIPTION], 
+    [DO_V_DOCUME].[MagicBOLayerID] AS [MagicBOLayerID], 
+    [DO_V_DOCUME].[DO_CLADOC_DESCRIPTION] AS [DO_CLADOC_DESCRIPTION], 
+    [DO_V_DOCUME].[DO_TIPDOC_DESCRIPTION] AS [DO_TIPDOC_DESCRIPTION], 
+    [DO_V_DOCUME].[fakeforlink] AS [fakeforlink], 
+    [DO_V_DOCUME].[MagicBusinessObjectList] AS [MagicBusinessObjectList], 
+    [DO_V_DOCUME].[OBJECT_DESCRIPTION] AS [OBJECT_DESCRIPTION], 
+    [DO_V_DOCUME].[OBJECT_ID] AS [OBJECT_ID], 
+    [DO_V_DOCUME].[OBJECT_TYPE_ID] AS [OBJECT_TYPE_ID], 
+    [DO_V_DOCUME].[OBJECT_CODE] AS [OBJECT_CODE], 
+    [DO_V_DOCUME].[DO_DOCUME_DATA_PROT] AS [DO_DOCUME_DATA_PROT], 
+    [DO_V_DOCUME].[DO_DOCUME_NUM_PROT] AS [DO_DOCUME_NUM_PROT], 
+    [DO_V_DOCUME].[DO_DOCUME_NOTE] AS [DO_DOCUME_NOTE], 
+    [DO_V_DOCUME].[DO_DOCUME_NUM] AS [DO_DOCUME_NUM], 
+    [DO_V_DOCUME].[DO_DOCUME_CODE] AS [DO_DOCUME_CODE], 
+    [DO_V_DOCUME].[DO_DOCUME_ID_PADRE] AS [DO_DOCUME_ID_PADRE], 
+    [DO_V_DOCUME].[DO_DOCUME_FL_PRIVAT] AS [DO_DOCUME_FL_PRIVAT], 
+    [DO_V_DOCUME].[DO_DOCUME_CODE_PADRE] AS [DO_DOCUME_CODE_PADRE], 
+    [DO_V_DOCUME].[Editable] AS [Editable], 
+    [DO_V_DOCUME].[EXISTS_FILE] AS [EXISTS_FILE], 
+    [DO_V_DOCUME].[DO_DOCUME_DATE_INS] AS [DO_DOCUME_DATE_INS], 
+    [DO_V_DOCUME].[DO_DOCUME_DATE_LAS_UPD] AS [DO_DOCUME_DATE_LAS_UPD], 
+    [DO_V_DOCUME].[DO_DOCUME_USERID] AS [DO_DOCUME_USERID], 
+    [DO_V_DOCUME].[DO_CLADOC_FLAG_PHOTO] AS [DO_CLADOC_FLAG_PHOTO], 
+    [DO_V_DOCUME].[DO_DOCUME_FLAG_FATHER] AS [DO_DOCUME_FLAG_FATHER], 
+    [DO_V_DOCUME].[GROUPS_LIST] AS [GROUPS_LIST], 
+    [DO_V_DOCUME].[DO_STADOC_FLAG_HISTORY] AS [DO_STADOC_FLAG_HISTORY], 
+    [DO_V_DOCUME].[DO_TIPDOC_LISTA] AS [DO_TIPDOC_LISTA]
+    FROM [core].[DO_V_DOCUME] AS [DO_V_DOCUME]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DO_V_DOCUME_ENTITY" EntityType="Self.DO_V_DOCUME_ENTITY" store:Type="Views" store:Schema="core">
+      <DefiningQuery>SELECT 
+    [DO_V_DOCUME_ENTITY].[DO_DOCUME_ID] AS [DO_DOCUME_ID], 
+    [DO_V_DOCUME_ENTITY].[DO_DOCUME_DO_TIPDOC_ID] AS [DO_DOCUME_DO_TIPDOC_ID], 
+    [DO_V_DOCUME_ENTITY].[DO_DOCUME_DESCRIPTION] AS [DO_DOCUME_DESCRIPTION], 
+    [DO_V_DOCUME_ENTITY].[DO_DOCUME_ISSUE_DATE] AS [DO_DOCUME_ISSUE_DATE], 
+    [DO_V_DOCUME_ENTITY].[DO_DOCUME_EXPIRY_DATE] AS [DO_DOCUME_EXPIRY_DATE], 
+    [DO_V_DOCUME_ENTITY].[DO_DOCUME_DO_STADOC_ID] AS [DO_DOCUME_DO_STADOC_ID], 
+    [DO_V_DOCUME_ENTITY].[DO_DOCUME_FLAG_NO_ACTIVE] AS [DO_DOCUME_FLAG_NO_ACTIVE], 
+    [DO_V_DOCUME_ENTITY].[DO_DOCUME_XML_CAMASS_VALUES] AS [DO_DOCUME_XML_CAMASS_VALUES], 
+    [DO_V_DOCUME_ENTITY].[DO_DOCUME_XML_CAMUTE_VALUES] AS [DO_DOCUME_XML_CAMUTE_VALUES], 
+    [DO_V_DOCUME_ENTITY].[DO_TIPDOC_DO_CLADOC_ID] AS [DO_TIPDOC_DO_CLADOC_ID], 
+    [DO_V_DOCUME_ENTITY].[DO_TIPDOC_EXTENSIONS] AS [DO_TIPDOC_EXTENSIONS], 
+    [DO_V_DOCUME_ENTITY].[DO_TIPDOC_PATH] AS [DO_TIPDOC_PATH], 
+    [DO_V_DOCUME_ENTITY].[DO_CLADOC_PATH] AS [DO_CLADOC_PATH], 
+    [DO_V_DOCUME_ENTITY].[DO_STADOC_DESCRIPTION] AS [DO_STADOC_DESCRIPTION], 
+    [DO_V_DOCUME_ENTITY].[MagicBOLayerID] AS [MagicBOLayerID], 
+    [DO_V_DOCUME_ENTITY].[fakeforlink] AS [fakeforlink], 
+    [DO_V_DOCUME_ENTITY].[DO_CLADOC_DESCRIPTION] AS [DO_CLADOC_DESCRIPTION], 
+    [DO_V_DOCUME_ENTITY].[DO_TIPDOC_DESCRIPTION] AS [DO_TIPDOC_DESCRIPTION], 
+    [DO_V_DOCUME_ENTITY].[DO_DOCREL_ID_RECORD] AS [DO_DOCREL_ID_RECORD], 
+    [DO_V_DOCUME_ENTITY].[DO_DOCREL_TABLE_NAME] AS [DO_DOCREL_TABLE_NAME], 
+    [DO_V_DOCUME_ENTITY].[DO_DOCUME_DATA_PROT] AS [DO_DOCUME_DATA_PROT], 
+    [DO_V_DOCUME_ENTITY].[DO_DOCUME_NUM_PROT] AS [DO_DOCUME_NUM_PROT], 
+    [DO_V_DOCUME_ENTITY].[DO_DOCUME_NOTE] AS [DO_DOCUME_NOTE], 
+    [DO_V_DOCUME_ENTITY].[DO_DOCUME_NUM] AS [DO_DOCUME_NUM], 
+    [DO_V_DOCUME_ENTITY].[DO_DOCUME_CODE] AS [DO_DOCUME_CODE], 
+    [DO_V_DOCUME_ENTITY].[DO_DOCUME_ID_PADRE] AS [DO_DOCUME_ID_PADRE], 
+    [DO_V_DOCUME_ENTITY].[DO_DOCUME_FL_PRIVAT] AS [DO_DOCUME_FL_PRIVAT], 
+    [DO_V_DOCUME_ENTITY].[DO_CLADOC_FLAG_PHOTO] AS [DO_CLADOC_FLAG_PHOTO], 
+    [DO_V_DOCUME_ENTITY].[DO_DOCUME_FLAG_FATHER] AS [DO_DOCUME_FLAG_FATHER], 
+    [DO_V_DOCUME_ENTITY].[GROUPS_LIST] AS [GROUPS_LIST]
+    FROM [core].[DO_V_DOCUME_ENTITY] AS [DO_V_DOCUME_ENTITY]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DO_V_DOCUME_MISSING" EntityType="Self.DO_V_DOCUME_MISSING" store:Type="Views" store:Schema="core">
+      <DefiningQuery>SELECT 
+    [DO_V_DOCUME_MISSING].[DO_CLADOC_ID] AS [DO_CLADOC_ID], 
+    [DO_V_DOCUME_MISSING].[DO_CLADOC_CODE] AS [DO_CLADOC_CODE], 
+    [DO_V_DOCUME_MISSING].[DO_CLADOC_DESCRIPTION] AS [DO_CLADOC_DESCRIPTION], 
+    [DO_V_DOCUME_MISSING].[DO_CLADOC_PATH] AS [DO_CLADOC_PATH], 
+    [DO_V_DOCUME_MISSING].[DO_TIPDOC_ID] AS [DO_TIPDOC_ID], 
+    [DO_V_DOCUME_MISSING].[DO_TIPDOC_CODE] AS [DO_TIPDOC_CODE], 
+    [DO_V_DOCUME_MISSING].[DO_TIPDOC_DESCRIPTION] AS [DO_TIPDOC_DESCRIPTION], 
+    [DO_V_DOCUME_MISSING].[DO_TIPDOC_EXTENSIONS] AS [DO_TIPDOC_EXTENSIONS], 
+    [DO_V_DOCUME_MISSING].[DO_TIPDOC_PATH] AS [DO_TIPDOC_PATH], 
+    [DO_V_DOCUME_MISSING].[MagicBOLayerID] AS [MagicBOLayerID], 
+    [DO_V_DOCUME_MISSING].[OBJECT_DESCRIPTION] AS [OBJECT_DESCRIPTION], 
+    [DO_V_DOCUME_MISSING].[OBJECT_CODE] AS [OBJECT_CODE], 
+    [DO_V_DOCUME_MISSING].[OBJECT_ID] AS [OBJECT_ID]
+    FROM [core].[DO_V_DOCUME_MISSING] AS [DO_V_DOCUME_MISSING]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DO_V_DOCVER" EntityType="Self.DO_V_DOCVER" store:Type="Views" store:Schema="core">
+      <DefiningQuery>SELECT 
+    [DO_V_DOCVER].[DO_DOCVER_ID] AS [DO_DOCVER_ID], 
+    [DO_V_DOCVER].[DO_DOCVER_DO_DOCFIL_ID] AS [DO_DOCVER_DO_DOCFIL_ID], 
+    [DO_V_DOCVER].[DO_DOCVER_COUNTER] AS [DO_DOCVER_COUNTER], 
+    [DO_V_DOCVER].[DO_DOCVER_NOTE] AS [DO_DOCVER_NOTE], 
+    [DO_V_DOCVER].[DO_DOCVER_DATE] AS [DO_DOCVER_DATE], 
+    [DO_V_DOCVER].[DO_DOCVER_USERID] AS [DO_DOCVER_USERID], 
+    [DO_V_DOCVER].[DO_DOCVER_LINK_FILE] AS [DO_DOCVER_LINK_FILE], 
+    [DO_V_DOCVER].[USERNAME] AS [USERNAME], 
+    [DO_V_DOCVER].[DO_DOCFIL_DO_DOCUME_ID] AS [DO_DOCFIL_DO_DOCUME_ID]
+    FROM [core].[DO_V_DOCVER] AS [DO_V_DOCVER]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="JO_ACTIVE_JOBS" EntityType="Self.JO_ACTIVE_JOBS" store:Type="Views" store:Schema="core">
+      <DefiningQuery>SELECT 
+    [JO_ACTIVE_JOBS].[JO_JOBEVE_ID] AS [JO_JOBEVE_ID], 
+    [JO_ACTIVE_JOBS].[JO_JOBEVE_END_DATE] AS [JO_JOBEVE_END_DATE], 
+    [JO_ACTIVE_JOBS].[JO_JOBEVE_JO_TIPJOB_ID] AS [JO_JOBEVE_JO_TIPJOB_ID], 
+    [JO_ACTIVE_JOBS].[US_AREVIS_ID] AS [US_AREVIS_ID]
+    FROM [core].[JO_ACTIVE_JOBS] AS [JO_ACTIVE_JOBS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="M_TIPSAS_TIPASS" EntityType="Self.M_TIPSAS_TIPASS" store:Type="Views" store:Schema="core">
+      <DefiningQuery>SELECT 
+    [M_TIPSAS_TIPASS].[viewID] AS [viewID], 
+    [M_TIPSAS_TIPASS].[AS_TIPASS_ID] AS [AS_TIPASS_ID], 
+    [M_TIPSAS_TIPASS].[AS_TIPASS_CODE] AS [AS_TIPASS_CODE], 
+    [M_TIPSAS_TIPASS].[AS_TIPASS_DESCRIPTION] AS [AS_TIPASS_DESCRIPTION], 
+    [M_TIPSAS_TIPASS].[AS_TIPSAS_ID] AS [AS_TIPSAS_ID], 
+    [M_TIPSAS_TIPASS].[AS_TIPSAS_CODICE] AS [AS_TIPSAS_CODICE], 
+    [M_TIPSAS_TIPASS].[AS_TIPSAS_DESCRIZIONE] AS [AS_TIPSAS_DESCRIZIONE], 
+    [M_TIPSAS_TIPASS].[IsChecked] AS [IsChecked], 
+    [M_TIPSAS_TIPASS].[AS_SUBTIP_ORDINE] AS [AS_SUBTIP_ORDINE]
+    FROM [core].[M_TIPSAS_TIPASS] AS [M_TIPSAS_TIPASS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="STREET_V_streetExtended" EntityType="Self.STREET_V_streetExtended" store:Type="Views" store:Schema="core">
+      <DefiningQuery>SELECT 
+    [STREET_V_streetExtended].[STREET_ID] AS [STREET_ID], 
+    [STREET_V_streetExtended].[LOCATION_DESCRIPTION] AS [LOCATION_DESCRIPTION]
+    FROM [core].[STREET_V_streetExtended] AS [STREET_V_streetExtended]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="WF_V_ACTAGG_aggregate_activities" EntityType="Self.WF_V_ACTAGG_aggregate_activities" store:Type="Views" store:Schema="core">
+      <DefiningQuery>SELECT 
+    [WF_V_ACTAGG_aggregate_activities].[taskTypeID] AS [taskTypeID], 
+    [WF_V_ACTAGG_aggregate_activities].[taskTypeDescription] AS [taskTypeDescription], 
+    [WF_V_ACTAGG_aggregate_activities].[Color] AS [Color], 
+    [WF_V_ACTAGG_aggregate_activities].[LinkedModelActivity_ID] AS [LinkedModelActivity_ID], 
+    [WF_V_ACTAGG_aggregate_activities].[Activity] AS [Activity], 
+    [WF_V_ACTAGG_aggregate_activities].[start] AS [start], 
+    [WF_V_ACTAGG_aggregate_activities].[ownerId] AS [ownerId], 
+    [WF_V_ACTAGG_aggregate_activities].[ActivitySource] AS [ActivitySource], 
+    [WF_V_ACTAGG_aggregate_activities].[US_DEPROL_ID] AS [US_DEPROL_ID], 
+    [WF_V_ACTAGG_aggregate_activities].[US_USEROL_ID] AS [US_USEROL_ID], 
+    [WF_V_ACTAGG_aggregate_activities].[US_USEROL_DESCRIPTION] AS [US_USEROL_DESCRIPTION], 
+    [WF_V_ACTAGG_aggregate_activities].[US_DEPART_ID] AS [US_DEPART_ID], 
+    [WF_V_ACTAGG_aggregate_activities].[US_DEPART_DESCRIPTION] AS [US_DEPART_DESCRIPTION], 
+    [WF_V_ACTAGG_aggregate_activities].[MandatoryAssignment] AS [MandatoryAssignment], 
+    [WF_V_ACTAGG_aggregate_activities].[ToBeAssigned] AS [ToBeAssigned], 
+    [WF_V_ACTAGG_aggregate_activities].[Activity_counter] AS [Activity_counter]
+    FROM [core].[WF_V_ACTAGG_aggregate_activities] AS [WF_V_ACTAGG_aggregate_activities]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="WF_V_ACTCAL_activities_calendar" EntityType="Self.WF_V_ACTCAL_activities_calendar" store:Type="Views" store:Schema="core">
+      <DefiningQuery>SELECT 
+    [WF_V_ACTCAL_activities_calendar].[taskId] AS [taskId], 
+    [WF_V_ACTCAL_activities_calendar].[start] AS [start], 
+    [WF_V_ACTCAL_activities_calendar].[taskTypeID] AS [taskTypeID], 
+    [WF_V_ACTCAL_activities_calendar].[LinkedModelActivity_ID] AS [LinkedModelActivity_ID], 
+    [WF_V_ACTCAL_activities_calendar].[ownerId] AS [ownerId], 
+    [WF_V_ACTCAL_activities_calendar].[title] AS [title], 
+    [WF_V_ACTCAL_activities_calendar].[description] AS [description], 
+    [WF_V_ACTCAL_activities_calendar].[DueDate] AS [DueDate], 
+    [WF_V_ACTCAL_activities_calendar].[ProcessFunction_ID] AS [ProcessFunction_ID], 
+    [WF_V_ACTCAL_activities_calendar].[ACT_BO_ID] AS [ACT_BO_ID], 
+    [WF_V_ACTCAL_activities_calendar].[ACT_BO_Type_ID] AS [ACT_BO_Type_ID], 
+    [WF_V_ACTCAL_activities_calendar].[ActivityInstance_ID] AS [ActivityInstance_ID], 
+    [WF_V_ACTCAL_activities_calendar].[WF_BO_ID] AS [WF_BO_ID], 
+    [WF_V_ACTCAL_activities_calendar].[WF_BO_Type_ID] AS [WF_BO_Type_ID], 
+    [WF_V_ACTCAL_activities_calendar].[RequiresCheckList] AS [RequiresCheckList], 
+    [WF_V_ACTCAL_activities_calendar].[RequiresDocUpload] AS [RequiresDocUpload], 
+    [WF_V_ACTCAL_activities_calendar].[MandatoryAssignment] AS [MandatoryAssignment], 
+    [WF_V_ACTCAL_activities_calendar].[GenerateBO] AS [GenerateBO], 
+    [WF_V_ACTCAL_activities_calendar].[actionid] AS [actionid], 
+    [WF_V_ACTCAL_activities_calendar].[actiontype] AS [actiontype], 
+    [WF_V_ACTCAL_activities_calendar].[actioncommand] AS [actioncommand], 
+    [WF_V_ACTCAL_activities_calendar].[actionfilter] AS [actionfilter], 
+    [WF_V_ACTCAL_activities_calendar].[FunctionGUID] AS [FunctionGUID], 
+    [WF_V_ACTCAL_activities_calendar].[PrecOutStatus] AS [PrecOutStatus], 
+    [WF_V_ACTCAL_activities_calendar].[PrecActivityType] AS [PrecActivityType], 
+    [WF_V_ACTCAL_activities_calendar].[Note] AS [Note], 
+    [WF_V_ACTCAL_activities_calendar].[UploadedFile] AS [UploadedFile]
+    FROM [core].[WF_V_ACTCAL_activities_calendar] AS [WF_V_ACTCAL_activities_calendar]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="fk_arevis_groups" Association="Self.fk_arevis_groups">
+      <End Role="US_GROUPS_groups" EntitySet="US_GROUPS_groups" />
+      <End Role="US_AREVIS_area_visibility" EntitySet="US_AREVIS_area_visibility" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AS_ASSET_asset_AS_ASSET_asset" Association="Self.FK_AS_ASSET_asset_AS_ASSET_asset">
+      <End Role="AS_ASSET_asset" EntitySet="AS_ASSET_asset" />
+      <End Role="AS_ASSET_asset1" EntitySet="AS_ASSET_asset" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_CAMASS_fields_document_CF_FIELDS_DATA_TYPE" Association="Self.FK_DO_CAMASS_fields_document_CF_FIELDS_DATA_TYPE">
+      <End Role="CF_FIELDS_DATA_TYPE" EntitySet="CF_FIELDS_DATA_TYPE" />
+      <End Role="DO_DOCFIE_fields_document" EntitySet="DO_DOCFIE_fields_document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_CAMASS_fields_document_DO_TIPDOC_document_type" Association="Self.FK_DO_CAMASS_fields_document_DO_TIPDOC_document_type">
+      <End Role="DO_TIPDOC_document_type" EntitySet="DO_TIPDOC_document_type" />
+      <End Role="DO_DOCFIE_fields_document" EntitySet="DO_DOCFIE_fields_document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_CAMUSE_fields_document_user_CF_FIELDS_DATA_TYPE" Association="Self.FK_DO_CAMUSE_fields_document_user_CF_FIELDS_DATA_TYPE">
+      <End Role="CF_FIELDS_DATA_TYPE" EntitySet="CF_FIELDS_DATA_TYPE" />
+      <End Role="DO_CAMUSE_fields_document_user" EntitySet="DO_CAMUSE_fields_document_user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_CAMUSE_fields_document_user_DO_CLADOC_document_class" Association="Self.FK_DO_CAMUSE_fields_document_user_DO_CLADOC_document_class">
+      <End Role="DO_CLADOC_document_class" EntitySet="DO_CLADOC_document_class" />
+      <End Role="DO_CAMUSE_fields_document_user" EntitySet="DO_CAMUSE_fields_document_user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_CAMUSE_fields_document_user_DO_TIPDOC_document_type" Association="Self.FK_DO_CAMUSE_fields_document_user_DO_TIPDOC_document_type">
+      <End Role="DO_TIPDOC_document_type" EntitySet="DO_TIPDOC_document_type" />
+      <End Role="DO_CAMUSE_fields_document_user" EntitySet="DO_CAMUSE_fields_document_user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_CLASTA_class_status_DO_CLADOC_document_class" Association="Self.FK_DO_CLASTA_class_status_DO_CLADOC_document_class">
+      <End Role="DO_CLADOC_document_class" EntitySet="DO_CLADOC_document_class" />
+      <End Role="DO_CLASTA_class_status" EntitySet="DO_CLASTA_class_status" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_CLASTA_class_status_DO_STADOC_status" Association="Self.FK_DO_CLASTA_class_status_DO_STADOC_status">
+      <End Role="DO_STADOC_status" EntitySet="DO_STADOC_status" />
+      <End Role="DO_CLASTA_class_status" EntitySet="DO_CLASTA_class_status" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_CLAUTE_class_document_user_DO_CLADOC_document_class" Association="Self.FK_DO_CLAUTE_class_document_user_DO_CLADOC_document_class">
+      <End Role="DO_CLADOC_document_class" EntitySet="DO_CLADOC_document_class" />
+      <End Role="DO_CLAUTE_class_document_user" EntitySet="DO_CLAUTE_class_document_user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_CLAUTE_class_document_user_US_GROUPS_groups" Association="Self.FK_DO_CLAUTE_class_document_user_US_GROUPS_groups">
+      <End Role="US_GROUPS_groups" EntitySet="US_GROUPS_groups" />
+      <End Role="DO_CLAUTE_class_document_user" EntitySet="DO_CLAUTE_class_document_user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOCFIE_fields_document_DO_CLADOC_document_class" Association="Self.FK_DO_DOCFIE_fields_document_DO_CLADOC_document_class">
+      <End Role="DO_CLADOC_document_class" EntitySet="DO_CLADOC_document_class" />
+      <End Role="DO_DOCFIE_fields_document" EntitySet="DO_DOCFIE_fields_document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOCFIL_document_file_DO_DOCUME_documents" Association="Self.FK_DO_DOCFIL_document_file_DO_DOCUME_documents">
+      <End Role="DO_DOCUME_documents" EntitySet="DO_DOCUME_documents" />
+      <End Role="DO_DOCFIL_document_file" EntitySet="DO_DOCFIL_document_file" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOCFIL_document_file_DO_DOCVER_versions" Association="Self.FK_DO_DOCFIL_document_file_DO_DOCVER_versions">
+      <End Role="DO_DOCVER_versions" EntitySet="DO_DOCVER_versions" />
+      <End Role="DO_DOCFIL_document_file" EntitySet="DO_DOCFIL_document_file" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOCGRO_Document_groups_DO_DOCUME_documents" Association="Self.FK_DO_DOCGRO_Document_groups_DO_DOCUME_documents">
+      <End Role="DO_DOCUME_documents" EntitySet="DO_DOCUME_documents" />
+      <End Role="DO_DOCGRO_Document_groups" EntitySet="DO_DOCGRO_Document_groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOCREL_document_relation_DO_DOCUME_documents" Association="Self.FK_DO_DOCREL_document_relation_DO_DOCUME_documents">
+      <End Role="DO_DOCUME_documents" EntitySet="DO_DOCUME_documents" />
+      <End Role="DO_DOCREL_document_relation" EntitySet="DO_DOCREL_document_relation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOCUME_DO_DOCUME_padre" Association="Self.FK_DO_DOCUME_DO_DOCUME_padre">
+      <End Role="DO_DOCUME_documents" EntitySet="DO_DOCUME_documents" />
+      <End Role="DO_DOCUME_documents1" EntitySet="DO_DOCUME_documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOCUME_documents_DO_TIPDOC_document_type" Association="Self.FK_DO_DOCUME_documents_DO_TIPDOC_document_type">
+      <End Role="DO_TIPDOC_document_type" EntitySet="DO_TIPDOC_document_type" />
+      <End Role="DO_DOCUME_documents" EntitySet="DO_DOCUME_documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOCVER_versions_DO_DOCFIL_document_file" Association="Self.FK_DO_DOCVER_versions_DO_DOCFIL_document_file">
+      <End Role="DO_DOCFIL_document_file" EntitySet="DO_DOCFIL_document_file" />
+      <End Role="DO_DOCVER_versions" EntitySet="DO_DOCVER_versions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOSSIE_dossier_Magic_BusinessObjectTypes" Association="Self.FK_DO_DOSSIE_dossier_Magic_BusinessObjectTypes">
+      <End Role="Magic_BusinessObjectTypes" EntitySet="Magic_BusinessObjectTypes" />
+      <End Role="DO_DOSSIE_dossier" EntitySet="DO_DOSSIE_dossier" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOSTIP_dosssier_type_document_DO_DOSSIER_dossier" Association="Self.FK_DO_DOSTIP_dosssier_type_document_DO_DOSSIER_dossier">
+      <End Role="DO_DOSSIE_dossier" EntitySet="DO_DOSSIE_dossier" />
+      <End Role="DO_DOSTIP_dosssier_type_document" EntitySet="DO_DOSTIP_dosssier_type_document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOSTIP_dosssier_type_document_DO_TIPDOC_document_type" Association="Self.FK_DO_DOSTIP_dosssier_type_document_DO_TIPDOC_document_type">
+      <End Role="DO_TIPDOC_document_type" EntitySet="DO_TIPDOC_document_type" />
+      <End Role="DO_DOSTIP_dosssier_type_document" EntitySet="DO_DOSTIP_dosssier_type_document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOSUTE_dossier_user_DO_DOSSIE_dossier" Association="Self.FK_DO_DOSUTE_dossier_user_DO_DOSSIE_dossier">
+      <End Role="DO_DOSSIE_dossier" EntitySet="DO_DOSSIE_dossier" />
+      <End Role="DO_DOSUTE_dossier_user" EntitySet="DO_DOSUTE_dossier_user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_DOSUTE_dossier_user_US_GROUPS_groups" Association="Self.FK_DO_DOSUTE_dossier_user_US_GROUPS_groups">
+      <End Role="US_GROUPS_groups" EntitySet="US_GROUPS_groups" />
+      <End Role="DO_DOSUTE_dossier_user" EntitySet="DO_DOSUTE_dossier_user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_OBTIDO_type_document_DO_TIPDOC_document_type" Association="Self.FK_DO_OBTIDO_type_document_DO_TIPDOC_document_type">
+      <End Role="DO_TIPDOC_document_type" EntitySet="DO_TIPDOC_document_type" />
+      <End Role="DO_OBTIDO_type_document" EntitySet="DO_OBTIDO_type_document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_STAWRK_status_workflow_DO_STADOC_status" Association="Self.FK_DO_STAWRK_status_workflow_DO_STADOC_status">
+      <End Role="DO_STADOC_status" EntitySet="DO_STADOC_status" />
+      <End Role="DO_STAWRK_status_workflow" EntitySet="DO_STAWRK_status_workflow" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_TIPDOC_doc_DO_STADOC" Association="Self.FK_DO_TIPDOC_doc_DO_STADOC">
+      <End Role="DO_STADOC_status" EntitySet="DO_STADOC_status" />
+      <End Role="DO_TIPDOC_document_type" EntitySet="DO_TIPDOC_document_type" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DO_TIPDOC_document_type_DO_CLADOC_document_class" Association="Self.FK_DO_TIPDOC_document_type_DO_CLADOC_document_class">
+      <End Role="DO_CLADOC_document_class" EntitySet="DO_CLADOC_document_class" />
+      <End Role="DO_TIPDOC_document_type" EntitySet="DO_TIPDOC_document_type" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOCGRO_GROUPS" Association="Self.FK_DOCGRO_GROUPS">
+      <End Role="US_GROUPS_groups" EntitySet="US_GROUPS_groups" />
+      <End Role="DO_DOCGRO_Document_groups" EntitySet="DO_DOCGRO_Document_groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOSSIE_CLADOS" Association="Self.FK_DOSSIE_CLADOS">
+      <End Role="DO_CLADOS_dossier_class" EntitySet="DO_CLADOS_dossier_class" />
+      <End Role="DO_DOSSIE_dossier" EntitySet="DO_DOSSIE_dossier" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FL_FILINP_input_excel_EX_EXCTIP_type_excel" Association="Self.FK_FL_FILINP_input_excel_EX_EXCTIP_type_excel">
+      <End Role="EX_EXCTIP_type_excel" EntitySet="EX_EXCTIP_type_excel" />
+      <End Role="FL_FILINP_input_file" EntitySet="FL_FILINP_input_file" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FL_FILINP_input_file_FL_TIPFIL_type_file" Association="Self.FK_FL_FILINP_input_file_FL_TIPFIL_type_file">
+      <End Role="FL_TIPFIL_type_file" EntitySet="FL_TIPFIL_type_file" />
+      <End Role="FL_FILINP_input_file" EntitySet="FL_FILINP_input_file" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FL_RECFIL_fields_EX_EXCTIP" Association="Self.FK_FL_RECFIL_fields_EX_EXCTIP">
+      <End Role="EX_EXCTIP_type_excel" EntitySet="EX_EXCTIP_type_excel" />
+      <End Role="FL_RECFIL_fields" EntitySet="FL_RECFIL_fields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FL_RECFIL_type_record_FL_FORMAT_format" Association="Self.FK_FL_RECFIL_type_record_FL_FORMAT_format">
+      <End Role="FL_FORMAT_format" EntitySet="FL_FORMAT_format" />
+      <End Role="FL_RECFIL_fields" EntitySet="FL_RECFIL_fields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FL_RECFIL_type_record_FL_TIPFIL_type_file" Association="Self.FK_FL_RECFIL_type_record_FL_TIPFIL_type_file">
+      <End Role="FL_TIPFIL_type_file" EntitySet="FL_TIPFIL_type_file" />
+      <End Role="FL_RECFIL_fields" EntitySet="FL_RECFIL_fields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FL_TIPFIL_type_file_DO_TIPDOC" Association="Self.FK_FL_TIPFIL_type_file_DO_TIPDOC">
+      <End Role="DO_TIPDOC_document_type" EntitySet="DO_TIPDOC_document_type" />
+      <End Role="FL_TIPFIL_type_file" EntitySet="FL_TIPFIL_type_file" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FL_TIPFIL_type_file_FL_CLAFIL_class_file" Association="Self.FK_FL_TIPFIL_type_file_FL_CLAFIL_class_file">
+      <End Role="FL_CLAFIL_class_file" EntitySet="FL_CLAFIL_class_file" />
+      <End Role="FL_TIPFIL_type_file" EntitySet="FL_TIPFIL_type_file" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JO_ANAPRO_jobana_proare_JO_JOBANA_job_steps" Association="Self.FK_JO_ANAPRO_jobana_proare_JO_JOBANA_job_steps">
+      <End Role="JO_JOBANA_job_steps" EntitySet="JO_JOBANA_job_steps" />
+      <End Role="JO_ANAPRO_jobana_proare" EntitySet="JO_ANAPRO_jobana_proare" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JO_JOBANA_JO_EXEORD_ID" Association="Self.FK_JO_JOBANA_JO_EXEORD_ID">
+      <End Role="JO_EXEORD_execution_order" EntitySet="JO_EXEORD_execution_order" />
+      <End Role="JO_JOBANA_job_steps" EntitySet="JO_JOBANA_job_steps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JO_JOBANA_JO_JOBEVE_ID" Association="Self.FK_JO_JOBANA_JO_JOBEVE_ID">
+      <End Role="JO_JOBEVE_jobs" EntitySet="JO_JOBEVE_jobs" />
+      <End Role="JO_JOBANA_job_steps" EntitySet="JO_JOBANA_job_steps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JO_JOBFIE_JO_EXEORD_ID" Association="Self.FK_JO_JOBFIE_JO_EXEORD_ID">
+      <End Role="JO_EXEORD_execution_order" EntitySet="JO_EXEORD_execution_order" />
+      <End Role="JO_JOBFIE_job_fields" EntitySet="JO_JOBFIE_job_fields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JO_JOBGRO_AREVIS_ID" Association="Self.FK_JO_JOBGRO_AREVIS_ID">
+      <End Role="US_AREVIS_area_visibility" EntitySet="US_AREVIS_area_visibility" />
+      <End Role="JO_JOBGRO_Job_groups" EntitySet="JO_JOBGRO_Job_groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JO_JOBGRO_Job_groups_JO_JOBEVE_jobs" Association="Self.FK_JO_JOBGRO_Job_groups_JO_JOBEVE_jobs">
+      <End Role="JO_JOBEVE_jobs" EntitySet="JO_JOBEVE_jobs" />
+      <End Role="JO_JOBGRO_Job_groups" EntitySet="JO_JOBGRO_Job_groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JO_JOBGRO_US_GROUPS_ID" Association="Self.FK_JO_JOBGRO_US_GROUPS_ID">
+      <End Role="US_GROUPS_groups" EntitySet="US_GROUPS_groups" />
+      <End Role="JO_JOBGRO_Job_groups" EntitySet="JO_JOBGRO_Job_groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JO_JOBINP_JO_JOBANA_ID" Association="Self.FK_JO_JOBINP_JO_JOBANA_ID">
+      <End Role="JO_JOBANA_job_steps" EntitySet="JO_JOBANA_job_steps" />
+      <End Role="JO_JOBINP_job_input" EntitySet="JO_JOBINP_job_input" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JO_JOBINP_JO_JOBFIE_ID" Association="Self.FK_JO_JOBINP_JO_JOBFIE_ID">
+      <End Role="JO_JOBFIE_job_fields" EntitySet="JO_JOBFIE_job_fields" />
+      <End Role="JO_JOBINP_job_input" EntitySet="JO_JOBINP_job_input" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JO_JOBNOT_JO_JOBANA_ID" Association="Self.FK_JO_JOBNOT_JO_JOBANA_ID">
+      <End Role="JO_JOBANA_job_steps" EntitySet="JO_JOBANA_job_steps" />
+      <End Role="JO_JOBNOT_notification" EntitySet="JO_JOBNOT_notification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JO_JOBREC_JO_JOBANA_ID" Association="Self.FK_JO_JOBREC_JO_JOBANA_ID">
+      <End Role="JO_JOBANA_job_steps" EntitySet="JO_JOBANA_job_steps" />
+      <End Role="JO_JOBREC_job_record" EntitySet="JO_JOBREC_job_record" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OBTIDO_BUSINESSOBJECTTYPE" Association="Self.FK_OBTIDO_BUSINESSOBJECTTYPE">
+      <End Role="Magic_BusinessObjectTypes" EntitySet="Magic_BusinessObjectTypes" />
+      <End Role="DO_OBTIDO_type_document" EntitySet="DO_OBTIDO_type_document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_US_VISGRO_US_AREVIS_ID" Association="Self.FK_US_VISGRO_US_AREVIS_ID">
+      <End Role="US_AREVIS_area_visibility" EntitySet="US_AREVIS_area_visibility" />
+      <End Role="US_AREGRO_area_groups" EntitySet="US_AREGRO_area_groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_US_VISGRO_US_GROUPS_ID" Association="Self.FK_US_VISGRO_US_GROUPS_ID">
+      <End Role="US_GROUPS_groups" EntitySet="US_GROUPS_groups" />
+      <End Role="US_AREGRO_area_groups" EntitySet="US_AREGRO_area_groups" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

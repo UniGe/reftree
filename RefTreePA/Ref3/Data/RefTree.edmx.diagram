@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dda53893200a48e8982d0e4bb6928c1e" Name="Diagram1" ZoomLevel="60">
+        <EntityTypeShape EntityType="RebuildModel.JO_JOBANA_job_steps" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="RebuildModel.JO_JOBEVE_jobs" Width="1.5" PointX="13" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="RebuildModel.FK_JO_JOBANA_JO_JOBEVE_ID" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="RebuildModel.JO_JOBFIE_job_fields" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="RebuildModel.STREET_V_streetExtended" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="RebuildModel.AS_SUBTIP_asset_subtipo" Width="1.5" PointX="6.125" PointY="3.625" />
+        <EntityTypeShape EntityType="RebuildModel.JO_EXEORD_execution_order" Width="1.5" PointX="0.75" PointY="3.125" />
+        <EntityTypeShape EntityType="RebuildModel.JO_JOBINP_job_input" Width="1.5" PointX="8.5" PointY="6.5" />
+        <AssociationConnector Association="RebuildModel.FK_JO_JOBANA_JO_EXEORD_ID" />
+        <AssociationConnector Association="RebuildModel.FK_JO_JOBFIE_JO_EXEORD_ID" />
+        <AssociationConnector Association="RebuildModel.FK_JO_JOBINP_JO_JOBANA_ID" />
+        <AssociationConnector Association="RebuildModel.FK_JO_JOBINP_JO_JOBFIE_ID" />
+        <EntityTypeShape EntityType="RebuildModel.JO_JOBNOT_notification" Width="1.5" PointX="5.625" PointY="7.625" />
+        <EntityTypeShape EntityType="RebuildModel.US_AREGRO_area_groups" Width="1.5" PointX="3" PointY="10" />
+        <EntityTypeShape EntityType="RebuildModel.US_GROUPS_groups" Width="1.5" PointX="0.75" PointY="9.875" />
+        <AssociationConnector Association="RebuildModel.FK_JO_JOBNOT_JO_JOBANA_ID" />
+        <AssociationConnector Association="RebuildModel.FK_US_VISGRO_US_GROUPS_ID" />
+        <EntityTypeShape EntityType="RebuildModel.JO_JOBREC_job_record" Width="1.5" PointX="5.25" PointY="10.625" />
+        <AssociationConnector Association="RebuildModel.FK_JO_JOBREC_JO_JOBANA_ID" />
+        <EntityTypeShape EntityType="RebuildModel.JO_ACTIVE_JOBS" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="RebuildModel.JO_JOBGRO_Job_groups" Width="1.5" PointX="15.25" PointY="5.5" />
+        <AssociationConnector Association="RebuildModel.FK_JO_JOBGRO_Job_groups_JO_JOBEVE_jobs" />
+        <AssociationConnector Association="RebuildModel.FK_JO_JOBGRO_US_GROUPS_ID" />
+        <EntityTypeShape EntityType="RebuildModel.JO_ANAPRO_jobana_proare" Width="1.5" PointX="5.25" PointY="14.125" />
+        <AssociationConnector Association="RebuildModel.FK_JO_ANAPRO_jobana_proare_JO_JOBANA_job_steps" />
+        <EntityTypeShape EntityType="RebuildModel.US_AREVIS_area_visibility" Width="1.5" PointX="3" PointY="13.875" />
+        <AssociationConnector Association="RebuildModel.FK_JO_JOBGRO_AREVIS_ID" />
+        <AssociationConnector Association="RebuildModel.FK_US_VISGRO_US_AREVIS_ID" />
+        <AssociationConnector Association="RebuildModel.fk_arevis_groups" />
+        <EntityTypeShape EntityType="RebuildModel.DO_CLAUTE_class_document_user" Width="1.5" PointX="14.625" PointY="13.625" />
+        <EntityTypeShape EntityType="RebuildModel.DO_DOCREL_document_relation" Width="1.5" PointX="19.125" PointY="16.5" />
+        <EntityTypeShape EntityType="RebuildModel.DO_STADOC_status" Width="1.5" PointX="14.625" PointY="10.625" />
+        <AssociationConnector Association="RebuildModel.FK_DO_CLAUTE_class_document_user_US_GROUPS_groups" />
+        <EntityTypeShape EntityType="RebuildModel.EV_EVENT_EVENTS" Width="1.5" PointX="11.375" PointY="5.75" />
+        <EntityTypeShape EntityType="RebuildModel.DO_CLASTA_class_status" Width="1.5" PointX="16.875" PointY="12.125" />
+        <AssociationConnector Association="RebuildModel.FK_DO_CLASTA_class_status_DO_STADOC_status" />
+        <EntityTypeShape EntityType="RebuildModel.DO_TIPDOC_document_type" Width="1.5" PointX="14.625" PointY="20.875" />
+        <EntityTypeShape EntityType="RebuildModel.DO_DOCFIL_document_file" Width="2.125" PointX="19.125" PointY="19.75" />
+        <EntityTypeShape EntityType="RebuildModel.DO_DOCVER_versions" Width="1.5" PointX="21.375" PointY="19.75" />
+        <AssociationConnector Association="RebuildModel.FK_DO_DOCFIL_document_file_DO_DOCVER_versions" />
+        <AssociationConnector Association="RebuildModel.FK_DO_DOCVER_versions_DO_DOCFIL_document_file" />
+        <EntityTypeShape EntityType="RebuildModel.CF_FIELDS_DATA_TYPE" Width="1.5" PointX="7.375" PointY="14" />
+        <EntityTypeShape EntityType="RebuildModel.DO_V_DOCVER" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="RebuildModel.WF_V_ACTAGG_aggregate_activities" Width="1.5" PointX="17.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RebuildModel.DO_DOSSIE_dossier" Width="1.5" PointX="11.625" PointY="21" />
+        <EntityTypeShape EntityType="RebuildModel.DO_CLADOS_dossier_class" Width="1.5" PointX="9.375" PointY="21.5" />
+        <EntityTypeShape EntityType="RebuildModel.DO_DOCGRO_Document_groups" Width="1.5" PointX="19.125" PointY="13.75" />
+        <EntityTypeShape EntityType="RebuildModel.DO_DOSTIP_dosssier_type_document" Width="1.5" PointX="19.875" PointY="23.875" />
+        <EntityTypeShape EntityType="RebuildModel.DO_OBTIDO_type_document" Width="1.5" PointX="16.875" PointY="20.375" />
+        <EntityTypeShape EntityType="RebuildModel.DO_STAWRK_status_workflow" Width="1.5" PointX="16.875" PointY="8.75" />
+        <AssociationConnector Association="RebuildModel.FK_DOSSIE_CLADOS" />
+        <AssociationConnector Association="RebuildModel.FK_DOCGRO_GROUPS" />
+        <AssociationConnector Association="RebuildModel.FK_DO_DOSTIP_dosssier_type_document_DO_DOSSIER_dossier" />
+        <AssociationConnector Association="RebuildModel.FK_DO_DOSTIP_dosssier_type_document_DO_TIPDOC_document_type" />
+        <AssociationConnector Association="RebuildModel.FK_DO_OBTIDO_type_document_DO_TIPDOC_document_type" />
+        <AssociationConnector Association="RebuildModel.FK_DO_STAWRK_status_workflow_DO_STADOC_status" />
+        <EntityTypeShape EntityType="RebuildModel.DO_CLADOC_document_class" Width="1.5" PointX="12.375" PointY="16.5" />
+        <AssociationConnector Association="RebuildModel.FK_DO_CLASTA_class_status_DO_CLADOC_document_class" />
+        <AssociationConnector Association="RebuildModel.FK_DO_CLAUTE_class_document_user_DO_CLADOC_document_class" />
+        <AssociationConnector Association="RebuildModel.FK_DO_TIPDOC_document_type_DO_CLADOC_document_class" />
+        <EntityTypeShape EntityType="RebuildModel.DO_V_DOCUME_MISSING" Width="2.375" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="RebuildModel.M_TIPSAS_TIPASS" Width="1.5" PointX="19.375" PointY="5.75" />
+        <EntityTypeShape EntityType="RebuildModel.DO_CAMUSE_fields_document_user" Width="1.5" PointX="21.875" PointY="16" />
+        <EntityTypeShape EntityType="RebuildModel.DO_DOCFIE_fields_document" Width="1.5" PointX="16.875" PointY="23" />
+        <AssociationConnector Association="RebuildModel.FK_DO_CAMASS_fields_document_CF_FIELDS_DATA_TYPE" />
+        <AssociationConnector Association="RebuildModel.FK_DO_CAMUSE_fields_document_user_CF_FIELDS_DATA_TYPE" />
+        <AssociationConnector Association="RebuildModel.FK_DO_CAMUSE_fields_document_user_DO_CLADOC_document_class" />
+        <AssociationConnector Association="RebuildModel.FK_DO_CAMUSE_fields_document_user_DO_TIPDOC_document_type" />
+        <AssociationConnector Association="RebuildModel.FK_DO_DOCFIE_fields_document_DO_CLADOC_document_class" />
+        <AssociationConnector Association="RebuildModel.FK_DO_CAMASS_fields_document_DO_TIPDOC_document_type" />
+        <EntityTypeShape EntityType="RebuildModel.AS_V_LOCATION_locationextended" Width="1.5" PointX="7.375" PointY="10.75" />
+        <EntityTypeShape EntityType="RebuildModel.Magic_BusinessObjectTypes" Width="1.5" PointX="9.375" PointY="24.625" />
+        <AssociationConnector Association="RebuildModel.FK_DO_DOSSIE_dossier_Magic_BusinessObjectTypes" />
+        <AssociationConnector Association="RebuildModel.FK_OBTIDO_BUSINESSOBJECTTYPE" />
+        <EntityTypeShape EntityType="RebuildModel.DO_V_DOCFIE_class_doc_fields" Width="1.5" PointX="1.25" PointY="17.375" />
+        <EntityTypeShape EntityType="RebuildModel.AS_ASSET_asset" Width="1.5" PointX="22.375" PointY="8.75" />
+        <AssociationConnector Association="RebuildModel.FK_AS_ASSET_asset_AS_ASSET_asset" />
+        <EntityTypeShape EntityType="RebuildModel.DO_DOCUME_documents" Width="1.5" PointX="23.875" PointY="19.75" />
+        <AssociationConnector Association="RebuildModel.FK_DO_DOCFIL_document_file_DO_DOCUME_documents" />
+        <AssociationConnector Association="RebuildModel.FK_DO_DOCGRO_Document_groups_DO_DOCUME_documents" />
+        <AssociationConnector Association="RebuildModel.FK_DO_DOCREL_document_relation_DO_DOCUME_documents" />
+        <AssociationConnector Association="RebuildModel.FK_DO_DOCUME_DO_DOCUME_padre" />
+        <AssociationConnector Association="RebuildModel.FK_DO_DOCUME_documents_DO_DOCUME_documents" />
+        <AssociationConnector Association="RebuildModel.FK_DO_DOCUME_documents_DO_STADOC_status" />
+        <AssociationConnector Association="RebuildModel.FK_DO_DOCUME_documents_DO_TIPDOC_document_type" />
+        <EntityTypeShape EntityType="RebuildModel.DO_V_DOCFIL" Width="2.375" PointX="9.375" PointY="9.75" />
+        <EntityTypeShape EntityType="RebuildModel.DO_V_DOCUME_ENTITY" Width="1.5" PointX="23.375" PointY="0.75" />
+        <EntityTypeShape EntityType="RebuildModel.DO_V_DOCUME" Width="1.5" PointX="5.375" PointY="18.75" />
+        <EntityTypeShape EntityType="RebuildModel.DO_DOSUTE_dossier_user" Width="1.5" PointX="16.875" PointY="15.75" />
+        <AssociationConnector Association="RebuildModel.FK_DO_DOSUTE_dossier_user_DO_DOSSIE_dossier" />
+        <AssociationConnector Association="RebuildModel.FK_DO_DOSUTE_dossier_user_US_GROUPS_groups" />
+        <EntityTypeShape EntityType="RebuildModel.US_AREGRI_Arepro_Grids" Width="1.5" PointX="7.375" PointY="18.75" />
+        <EntityTypeShape EntityType="RebuildModel.US_AREFUN__Arepro_Functions" Width="1.5" PointX="19.375" PointY="9.75" />
+        <EntityTypeShape EntityType="RebuildModel.WF_V_ACTCAL_activities_calendar" Width="1.5" PointX="0.75" PointY="22.75" />
+        <EntityTypeShape EntityType="RebuildModel.AS_V_ASSET_assetExtended" Width="1.5" PointX="24.375" PointY="8.75" />
+        <AssociationConnector Association="RebuildModel.FK_DO_TIPDOC_doc_DO_STADOC" />
+        <EntityTypeShape EntityType="RebuildModel.EX_EXCTIP_type_excel" Width="1.5" PointX="25.375" PointY="2.375" />
+        <EntityTypeShape EntityType="RebuildModel.FL_CLAFIL_class_file" Width="1.5" PointX="14.625" PointY="27.75" />
+        <EntityTypeShape EntityType="RebuildModel.FL_FILINP_input_file" Width="1.5" PointX="27.625" PointY="14.5" />
+        <EntityTypeShape EntityType="RebuildModel.FL_TIPFIL_type_file" Width="1.5" PointX="16.875" PointY="26.5" />
+        <AssociationConnector Association="RebuildModel.FK_FL_TIPFIL_type_file_DO_TIPDOC" />
+        <AssociationConnector Association="RebuildModel.FK_FL_FILINP_input_excel_EX_EXCTIP_type_excel" />
+        <AssociationConnector Association="RebuildModel.FK_FL_TIPFIL_type_file_FL_CLAFIL_class_file" />
+        <AssociationConnector Association="RebuildModel.FK_FL_FILINP_input_file_FL_TIPFIL_type_file" />
+        <EntityTypeShape EntityType="RebuildModel.FL_RECFIL_fields" Width="1.5" PointX="30.625" PointY="10.625" />
+        <AssociationConnector Association="RebuildModel.FK_FL_RECFIL_fields_EX_EXCTIP" />
+        <AssociationConnector Association="RebuildModel.FK_FL_RECFIL_type_record_FL_TIPFIL_type_file" />
+        <EntityTypeShape EntityType="RebuildModel.FL_FORMAT_format" Width="1.5" PointX="20.375" PointY="0.875" />
+        <AssociationConnector Association="RebuildModel.FK_FL_RECFIL_type_record_FL_FORMAT_format" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

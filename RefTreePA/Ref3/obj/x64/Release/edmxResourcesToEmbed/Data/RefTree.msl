@@ -1,0 +1,1256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RebuildModelStoreContainer" CdmEntityContainer="RefTreeEntities">
+    <EntitySetMapping Name="JO_JOBANA_job_steps">
+      <EntityTypeMapping TypeName="RebuildModel.JO_JOBANA_job_steps">
+        <MappingFragment StoreEntitySet="JO_JOBANA_job_steps">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="JO_JOBANA_STATUS" ColumnName="JO_JOBANA_STATUS" />
+          <ScalarProperty Name="JO_JOBANA_ID" ColumnName="JO_JOBANA_ID" />
+          <ScalarProperty Name="JO_JOBANA_JO_JOBEVE_ID" ColumnName="JO_JOBANA_JO_JOBEVE_ID" />
+          <ScalarProperty Name="JO_JOBANA_JO_EXEORD_ID" ColumnName="JO_JOBANA_JO_EXEORD_ID" />
+          <ScalarProperty Name="JO_JOBANA_START_DATE" ColumnName="JO_JOBANA_START_DATE" />
+          <ScalarProperty Name="JO_JOBANA_END_DATE" ColumnName="JO_JOBANA_END_DATE" />
+          <ScalarProperty Name="JO_JOBANA_ERROR" ColumnName="JO_JOBANA_ERROR" />
+          <ScalarProperty Name="JO_JOBANA_CANCELLATION_DATE" ColumnName="JO_JOBANA_CANCELLATION_DATE" />
+          <ScalarProperty Name="JO_JOBANA_XMLPARAMS" ColumnName="JO_JOBANA_XMLPARAMS" />
+          <ScalarProperty Name="JO_JOBANA_USER_ID" ColumnName="JO_JOBANA_USER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JO_JOBEVE_jobs">
+      <EntityTypeMapping TypeName="RebuildModel.JO_JOBEVE_jobs">
+        <MappingFragment StoreEntitySet="JO_JOBEVE_jobs">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="JO_JOBEVE_ID" ColumnName="JO_JOBEVE_ID" />
+          <ScalarProperty Name="JO_JOBEVE_JO_TIPJOB_ID" ColumnName="JO_JOBEVE_JO_TIPJOB_ID" />
+          <ScalarProperty Name="JO_JOBEVE_JO_LAST_EXEORD_ID" ColumnName="JO_JOBEVE_JO_LAST_EXEORD_ID" />
+          <ScalarProperty Name="JO_JOBEVE_START_DATE" ColumnName="JO_JOBEVE_START_DATE" />
+          <ScalarProperty Name="JO_JOBEVE_END_DATE" ColumnName="JO_JOBEVE_END_DATE" />
+          <ScalarProperty Name="JO_JOBEVE_NOTE" ColumnName="JO_JOBEVE_NOTE" />
+          <ScalarProperty Name="JO_JOBEVE_USER_ID" ColumnName="JO_JOBEVE_USER_ID" />
+          <ScalarProperty Name="JO_JOBEVE_TASKID" ColumnName="JO_JOBEVE_TASKID" />
+          <ScalarProperty Name="JO_JOBEVE_CANCELLATION_DATE" ColumnName="JO_JOBEVE_CANCELLATION_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JO_JOBFIE_job_fields">
+      <EntityTypeMapping TypeName="RebuildModel.JO_JOBFIE_job_fields">
+        <MappingFragment StoreEntitySet="JO_JOBFIE_job_fields">
+          <ScalarProperty Name="JO_JOBFIE_TABLE_JOIN" ColumnName="JO_JOBFIE_TABLE_JOIN" />
+          <ScalarProperty Name="JO_JOBFIE_DATAROLE_ID" ColumnName="JO_JOBFIE_DATAROLE_ID" />
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="JO_JOBFIE_COLUMN_JOIN_FATHER" ColumnName="JO_JOBFIE_COLUMN_JOIN_FATHER" />
+          <ScalarProperty Name="JO_JOBFIE_COLUMN_FATHER" ColumnName="JO_JOBFIE_COLUMN_FATHER" />
+          <ScalarProperty Name="JO_JOBFIE_FLAG_USER_TABLE_JOIN" ColumnName="JO_JOBFIE_FLAG_USER_TABLE_JOIN" />
+          <ScalarProperty Name="JO_JOBFIE_DESCRIPT_TABLE_JOIN" ColumnName="JO_JOBFIE_DESCRIPT_TABLE_JOIN" />
+          <ScalarProperty Name="JO_JOBFIE_COLUMN_TABLE_JOIN" ColumnName="JO_JOBFIE_COLUMN_TABLE_JOIN" />
+          <ScalarProperty Name="JO_JOBFIE_MANDATORY" ColumnName="JO_JOBFIE_MANDATORY" />
+          <ScalarProperty Name="JO_JOBFIE_COLUMN_TYPE" ColumnName="JO_JOBFIE_COLUMN_TYPE" />
+          <ScalarProperty Name="JO_JOBFIE_COLUMN_NAME" ColumnName="JO_JOBFIE_COLUMN_NAME" />
+          <ScalarProperty Name="JO_JOBFIE_ORDER" ColumnName="JO_JOBFIE_ORDER" />
+          <ScalarProperty Name="JO_JOBFIE_JO_EXEORD_ID" ColumnName="JO_JOBFIE_JO_EXEORD_ID" />
+          <ScalarProperty Name="JO_JOBFIE_ID" ColumnName="JO_JOBFIE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STREET_V_streetExtended">
+      <EntityTypeMapping TypeName="RebuildModel.STREET_V_streetExtended">
+        <MappingFragment StoreEntitySet="STREET_V_streetExtended">
+          <ScalarProperty Name="LOCATION_DESCRIPTION" ColumnName="LOCATION_DESCRIPTION" />
+          <ScalarProperty Name="STREET_ID" ColumnName="STREET_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AS_SUBTIP_asset_subtipo">
+      <EntityTypeMapping TypeName="RebuildModel.AS_SUBTIP_asset_subtipo">
+        <MappingFragment StoreEntitySet="AS_SUBTIP_asset_subtipo">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="AS_SUBTIP_ORDINE" ColumnName="AS_SUBTIP_ORDINE" />
+          <ScalarProperty Name="AS_SUBTIP_TIPSAS_ID" ColumnName="AS_SUBTIP_TIPSAS_ID" />
+          <ScalarProperty Name="AS_SUBTIP_TIPASS_ID" ColumnName="AS_SUBTIP_TIPASS_ID" />
+          <ScalarProperty Name="AS_SUBTIP_ID" ColumnName="AS_SUBTIP_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JO_EXEORD_execution_order">
+      <EntityTypeMapping TypeName="RebuildModel.JO_EXEORD_execution_order">
+        <MappingFragment StoreEntitySet="JO_EXEORD_execution_order">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="JO_EXEORD_VIEW_POST" ColumnName="JO_EXEORD_VIEW_POST" />
+          <ScalarProperty Name="JO_EXEORD_FLAG_END" ColumnName="JO_EXEORD_FLAG_END" />
+          <ScalarProperty Name="JO_EXEORD_STORED_UNDO" ColumnName="JO_EXEORD_STORED_UNDO" />
+          <ScalarProperty Name="JO_EXEORD_STORED" ColumnName="JO_EXEORD_STORED" />
+          <ScalarProperty Name="JO_EXEORD_ORDINE" ColumnName="JO_EXEORD_ORDINE" />
+          <ScalarProperty Name="JO_EXEORD_JO_TIPJOB_ID" ColumnName="JO_EXEORD_JO_TIPJOB_ID" />
+          <ScalarProperty Name="JO_EXEORD_JO_STAJOB_ID" ColumnName="JO_EXEORD_JO_STAJOB_ID" />
+          <ScalarProperty Name="JO_EXEORD_ID" ColumnName="JO_EXEORD_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JO_JOBINP_job_input">
+      <EntityTypeMapping TypeName="RebuildModel.JO_JOBINP_job_input">
+        <MappingFragment StoreEntitySet="JO_JOBINP_job_input">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="JO_JOBINP_VALUE" ColumnName="JO_JOBINP_VALUE" />
+          <ScalarProperty Name="JO_JOBINP_JO_JOBFIE_ID" ColumnName="JO_JOBINP_JO_JOBFIE_ID" />
+          <ScalarProperty Name="JO_JOBINP_JO_JOBANA_ID" ColumnName="JO_JOBINP_JO_JOBANA_ID" />
+          <ScalarProperty Name="JO_JOBINP_ID" ColumnName="JO_JOBINP_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GET_TIPSAS_DETAILTOHIDE" FunctionName="RebuildModel.Store.GET_TIPSAS_DETAILTOHIDE" />
+    <EntitySetMapping Name="JO_JOBNOT_notification">
+      <EntityTypeMapping TypeName="RebuildModel.JO_JOBNOT_notification">
+        <MappingFragment StoreEntitySet="JO_JOBNOT_notification">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="JO_JOBNOT_DATE" ColumnName="JO_JOBNOT_DATE" />
+          <ScalarProperty Name="JO_JOBNOT_DATE_NOTIFICATION" ColumnName="JO_JOBNOT_DATE_NOTIFICATION" />
+          <ScalarProperty Name="JO_JOBNOT_NOTIFICATION1" ColumnName="JO_JOBNOT_NOTIFICATION" />
+          <ScalarProperty Name="JO_JOBNOT_JO_JOBANA_ID" ColumnName="JO_JOBNOT_JO_JOBANA_ID" />
+          <ScalarProperty Name="JO_JOBNOT_ID" ColumnName="JO_JOBNOT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="US_AREGRO_area_groups">
+      <EntityTypeMapping TypeName="RebuildModel.US_AREGRO_area_groups">
+        <MappingFragment StoreEntitySet="US_AREGRO_area_groups">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="US_AREGRO_LE_AMMGRO_ID" ColumnName="US_AREGRO_LE_AMMGRO_ID" />
+          <ScalarProperty Name="US_AREGRO_US_GROUPS_ID" ColumnName="US_AREGRO_US_GROUPS_ID" />
+          <ScalarProperty Name="US_AREGRO_US_AREVIS_ID" ColumnName="US_AREGRO_US_AREVIS_ID" />
+          <ScalarProperty Name="US_AREGRO_ID" ColumnName="US_AREGRO_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="US_GROUPS_groups">
+      <EntityTypeMapping TypeName="RebuildModel.US_GROUPS_groups">
+        <MappingFragment StoreEntitySet="US_GROUPS_groups">
+          <ScalarProperty Name="US_GROUPS_CODE" ColumnName="US_GROUPS_CODE" />
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="US_GROUPS_TO" ColumnName="US_GROUPS_TO" />
+          <ScalarProperty Name="US_GROUPS_FROM" ColumnName="US_GROUPS_FROM" />
+          <ScalarProperty Name="US_GROUPS_DESCRIPTION" ColumnName="US_GROUPS_DESCRIPTION" />
+          <ScalarProperty Name="US_GROUPS_US_TIPGRU_ID" ColumnName="US_GROUPS_US_TIPGRU_ID" />
+          <ScalarProperty Name="US_GROUPS_ID" ColumnName="US_GROUPS_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetAllowedTipSasFromParent" FunctionName="RebuildModel.Store.GetAllowedTipSasFromParent" />
+    <FunctionImportMapping FunctionImportName="JO_JOBNOT_setasnotified" FunctionName="RebuildModel.Store.JO_JOBNOT_setasnotified" />
+    <EntitySetMapping Name="JO_JOBREC_job_record">
+      <EntityTypeMapping TypeName="RebuildModel.JO_JOBREC_job_record">
+        <MappingFragment StoreEntitySet="JO_JOBREC_job_record">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="JO_JOBRED_USERID" ColumnName="JO_JOBRED_USERID" />
+          <ScalarProperty Name="JO_JOBREC_DATE" ColumnName="JO_JOBREC_DATE" />
+          <ScalarProperty Name="JO_JOBREC_SELECTED" ColumnName="JO_JOBREC_SELECTED" />
+          <ScalarProperty Name="JO_JOBREC_ID_RECORD" ColumnName="JO_JOBREC_ID_RECORD" />
+          <ScalarProperty Name="JO_JOBREC_TABLE_NAME" ColumnName="JO_JOBREC_TABLE_NAME" />
+          <ScalarProperty Name="JO_JOBREC_JO_JOBANA_ID" ColumnName="JO_JOBREC_JO_JOBANA_ID" />
+          <ScalarProperty Name="JO_JOBREC_ID" ColumnName="JO_JOBREC_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JO_ACTIVE_JOBS">
+      <EntityTypeMapping TypeName="RebuildModel.JO_ACTIVE_JOBS">
+        <MappingFragment StoreEntitySet="JO_ACTIVE_JOBS">
+          <ScalarProperty Name="US_AREVIS_ID" ColumnName="US_AREVIS_ID" />
+          <ScalarProperty Name="JO_JOBEVE_JO_TIPJOB_ID" ColumnName="JO_JOBEVE_JO_TIPJOB_ID" />
+          <ScalarProperty Name="JO_JOBEVE_END_DATE" ColumnName="JO_JOBEVE_END_DATE" />
+          <ScalarProperty Name="JO_JOBEVE_ID" ColumnName="JO_JOBEVE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JO_JOBGRO_Job_groups">
+      <EntityTypeMapping TypeName="RebuildModel.JO_JOBGRO_Job_groups">
+        <MappingFragment StoreEntitySet="JO_JOBGRO_Job_groups">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="JO_JOBGRO_US_AREVIS_ID" ColumnName="JO_JOBGRO_US_AREVIS_ID" />
+          <ScalarProperty Name="JO_JOBGRO_US_GROUPS_ID" ColumnName="JO_JOBGRO_US_GROUPS_ID" />
+          <ScalarProperty Name="JO_JOBGRO_JO_JOBEVE_ID" ColumnName="JO_JOBGRO_JO_JOBEVE_ID" />
+          <ScalarProperty Name="JO_JOBGRO_ID" ColumnName="JO_JOBGRO_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="JO_GET_UI_ELEMENTS" FunctionName="RebuildModel.Store.JO_GET_UI_ELEMENTS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RebuildModel.JO_GET_UI_ELEMENTS_Result">
+          <ScalarProperty Name="JO_AREJOB_ID" ColumnName="JO_AREJOB_ID" />
+          <ScalarProperty Name="JO_AREJOB_CODE" ColumnName="JO_AREJOB_CODE" />
+          <ScalarProperty Name="JO_AREJOB_DESCRIPTION" ColumnName="JO_AREJOB_DESCRIPTION" />
+          <ScalarProperty Name="JO_AREJOB_COLOUR" ColumnName="JO_AREJOB_COLOUR" />
+          <ScalarProperty Name="JO_CLAJOB_ID" ColumnName="JO_CLAJOB_ID" />
+          <ScalarProperty Name="JO_CLAJOB_CODE" ColumnName="JO_CLAJOB_CODE" />
+          <ScalarProperty Name="JO_CLAJOB_DESCRIPTION" ColumnName="JO_CLAJOB_DESCRIPTION" />
+          <ScalarProperty Name="JO_CLAJOB_JO_AREJOB_ID" ColumnName="JO_CLAJOB_JO_AREJOB_ID" />
+          <ScalarProperty Name="JO_CLAJOB_COLOUR" ColumnName="JO_CLAJOB_COLOUR" />
+          <ScalarProperty Name="JO_CLAJOB_ORDER" ColumnName="JO_CLAJOB_ORDER" />
+          <ScalarProperty Name="JO_TIPJOB_ID" ColumnName="JO_TIPJOB_ID" />
+          <ScalarProperty Name="JO_TIPJOB_CODE" ColumnName="JO_TIPJOB_CODE" />
+          <ScalarProperty Name="JO_TIPJOB_DESCRIPTION" ColumnName="JO_TIPJOB_DESCRIPTION" />
+          <ScalarProperty Name="JO_TIPJOB_JO_CLAJOB_ID" ColumnName="JO_TIPJOB_JO_CLAJOB_ID" />
+          <ScalarProperty Name="JO_TIPJOB_FLAG_MANDATORY" ColumnName="JO_TIPJOB_FLAG_MANDATORY" />
+          <ScalarProperty Name="JO_TIPJOB_NEXT_JO_TIPJOB_ID" ColumnName="JO_TIPJOB_NEXT_JO_TIPJOB_ID" />
+          <ScalarProperty Name="JO_TIPJOB_PREV_JO_TIPJOB_ID" ColumnName="JO_TIPJOB_PREV_JO_TIPJOB_ID" />
+          <ScalarProperty Name="US_USEPRO_UPDATE_RIGHTS" ColumnName="US_USEPRO_UPDATE_RIGHTS" />
+          <ScalarProperty Name="US_USEPRO_DELETE_RIGHTS" ColumnName="US_USEPRO_DELETE_RIGHTS" />
+          <ScalarProperty Name="US_USEPRO_EXEC_RIGHTS" ColumnName="US_USEPRO_EXEC_RIGHTS" />
+          <ScalarProperty Name="US_USEPRO_EXPORT_RIGHTS" ColumnName="US_USEPRO_EXPORT_RIGHTS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="JO_ANAPRO_jobana_proare">
+      <EntityTypeMapping TypeName="RebuildModel.JO_ANAPRO_jobana_proare">
+        <MappingFragment StoreEntitySet="JO_ANAPRO_jobana_proare">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="JO_ANAPRO_JO_PROARE_ID" ColumnName="JO_ANAPRO_JO_PROARE_ID" />
+          <ScalarProperty Name="JO_ANAPRO_JO_JOBANA_ID" ColumnName="JO_ANAPRO_JO_JOBANA_ID" />
+          <ScalarProperty Name="JO_ANAPRO_ID" ColumnName="JO_ANAPRO_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="US_AREVIS_area_visibility">
+      <EntityTypeMapping TypeName="RebuildModel.US_AREVIS_area_visibility">
+        <MappingFragment StoreEntitySet="US_AREVIS_area_visibility">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="US_AREVIS_LOGO" ColumnName="US_AREVIS_LOGO" />
+          <ScalarProperty Name="US_AREVIS_ORDER" ColumnName="US_AREVIS_ORDER" />
+          <ScalarProperty Name="US_AREVIS_GROUP_TO_SEARCH" ColumnName="US_AREVIS_GROUP_TO_SEARCH" />
+          <ScalarProperty Name="US_AREVIS_PARENT_ID" ColumnName="US_AREVIS_PARENT_ID" />
+          <ScalarProperty Name="US_AREVIS_DESCRIPTION" ColumnName="US_AREVIS_DESCRIPTION" />
+          <ScalarProperty Name="US_AREVIS_US_CLAVIS_ID" ColumnName="US_AREVIS_US_CLAVIS_ID" />
+          <ScalarProperty Name="US_AREVIS_ID" ColumnName="US_AREVIS_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="EV_GET_FUNCTIONS_FOR_STATUS" FunctionName="RebuildModel.Store.EV_GET_FUNCTIONS_FOR_STATUS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RebuildModel.EV_GET_FUNCTIONS_FOR_STATUS_Result">
+          <ScalarProperty Name="EV_CLAEVE_DESCRIPTION" ColumnName="EV_CLAEVE_DESCRIPTION" />
+          <ScalarProperty Name="EV_TIPEVE_DESCRIPTION" ColumnName="EV_TIPEVE_DESCRIPTION" />
+          <ScalarProperty Name="EV_EVESTA_ORDER" ColumnName="EV_EVESTA_ORDER" />
+          <ScalarProperty Name="EV_EVESTA_FunctionID" ColumnName="EV_EVESTA_FunctionID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="DO_CLAUTE_class_document_user">
+      <EntityTypeMapping TypeName="RebuildModel.DO_CLAUTE_class_document_user">
+        <MappingFragment StoreEntitySet="DO_CLAUTE_class_document_user">
+          <ScalarProperty Name="DO_CLAUTE_FLAG_ALERT_MAIL" ColumnName="DO_CLAUTE_FLAG_ALERT_MAIL" />
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="DO_CLAUTE_FLAG_MONITOR" ColumnName="DO_CLAUTE_FLAG_MONITOR" />
+          <ScalarProperty Name="DO_CLAUTE_FLAG_WRITE" ColumnName="DO_CLAUTE_FLAG_WRITE" />
+          <ScalarProperty Name="DO_CLAUTE_US_DEPROL_ID" ColumnName="DO_CLAUTE_US_DEPROL_ID" />
+          <ScalarProperty Name="DO_CLAUTE_US_GROUPS_ID" ColumnName="DO_CLAUTE_US_GROUPS_ID" />
+          <ScalarProperty Name="DO_CLAUTE_CLADOC_ID" ColumnName="DO_CLAUTE_CLADOC_ID" />
+          <ScalarProperty Name="DO_CLAUTE_ID" ColumnName="DO_CLAUTE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DO_DOCREL_document_relation">
+      <EntityTypeMapping TypeName="RebuildModel.DO_DOCREL_document_relation">
+        <MappingFragment StoreEntitySet="DO_DOCREL_document_relation">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="DO_DOCREL_ID_RECORD" ColumnName="DO_DOCREL_ID_RECORD" />
+          <ScalarProperty Name="DO_DOCREL_TABLE_NAME" ColumnName="DO_DOCREL_TABLE_NAME" />
+          <ScalarProperty Name="DO_DOCREL_DO_DOCUME_ID" ColumnName="DO_DOCREL_DO_DOCUME_ID" />
+          <ScalarProperty Name="DO_DOCREL_ID" ColumnName="DO_DOCREL_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DO_STADOC_status">
+      <EntityTypeMapping TypeName="RebuildModel.DO_STADOC_status">
+        <MappingFragment StoreEntitySet="DO_STADOC_status">
+          <ScalarProperty Name="DO_STADOC_FLAG_START" ColumnName="DO_STADOC_FLAG_START" />
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="DO_STADOC_FLAG_CAD" ColumnName="DO_STADOC_FLAG_CAD" />
+          <ScalarProperty Name="DO_STADOC_FLAG_HISTORY" ColumnName="DO_STADOC_FLAG_HISTORY" />
+          <ScalarProperty Name="DO_STADOC_DESCRIPTION" ColumnName="DO_STADOC_DESCRIPTION" />
+          <ScalarProperty Name="DO_STADOC_CODE" ColumnName="DO_STADOC_CODE" />
+          <ScalarProperty Name="DO_STADOC_ID" ColumnName="DO_STADOC_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EV_EVENT_EVENTS">
+      <EntityTypeMapping TypeName="RebuildModel.EV_EVENT_EVENTS">
+        <MappingFragment StoreEntitySet="EV_EVENT_EVENTS">
+          <ScalarProperty Name="EV_EVENT_CUSTOM_MSG" ColumnName="EV_EVENT_CUSTOM_MSG" />
+          <ScalarProperty Name="EV_EVENT_B_NO_VSBL" ColumnName="EV_EVENT_B_NO_VSBL" />
+          <ScalarProperty Name="EV_EVENT_USER_ID" ColumnName="EV_EVENT_USER_ID" />
+          <ScalarProperty Name="EV_EVENT_DATE" ColumnName="EV_EVENT_DATE" />
+          <ScalarProperty Name="EV_EVENT_CHLD_KEY_VALUE" ColumnName="EV_EVENT_CHLD_KEY_VALUE" />
+          <ScalarProperty Name="EV_EVENT_CHLD_KEY_NAME" ColumnName="EV_EVENT_CHLD_KEY_NAME" />
+          <ScalarProperty Name="EV_EVENT_MSTR_KEY_VALUE" ColumnName="EV_EVENT_MSTR_KEY_VALUE" />
+          <ScalarProperty Name="EV_EVENT_MSTR_KEY_NAME" ColumnName="EV_EVENT_MSTR_KEY_NAME" />
+          <ScalarProperty Name="EV_EVENT_EV_STAGE_ID" ColumnName="EV_EVENT_EV_STAGE_ID" />
+          <ScalarProperty Name="EV_EVENT_EV_RULCAT_ID" ColumnName="EV_EVENT_EV_RULCAT_ID" />
+          <ScalarProperty Name="EV_EVENT_ID" ColumnName="EV_EVENT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DO_CLASTA_class_status">
+      <EntityTypeMapping TypeName="RebuildModel.DO_CLASTA_class_status">
+        <MappingFragment StoreEntitySet="DO_CLASTA_class_status">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="DO_CLASTA_MONITOR_VISIBLE" ColumnName="DO_CLASTA_MONITOR_VISIBLE" />
+          <ScalarProperty Name="DO_CLASTA_ORDER" ColumnName="DO_CLASTA_ORDER" />
+          <ScalarProperty Name="DO_CLASTA_FINAL" ColumnName="DO_CLASTA_FINAL" />
+          <ScalarProperty Name="DO_CLASTA_INITIAL" ColumnName="DO_CLASTA_INITIAL" />
+          <ScalarProperty Name="DO_CLASTA_DO_STADOC_ID" ColumnName="DO_CLASTA_DO_STADOC_ID" />
+          <ScalarProperty Name="DO_CLASTA_DO_CLADOC_ID" ColumnName="DO_CLASTA_DO_CLADOC_ID" />
+          <ScalarProperty Name="DO_CLASTA_ID" ColumnName="DO_CLASTA_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DO_TIPDOC_document_type">
+      <EntityTypeMapping TypeName="RebuildModel.DO_TIPDOC_document_type">
+        <MappingFragment StoreEntitySet="DO_TIPDOC_document_type">
+          <ScalarProperty Name="DO_TIPDOC_DO_STADOC_ID" ColumnName="DO_TIPDOC_DO_STADOC_ID" />
+          <ScalarProperty Name="DO_TIPDOC_DAY_MONITOR_DUE" ColumnName="DO_TIPDOC_DAY_MONITOR_DUE" />
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="guidIdentifier" ColumnName="guidIdentifier" />
+          <ScalarProperty Name="DO_TIPDOC_FILE_MONITOR" ColumnName="DO_TIPDOC_FILE_MONITOR" />
+          <ScalarProperty Name="MagicBOLayer_ID" ColumnName="MagicBOLayer_ID" />
+          <ScalarProperty Name="DO_TIPDOC_EXTENSIONS" ColumnName="DO_TIPDOC_EXTENSIONS" />
+          <ScalarProperty Name="DO_TIPDOC_PATH" ColumnName="DO_TIPDOC_PATH" />
+          <ScalarProperty Name="DO_TIPDOC_DAY_MONITOR" ColumnName="DO_TIPDOC_DAY_MONITOR" />
+          <ScalarProperty Name="DO_TIPDOC_FLAG_MANDATORY_EXP" ColumnName="DO_TIPDOC_FLAG_MANDATORY_EXP" />
+          <ScalarProperty Name="DO_TIPDOC_FILE_MANDATORY" ColumnName="DO_TIPDOC_FILE_MANDATORY" />
+          <ScalarProperty Name="DO_TIPDOC_DESCRIPTION" ColumnName="DO_TIPDOC_DESCRIPTION" />
+          <ScalarProperty Name="DO_TIPDOC_CODE" ColumnName="DO_TIPDOC_CODE" />
+          <ScalarProperty Name="DO_TIPDOC_DO_CLADOC_ID" ColumnName="DO_TIPDOC_DO_CLADOC_ID" />
+          <ScalarProperty Name="DO_TIPDOC_ID" ColumnName="DO_TIPDOC_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DO_DOCFIL_document_file">
+      <EntityTypeMapping TypeName="RebuildModel.DO_DOCFIL_document_file">
+        <MappingFragment StoreEntitySet="DO_DOCFIL_document_file">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="DO_DOCFIL_FLAG_MAIN_ASSET" ColumnName="DO_DOCFIL_FLAG_MAIN_ASSET" />
+          <ScalarProperty Name="DO_DOCFIL_DO_DOCVER_LAST" ColumnName="DO_DOCFIL_DO_DOCVER_LAST" />
+          <ScalarProperty Name="DO_DOCFIL_USERID" ColumnName="DO_DOCFIL_USERID" />
+          <ScalarProperty Name="DO_DOCFIL_DATE" ColumnName="DO_DOCFIL_DATE" />
+          <ScalarProperty Name="DO_DOCFIL_NOTE" ColumnName="DO_DOCFIL_NOTE" />
+          <ScalarProperty Name="DO_DOCFIL_DO_DOCUME_ID" ColumnName="DO_DOCFIL_DO_DOCUME_ID" />
+          <ScalarProperty Name="DO_DOCFIL_ID" ColumnName="DO_DOCFIL_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DO_DOCVER_versions">
+      <EntityTypeMapping TypeName="RebuildModel.DO_DOCVER_versions">
+        <MappingFragment StoreEntitySet="DO_DOCVER_versions">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="DO_DOCVER_FLAG_AGGIORNATO" ColumnName="DO_DOCVER_FLAG_AGGIORNATO" />
+          <ScalarProperty Name="DO_DOCVER_THUMBNAIL_LINK" ColumnName="DO_DOCVER_THUMBNAIL_LINK" />
+          <ScalarProperty Name="DO_DOCVER_LINK_FILE" ColumnName="DO_DOCVER_LINK_FILE" />
+          <ScalarProperty Name="DO_DOCVER_USERID" ColumnName="DO_DOCVER_USERID" />
+          <ScalarProperty Name="DO_DOCVER_DATE" ColumnName="DO_DOCVER_DATE" />
+          <ScalarProperty Name="DO_DOCVER_NOTE" ColumnName="DO_DOCVER_NOTE" />
+          <ScalarProperty Name="DO_DOCVER_COUNTER" ColumnName="DO_DOCVER_COUNTER" />
+          <ScalarProperty Name="DO_DOCVER_DO_DOCFIL_ID" ColumnName="DO_DOCVER_DO_DOCFIL_ID" />
+          <ScalarProperty Name="DO_DOCVER_ID" ColumnName="DO_DOCVER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CF_FIELDS_DATA_TYPE">
+      <EntityTypeMapping TypeName="RebuildModel.CF_FIELDS_DATA_TYPE">
+        <MappingFragment StoreEntitySet="CF_FIELDS_DATA_TYPE">
+          <ScalarProperty Name="DATETIME_PRECISION" ColumnName="DATETIME_PRECISION" />
+          <ScalarProperty Name="NUMERIC_PRECISION_RADIX" ColumnName="NUMERIC_PRECISION_RADIX" />
+          <ScalarProperty Name="NUMERIC_PRECISION" ColumnName="NUMERIC_PRECISION" />
+          <ScalarProperty Name="CHARACTER_MAXIMUM_LENGTH" ColumnName="CHARACTER_MAXIMUM_LENGTH" />
+          <ScalarProperty Name="DATA_TYPE" ColumnName="DATA_TYPE" />
+          <ScalarProperty Name="CF_FIELDS_DATA_TYPE_DESCRIPTION" ColumnName="CF_FIELDS_DATA_TYPE_DESCRIPTION" />
+          <ScalarProperty Name="CF_FIELDS_DATA_TYPE_DATA_TYPE" ColumnName="CF_FIELDS_DATA_TYPE_DATA_TYPE" />
+          <ScalarProperty Name="CF_FIELDS_DATA_TYPE_NAME" ColumnName="CF_FIELDS_DATA_TYPE_NAME" />
+          <ScalarProperty Name="CF_FIELDS_DATA_TYPE_CODE" ColumnName="CF_FIELDS_DATA_TYPE_CODE" />
+          <ScalarProperty Name="CF_FIELDS_DATA_TYPE_ID" ColumnName="CF_FIELDS_DATA_TYPE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DO_V_DOCVER">
+      <EntityTypeMapping TypeName="RebuildModel.DO_V_DOCVER">
+        <MappingFragment StoreEntitySet="DO_V_DOCVER">
+          <ScalarProperty Name="DO_DOCFIL_DO_DOCUME_ID" ColumnName="DO_DOCFIL_DO_DOCUME_ID" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="DO_DOCVER_LINK_FILE" ColumnName="DO_DOCVER_LINK_FILE" />
+          <ScalarProperty Name="DO_DOCVER_USERID" ColumnName="DO_DOCVER_USERID" />
+          <ScalarProperty Name="DO_DOCVER_DATE" ColumnName="DO_DOCVER_DATE" />
+          <ScalarProperty Name="DO_DOCVER_NOTE" ColumnName="DO_DOCVER_NOTE" />
+          <ScalarProperty Name="DO_DOCVER_COUNTER" ColumnName="DO_DOCVER_COUNTER" />
+          <ScalarProperty Name="DO_DOCVER_DO_DOCFIL_ID" ColumnName="DO_DOCVER_DO_DOCFIL_ID" />
+          <ScalarProperty Name="DO_DOCVER_ID" ColumnName="DO_DOCVER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_do_fascicolo_GetList" FunctionName="RebuildModel.Store.usp_do_fascicolo_GetList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RebuildModel.usp_do_fascicolo_GetList_Result">
+          <ScalarProperty Name="DO_DOSSIE_ID" ColumnName="DO_DOSSIE_ID" />
+          <ScalarProperty Name="DO_DOSSIE_DESCRIPTION" ColumnName="DO_DOSSIE_DESCRIPTION" />
+          <ScalarProperty Name="DO_Magic_BusinessObjectType_ID" ColumnName="DO_Magic_BusinessObjectType_ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="WF_V_ACTAGG_aggregate_activities">
+      <EntityTypeMapping TypeName="RebuildModel.WF_V_ACTAGG_aggregate_activities">
+        <MappingFragment StoreEntitySet="WF_V_ACTAGG_aggregate_activities">
+          <ScalarProperty Name="taskTypeDescription" ColumnName="taskTypeDescription" />
+          <ScalarProperty Name="Activity_counter" ColumnName="Activity_counter" />
+          <ScalarProperty Name="ToBeAssigned" ColumnName="ToBeAssigned" />
+          <ScalarProperty Name="MandatoryAssignment" ColumnName="MandatoryAssignment" />
+          <ScalarProperty Name="US_DEPART_DESCRIPTION" ColumnName="US_DEPART_DESCRIPTION" />
+          <ScalarProperty Name="US_DEPART_ID" ColumnName="US_DEPART_ID" />
+          <ScalarProperty Name="US_USEROL_DESCRIPTION" ColumnName="US_USEROL_DESCRIPTION" />
+          <ScalarProperty Name="US_USEROL_ID" ColumnName="US_USEROL_ID" />
+          <ScalarProperty Name="US_DEPROL_ID" ColumnName="US_DEPROL_ID" />
+          <ScalarProperty Name="ActivitySource" ColumnName="ActivitySource" />
+          <ScalarProperty Name="ownerId" ColumnName="ownerId" />
+          <ScalarProperty Name="start" ColumnName="start" />
+          <ScalarProperty Name="Activity" ColumnName="Activity" />
+          <ScalarProperty Name="LinkedModelActivity_ID" ColumnName="LinkedModelActivity_ID" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="taskTypeID" ColumnName="taskTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DO_DOSSIE_dossier">
+      <EntityTypeMapping TypeName="RebuildModel.DO_DOSSIE_dossier">
+        <MappingFragment StoreEntitySet="DO_DOSSIE_dossier">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="DO_DOSSIE_FL_PRIVAT" ColumnName="DO_DOSSIE_FL_PRIVAT" />
+          <ScalarProperty Name="DO_DOSSIE_FLAG_ACTIVE" ColumnName="DO_DOSSIE_FLAG_ACTIVE" />
+          <ScalarProperty Name="DO_Magic_BusinessObjectType_ID" ColumnName="DO_Magic_BusinessObjectType_ID" />
+          <ScalarProperty Name="DO_DOSSIE_CLADOS_ID" ColumnName="DO_DOSSIE_CLADOS_ID" />
+          <ScalarProperty Name="DO_DOSSIE_DESCRIPTION" ColumnName="DO_DOSSIE_DESCRIPTION" />
+          <ScalarProperty Name="DO_DOSSIE_CODE" ColumnName="DO_DOSSIE_CODE" />
+          <ScalarProperty Name="DO_DOSSIE_ID" ColumnName="DO_DOSSIE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DO_CLADOS_dossier_class">
+      <EntityTypeMapping TypeName="RebuildModel.DO_CLADOS_dossier_class">
+        <MappingFragment StoreEntitySet="DO_CLADOS_dossier_class">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="DO_CLADOS_DESCRIPTION" ColumnName="DO_CLADOS_DESCRIPTION" />
+          <ScalarProperty Name="DO_CLADOS_CODE" ColumnName="DO_CLADOS_CODE" />
+          <ScalarProperty Name="DO_CLADOS_ID" ColumnName="DO_CLADOS_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DO_DOCGRO_Document_groups">
+      <EntityTypeMapping TypeName="RebuildModel.DO_DOCGRO_Document_groups">
+        <MappingFragment StoreEntitySet="DO_DOCGRO_Document_groups">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="DO_DOCGRO_US_GROUPS_ID" ColumnName="DO_DOCGRO_US_GROUPS_ID" />
+          <ScalarProperty Name="DO_DOCGRO_DO_DOCUME_ID" ColumnName="DO_DOCGRO_DO_DOCUME_ID" />
+          <ScalarProperty Name="DO_DOCGRO_ID" ColumnName="DO_DOCGRO_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DO_DOSTIP_dosssier_type_document">
+      <EntityTypeMapping TypeName="RebuildModel.DO_DOSTIP_dosssier_type_document">
+        <MappingFragment StoreEntitySet="DO_DOSTIP_dosssier_type_document">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="DO_DOSTIP_DO_TIPDOC_ID" ColumnName="DO_DOSTIP_DO_TIPDOC_ID" />
+          <ScalarProperty Name="DO_DOSTIP_DO_DOSSIE_ID" ColumnName="DO_DOSTIP_DO_DOSSIE_ID" />
+          <ScalarProperty Name="DO_DOSTIP_ID" ColumnName="DO_DOSTIP_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DO_OBTIDO_type_document">
+      <EntityTypeMapping TypeName="RebuildModel.DO_OBTIDO_type_document">
+        <MappingFragment StoreEntitySet="DO_OBTIDO_type_document">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="DO_OBTIDO_VIEW_MISSING" ColumnName="DO_OBTIDO_VIEW_MISSING" />
+          <ScalarProperty Name="DO_OBTIDO_BusinessObjectType_ID" ColumnName="DO_OBTIDO_BusinessObjectType_ID" />
+          <ScalarProperty Name="DO_OBTIDO_DO_TIPDOC_ID" ColumnName="DO_OBTIDO_DO_TIPDOC_ID" />
+          <ScalarProperty Name="DO_OBTIDO_ID" ColumnName="DO_OBTIDO_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DO_STAWRK_status_workflow">
+      <EntityTypeMapping TypeName="RebuildModel.DO_STAWRK_status_workflow">
+        <MappingFragment StoreEntitySet="DO_STAWRK_status_workflow">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="DO_STAWRK_WrkTypeAct_id" ColumnName="DO_STAWRK_WrkTypeAct_id" />
+          <ScalarProperty Name="DO_STAWRK_WrkStatus_Id" ColumnName="DO_STAWRK_WrkStatus_Id" />
+          <ScalarProperty Name="DO_STAWKR_DO_STADOC_ID" ColumnName="DO_STAWKR_DO_STADOC_ID" />
+          <ScalarProperty Name="DO_STAWRK_ID" ColumnName="DO_STAWRK_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DO_CLADOC_document_class">
+      <EntityTypeMapping TypeName="RebuildModel.DO_CLADOC_document_class">
+        <MappingFragment StoreEntitySet="DO_CLADOC_document_class">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="guidIdentifier" ColumnName="guidIdentifier" />
+          <ScalarProperty Name="MagicBOLayer_ID" ColumnName="MagicBOLayer_ID" />
+          <ScalarProperty Name="DO_CLADOC_COLOR" ColumnName="DO_CLADOC_COLOR" />
+          <ScalarProperty Name="DO_CLADOC_PATH" ColumnName="DO_CLADOC_PATH" />
+          <ScalarProperty Name="DO_CLADOC_ORDER" ColumnName="DO_CLADOC_ORDER" />
+          <ScalarProperty Name="DO_CLADOC_FLAG_PHOTO" ColumnName="DO_CLADOC_FLAG_PHOTO" />
+          <ScalarProperty Name="DO_CLADOC_DESCRIPTION" ColumnName="DO_CLADOC_DESCRIPTION" />
+          <ScalarProperty Name="DO_CLADOC_CODE" ColumnName="DO_CLADOC_CODE" />
+          <ScalarProperty Name="DO_CLADOC_ID" ColumnName="DO_CLADOC_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_do_fascicolo_GetDocuments" FunctionName="RebuildModel.Store.usp_do_fascicolo_GetDocuments">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RebuildModel.usp_do_fascicolo_GetDocuments_Result">
+          <ScalarProperty Name="DO_DOCUME_ID" ColumnName="DO_DOCUME_ID" />
+          <ScalarProperty Name="DO_DOCUME_DO_TIPDOC_ID" ColumnName="DO_DOCUME_DO_TIPDOC_ID" />
+          <ScalarProperty Name="DO_DOCUME_DESCRIPTION" ColumnName="DO_DOCUME_DESCRIPTION" />
+          <ScalarProperty Name="DO_DOCUME_ISSUE_DATE" ColumnName="DO_DOCUME_ISSUE_DATE" />
+          <ScalarProperty Name="DO_DOCUME_EXPIRY_DATE" ColumnName="DO_DOCUME_EXPIRY_DATE" />
+          <ScalarProperty Name="DO_DOCUME_DO_STADOC_ID" ColumnName="DO_DOCUME_DO_STADOC_ID" />
+          <ScalarProperty Name="DO_DOCUME_FLAG_NO_ACTIVE" ColumnName="DO_DOCUME_FLAG_NO_ACTIVE" />
+          <ScalarProperty Name="DO_DOCUME_XML_CAMASS_VALUES" ColumnName="DO_DOCUME_XML_CAMASS_VALUES" />
+          <ScalarProperty Name="DO_DOCUME_XML_CAMUTE_VALUES" ColumnName="DO_DOCUME_XML_CAMUTE_VALUES" />
+          <ScalarProperty Name="DO_TIPDOC_DO_CLADOC_ID" ColumnName="DO_TIPDOC_DO_CLADOC_ID" />
+          <ScalarProperty Name="DO_TIPDOC_EXTENSIONS" ColumnName="DO_TIPDOC_EXTENSIONS" />
+          <ScalarProperty Name="DO_TIPDOC_PATH" ColumnName="DO_TIPDOC_PATH" />
+          <ScalarProperty Name="DO_CLADOC_PATH" ColumnName="DO_CLADOC_PATH" />
+          <ScalarProperty Name="DO_STADOC_DESCRIPTION" ColumnName="DO_STADOC_DESCRIPTION" />
+          <ScalarProperty Name="MagicBOLayerID" ColumnName="MagicBOLayerID" />
+          <ScalarProperty Name="DO_CLADOC_DESCRIPTION" ColumnName="DO_CLADOC_DESCRIPTION" />
+          <ScalarProperty Name="DO_TIPDOC_DESCRIPTION" ColumnName="DO_TIPDOC_DESCRIPTION" />
+          <ScalarProperty Name="fakeforlink" ColumnName="fakeforlink" />
+          <ScalarProperty Name="MagicBusinessObjectList" ColumnName="MagicBusinessObjectList" />
+          <ScalarProperty Name="OBJECT_DESCRIPTION" ColumnName="OBJECT_DESCRIPTION" />
+          <ScalarProperty Name="OBJECT_ID" ColumnName="OBJECT_ID" />
+          <ScalarProperty Name="OBJECT_TYPE_ID" ColumnName="OBJECT_TYPE_ID" />
+          <ScalarProperty Name="OBJECT_CODE" ColumnName="OBJECT_CODE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="DO_V_DOCUME_MISSING">
+      <EntityTypeMapping TypeName="RebuildModel.DO_V_DOCUME_MISSING">
+        <MappingFragment StoreEntitySet="DO_V_DOCUME_MISSING">
+          <ScalarProperty Name="OBJECT_ID" ColumnName="OBJECT_ID" />
+          <ScalarProperty Name="OBJECT_CODE" ColumnName="OBJECT_CODE" />
+          <ScalarProperty Name="OBJECT_DESCRIPTION" ColumnName="OBJECT_DESCRIPTION" />
+          <ScalarProperty Name="MagicBOLayerID" ColumnName="MagicBOLayerID" />
+          <ScalarProperty Name="DO_TIPDOC_PATH" ColumnName="DO_TIPDOC_PATH" />
+          <ScalarProperty Name="DO_TIPDOC_EXTENSIONS" ColumnName="DO_TIPDOC_EXTENSIONS" />
+          <ScalarProperty Name="DO_TIPDOC_DESCRIPTION" ColumnName="DO_TIPDOC_DESCRIPTION" />
+          <ScalarProperty Name="DO_TIPDOC_CODE" ColumnName="DO_TIPDOC_CODE" />
+          <ScalarProperty Name="DO_TIPDOC_ID" ColumnName="DO_TIPDOC_ID" />
+          <ScalarProperty Name="DO_CLADOC_PATH" ColumnName="DO_CLADOC_PATH" />
+          <ScalarProperty Name="DO_CLADOC_DESCRIPTION" ColumnName="DO_CLADOC_DESCRIPTION" />
+          <ScalarProperty Name="DO_CLADOC_CODE" ColumnName="DO_CLADOC_CODE" />
+          <ScalarProperty Name="DO_CLADOC_ID" ColumnName="DO_CLADOC_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="get_do_cladoc_for_user" FunctionName="RebuildModel.Store.get_do_cladoc_for_user">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RebuildModel.get_do_cladoc_for_user_Result">
+          <ScalarProperty Name="do_cladoc_id" ColumnName="do_cladoc_id" />
+          <ScalarProperty Name="do_cladoc_code" ColumnName="do_cladoc_code" />
+          <ScalarProperty Name="do_cladoc_description" ColumnName="do_cladoc_description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_do_dossier_GetMissingDocs" FunctionName="RebuildModel.Store.usp_do_dossier_GetMissingDocs">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RebuildModel.usp_do_dossier_GetMissingDocs_Result">
+          <ScalarProperty Name="DO_CLADOC_ID" ColumnName="DO_CLADOC_ID" />
+          <ScalarProperty Name="DO_CLADOC_CODE" ColumnName="DO_CLADOC_CODE" />
+          <ScalarProperty Name="DO_CLADOC_DESCRIPTION" ColumnName="DO_CLADOC_DESCRIPTION" />
+          <ScalarProperty Name="DO_CLADOC_PATH" ColumnName="DO_CLADOC_PATH" />
+          <ScalarProperty Name="DO_TIPDOC_ID" ColumnName="DO_TIPDOC_ID" />
+          <ScalarProperty Name="DO_TIPDOC_CODE" ColumnName="DO_TIPDOC_CODE" />
+          <ScalarProperty Name="DO_TIPDOC_DESCRIPTION" ColumnName="DO_TIPDOC_DESCRIPTION" />
+          <ScalarProperty Name="DO_TIPDOC_EXTENSIONS" ColumnName="DO_TIPDOC_EXTENSIONS" />
+          <ScalarProperty Name="DO_TIPDOC_PATH" ColumnName="DO_TIPDOC_PATH" />
+          <ScalarProperty Name="MagicBOLayerID" ColumnName="MagicBOLayerID" />
+          <ScalarProperty Name="OBJECT_DESCRIPTION" ColumnName="OBJECT_DESCRIPTION" />
+          <ScalarProperty Name="OBJECT_CODE" ColumnName="OBJECT_CODE" />
+          <ScalarProperty Name="OBJECT_ID" ColumnName="OBJECT_ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="M_TIPSAS_TIPASS">
+      <EntityTypeMapping TypeName="RebuildModel.M_TIPSAS_TIPASS">
+        <MappingFragment StoreEntitySet="M_TIPSAS_TIPASS">
+          <ScalarProperty Name="AS_SUBTIP_ORDINE" ColumnName="AS_SUBTIP_ORDINE" />
+          <ScalarProperty Name="IsChecked" ColumnName="IsChecked" />
+          <ScalarProperty Name="AS_TIPSAS_DESCRIZIONE" ColumnName="AS_TIPSAS_DESCRIZIONE" />
+          <ScalarProperty Name="AS_TIPSAS_CODICE" ColumnName="AS_TIPSAS_CODICE" />
+          <ScalarProperty Name="AS_TIPSAS_ID" ColumnName="AS_TIPSAS_ID" />
+          <ScalarProperty Name="AS_TIPASS_DESCRIPTION" ColumnName="AS_TIPASS_DESCRIPTION" />
+          <ScalarProperty Name="AS_TIPASS_CODE" ColumnName="AS_TIPASS_CODE" />
+          <ScalarProperty Name="AS_TIPASS_ID" ColumnName="AS_TIPASS_ID" />
+          <ScalarProperty Name="viewID" ColumnName="viewID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DO_CAMUSE_fields_document_user">
+      <EntityTypeMapping TypeName="RebuildModel.DO_CAMUSE_fields_document_user">
+        <MappingFragment StoreEntitySet="DO_CAMUSE_fields_document_user">
+          <ScalarProperty Name="DO_CAMUSE_MagicColumnID" ColumnName="DO_CAMUSE_MagicColumnID" />
+          <ScalarProperty Name="DO_CAMUSE_CF_FIELDS_DATA_TYPE_ID" ColumnName="DO_CAMUSE_CF_FIELDS_DATA_TYPE_ID" />
+          <ScalarProperty Name="DO_CAMUSE_FIELD_DB" ColumnName="DO_CAMUSE_FIELD_DB" />
+          <ScalarProperty Name="DO_CAMUSE_DO_TIPDOC_ID" ColumnName="DO_CAMUSE_DO_TIPDOC_ID" />
+          <ScalarProperty Name="DO_CAMUSE_DO_CLADOC_ID" ColumnName="DO_CAMUSE_DO_CLADOC_ID" />
+          <ScalarProperty Name="DO_CAMUSE_ID" ColumnName="DO_CAMUSE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DO_DOCFIE_fields_document">
+      <EntityTypeMapping TypeName="RebuildModel.DO_DOCFIE_fields_document">
+        <MappingFragment StoreEntitySet="DO_DOCFIE_fields_document">
+          <ScalarProperty Name="DO_DOCFIE_MagicColumnID" ColumnName="DO_DOCFIE_MagicColumnID" />
+          <ScalarProperty Name="DO_DOCFIE_CF_FIELDS_DATA_TYPE_ID" ColumnName="DO_DOCFIE_CF_FIELDS_DATA_TYPE_ID" />
+          <ScalarProperty Name="DO_DOCFIE_FIELD_DB" ColumnName="DO_DOCFIE_FIELD_DB" />
+          <ScalarProperty Name="DO_DOCFIE_DO_TIPDOC_ID" ColumnName="DO_DOCFIE_DO_TIPDOC_ID" />
+          <ScalarProperty Name="DO_DOCFIE_DO_CLADOC_ID" ColumnName="DO_DOCFIE_DO_CLADOC_ID" />
+          <ScalarProperty Name="DO_DOCFIE_ID" ColumnName="DO_DOCFIE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AS_V_LOCATION_locationextended">
+      <EntityTypeMapping TypeName="RebuildModel.AS_V_LOCATION_locationextended">
+        <MappingFragment StoreEntitySet="AS_V_LOCATION_locationextended">
+          <ScalarProperty Name="LOCATION_DESCRIPTION_LONG" ColumnName="LOCATION_DESCRIPTION_LONG" />
+          <ScalarProperty Name="LOCATION_STREET_ID" ColumnName="LOCATION_STREET_ID" />
+          <ScalarProperty Name="LOCATION_NUMBER" ColumnName="LOCATION_NUMBER" />
+          <ScalarProperty Name="LOCATION_DESCRIPTION" ColumnName="LOCATION_DESCRIPTION" />
+          <ScalarProperty Name="LOCATION_ID" ColumnName="LOCATION_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_do_botypes_GetList" FunctionName="RebuildModel.Store.usp_do_botypes_GetList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RebuildModel.usp_do_botypes_GetList_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GET_ASSET_TREE" FunctionName="RebuildModel.Store.GET_ASSET_TREE">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RebuildModel.GET_ASSET_TREE_Result">
+          <ScalarProperty Name="ASSET_ID" ColumnName="ASSET_ID" />
+          <ScalarProperty Name="ASSET_CODE" ColumnName="ASSET_CODE" />
+          <ScalarProperty Name="ASSET_DESCRIZIONE" ColumnName="ASSET_DESCRIZIONE" />
+          <ScalarProperty Name="ASSET_ID_PADRE" ColumnName="ASSET_ID_PADRE" />
+          <ScalarProperty Name="AS_ASSET_TIPASS_ID" ColumnName="AS_ASSET_TIPASS_ID" />
+          <ScalarProperty Name="AS_ASSET_TIPSAS_ID" ColumnName="AS_ASSET_TIPSAS_ID" />
+          <ScalarProperty Name="LIVELLO" ColumnName="LIVELLO" />
+          <ScalarProperty Name="AS_ASSET_LOCATION_ID" ColumnName="AS_ASSET_LOCATION_ID" />
+          <ScalarProperty Name="AS_path" ColumnName="AS_path" />
+          <ScalarProperty Name="AS_TIPASS_DESCRIPTION" ColumnName="AS_TIPASS_DESCRIPTION" />
+          <ScalarProperty Name="AS_TIPSAS_DESCRIZIONE" ColumnName="AS_TIPSAS_DESCRIZIONE" />
+          <ScalarProperty Name="AS_TIPSAS_ICONA" ColumnName="AS_TIPSAS_ICONA" />
+          <ScalarProperty Name="MagicTemplateID" ColumnName="MagicTemplateID" />
+          <ScalarProperty Name="MagicGridName" ColumnName="MagicGridName" />
+          <ScalarProperty Name="MagicBOLayerID" ColumnName="MagicBOLayerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AS_GET_ASSET_MAIN_TB" FunctionName="RebuildModel.Store.AS_GET_ASSET_MAIN_TB">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RebuildModel.AS_GET_ASSET_MAIN_TB_Result">
+          <ScalarProperty Name="AS_ASSET_ID" ColumnName="AS_ASSET_ID" />
+          <ScalarProperty Name="AS_ASSET_CODE" ColumnName="AS_ASSET_CODE" />
+          <ScalarProperty Name="AS_ASSET_DESCRIZIONE" ColumnName="AS_ASSET_DESCRIZIONE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Magic_BusinessObjectTypes">
+      <EntityTypeMapping TypeName="RebuildModel.Magic_BusinessObjectTypes">
+        <MappingFragment StoreEntitySet="Magic_BusinessObjectTypes">
+          <ScalarProperty Name="MagicGridName" ColumnName="MagicGridName" />
+          <ScalarProperty Name="EntityName" ColumnName="EntityName" />
+          <ScalarProperty Name="TAGQuery" ColumnName="TAGQuery" />
+          <ScalarProperty Name="BODescriptionQuery" ColumnName="BODescriptionQuery" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="MagicGrid_Id" ColumnName="MagicGrid_Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="BusinessObjectType" ColumnName="BusinessObjectType" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DO_V_DOCFIE_class_doc_fields">
+      <EntityTypeMapping TypeName="RebuildModel.DO_V_DOCFIE_class_doc_fields">
+        <MappingFragment StoreEntitySet="DO_V_DOCFIE_class_doc_fields">
+          <ScalarProperty Name="MagicGridName" ColumnName="MagicGridName" />
+          <ScalarProperty Name="MagicGrid_ID" ColumnName="MagicGrid_ID" />
+          <ScalarProperty Name="Columns_label" ColumnName="Columns_label" />
+          <ScalarProperty Name="DO_DOCFIE_ORDINAL_POSITION" ColumnName="DO_DOCFIE_ORDINAL_POSITION" />
+          <ScalarProperty Name="DO_DOCFIE_TAB_NAME" ColumnName="DO_DOCFIE_TAB_NAME" />
+          <ScalarProperty Name="DO_DOCFIE_CF_FIELDS_DATA_TYPE_ID" ColumnName="DO_DOCFIE_CF_FIELDS_DATA_TYPE_ID" />
+          <ScalarProperty Name="DO_DOCFIE_MagicColumnID" ColumnName="DO_DOCFIE_MagicColumnID" />
+          <ScalarProperty Name="DO_DOCFIE_DESCRIPTION_JOIN" ColumnName="DO_DOCFIE_DESCRIPTION_JOIN" />
+          <ScalarProperty Name="DO_DOCFIE_FIELD_JOIN" ColumnName="DO_DOCFIE_FIELD_JOIN" />
+          <ScalarProperty Name="DO_DOCFIE_TABLE_JOIN" ColumnName="DO_DOCFIE_TABLE_JOIN" />
+          <ScalarProperty Name="DO_DOCFIE_FIELD_DB" ColumnName="DO_DOCFIE_FIELD_DB" />
+          <ScalarProperty Name="DO_DOCFIE_MANDATORY" ColumnName="DO_DOCFIE_MANDATORY" />
+          <ScalarProperty Name="DO_DOCFIE_DO_TIPDOC_ID" ColumnName="DO_DOCFIE_DO_TIPDOC_ID" />
+          <ScalarProperty Name="DO_DOCFIE_DO_CLADOC_ID" ColumnName="DO_DOCFIE_DO_CLADOC_ID" />
+          <ScalarProperty Name="DO_DOCFIE_ID" ColumnName="DO_DOCFIE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DO_GET_UI_ELEMENTS" FunctionName="RebuildModel.Store.DO_GET_UI_ELEMENTS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RebuildModel.DO_GET_UI_ELEMENTS_Result">
+          <ScalarProperty Name="DO_CLADOC_ID" ColumnName="DO_CLADOC_ID" />
+          <ScalarProperty Name="DO_CLADOC_CODE" ColumnName="DO_CLADOC_CODE" />
+          <ScalarProperty Name="DO_CLADOC_DESCRIPTION" ColumnName="DO_CLADOC_DESCRIPTION" />
+          <ScalarProperty Name="DO_CLADOC_COLOR" ColumnName="DO_CLADOC_COLOR" />
+          <ScalarProperty Name="DO_TIPDOC_ID" ColumnName="DO_TIPDOC_ID" />
+          <ScalarProperty Name="DO_TIPDOC_DO_CLADOC_ID" ColumnName="DO_TIPDOC_DO_CLADOC_ID" />
+          <ScalarProperty Name="DO_TIPDOC_CODE" ColumnName="DO_TIPDOC_CODE" />
+          <ScalarProperty Name="DO_TIPDOC_DESCRIPTION" ColumnName="DO_TIPDOC_DESCRIPTION" />
+          <ScalarProperty Name="q_tipdoc" ColumnName="q_tipdoc" />
+          <ScalarProperty Name="q_tipdoc_sca" ColumnName="q_tipdoc_sca" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="AS_ASSET_asset">
+      <EntityTypeMapping TypeName="RebuildModel.AS_ASSET_asset">
+        <MappingFragment StoreEntitySet="AS_ASSET_asset">
+          <ScalarProperty Name="AS_ASSET_THUMBNAIL" ColumnName="AS_ASSET_THUMBNAIL" />
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="AS_ASSET_LONG_DESC" ColumnName="AS_ASSET_LONG_DESC" />
+          <ScalarProperty Name="AS_ASSET_EV_STAGE_ID" ColumnName="AS_ASSET_EV_STAGE_ID" />
+          <ScalarProperty Name="GROUPS_LIST" ColumnName="GROUPS_LIST" />
+          <ScalarProperty Name="AS_ASSET_XML_CAMUSE_VALUES" ColumnName="AS_ASSET_XML_CAMUSE_VALUES" />
+          <ScalarProperty Name="AS_ASSET_XML_CAMASS_VALUES" ColumnName="AS_ASSET_XML_CAMASS_VALUES" />
+          <ScalarProperty Name="AS_ASSET_ID_ASSET_ORIGINE" ColumnName="AS_ASSET_ID_ASSET_ORIGINE" />
+          <ScalarProperty Name="AS_ASSET_CODE_OLD" ColumnName="AS_ASSET_CODE_OLD" />
+          <ScalarProperty Name="AS_ASSET_SUPERFICIE" ColumnName="AS_ASSET_SUPERFICIE" />
+          <ScalarProperty Name="AS_ASSET_DATA_FINE" ColumnName="AS_ASSET_DATA_FINE" />
+          <ScalarProperty Name="AS_ASSET_DATA_INIZIO" ColumnName="AS_ASSET_DATA_INIZIO" />
+          <ScalarProperty Name="AS_ASSET_SASSPE_ID" ColumnName="AS_ASSET_SASSPE_ID" />
+          <ScalarProperty Name="AS_ASSET_TIPSAS_ID" ColumnName="AS_ASSET_TIPSAS_ID" />
+          <ScalarProperty Name="AS_ASSET_TIPASS_ID" ColumnName="AS_ASSET_TIPASS_ID" />
+          <ScalarProperty Name="AS_ASSET_LOCATION_ID" ColumnName="AS_ASSET_LOCATION_ID" />
+          <ScalarProperty Name="AS_ASSET_DESCRIZIONE" ColumnName="AS_ASSET_DESCRIZIONE" />
+          <ScalarProperty Name="AS_ASSET_ID_PADRE" ColumnName="AS_ASSET_ID_PADRE" />
+          <ScalarProperty Name="AS_ASSET_CODE" ColumnName="AS_ASSET_CODE" />
+          <ScalarProperty Name="AS_ASSET_ID" ColumnName="AS_ASSET_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DO_DOCUME_documents">
+      <EntityTypeMapping TypeName="RebuildModel.DO_DOCUME_documents">
+        <MappingFragment StoreEntitySet="DO_DOCUME_documents">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="DO_DOCUME_FL_PRIVAT" ColumnName="DO_DOCUME_FL_PRIVAT" />
+          <ScalarProperty Name="GROUPS_LIST" ColumnName="GROUPS_LIST" />
+          <ScalarProperty Name="DO_DOCUME_ID_PADRE" ColumnName="DO_DOCUME_ID_PADRE" />
+          <ScalarProperty Name="DO_DOCUME_USERID" ColumnName="DO_DOCUME_USERID" />
+          <ScalarProperty Name="DO_DOCUME_DATE_LAS_UPD" ColumnName="DO_DOCUME_DATE_LAS_UPD" />
+          <ScalarProperty Name="DO_DOCUME_DATE_INS" ColumnName="DO_DOCUME_DATE_INS" />
+          <ScalarProperty Name="DO_DOCUME_CODE" ColumnName="DO_DOCUME_CODE" />
+          <ScalarProperty Name="DO_DOCUME_NUM" ColumnName="DO_DOCUME_NUM" />
+          <ScalarProperty Name="DO_DOCUME_NOTE" ColumnName="DO_DOCUME_NOTE" />
+          <ScalarProperty Name="DO_DOCUME_NUM_PROT" ColumnName="DO_DOCUME_NUM_PROT" />
+          <ScalarProperty Name="DO_DOCUME_DATA_PROT" ColumnName="DO_DOCUME_DATA_PROT" />
+          <ScalarProperty Name="DO_DOCUME_XML_CAMUTE_VALUES" ColumnName="DO_DOCUME_XML_CAMUTE_VALUES" />
+          <ScalarProperty Name="DO_DOCUME_XML_CAMASS_VALUES" ColumnName="DO_DOCUME_XML_CAMASS_VALUES" />
+          <ScalarProperty Name="DO_DOCUME_FLAG_NO_ACTIVE" ColumnName="DO_DOCUME_FLAG_NO_ACTIVE" />
+          <ScalarProperty Name="DO_DOCUME_DO_STADOC_ID" ColumnName="DO_DOCUME_DO_STADOC_ID" />
+          <ScalarProperty Name="DO_DOCUME_EXPIRY_DATE" ColumnName="DO_DOCUME_EXPIRY_DATE" />
+          <ScalarProperty Name="DO_DOCUME_ISSUE_DATE" ColumnName="DO_DOCUME_ISSUE_DATE" />
+          <ScalarProperty Name="DO_DOCUME_DESCRIPTION" ColumnName="DO_DOCUME_DESCRIPTION" />
+          <ScalarProperty Name="DO_DOCUME_DO_TIPDOC_ID" ColumnName="DO_DOCUME_DO_TIPDOC_ID" />
+          <ScalarProperty Name="DO_DOCUME_ID" ColumnName="DO_DOCUME_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DO_V_DOCFIL">
+      <EntityTypeMapping TypeName="RebuildModel.DO_V_DOCFIL">
+        <MappingFragment StoreEntitySet="DO_V_DOCFIL">
+          <ScalarProperty Name="DO_DOCVER_ID" ColumnName="DO_DOCVER_ID" />
+          <ScalarProperty Name="DO_DOCVER_THUMBNAIL" ColumnName="DO_DOCVER_THUMBNAIL" />
+          <ScalarProperty Name="DO_CLADOC_FLAG_PHOTO" ColumnName="DO_CLADOC_FLAG_PHOTO" />
+          <ScalarProperty Name="DO_TIPDOC_EXTENSIONS" ColumnName="DO_TIPDOC_EXTENSIONS" />
+          <ScalarProperty Name="DO_DOCFIL_FLAG_MAIN_ASSET" ColumnName="DO_DOCFIL_FLAG_MAIN_ASSET" />
+          <ScalarProperty Name="DO_DOCUME_ID_PADRE" ColumnName="DO_DOCUME_ID_PADRE" />
+          <ScalarProperty Name="DO_DOCUME_CODE" ColumnName="DO_DOCUME_CODE" />
+          <ScalarProperty Name="DO_DOCUME_NUM" ColumnName="DO_DOCUME_NUM" />
+          <ScalarProperty Name="DO_DOCUME_NOTE" ColumnName="DO_DOCUME_NOTE" />
+          <ScalarProperty Name="DO_DOCUME_NUM_PROT" ColumnName="DO_DOCUME_NUM_PROT" />
+          <ScalarProperty Name="DO_DOCUME_DATA_PROT" ColumnName="DO_DOCUME_DATA_PROT" />
+          <ScalarProperty Name="DO_DOCUME_XML_CAMUTE_VALUES" ColumnName="DO_DOCUME_XML_CAMUTE_VALUES" />
+          <ScalarProperty Name="DO_DOCUME_XML_CAMASS_VALUES" ColumnName="DO_DOCUME_XML_CAMASS_VALUES" />
+          <ScalarProperty Name="DO_DOCUME_FLAG_NO_ACTIVE" ColumnName="DO_DOCUME_FLAG_NO_ACTIVE" />
+          <ScalarProperty Name="DO_DOCUME_DO_STADOC_ID" ColumnName="DO_DOCUME_DO_STADOC_ID" />
+          <ScalarProperty Name="DO_DOCUME_EXPIRY_DATE" ColumnName="DO_DOCUME_EXPIRY_DATE" />
+          <ScalarProperty Name="DO_DOCUME_ISSUE_DATE" ColumnName="DO_DOCUME_ISSUE_DATE" />
+          <ScalarProperty Name="DO_DOCUME_DESCRIPTION" ColumnName="DO_DOCUME_DESCRIPTION" />
+          <ScalarProperty Name="DO_CLADOC_PATH" ColumnName="DO_CLADOC_PATH" />
+          <ScalarProperty Name="DO_CLADOC_DESCRIPTION" ColumnName="DO_CLADOC_DESCRIPTION" />
+          <ScalarProperty Name="DO_CLADOC_CODE" ColumnName="DO_CLADOC_CODE" />
+          <ScalarProperty Name="DO_CLADOC_ID" ColumnName="DO_CLADOC_ID" />
+          <ScalarProperty Name="DO_TIPDOC_PATH" ColumnName="DO_TIPDOC_PATH" />
+          <ScalarProperty Name="DO_TIPDOC_DESCRIPTION" ColumnName="DO_TIPDOC_DESCRIPTION" />
+          <ScalarProperty Name="DO_TIPDOC_CODE" ColumnName="DO_TIPDOC_CODE" />
+          <ScalarProperty Name="DO_TIPDOC_ID" ColumnName="DO_TIPDOC_ID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="DO_DOCVER_LINK_FILE" ColumnName="DO_DOCVER_LINK_FILE" />
+          <ScalarProperty Name="DO_DOCVER_NOTE" ColumnName="DO_DOCVER_NOTE" />
+          <ScalarProperty Name="DO_DOCVER_COUNTER" ColumnName="DO_DOCVER_COUNTER" />
+          <ScalarProperty Name="DO_DOCFIL_USERID" ColumnName="DO_DOCFIL_USERID" />
+          <ScalarProperty Name="DO_DOCFIL_DATE" ColumnName="DO_DOCFIL_DATE" />
+          <ScalarProperty Name="DO_DOCFIL_NOTE" ColumnName="DO_DOCFIL_NOTE" />
+          <ScalarProperty Name="DO_DOCFIL_DO_DOCUME_ID" ColumnName="DO_DOCFIL_DO_DOCUME_ID" />
+          <ScalarProperty Name="DO_DOCFIL_ID" ColumnName="DO_DOCFIL_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DO_V_DOCUME_ENTITY">
+      <EntityTypeMapping TypeName="RebuildModel.DO_V_DOCUME_ENTITY">
+        <MappingFragment StoreEntitySet="DO_V_DOCUME_ENTITY">
+          <ScalarProperty Name="DO_DOCUME_FL_PRIVAT" ColumnName="DO_DOCUME_FL_PRIVAT" />
+          <ScalarProperty Name="GROUPS_LIST" ColumnName="GROUPS_LIST" />
+          <ScalarProperty Name="DO_DOCUME_FLAG_FATHER" ColumnName="DO_DOCUME_FLAG_FATHER" />
+          <ScalarProperty Name="DO_CLADOC_FLAG_PHOTO" ColumnName="DO_CLADOC_FLAG_PHOTO" />
+          <ScalarProperty Name="DO_DOCUME_ID_PADRE" ColumnName="DO_DOCUME_ID_PADRE" />
+          <ScalarProperty Name="DO_DOCUME_CODE" ColumnName="DO_DOCUME_CODE" />
+          <ScalarProperty Name="DO_DOCUME_NUM" ColumnName="DO_DOCUME_NUM" />
+          <ScalarProperty Name="DO_DOCUME_NOTE" ColumnName="DO_DOCUME_NOTE" />
+          <ScalarProperty Name="DO_DOCUME_NUM_PROT" ColumnName="DO_DOCUME_NUM_PROT" />
+          <ScalarProperty Name="DO_DOCUME_DATA_PROT" ColumnName="DO_DOCUME_DATA_PROT" />
+          <ScalarProperty Name="DO_DOCREL_TABLE_NAME" ColumnName="DO_DOCREL_TABLE_NAME" />
+          <ScalarProperty Name="DO_DOCREL_ID_RECORD" ColumnName="DO_DOCREL_ID_RECORD" />
+          <ScalarProperty Name="DO_TIPDOC_DESCRIPTION" ColumnName="DO_TIPDOC_DESCRIPTION" />
+          <ScalarProperty Name="DO_CLADOC_DESCRIPTION" ColumnName="DO_CLADOC_DESCRIPTION" />
+          <ScalarProperty Name="fakeforlink" ColumnName="fakeforlink" />
+          <ScalarProperty Name="MagicBOLayerID" ColumnName="MagicBOLayerID" />
+          <ScalarProperty Name="DO_STADOC_DESCRIPTION" ColumnName="DO_STADOC_DESCRIPTION" />
+          <ScalarProperty Name="DO_CLADOC_PATH" ColumnName="DO_CLADOC_PATH" />
+          <ScalarProperty Name="DO_TIPDOC_PATH" ColumnName="DO_TIPDOC_PATH" />
+          <ScalarProperty Name="DO_TIPDOC_EXTENSIONS" ColumnName="DO_TIPDOC_EXTENSIONS" />
+          <ScalarProperty Name="DO_TIPDOC_DO_CLADOC_ID" ColumnName="DO_TIPDOC_DO_CLADOC_ID" />
+          <ScalarProperty Name="DO_DOCUME_XML_CAMUTE_VALUES" ColumnName="DO_DOCUME_XML_CAMUTE_VALUES" />
+          <ScalarProperty Name="DO_DOCUME_XML_CAMASS_VALUES" ColumnName="DO_DOCUME_XML_CAMASS_VALUES" />
+          <ScalarProperty Name="DO_DOCUME_FLAG_NO_ACTIVE" ColumnName="DO_DOCUME_FLAG_NO_ACTIVE" />
+          <ScalarProperty Name="DO_DOCUME_DO_STADOC_ID" ColumnName="DO_DOCUME_DO_STADOC_ID" />
+          <ScalarProperty Name="DO_DOCUME_EXPIRY_DATE" ColumnName="DO_DOCUME_EXPIRY_DATE" />
+          <ScalarProperty Name="DO_DOCUME_ISSUE_DATE" ColumnName="DO_DOCUME_ISSUE_DATE" />
+          <ScalarProperty Name="DO_DOCUME_DESCRIPTION" ColumnName="DO_DOCUME_DESCRIPTION" />
+          <ScalarProperty Name="DO_DOCUME_DO_TIPDOC_ID" ColumnName="DO_DOCUME_DO_TIPDOC_ID" />
+          <ScalarProperty Name="DO_DOCUME_ID" ColumnName="DO_DOCUME_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DO_SP_DOCUMENTS_L" FunctionName="RebuildModel.Store.DO_SP_DOCUMENTS_L">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RebuildModel.DO_SP_DOCUMENTS_L_Result">
+          <ScalarProperty Name="DO_DOCUME_ID" ColumnName="DO_DOCUME_ID" />
+          <ScalarProperty Name="DO_DOCUME_DO_TIPDOC_ID" ColumnName="DO_DOCUME_DO_TIPDOC_ID" />
+          <ScalarProperty Name="DO_DOCUME_DESCRIPTION" ColumnName="DO_DOCUME_DESCRIPTION" />
+          <ScalarProperty Name="DO_DOCUME_ISSUE_DATE" ColumnName="DO_DOCUME_ISSUE_DATE" />
+          <ScalarProperty Name="DO_DOCUME_EXPIRY_DATE" ColumnName="DO_DOCUME_EXPIRY_DATE" />
+          <ScalarProperty Name="DO_DOCUME_DO_STADOC_ID" ColumnName="DO_DOCUME_DO_STADOC_ID" />
+          <ScalarProperty Name="DO_DOCUME_FLAG_NO_ACTIVE" ColumnName="DO_DOCUME_FLAG_NO_ACTIVE" />
+          <ScalarProperty Name="DO_DOCUME_XML_CAMASS_VALUES" ColumnName="DO_DOCUME_XML_CAMASS_VALUES" />
+          <ScalarProperty Name="DO_DOCUME_XML_CAMUTE_VALUES" ColumnName="DO_DOCUME_XML_CAMUTE_VALUES" />
+          <ScalarProperty Name="DO_TIPDOC_DO_CLADOC_ID" ColumnName="DO_TIPDOC_DO_CLADOC_ID" />
+          <ScalarProperty Name="DO_TIPDOC_EXTENSIONS" ColumnName="DO_TIPDOC_EXTENSIONS" />
+          <ScalarProperty Name="DO_TIPDOC_PATH" ColumnName="DO_TIPDOC_PATH" />
+          <ScalarProperty Name="DO_CLADOC_PATH" ColumnName="DO_CLADOC_PATH" />
+          <ScalarProperty Name="DO_STADOC_DESCRIPTION" ColumnName="DO_STADOC_DESCRIPTION" />
+          <ScalarProperty Name="MagicBOLayerID" ColumnName="MagicBOLayerID" />
+          <ScalarProperty Name="DO_CLADOC_DESCRIPTION" ColumnName="DO_CLADOC_DESCRIPTION" />
+          <ScalarProperty Name="DO_TIPDOC_DESCRIPTION" ColumnName="DO_TIPDOC_DESCRIPTION" />
+          <ScalarProperty Name="fakeforlink" ColumnName="fakeforlink" />
+          <ScalarProperty Name="MagicBusinessObjectList" ColumnName="MagicBusinessObjectList" />
+          <ScalarProperty Name="OBJECT_DESCRIPTION" ColumnName="OBJECT_DESCRIPTION" />
+          <ScalarProperty Name="OBJECT_ID" ColumnName="OBJECT_ID" />
+          <ScalarProperty Name="OBJECT_TYPE_ID" ColumnName="OBJECT_TYPE_ID" />
+          <ScalarProperty Name="OBJECT_CODE" ColumnName="OBJECT_CODE" />
+          <ScalarProperty Name="DO_DOCUME_DATA_PROT" ColumnName="DO_DOCUME_DATA_PROT" />
+          <ScalarProperty Name="DO_DOCUME_NUM_PROT" ColumnName="DO_DOCUME_NUM_PROT" />
+          <ScalarProperty Name="DO_DOCUME_NOTE" ColumnName="DO_DOCUME_NOTE" />
+          <ScalarProperty Name="DO_DOCUME_NUM" ColumnName="DO_DOCUME_NUM" />
+          <ScalarProperty Name="DO_DOCUME_CODE" ColumnName="DO_DOCUME_CODE" />
+          <ScalarProperty Name="DO_DOCUME_ID_PADRE" ColumnName="DO_DOCUME_ID_PADRE" />
+          <ScalarProperty Name="DO_DOCUME_CODE_PADRE" ColumnName="DO_DOCUME_CODE_PADRE" />
+          <ScalarProperty Name="Editable" ColumnName="Editable" />
+          <ScalarProperty Name="EXISTS_FILE" ColumnName="EXISTS_FILE" />
+          <ScalarProperty Name="DO_DOCUME_DATE_INS" ColumnName="DO_DOCUME_DATE_INS" />
+          <ScalarProperty Name="DO_DOCUME_DATE_LAS_UPD" ColumnName="DO_DOCUME_DATE_LAS_UPD" />
+          <ScalarProperty Name="DO_DOCUME_USERID" ColumnName="DO_DOCUME_USERID" />
+          <ScalarProperty Name="iddoc" ColumnName="iddoc" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_Getgroupsfromarevis" FunctionName="RebuildModel.Store.usp_Getgroupsfromarevis" />
+    <EntitySetMapping Name="DO_V_DOCUME">
+      <EntityTypeMapping TypeName="RebuildModel.DO_V_DOCUME">
+        <MappingFragment StoreEntitySet="DO_V_DOCUME">
+          <ScalarProperty Name="DO_TIPDOC_LISTA" ColumnName="DO_TIPDOC_LISTA" />
+          <ScalarProperty Name="DO_STADOC_FLAG_HISTORY" ColumnName="DO_STADOC_FLAG_HISTORY" />
+          <ScalarProperty Name="DO_DOCUME_FL_PRIVAT" ColumnName="DO_DOCUME_FL_PRIVAT" />
+          <ScalarProperty Name="GROUPS_LIST" ColumnName="GROUPS_LIST" />
+          <ScalarProperty Name="DO_DOCUME_FLAG_FATHER" ColumnName="DO_DOCUME_FLAG_FATHER" />
+          <ScalarProperty Name="DO_CLADOC_FLAG_PHOTO" ColumnName="DO_CLADOC_FLAG_PHOTO" />
+          <ScalarProperty Name="DO_DOCUME_USERID" ColumnName="DO_DOCUME_USERID" />
+          <ScalarProperty Name="DO_DOCUME_DATE_LAS_UPD" ColumnName="DO_DOCUME_DATE_LAS_UPD" />
+          <ScalarProperty Name="DO_DOCUME_DATE_INS" ColumnName="DO_DOCUME_DATE_INS" />
+          <ScalarProperty Name="EXISTS_FILE" ColumnName="EXISTS_FILE" />
+          <ScalarProperty Name="Editable" ColumnName="Editable" />
+          <ScalarProperty Name="DO_DOCUME_CODE_PADRE" ColumnName="DO_DOCUME_CODE_PADRE" />
+          <ScalarProperty Name="DO_DOCUME_ID_PADRE" ColumnName="DO_DOCUME_ID_PADRE" />
+          <ScalarProperty Name="DO_DOCUME_CODE" ColumnName="DO_DOCUME_CODE" />
+          <ScalarProperty Name="DO_DOCUME_NUM" ColumnName="DO_DOCUME_NUM" />
+          <ScalarProperty Name="DO_DOCUME_NOTE" ColumnName="DO_DOCUME_NOTE" />
+          <ScalarProperty Name="DO_DOCUME_NUM_PROT" ColumnName="DO_DOCUME_NUM_PROT" />
+          <ScalarProperty Name="DO_DOCUME_DATA_PROT" ColumnName="DO_DOCUME_DATA_PROT" />
+          <ScalarProperty Name="OBJECT_CODE" ColumnName="OBJECT_CODE" />
+          <ScalarProperty Name="OBJECT_TYPE_ID" ColumnName="OBJECT_TYPE_ID" />
+          <ScalarProperty Name="OBJECT_ID" ColumnName="OBJECT_ID" />
+          <ScalarProperty Name="OBJECT_DESCRIPTION" ColumnName="OBJECT_DESCRIPTION" />
+          <ScalarProperty Name="MagicBusinessObjectList" ColumnName="MagicBusinessObjectList" />
+          <ScalarProperty Name="fakeforlink" ColumnName="fakeforlink" />
+          <ScalarProperty Name="DO_TIPDOC_DESCRIPTION" ColumnName="DO_TIPDOC_DESCRIPTION" />
+          <ScalarProperty Name="DO_CLADOC_DESCRIPTION" ColumnName="DO_CLADOC_DESCRIPTION" />
+          <ScalarProperty Name="MagicBOLayerID" ColumnName="MagicBOLayerID" />
+          <ScalarProperty Name="DO_STADOC_DESCRIPTION" ColumnName="DO_STADOC_DESCRIPTION" />
+          <ScalarProperty Name="DO_CLADOC_PATH" ColumnName="DO_CLADOC_PATH" />
+          <ScalarProperty Name="DO_TIPDOC_PATH" ColumnName="DO_TIPDOC_PATH" />
+          <ScalarProperty Name="DO_TIPDOC_EXTENSIONS" ColumnName="DO_TIPDOC_EXTENSIONS" />
+          <ScalarProperty Name="DO_TIPDOC_DO_CLADOC_ID" ColumnName="DO_TIPDOC_DO_CLADOC_ID" />
+          <ScalarProperty Name="DO_DOCUME_XML_CAMUTE_VALUES" ColumnName="DO_DOCUME_XML_CAMUTE_VALUES" />
+          <ScalarProperty Name="DO_DOCUME_XML_CAMASS_VALUES" ColumnName="DO_DOCUME_XML_CAMASS_VALUES" />
+          <ScalarProperty Name="DO_DOCUME_FLAG_NO_ACTIVE" ColumnName="DO_DOCUME_FLAG_NO_ACTIVE" />
+          <ScalarProperty Name="DO_DOCUME_DO_STADOC_ID" ColumnName="DO_DOCUME_DO_STADOC_ID" />
+          <ScalarProperty Name="DO_DOCUME_EXPIRY_DATE" ColumnName="DO_DOCUME_EXPIRY_DATE" />
+          <ScalarProperty Name="DO_DOCUME_ISSUE_DATE" ColumnName="DO_DOCUME_ISSUE_DATE" />
+          <ScalarProperty Name="DO_DOCUME_DESCRIPTION" ColumnName="DO_DOCUME_DESCRIPTION" />
+          <ScalarProperty Name="DO_DOCUME_DO_TIPDOC_ID" ColumnName="DO_DOCUME_DO_TIPDOC_ID" />
+          <ScalarProperty Name="DO_DOCUME_ID" ColumnName="DO_DOCUME_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PP_GET_UI_ELEMENTS" FunctionName="RebuildModel.Store.PP_GET_UI_ELEMENTS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RebuildModel.PP_GET_UI_ELEMENTS_Result">
+          <ScalarProperty Name="PP_CLAPRO_ID" ColumnName="PP_CLAPRO_ID" />
+          <ScalarProperty Name="PP_CLAPRO_US_APPARE_ID" ColumnName="PP_CLAPRO_US_APPARE_ID" />
+          <ScalarProperty Name="PP_CLAPRO_DESCRIPTION" ColumnName="PP_CLAPRO_DESCRIPTION" />
+          <ScalarProperty Name="PP_CLAPRO_COLOUR" ColumnName="PP_CLAPRO_COLOUR" />
+          <ScalarProperty Name="PP_PROTYP_ID" ColumnName="PP_PROTYP_ID" />
+          <ScalarProperty Name="PP_PROTYP_PP_CLAPRO_ID" ColumnName="PP_PROTYP_PP_CLAPRO_ID" />
+          <ScalarProperty Name="PP_PROTYP_DESCRIPTION" ColumnName="PP_PROTYP_DESCRIPTION" />
+          <ScalarProperty Name="PP_PROPER_ID" ColumnName="PP_PROPER_ID" />
+          <ScalarProperty Name="PP_PROPER_PP_PROTYP_ID" ColumnName="PP_PROPER_PP_PROTYP_ID" />
+          <ScalarProperty Name="PP_PROPER_DESCRIPTION" ColumnName="PP_PROPER_DESCRIPTION" />
+          <ScalarProperty Name="PP_PROBUT_ID" ColumnName="PP_PROBUT_ID" />
+          <ScalarProperty Name="PP_PROBUT_PP_PROPER_ID" ColumnName="PP_PROBUT_PP_PROPER_ID" />
+          <ScalarProperty Name="PP_PROBUT_LABEL" ColumnName="PP_PROBUT_LABEL" />
+          <ScalarProperty Name="PP_PROBUT_SP_EXECUTE" ColumnName="PP_PROBUT_SP_EXECUTE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetWaterMarkForUser" FunctionName="RebuildModel.Store.GetWaterMarkForUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RebuildModel.GetWaterMarkForUser_Result">
+          <ScalarProperty Name="US_ROLDEP_WATERMARK" ColumnName="US_ROLDEP_WATERMARK" />
+          <ScalarProperty Name="US_ROLDEP_WATERMARK_PRE" ColumnName="US_ROLDEP_WATERMARK_PRE" />
+          <ScalarProperty Name="US_ROLDEP_WATERMARK_POST" ColumnName="US_ROLDEP_WATERMARK_POST" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="DO_DOSUTE_dossier_user">
+      <EntityTypeMapping TypeName="RebuildModel.DO_DOSUTE_dossier_user">
+        <MappingFragment StoreEntitySet="DO_DOSUTE_dossier_user">
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="DO_DOSUTE_US_DEPROL_ID" ColumnName="DO_DOSUTE_US_DEPROL_ID" />
+          <ScalarProperty Name="DO_DOSUTE_US_GROUPS_ID" ColumnName="DO_DOSUTE_US_GROUPS_ID" />
+          <ScalarProperty Name="DO_DOSUTE_DO_DOSSIE_ID" ColumnName="DO_DOSUTE_DO_DOSSIE_ID" />
+          <ScalarProperty Name="DO_DOSUTE_ID" ColumnName="DO_DOSUTE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="utf_us_aregrid_cross" FunctionName="RebuildModel.Store.utf_us_aregrid_cross">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RebuildModel.utf_us_aregrid_cross_Result">
+          <ScalarProperty Name="US_AREGRI_ID" ColumnName="US_AREGRI_ID" />
+          <ScalarProperty Name="US_AREGRI_MagicGridID" ColumnName="US_AREGRI_MagicGridID" />
+          <ScalarProperty Name="Checked" ColumnName="Checked" />
+          <ScalarProperty Name="US_AREGRI_US_PROARE_ID" ColumnName="US_AREGRI_US_PROARE_ID" />
+          <ScalarProperty Name="US_PROARE_US_ARETYP_ID" ColumnName="US_PROARE_US_ARETYP_ID" />
+          <ScalarProperty Name="US_PROARE_CODE" ColumnName="US_PROARE_CODE" />
+          <ScalarProperty Name="US_PROARE_DESCRIPTION" ColumnName="US_PROARE_DESCRIPTION" />
+          <ScalarProperty Name="MagicGridName" ColumnName="MagicGridName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="US_AREGRI_Arepro_Grids">
+      <EntityTypeMapping TypeName="RebuildModel.US_AREGRI_Arepro_Grids">
+        <MappingFragment StoreEntitySet="US_AREGRI_Arepro_Grids">
+          <ScalarProperty Name="guidIdentifier" ColumnName="guidIdentifier" />
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="GridGUID" ColumnName="GridGUID" />
+          <ScalarProperty Name="MagicGridName" ColumnName="MagicGridName" />
+          <ScalarProperty Name="US_AREGRI_MagicGridID" ColumnName="US_AREGRI_MagicGridID" />
+          <ScalarProperty Name="US_AREGRI_US_PROARE_ID" ColumnName="US_AREGRI_US_PROARE_ID" />
+          <ScalarProperty Name="US_AREGRI_ID" ColumnName="US_AREGRI_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="US_AREFUN__Arepro_Functions">
+      <EntityTypeMapping TypeName="RebuildModel.US_AREFUN__Arepro_Functions">
+        <MappingFragment StoreEntitySet="US_AREFUN__Arepro_Functions">
+          <ScalarProperty Name="guidIdentifier" ColumnName="guidIdentifier" />
+          <ScalarProperty Name="cUserId" ColumnName="cUserId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="FunctionGUID" ColumnName="FunctionGUID" />
+          <ScalarProperty Name="US_AREFUN_FunctionID" ColumnName="US_AREFUN_FunctionID" />
+          <ScalarProperty Name="US_AREFUN_US_PROARE_ID" ColumnName="US_AREFUN_US_PROARE_ID" />
+          <ScalarProperty Name="US_AREFUN_ID" ColumnName="US_AREFUN_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="utf_us_arefun_cross" FunctionName="RebuildModel.Store.utf_us_arefun_cross">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RebuildModel.utf_us_arefun_cross_Result">
+          <ScalarProperty Name="US_AREFUN_ID" ColumnName="US_AREFUN_ID" />
+          <ScalarProperty Name="US_AREFUN_FunctionID" ColumnName="US_AREFUN_FunctionID" />
+          <ScalarProperty Name="Checked" ColumnName="Checked" />
+          <ScalarProperty Name="US_AREFUN_US_PROARE_ID" ColumnName="US_AREFUN_US_PROARE_ID" />
+          <ScalarProperty Name="US_PROARE_US_ARETYP_ID" ColumnName="US_PROARE_US_ARETYP_ID" />
+          <ScalarProperty Name="US_PROARE_CODE" ColumnName="US_PROARE_CODE" />
+          <ScalarProperty Name="US_PROARE_DESCRIPTION" ColumnName="US_PROARE_DESCRIPTION" />
+          <ScalarProperty Name="FunctionGUID" ColumnName="FunctionGUID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="utf_AS_V_ASSET_assetgroups" FunctionName="RebuildModel.Store.utf_AS_V_ASSET_assetgroups">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RebuildModel.utf_AS_V_ASSET_assetgroups_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AS_ASSET_ID" ColumnName="AS_ASSET_ID" />
+          <ScalarProperty Name="US_GROUPS_ID" ColumnName="US_GROUPS_ID" />
+          <ScalarProperty Name="US_GROUPS_DESCRIPTION" ColumnName="US_GROUPS_DESCRIPTION" />
+          <ScalarProperty Name="US_GROUPS_US_TIPGRU_ID" ColumnName="US_GROUPS_US_TIPGRU_ID" />
+          <ScalarProperty Name="US_TIPGRU_DESCRIPTION" ColumnName="US_TIPGRU_DESCRIPTION" />
+          <ScalarProperty Name="US_AREVIS_ID" ColumnName="US_AREVIS_ID" />
+          <ScalarProperty Name="AS_ASSGRO_ID" ColumnName="AS_ASSGRO_ID" />
+          <ScalarProperty Name="Checked" ColumnName="Checked" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="utf_US_V_GROUPS_groupsassets" FunctionName="RebuildModel.Store.utf_US_V_GROUPS_groupsassets">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RebuildModel.utf_US_V_GROUPS_groupsassets_Result">
+          <ScalarProperty Name="AS_ASSGRO_ID" ColumnName="AS_ASSGRO_ID" />
+          <ScalarProperty Name="Checked" ColumnName="Checked" />
+          <ScalarProperty Name="AS_ASSET_ID" ColumnName="AS_ASSET_ID" />
+          <ScalarProperty Name="as_asset_code" ColumnName="as_asset_code" />
+          <ScalarProperty Name="US_GROUPS_ID" ColumnName="US_GROUPS_ID" />
+          <ScalarProperty Name="AS_ASSET_DESCRIZIONE" ColumnName="AS_ASSET_DESCRIZIONE" />
+          <ScalarProperty Name="AS_TIPSAS_DESCRIPTION" ColumnName="AS_TIPSAS_DESCRIPTION" />
+          <ScalarProperty Name="LINK_DOCS" ColumnName="LINK_DOCS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="WF_V_ACTCAL_activities_calendar">
+      <EntityTypeMapping TypeName="RebuildModel.WF_V_ACTCAL_activities_calendar">
+        <MappingFragment StoreEntitySet="WF_V_ACTCAL_activities_calendar">
+          <ScalarProperty Name="UploadedFile" ColumnName="UploadedFile" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="PrecActivityType" ColumnName="PrecActivityType" />
+          <ScalarProperty Name="PrecOutStatus" ColumnName="PrecOutStatus" />
+          <ScalarProperty Name="FunctionGUID" ColumnName="FunctionGUID" />
+          <ScalarProperty Name="actionfilter" ColumnName="actionfilter" />
+          <ScalarProperty Name="actioncommand" ColumnName="actioncommand" />
+          <ScalarProperty Name="actiontype" ColumnName="actiontype" />
+          <ScalarProperty Name="actionid" ColumnName="actionid" />
+          <ScalarProperty Name="GenerateBO" ColumnName="GenerateBO" />
+          <ScalarProperty Name="MandatoryAssignment" ColumnName="MandatoryAssignment" />
+          <ScalarProperty Name="RequiresDocUpload" ColumnName="RequiresDocUpload" />
+          <ScalarProperty Name="RequiresCheckList" ColumnName="RequiresCheckList" />
+          <ScalarProperty Name="WF_BO_Type_ID" ColumnName="WF_BO_Type_ID" />
+          <ScalarProperty Name="WF_BO_ID" ColumnName="WF_BO_ID" />
+          <ScalarProperty Name="ActivityInstance_ID" ColumnName="ActivityInstance_ID" />
+          <ScalarProperty Name="ACT_BO_Type_ID" ColumnName="ACT_BO_Type_ID" />
+          <ScalarProperty Name="ACT_BO_ID" ColumnName="ACT_BO_ID" />
+          <ScalarProperty Name="ProcessFunction_ID" ColumnName="ProcessFunction_ID" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="ownerId" ColumnName="ownerId" />
+          <ScalarProperty Name="LinkedModelActivity_ID" ColumnName="LinkedModelActivity_ID" />
+          <ScalarProperty Name="taskTypeID" ColumnName="taskTypeID" />
+          <ScalarProperty Name="start" ColumnName="start" />
+          <ScalarProperty Name="taskId" ColumnName="taskId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AS_V_ASSET_assetExtended">
+      <EntityTypeMapping TypeName="RebuildModel.AS_V_ASSET_assetExtended">
+        <MappingFragment StoreEntitySet="AS_V_ASSET_assetExtended">
+          <ScalarProperty Name="AS_ASSET_LONG_DESC" ColumnName="AS_ASSET_LONG_DESC" />
+          <ScalarProperty Name="HasImage" ColumnName="HasImage" />
+          <ScalarProperty Name="Main_Image_Thumbnail" ColumnName="Main_Image_Thumbnail" />
+          <ScalarProperty Name="Visible_group" ColumnName="Visible_group" />
+          <ScalarProperty Name="DESCR_FOR_SEARCH" ColumnName="DESCR_FOR_SEARCH" />
+          <ScalarProperty Name="AS_TIPSAS_DESCRIPTION" ColumnName="AS_TIPSAS_DESCRIPTION" />
+          <ScalarProperty Name="AS_ASSET_EV_STAGE_ID" ColumnName="AS_ASSET_EV_STAGE_ID" />
+          <ScalarProperty Name="GROUP_TO_SEARCH" ColumnName="GROUP_TO_SEARCH" />
+          <ScalarProperty Name="DEFAULT_GROUP_ID" ColumnName="DEFAULT_GROUP_ID" />
+          <ScalarProperty Name="MagicBOLayerID" ColumnName="MagicBOLayerID" />
+          <ScalarProperty Name="US_AREVIS_ID" ColumnName="US_AREVIS_ID" />
+          <ScalarProperty Name="GROUPS_LIST" ColumnName="GROUPS_LIST" />
+          <ScalarProperty Name="AS_ASSET_XML_CAMUSE_VALUES" ColumnName="AS_ASSET_XML_CAMUSE_VALUES" />
+          <ScalarProperty Name="AS_ASSET_XML_CAMASS_VALUES" ColumnName="AS_ASSET_XML_CAMASS_VALUES" />
+          <ScalarProperty Name="P_CODE" ColumnName="P_CODE" />
+          <ScalarProperty Name="LOCATION_LONGITUDE" ColumnName="LOCATION_LONGITUDE" />
+          <ScalarProperty Name="LOCATION_LATITUDE" ColumnName="LOCATION_LATITUDE" />
+          <ScalarProperty Name="LOCATION_STREET_ID" ColumnName="LOCATION_STREET_ID" />
+          <ScalarProperty Name="LOCATION_NUMBER" ColumnName="LOCATION_NUMBER" />
+          <ScalarProperty Name="AS_ASSET_ADDRESS" ColumnName="AS_ASSET_ADDRESS" />
+          <ScalarProperty Name="AS_ASSET_ID_ASSET_ORIGINE" ColumnName="AS_ASSET_ID_ASSET_ORIGINE" />
+          <ScalarProperty Name="AS_ASSET_CODE_OLD" ColumnName="AS_ASSET_CODE_OLD" />
+          <ScalarProperty Name="AS_ASSET_SUPERFICIE" ColumnName="AS_ASSET_SUPERFICIE" />
+          <ScalarProperty Name="AS_ASSET_DATA_FINE" ColumnName="AS_ASSET_DATA_FINE" />
+          <ScalarProperty Name="AS_ASSET_DATA_INIZIO" ColumnName="AS_ASSET_DATA_INIZIO" />
+          <ScalarProperty Name="AS_ASSET_SASSPE_ID" ColumnName="AS_ASSET_SASSPE_ID" />
+          <ScalarProperty Name="AS_ASSET_TIPSAS_ID" ColumnName="AS_ASSET_TIPSAS_ID" />
+          <ScalarProperty Name="AS_ASSET_TIPASS_ID" ColumnName="AS_ASSET_TIPASS_ID" />
+          <ScalarProperty Name="AS_ASSET_LOCATION_ID" ColumnName="AS_ASSET_LOCATION_ID" />
+          <ScalarProperty Name="AS_ASSET_DESCRIZIONE" ColumnName="AS_ASSET_DESCRIZIONE" />
+          <ScalarProperty Name="AS_ASSET_ID_PADRE" ColumnName="AS_ASSET_ID_PADRE" />
+          <ScalarProperty Name="AS_ASSET_CODE" ColumnName="AS_ASSET_CODE" />
+          <ScalarProperty Name="AS_ASSET_ID" ColumnName="AS_ASSET_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetAllowedTipSasForAsset" FunctionName="RebuildModel.Store.GetAllowedTipSasForAsset" />
+    <EntitySetMapping Name="EX_EXCTIP_type_excel">
+      <EntityTypeMapping TypeName="RebuildModel.EX_EXCTIP_type_excel">
+        <MappingFragment StoreEntitySet="EX_EXCTIP_type_excel">
+          <ScalarProperty Name="EX_EXCTIP_DESCRIPTION" ColumnName="EX_EXCTIP_DESCRIPTION" />
+          <ScalarProperty Name="EX_EXCTIP_CODE" ColumnName="EX_EXCTIP_CODE" />
+          <ScalarProperty Name="EX_EXCTIP_ID" ColumnName="EX_EXCTIP_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FL_CLAFIL_class_file">
+      <EntityTypeMapping TypeName="RebuildModel.FL_CLAFIL_class_file">
+        <MappingFragment StoreEntitySet="FL_CLAFIL_class_file">
+          <ScalarProperty Name="FL_CLAFIL_COLOR" ColumnName="FL_CLAFIL_COLOR" />
+          <ScalarProperty Name="FL_CLAFIL_DESCRIPTION" ColumnName="FL_CLAFIL_DESCRIPTION" />
+          <ScalarProperty Name="FL_CLAFIL_CODE" ColumnName="FL_CLAFIL_CODE" />
+          <ScalarProperty Name="FL_CLAFIL_ID" ColumnName="FL_CLAFIL_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FL_FILINP_input_file">
+      <EntityTypeMapping TypeName="RebuildModel.FL_FILINP_input_file">
+        <MappingFragment StoreEntitySet="FL_FILINP_input_file">
+          <ScalarProperty Name="FL_FILINP_FIELD_DB_FOR_UPDATE" ColumnName="FL_FILINP_FIELD_DB_FOR_UPDATE" />
+          <ScalarProperty Name="FL_FILINP_DATAROLE_ID" ColumnName="FL_FILINP_DATAROLE_ID" />
+          <ScalarProperty Name="FL_FILINP_CONDITION_VALID" ColumnName="FL_FILINP_CONDITION_VALID" />
+          <ScalarProperty Name="FL_FILINP_FLAG_LIST" ColumnName="FL_FILINP_FLAG_LIST" />
+          <ScalarProperty Name="FL_FILINP_FLAG_VISIBILITY" ColumnName="FL_FILINP_FLAG_VISIBILITY" />
+          <ScalarProperty Name="FL_FILINP_DESCRIPTION_JOIN" ColumnName="FL_FILINP_DESCRIPTION_JOIN" />
+          <ScalarProperty Name="FL_FILINP_FIELD_JOIN" ColumnName="FL_FILINP_FIELD_JOIN" />
+          <ScalarProperty Name="FL_FILINP_TABLE_JOIN" ColumnName="FL_FILINP_TABLE_JOIN" />
+          <ScalarProperty Name="FL_FILINP_EX_EXCTIP_ID" ColumnName="FL_FILINP_EX_EXCTIP_ID" />
+          <ScalarProperty Name="FL_FILINP_MANDATORY" ColumnName="FL_FILINP_MANDATORY" />
+          <ScalarProperty Name="FL_FILINP_COLUMN_NAME" ColumnName="FL_FILINP_COLUMN_NAME" />
+          <ScalarProperty Name="FL_FILINP_ORDER" ColumnName="FL_FILINP_ORDER" />
+          <ScalarProperty Name="FL_FILINP_FL_TIPFIL_ID" ColumnName="FL_FILINP_FL_TIPFIL_ID" />
+          <ScalarProperty Name="FL_FILINP_ID" ColumnName="FL_FILINP_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FL_TIPFIL_type_file">
+      <EntityTypeMapping TypeName="RebuildModel.FL_TIPFIL_type_file">
+        <MappingFragment StoreEntitySet="FL_TIPFIL_type_file">
+          <ScalarProperty Name="FL_TIPFIL_FILE_NAME" ColumnName="FL_TIPFIL_FILE_NAME" />
+          <ScalarProperty Name="FL_TIPFIL_DO_TIPDOC_ID" ColumnName="FL_TIPFIL_DO_TIPDOC_ID" />
+          <ScalarProperty Name="FL_TIPFIL_SITO_FTP" ColumnName="FL_TIPFIL_SITO_FTP" />
+          <ScalarProperty Name="FL_TIPFIL_EXTENSION" ColumnName="FL_TIPFIL_EXTENSION" />
+          <ScalarProperty Name="FL_TIPFIL_SP_EXEC" ColumnName="FL_TIPFIL_SP_EXEC" />
+          <ScalarProperty Name="FL_TIPFIL_OUTPUT" ColumnName="FL_TIPFIL_OUTPUT" />
+          <ScalarProperty Name="FL_TIPFIL_LENGHT_RECORD" ColumnName="FL_TIPFIL_LENGHT_RECORD" />
+          <ScalarProperty Name="FL_TIPFIL_LENGH_FIX" ColumnName="FL_TIPFIL_LENGH_FIX" />
+          <ScalarProperty Name="FL_TIPFIL_DELIMITER" ColumnName="FL_TIPFIL_DELIMITER" />
+          <ScalarProperty Name="FL_TIPFIL_FLAG_HEADING" ColumnName="FL_TIPFIL_FLAG_HEADING" />
+          <ScalarProperty Name="FL_TIPFIL_DESCRIPTION" ColumnName="FL_TIPFIL_DESCRIPTION" />
+          <ScalarProperty Name="FL_TIPFIL_CODE" ColumnName="FL_TIPFIL_CODE" />
+          <ScalarProperty Name="FL_TIPFIL_FL_CLAFIL_ID" ColumnName="FL_TIPFIL_FL_CLAFIL_ID" />
+          <ScalarProperty Name="FL_TIPFIL_ID" ColumnName="FL_TIPFIL_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FL_RECFIL_fields">
+      <EntityTypeMapping TypeName="RebuildModel.FL_RECFIL_fields">
+        <MappingFragment StoreEntitySet="FL_RECFIL_fields">
+          <ScalarProperty Name="FL_RECFIL_FIELD_JOIN" ColumnName="FL_RECFIL_FIELD_JOIN" />
+          <ScalarProperty Name="FL_RECFIL_TABLE_JOIN" ColumnName="FL_RECFIL_TABLE_JOIN" />
+          <ScalarProperty Name="FL_RECFIL_VALUE_ALLOWED" ColumnName="FL_RECFIL_VALUE_ALLOWED" />
+          <ScalarProperty Name="FL_RECFIL_FILLER" ColumnName="FL_RECFIL_FILLER" />
+          <ScalarProperty Name="FL_RECFIL_NAME_HEADER" ColumnName="FL_RECFIL_NAME_HEADER" />
+          <ScalarProperty Name="FL_RECFIL_DEFAULT" ColumnName="FL_RECFIL_DEFAULT" />
+          <ScalarProperty Name="FL_RECFIL_ALLOW_NULL" ColumnName="FL_RECFIL_ALLOW_NULL" />
+          <ScalarProperty Name="FL_RECFIL_EX_EXCTIP_ID" ColumnName="FL_RECFIL_EX_EXCTIP_ID" />
+          <ScalarProperty Name="FL_RECFIL_FL_FORMAT_ID" ColumnName="FL_RECFIL_FL_FORMAT_ID" />
+          <ScalarProperty Name="FL_RECFIL_LENGHT" ColumnName="FL_RECFIL_LENGHT" />
+          <ScalarProperty Name="FL_RECFIL_FIELD_NAME_EXCT" ColumnName="FL_RECFIL_FIELD_NAME_EXCT" />
+          <ScalarProperty Name="FL_RECFIL_DESCRIPTION" ColumnName="FL_RECFIL_DESCRIPTION" />
+          <ScalarProperty Name="FL_RECFIL_NR_FIELD" ColumnName="FL_RECFIL_NR_FIELD" />
+          <ScalarProperty Name="FL_RECFIL_FL_TIPFIL_ID" ColumnName="FL_RECFIL_FL_TIPFIL_ID" />
+          <ScalarProperty Name="FL_RECFIL_ID" ColumnName="FL_RECFIL_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FL_FORMAT_format">
+      <EntityTypeMapping TypeName="RebuildModel.FL_FORMAT_format">
+        <MappingFragment StoreEntitySet="FL_FORMAT_format">
+          <ScalarProperty Name="FL_FORMAT_PATTERN" ColumnName="FL_FORMAT_PATTERN" />
+          <ScalarProperty Name="FL_FORMAT_DESCRIPTION" ColumnName="FL_FORMAT_DESCRIPTION" />
+          <ScalarProperty Name="FL_FORMAT_CODE" ColumnName="FL_FORMAT_CODE" />
+          <ScalarProperty Name="FL_FORMAT_ID" ColumnName="FL_FORMAT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="cl_sp_ctr_field_event" FunctionName="RebuildModel.Store.cl_sp_ctr_field_event" />
+  </EntityContainerMapping>
+</Mapping>

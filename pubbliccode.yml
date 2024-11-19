@@ -1,13 +1,13 @@
 publiccode-yaml-version: development
 releaseDate: '2018-12-17'
-url: 'https://github.com/idearespa/reftree'
+url: 'https://ref.unige.it'
 name: ref tree openSource
 applicationSuite: javascript
-landingURL: 'https://github.com/idearespa/reftree'
+landingURL: 'https://github.com/unige/reftree'
 developmentStatus: development
 softwareVersion: developement
 softwareType: configurationFiles
-isBasedOn: 'https://github.com/idearespa/reftree'
+isBasedOn: 'https://github.com/unige/reftree'
 tags:
   - archiving
   - database
@@ -30,5 +30,5 @@ it:
 description:
   eng:
     shortDescription: reftree opensource for real estate
-    documentation: 'https://github.com/idearespa/reftree'
+    documentation: 'https://github.com/unige/reftree'
     longDescription: <p>RefTree open source for real estate management</p>
